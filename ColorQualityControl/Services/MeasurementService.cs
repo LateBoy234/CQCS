@@ -6,6 +6,8 @@ using ThreeNH.ColorQualityControl.Refactoring.Contracts;
 using ThreeNH.ColorQualityControl.Specimens.Selection;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.DataModel;
+using ThreeNH.SQCX.Application.StandardSelection;
+using ThreeNH.SQCX.Infrastructure.DependencyInjection;
 
 namespace ThreeNH.ColorQualityControl.Services
 {
@@ -16,6 +18,7 @@ namespace ThreeNH.ColorQualityControl.Services
     internal sealed class MeasurementService
     {
         private IMeasurementHost _host;
+        private ISelectStandardUseCase<StandardSpecimen, Specimen> _standardSelection;
         // 阶段1-T06：测量互斥锁，防止快速连点测样/测标导致并发入库
         private readonly SemaphoreSlim _measureLock = new SemaphoreSlim(1, 1);
         // 与锁同生命周期：持锁=Measuring，释放=Idle，避免命名取消等中途误恢复菜单
@@ -41,6 +44,10 @@ namespace ThreeNH.ColorQualityControl.Services
         public void AttachHost(IMeasurementHost host)
         {
             _host = host;
+            _standardSelection = host == null
+                ? null
+                : ApplicationServices.CreateStandardSelection<StandardSpecimen, Specimen>(
+                    new Adapter.LegacyStandardSelectionGateway(host));
         }
 
         /// <summary>尝试获取测量锁并进入 Measuring；已有测量进行中时返回 false。</summary>
@@ -74,14 +81,12 @@ namespace ThreeNH.ColorQualityControl.Services
 
         public StandardSpecimen GetBestStandard(Specimen test)
         {
-            if (_host == null)
+            if (_standardSelection == null)
             {
                 return null;
             }
 
-            var context = new StandardSelectionContext(_host, test);
-            var strategy = StandardSelectionStrategyResolver.ResolveForMeasure(_host.IsAutoSelectStandard);
-            return strategy.Select(context);
+            return _standardSelection.SelectForMeasurement(test, _host.IsAutoSelectStandard);
         }
 
         public async Task FinishMeasureOnUiAsync(Specimen sample)
@@ -100,8 +105,7 @@ namespace ThreeNH.ColorQualityControl.Services
             StandardSpecimen std;
             if (_host.IsAutoSelectStandard)
             {
-                var fallback = ManualStandardSelectionStrategy.Instance.Select(
-                    new StandardSelectionContext(_host, sample));
+                var fallback = _standardSelection.SelectManual();
                 std = await Task.Run(() => FindNearestStandard(sample)).ConfigureAwait(true) ?? fallback;
             }
             else
@@ -125,7 +129,7 @@ namespace ThreeNH.ColorQualityControl.Services
         /// </summary>
         public async Task ExecuteTrialMeasurementsAsync()
         {
-            if (_host == null)
+            if (_standardSelection == null)
             {
                 return;
             }
@@ -214,8 +218,7 @@ namespace ThreeNH.ColorQualityControl.Services
                 return null;
             }
 
-            var context = new StandardSelectionContext(_host, test);
-            return StandardSelectionStrategyResolver.ResolveNearestOnly().Select(context);
+            return _standardSelection.FindNearest(test);
         }
 
         /// <summary>雾度测样：对话框采集后走 FinishMeasureOnUiAsync 统一入库（阶段1-T10）。</summary>

@@ -48,9 +48,20 @@ measurement locking, normal/haze routing, and failure cleanup. WPF routed
 commands only forward `Standard` or `Trial` intent. The legacy gateway is a
 temporary adapter around the existing device and UI-aware measurement service.
 
+Standard selection is implemented by:
+
+- `ThreeNH.SQCX.Domain/StandardSelection/StandardSelectionPolicy`
+- `ThreeNH.SQCX.Application/StandardSelection/SelectStandardUseCase`
+- `ColorQualityControl/Adapter/LegacyStandardSelectionGateway`
+
+Domain owns the ΔL/Δa/Δb/ΔE acceptance policy. Application owns manual versus
+automatic selection and manual fallback. The legacy adapter performs the
+existing database query and color-algorithm conversion without leaking those
+dependencies into the inner layers.
+
 ## Next migration slices
 
-1. Move specimen selection policy and nearest-standard matching into Domain.
-2. Split device capture from UI prompts in `MeasurementService`.
-3. Implement device and persistence gateways in Infrastructure.
-4. Move job document save/load behind Application ports.
+1. Split device capture from UI prompts in `MeasurementService`.
+2. Implement device and persistence gateways in Infrastructure.
+3. Move job document save/load behind Application ports.
+4. Remove superseded legacy selection strategies after regression coverage.

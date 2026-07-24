@@ -319,6 +319,8 @@
     <Compile Include="Adapter\ColorIndexes.cs" />
     <Compile Include="Adapter\FormulaExtension.cs" />
     <Compile Include="Adapter\IColorIndex.cs" />
+    <Compile Include="Adapter\LegacyMeasurementGateway.cs" />
+    <Compile Include="Adapter\LegacyStandardSelectionGateway.cs" />
     <Compile Include="Adapter\SpecimenAdapter.cs" />
     <Compile Include="Adapter\SpecimenAdapterHelper.cs" />
     <Compile Include="Adapter\StandardSpecimenAdapter.cs" />
@@ -1204,7 +1206,7 @@
     <Resource Include="Images\trial.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Application\ThreeNH.SQCX.Application.csproj">
+    <ProjectReference Include="..\ThreeNH.SQCX.Application\ThreeNH.SQCX.Application.csproj">
       <Project>{D0FD4DBD-AE8E-4AB0-BE3E-2DC40C716F25}</Project>
       <Name>ThreeNH.SQCX.Application</Name>
     </ProjectReference>
@@ -1249,7 +1251,7 @@
       <Project>{f605b05e-d418-4785-bc23-a71728666a69}</Project>
       <Name>Density</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain\ThreeNH.SQCX.Domain.csproj">
+    <ProjectReference Include="..\ThreeNH.SQCX.Domain\ThreeNH.SQCX.Domain.csproj">
       <Project>{1C3D0C9A-0CC2-4723-A89B-0D1C2144CE1F}</Project>
       <Name>ThreeNH.SQCX.Domain</Name>
     </ProjectReference>
@@ -1257,7 +1259,7 @@
       <Project>{5e714f4f-c219-4018-9a8e-39a9b11197b6}</Project>
       <Name>GratingSpectrometer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infrastructure\ThreeNH.SQCX.Infrastructure.csproj">
+    <ProjectReference Include="..\ThreeNH.SQCX.Infrastructure\ThreeNH.SQCX.Infrastructure.csproj">
       <Project>{6CF3F1D6-7DB0-465C-BBF3-5C1A4E45EAF0}</Project>
       <Name>ThreeNH.SQCX.Infrastructure</Name>
     </ProjectReference>

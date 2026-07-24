@@ -45,11 +45,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Application\ThreeNH.SQCX.Application.csproj">
+    <ProjectReference Include="..\ThreeNH.SQCX.Application\ThreeNH.SQCX.Application.csproj">
       <Project>{D0FD4DBD-AE8E-4AB0-BE3E-2DC40C716F25}</Project>
       <Name>ThreeNH.SQCX.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain\ThreeNH.SQCX.Domain.csproj">
+    <ProjectReference Include="..\ThreeNH.SQCX.Domain\ThreeNH.SQCX.Domain.csproj">
       <Project>{1C3D0C9A-0CC2-4723-A89B-0D1C2144CE1F}</Project>
       <Name>ThreeNH.SQCX.Domain</Name>
     </ProjectReference>

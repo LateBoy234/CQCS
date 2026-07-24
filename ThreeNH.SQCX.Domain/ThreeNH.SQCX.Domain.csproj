@@ -43,10 +43,15 @@
   <ItemGroup>
     <Compile Include="Common\Entity.cs" />
     <Compile Include="Measurement\MeasurementTarget.cs" />
+    <Compile Include="Measurement\MeasurementTarget.cs" />
     <Compile Include="QualityControl\JudgementLevel.cs" />
     <Compile Include="QualityControl\QualityJudgement.cs" />
     <Compile Include="QualityControl\QualityJudgementService.cs" />
     <Compile Include="QualityControl\ToleranceCriterion.cs" />
+    <Compile Include="StandardSelection\ColorDifference.cs" />
+    <Compile Include="StandardSelection\DifferenceLimit.cs" />
+    <Compile Include="StandardSelection\StandardSelectionLimits.cs" />
+    <Compile Include="StandardSelection\StandardSelectionPolicy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

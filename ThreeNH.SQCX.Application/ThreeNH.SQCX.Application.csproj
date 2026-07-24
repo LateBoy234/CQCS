@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Measurement\ExecuteMeasurementUseCase.cs" />
+    <Compile Include="Measurement\IExecuteMeasurementUseCase.cs" />
+    <Compile Include="Measurement\IMeasurementGateway.cs" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,10 +47,14 @@
     <Compile Include="QualityControl\EvaluateQualityRequest.cs" />
     <Compile Include="QualityControl\EvaluateQualityUseCase.cs" />
     <Compile Include="QualityControl\IEvaluateQualityUseCase.cs" />
+    <Compile Include="StandardSelection\ISelectStandardUseCase.cs" />
+    <Compile Include="StandardSelection\IStandardSelectionGateway.cs" />
+    <Compile Include="StandardSelection\NearestStandardCandidate.cs" />
+    <Compile Include="StandardSelection\SelectStandardUseCase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\ThreeNH.SQCX.Domain.csproj">
+    <ProjectReference Include="..\ThreeNH.SQCX.Domain\ThreeNH.SQCX.Domain.csproj">
       <Project>{1C3D0C9A-0CC2-4723-A89B-0D1C2144CE1F}</Project>
       <Name>ThreeNH.SQCX.Domain</Name>
     </ProjectReference>
