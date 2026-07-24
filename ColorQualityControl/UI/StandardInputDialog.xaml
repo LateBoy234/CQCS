@@ -1,0 +1,25 @@
+﻿<Window x:Class="ThreeNH.ColorQualityControl.UI.StandardInputDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:myctrls="clr-namespace:ThreeNH.Controls"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        SizeToContent="WidthAndHeight"
+        Title="{StaticResource Title_StandardInput}"
+        Loaded="OnLoaded">
+    <StackPanel>
+        <myctrls:SpecimenInputControl Margin="6" x:Name="specimenInputControl" />
+        <Grid Margin="6" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Margin="6" MinWidth="60" Content="{StaticResource Label_Measure}" 
+                    Visibility="Hidden" Name="MeasureButton" Click="OnClickMeasureButton"/>
+            <Button Grid.Column="2" Margin="6" MinWidth="60" IsDefault="True" Click="OnOkClick" Content="{StaticResource Label_OK}" />
+            <Button Grid.Column="3" Margin="6" MinWidth="60" IsCancel="True" Content="{StaticResource Label_Cancel}"/>
+        </Grid>
+    </StackPanel>
+</Window>

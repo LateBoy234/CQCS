@@ -1,0 +1,1113 @@
+﻿<Window
+    x:Class="ThreeNH.ColorQualityControl.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:charts="clr-namespace:ThreeNH.ColorQualityControl.UI.Charts"
+    xmlns:helper="clr-namespace:ThreeNH.Helper;assembly=ThreeNH.Helper"
+    xmlns:local="clr-namespace:ThreeNH.ColorQualityControl"
+    xmlns:myctrls="clr-namespace:ThreeNH.Controls"
+    xmlns:optical="clr-namespace:ThreeNH.Optical;assembly=OpticalDefines"
+    xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    xmlns:ui="clr-namespace:ThreeNH.ColorQualityControl.UI"
+    Closed="OnClosed"
+    Loaded="OnLoaded"
+    WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="MenuItemIconStyle" TargetType="Image">
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Height" Value="16" />
+            <Setter Property="Stretch" Value="UniformToFill" />
+        </Style>
+        <DataTemplate x:Key="LibraryMenuItemHeaderTemplate" DataType="{x:Type HeaderedContentControl}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image
+                    Grid.Column="0"
+                    Width="16"
+                    Height="16"
+                    Margin="0,0,5,0"
+                    VerticalAlignment="Center"
+                    Source="../Images/cab.ico" />
+                <ContentPresenter Grid.Column="1" Content="{TemplateBinding Content}" />
+            </Grid>
+        </DataTemplate>
+        <ContextMenu x:Key="StandardContextMenu" Opened="StandardContextMenu_OnOpened" >
+            <MenuItem Command="{x:Static local:Commands.ShowAssociatedTests}" />
+            <MenuItem Command="{x:Static local:Commands.SetAsCurrentStandard}" />
+            <MenuItem Command="{x:Static local:Commands.StandardToleranceSetting}" />
+            <!--<MenuItem Command="{x:Static local:Commands.StandardChromaticitySetting}" />-->
+            <MenuItem Command="{x:Static local:Commands.CopyToTest}" />
+            <MenuItem Command="{x:Static local:Commands.CopyToUnderAStandard}" />
+            <Separator />
+            <MenuItem Command="{x:Static local:Commands.FindClosedColorsFromLibrary}" />
+            <Separator />
+            <MenuItem
+                x:Name="AddToLibraryMenuItem"
+                Command="{x:Static local:Commands.AddToLibrary}"
+                Header="{StaticResource MenuItem_AddToLibrary}" />
+            <MenuItem Command="{x:Static local:Commands.Rename}" />
+            <MenuItem Command="{x:Static local:Commands.ModifyMaterial}" />
+            <MenuItem Command="{x:Static local:Commands.WriteStandardToInstrument}" Header="{StaticResource MenuItem_WriteStandardToInstrument}" />
+            <MenuItem Command="Delete">
+                <MenuItem.Icon>
+                    <Image Source="../Images/Delete.png" Style="{StaticResource MenuItemIconStyle}" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <Separator />
+            <MenuItem Command="{x:Static local:Commands.ExportSelected}" />
+            <MenuItem Command="{x:Static local:Commands.ExportSelectedWithTests}" />
+            <MenuItem Command="{x:Static local:Commands.StandardSampleReport}" />
+            <MenuItem Command="{x:Static local:Commands.PanTongMatch}" />
+        </ContextMenu>
+        <ContextMenu x:Key="TestContextMenu">
+            <MenuItem Command="{x:Static local:Commands.GotoStandard}" />
+            <MenuItem Command="{x:Static local:Commands.SwitchToStandard}" />
+            <MenuItem Command="{x:Static local:Commands.AutoMatchStandard}" />
+            <MenuItem Command="{x:Static local:Commands.ChangeStandard}" />
+            <MenuItem Command="{x:Static local:Commands.MoveToStandard}" />
+            <Separator />
+            <MenuItem Command="{x:Static local:Commands.Rename}" />
+            <MenuItem Command="{x:Static local:Commands.ModifyMaterial}" />
+            <MenuItem Command="Delete">
+                <MenuItem.Icon>
+                    <Image Source="../Images/Delete.png" Style="{StaticResource MenuItemIconStyle}" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <Separator />
+            <MenuItem Command="{x:Static local:Commands.ExportSelected}" />
+            <MenuItem Command="{x:Static local:Commands.TestSampleReport}" />
+        </ContextMenu>
+        <BooleanToVisibilityConverter x:Key="_booleanToVisibilityConverter" />
+
+        <!--  YR、NR工具栏命令  -->
+        <RoutedUICommand x:Key="YR_WhiteBoardSetting" Text="YR 白板参数设置..." />
+        <RoutedUICommand x:Key="YR_GetSamplingData" Text="YR 原始数据测量..." />
+        <RoutedUICommand x:Key="YR_UploadData" Text="YR 数据上传..." />
+        <!--<RoutedUICommand x:Key="YR_Measure" Text="YR 测量..." />-->
+
+        <!--  NS系列仪器的工具菜单  -->
+        <MenuItem
+            x:Key="NSToolsMenuItem"
+            Header="Tools"
+            Tag="Tools" />
+        <!--  YS系列的仪器的工具的菜单  -->
+        <MenuItem
+            x:Key="YSToolsMenuItem"
+            Header="Tools"
+            Tag="Tools" />
+        <!--  YR系列的仪器的工具菜单  -->
+        <MenuItem
+            x:Key="YRToolsMenuItem"
+            Header="Tools"
+            Tag="Tools">
+            <MenuItem Command="{StaticResource YR_WhiteBoardSetting}" />
+            <MenuItem Command="{StaticResource YR_GetSamplingData}" />
+            <MenuItem Command="{StaticResource YR_UploadData}" />
+        </MenuItem>
+        <!--  NR系列的仪器的工具菜单  -->
+        <MenuItem
+            x:Key="NRToolsMenuItem"
+            Header="Tools"
+            Tag="Tools" />
+
+        <!--  BTS系列的仪器的工具菜单  -->
+        <MenuItem
+            x:Key="BTSToolsMenuItem"
+            Header="Tools"
+            Tag="Tools" />
+
+        <Style x:Key="LabelWithBorder" TargetType="Label">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{x:Static SystemColors.ActiveBorderBrush}" />
+        </Style>
+        <!-- <Style x:Key="ToolButtonImageStyle" TargetType="Image"> -->
+        <!--     <Style.Triggers> -->
+        <!--         <Trigger Property="IsEnabled" Value="False"> -->
+        <!--             <Setter Property="Opacity" Value="0.5" /> -->
+        <!--         </Trigger> -->
+        <!--     </Style.Triggers> -->
+        <!--     <Style.Setters> -->
+        <!--         <Setter Property="Width" Value="32" /> -->
+        <!--         <Setter Property="Height" Value="32" /> -->
+        <!--     </Style.Setters> -->
+        <!-- </Style> -->
+        <!-- <Style x:Key="ToolButtonStyle" TargetType="Button"> -->
+        <!--     <Style.Setters> -->
+        <!--         <Setter Property="Padding" Value="3" /> -->
+        <!--     </Style.Setters> -->
+        <!--</Style>-->
+        <Style TargetType="DataGridCell">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="FontSize" Value="20" />
+                    <Setter Property="Foreground" Value="Green" />
+                    <Setter Property="Background" Value="LightBlue" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <helper:EnumItemConverter x:Key="EnumItemConverter" />
+
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="Close" Executed="CloseExecuted" />
+        <CommandBinding
+            CanExecute="ConnectCanExected"
+            Command="{x:Static local:Commands.Connect}"
+            Executed="ConnectExecuted" />
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{x:Static local:Commands.Disconnect}"
+            Executed="DisconnectExecuted" />
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{x:Static local:Commands.MeasureStandard}"
+            Executed="MeasureStandardExecuted" />
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{x:Static local:Commands.MeasureTrial}"
+            Executed="MeasureTrialExecuted" />
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{x:Static local:Commands.InstrumentStatus}"
+            Executed="InstrumentStatusExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.ObserverAndIlluminant}" Executed="ObserverAndIlluminantExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.ChromaticitySetting}" Executed="ChromaticitySettingExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.ToleranceSetting}" Executed="ToleranceSettingExecuted" />
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{x:Static local:Commands.InstrumentDataManagement}"
+            Executed="InstrumentDataManagementExecuted" />
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{x:Static local:Commands.InstrumentConfiguration}"
+            Executed="InstrumentConfigurationExecuted" />
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{x:Static local:Commands.DoCalibration}"
+            Executed="DoCalibrationExecuted" />
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{x:Static local:Commands.WriteStandardToInstrument}"
+            Executed="WriteStandardToInstrumentExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.InputStandard}" Executed="InputStandardExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.ImportFromExcel}" Executed="ImportFromExcelExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.ImportFromFile}" Executed="ImportFromFileExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.WhitenessIndex}" Executed="WhitenessIndexExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.YellownessIndex}" Executed="YellownessIndexExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.FastnessIndex}" Executed="YellownessIndexExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.StrengthIndex}" Executed="FastnessIndexExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.Opacity}" Executed="OpacityExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.MetamericIndex}" Executed="MetamericIndexExecuted" />
+        <!--<CommandBinding Command="{x:Static local:Commands.AdventureMeasure}"
+                        Executed="AdventureMeasureExecuted"
+                        CanExecute="InstrumentOperationCanExecuted"/>-->
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{x:Static local:Commands.StandardAdventureMeasure}"
+            Executed="StandardAdventureMeasureExecuted" />
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{x:Static local:Commands.TestAdventureMeasure}"
+            Executed="TestAdventureMeasureExecuted" />
+
+        <CommandBinding 
+            CanExecute="StandardToleranceSettingCanExecuted"
+            Command="{x:Static local:Commands.StandardToleranceSetting}" 
+            Executed="StandardToleranceSettingExecuted"/>
+        <CommandBinding Command="{x:Static local:Commands.PathlenthSelect}"  Executed="PathlenthSelectExecuted"/>
+        <CommandBinding Command="{x:Static local:Commands.TestModeSetting}"  Executed="TestModeSettingExecuted"/>
+        <CommandBinding Command="{x:Static local:Commands.StandardChromaticitySetting}" Executed="StandardChromaticitySettingExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.SetAsCurrentStandard}" Executed="SetAsCurrentStandardExecuted" />
+        <CommandBinding Command="SaveAs" Executed="SaveAsExecuted" />
+        <CommandBinding Command="Save" Executed="SaveExecuted" />
+        <CommandBinding Command="New" Executed="NewExecuted" />
+        <CommandBinding Command="Open" Executed="OpenExecuted" />
+        <CommandBinding
+            CanExecute="CanActOnSpecimen"
+            Command="Delete"
+            Executed="DeleteExecuted" />
+
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{x:Static local:Commands.PanTongMatchSearchLilin}"
+            Executed="MatchAndSearchExecuted" />
+
+        <CommandBinding Command="Find" Executed="FindExecuted" />
+        <CommandBinding
+            CanExecute="CanActOnSpecimen"
+            Command="{x:Static local:Commands.Rename}"
+            Executed="RenameExecuted" />
+        <CommandBinding
+            CanExecute="CanActOnSpecimen"
+            Command="{x:Static local:Commands.ModifyMaterial}"
+            Executed="ModifyMaterialExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.SetRulesOfAutoNaming}" Executed="SetRulesOfAutoNamingExecuted" />
+        <CommandBinding
+            CanExecute="CanActOnSpecimen"
+            Command="{x:Static local:Commands.MoveToStandard}"
+            Executed="MoveToStandardExecuted" />
+        <CommandBinding
+            CanExecute="CanActOnStandard"
+            Command="{x:Static local:Commands.CopyToTest}"
+            Executed="CopyToTestExecuted" />
+        <CommandBinding
+            CanExecute="CanActOnStandard"
+            Command="{x:Static local:Commands.CopyToUnderAStandard}"
+            Executed="CopyToUnderAStandard" />
+        <CommandBinding
+            CanExecute="CanActOnSpecimen"
+            Command="{x:Static local:Commands.ChangeStandard}"
+            Executed="ChangeStandardExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.ExportAll}" Executed="ExportAllExecuted" />
+        <CommandBinding
+            CanExecute="CanActOnSpecimen"
+            Command="{x:Static local:Commands.ExportSelected}"
+            Executed="ExportSelectedExecuted" />
+        <CommandBinding
+            CanExecute="CanActOnStandard"
+            Command="{x:Static local:Commands.ExportSelectedWithTests}"
+            Executed="ExportSelectedWithTestsExecuted" />
+        <!--<CommandBinding Command="{x:Static local:Commands.PrinterSetup}"
+                        Executed="PrinterSetupExecuted" />-->
+        <CommandBinding
+            CanExecute="CanActOnSpecimen"
+            Command="Print"
+            Executed="PrintExecuted" />
+        <CommandBinding
+            CanExecute="CanActOnSpecimen"
+            Command="PrintPreview"
+            Executed="PrintPreviewExecuted" />
+        <CommandBinding
+            CanExecute="CanActOnSpecimen"
+            Command="{x:Static local:Commands.PrintToWord}"
+            Executed="PrintToWordExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.About}" Executed="AboutExecuted" />
+        <!--扫码-->
+        <!--<CommandBinding Command="{x:Static local:Commands.OpenScanBarcodeDialog}" Executed="OpenScanBarcodeDialogExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.CloudSetting}" Executed="CloudSettingExecuted" />-->
+
+        <CommandBinding
+            CanExecute="CanActOnSpecimen"
+            Command="{x:Static local:Commands.PrintToPDF}"
+            Executed="PrintToPDFExecuted" />
+        <CommandBinding Command="{x:Static local:Commands.Update}" Executed="UpdateExecuted" />
+
+        <CommandBinding
+            CanExecute="OpenUserManualCanExecute"
+            Command="Help"
+            Executed="OpenUserManualExecuted" />
+
+        <CommandBinding Command="{x:Static local:Commands.SetReportInfo}" Executed="SetReportInfoExecuted" />
+
+        <CommandBinding Command="{x:Static local:Commands.AutoSelectStandardSetting}" Executed="AutoSelectStandardSettingExecuted" />
+
+        <CommandBinding
+            CanExecute="AutoMatchStandardCanExecute"
+            Command="{x:Static local:Commands.AutoMatchStandard}"
+            Executed="AutoMatchStandardExecuted" />
+        
+        <CommandBinding
+            CanExecute="GotoStandardCanExecute"
+            Command="{x:Static local:Commands.GotoStandard}"
+            Executed="GotoStandardExecuted" />
+
+        <CommandBinding
+    CanExecute="SwitchToStandardCanExecute"
+    Command="{x:Static local:Commands.SwitchToStandard}"
+    Executed="SwitchToStandardExecuted" />
+        
+        <CommandBinding
+            CanExecute="ShowAssociatedTestsCanExecute"
+            Command="{x:Static local:Commands.ShowAssociatedTests}"
+            Executed="ShowAssociatedTestsExecuted" />
+
+        <!--  NR Tools 命令  -->
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{StaticResource YR_WhiteBoardSetting}"
+            Executed="YR_WhiteBoardSetting_Executed" />
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{StaticResource YR_GetSamplingData}"
+            Executed="YR_GetSamplingData_Executed" />
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{StaticResource YR_UploadData}"
+            Executed="YR_UploadData_Executed" />
+        <!--<CommandBinding Command="{StaticResource YR_Measure}"
+                        Executed="YR_Measure_Executed"
+                        CanExecute="InstrumentOperationCanExecuted" />-->
+        <!--  <CommandBinding Command="{x:Static local:Commands.NewLibrary}"  -->
+        <!--  Executed="OnNewLibrary"/>  -->
+        <!--  <CommandBinding Command="{x:Static local:Commands.ImportLibrary}"  -->
+        <!--  Executed="OnImportLibrary"/>  -->
+
+        <!--  存样库  -->
+        <CommandBinding
+            CanExecute="CanAddToLibrary"
+            Command="{x:Static local:Commands.AddToLibrary}"
+            Executed="OnAddToLibrary" />
+        <CommandBinding Command="{x:Static local:Commands.ManageLibrary}" Executed="OnManageLibrary" />
+        <CommandBinding Command="{x:Static local:Commands.ConvertWhiteBoardData}" Executed="OnConvertWhiteBoardData" />
+        <CommandBinding
+            CanExecute="InstrumentOperationCanExecuted"
+            Command="{x:Static local:Commands.InstrumentMeasurementConfigs}"
+            Executed="OnInstrumentMeasurementConfigs" />
+        <CommandBinding Command="{x:Static local:Commands.FindClosedColorsFromLibrary}" Executed="OnFindClosedColorsFromLibrary" />
+
+        <!--  仪器存样库管理  -->
+        <CommandBinding
+            CanExecute="InstrumentLibraryOperationCanExecuted"
+            Command="{x:Static local:Commands.WriteToInstrumentLibrary}"
+            Executed="OnWriteToInstrumentLibrary" />
+        <CommandBinding
+            CanExecute="InstrumentLibraryOperationCanExecuted"
+            Command="{x:Static local:Commands.ReadInstrumentLibrary}"
+            Executed="OnReadInstrumentLibrary" />
+        <CommandBinding
+            CanExecute="InstrumentLibraryOperationCanExecuted"
+            Command="{x:Static local:Commands.ClearInstrumentLibrary}"
+            Executed="OnClearInstrumentLibrary" />
+        <CommandBinding
+            CanExecute="InstrumentLibraryOperationCanExecuted"
+            Command="{x:Static local:Commands.UpdateInstrumentLibrary}"
+            Executed="OnUpdateInstrumentLibrary" />
+        <CommandBinding
+            CanExecute="StandardSampleReportCanExexuted"
+            Command="{x:Static local:Commands.StandardSampleReport}"
+            Executed="OnStandardSampleReportExecuted" />
+        <CommandBinding
+            CanExecute="StandardSampleReportCanExexuted"
+            Command="{x:Static local:Commands.PanTongMatch}"
+            Executed="OnPanTongMatchExecuted" />
+        <CommandBinding
+            CanExecute="TestSampleReportCanExexuted"
+            Command="{x:Static local:Commands.TestSampleReport}"
+            Executed="OnTestSampleReportExecuted" />
+
+        <CommandBinding
+            CanExecute="ExportOneNMSpectrumCanExexuted"
+            Command="{x:Static local:Commands.ExportOneNMSpectrum}"
+            Executed="ExportOneNMSpectrumExecuted" />
+
+        <CommandBinding
+            CanExecute="ExportFiveNMSpecimensCanExexuted"
+            Command="{x:Static local:Commands.ExportFiveNMSpectrum}"
+            Executed="ExportFiveNMSpectrumExecuted" />
+
+    </Window.CommandBindings>
+    <DockPanel>
+        <!--  菜单  -->
+        <Menu Name="mainMenu" DockPanel.Dock="Top">
+            <!--  File 菜单  -->
+            <MenuItem Header="{StaticResource MenuItem_File}" SubmenuOpened="FileMenuItem_OnSubmenuOpened">
+                <MenuItem Command="New" Header="{StaticResource MenuItem_New}">
+                    <MenuItem.Icon>
+                        <Image Source="../Images/New.png" Style="{StaticResource MenuItemIconStyle}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Open" Header="{StaticResource MenuItem_Open}">
+                    <MenuItem.Icon>
+                        <Image Source="../Images/Open.png" Style="{StaticResource MenuItemIconStyle}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Save" Header="{StaticResource MenuItem_Save}">
+                    <MenuItem.Icon>
+                        <Image Source="../Images/Save.png" Style="{StaticResource MenuItemIconStyle}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="SaveAs" Header="{StaticResource MenuItem_SaveAs}" />
+                <Separator />
+                <MenuItem Command="{x:Static local:Commands.PrinterSetup}" Header="{StaticResource MenuItem_PrinterSetup}" />
+                <MenuItem Command="Print" Header="{StaticResource MenuItem_Print}">
+                    <MenuItem.Icon>
+                        <Image Source="../Images/Print.png" Style="{StaticResource MenuItemIconStyle}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="PrintPreview" Header="{StaticResource MenuItem_PrintPreview}" />
+                <MenuItem Command="{x:Static local:Commands.PrintToWord}" Header="{StaticResource MenuItem_PrintToWord}">
+                    <MenuItem.Icon>
+                        <Image Source="../Images/PrintToWord.png" Style="{StaticResource MenuItemIconStyle}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="{x:Static local:Commands.PrintToPDF}" Header="{StaticResource MenuItem_PrintToPDF}">
+                    <MenuItem.Icon>
+                        <Canvas Width="24">
+                            <Path Data="M12,10.5H13V13.5H12V10.5M7,11.5H8V10.5H7V11.5M20,6V18A2,2 0 0,1 18,20H6A2,2 0 0,1 4,18V6A2,2 0 0,1 6,4H18A2,2 0 0,1 20,6M9.5,10.5A1.5,1.5 0 0,0 8,9H5.5V15H7V13H8A1.5,1.5 0 0,0 9.5,11.5V10.5M14.5,10.5A1.5,1.5 0 0,0 13,9H10.5V15H13A1.5,1.5 0 0,0 14.5,13.5V10.5M18.5,9H15.5V15H17V13H18.5V11.5H17V10.5H18.5V9Z" Fill="Green" />
+                        </Canvas>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <Separator />
+                <MenuItem x:Name="RecentFilesMenuItem" Header="{StaticResource MenuItem_RecentFiles}" />
+                <Separator />
+                <MenuItem Command="Close" Header="{StaticResource MenuItem_Exit}" />
+            </MenuItem>
+
+
+
+            <!--  仪器菜单  -->
+            <MenuItem Header="{StaticResource MenuItem_Instrument}">
+                <MenuItem Command="{x:Static local:Commands.InstrumentStatus}" Header="{StaticResource Title_DeviceInfo}" />
+                <MenuItem Command="{x:Static local:Commands.Connect}" Header="{StaticResource MenuItem_Connect}" />
+                <MenuItem Command="{x:Static local:Commands.Disconnect}" Header="{StaticResource MenuItem_Disconnect}" />
+                <MenuItem Header="{StaticResource MenuItem_ConnectionMethod}" SubmenuOpened="OnConnectionMethodMenuOpened">
+                    <MenuItem
+                        Click="OnByUsbChecked"
+                        Header="{StaticResource MenuItem_ConnectByUsb}"
+                        IsCheckable="True"
+                        Tag="byUsb" />
+                    <MenuItem
+                        Click="OnByBluetoothChecked"
+                        Header="{StaticResource MenuItem_ConnectByBluetooth_4}"
+                        IsCheckable="True"
+                        Tag="byBluetooth_4" />
+                    <MenuItem
+                        Click="OnByBluetooth5Checked"
+                        Header="{StaticResource MenuItem_ConnectByBluetooth_5}"
+                        IsCheckable="True"
+                        Tag="byBluetooth_5" />
+                    <MenuItem
+                        Click="OnByYL30Checked"
+                        Header="{StaticResource MenuItem_ConnectByYL30}"
+                        IsCheckable="True"
+                        Tag="byYL30" />
+                    <MenuItem
+                        Header="{StaticResource MenuItem_ConnectToSerialPort}"
+                        SubmenuOpened="OnConnectToSerialPortOpened"
+                        Tag="serialPorts">
+                        <MenuItem />
+                    </MenuItem>
+                </MenuItem>
+                <Separator />
+                <MenuItem Command="{x:Static local:Commands.DoCalibration}" Header="{StaticResource MenuItem_DoCalibration}" />
+                <MenuItem Command="{x:Static local:Commands.InstrumentConfiguration}" Header="{StaticResource MenuItem_WhiteBoardParameterSetting}" />
+                <MenuItem Command="{x:Static local:Commands.InstrumentMeasurementConfigs}" Header="{StaticResource MenuItem_InstrumentMeasurementConfigs}" />
+                <Separator />
+                <MenuItem Command="{x:Static local:Commands.WriteStandardToInstrument}" Header="{StaticResource MenuItem_WriteStandardToInstrument}" />
+                <Separator />
+                <!--  特殊机型才会使用到的功能,需要再重新打包  -->
+                <!--<MenuItem Command="{x:Static local:Commands.ReadInstrumentLibrary}" IsEnabled="False" />
+                <MenuItem Command="{x:Static local:Commands.WriteToInstrumentLibrary}" />
+                <MenuItem Command="{x:Static local:Commands.UpdateInstrumentLibrary}" />
+                <MenuItem Command="{x:Static local:Commands.ClearInstrumentLibrary}" />
+                <Separator />-->
+            </MenuItem>
+
+            <!--  测量菜单  -->
+            <MenuItem Header="{StaticResource MenuItem_Measurement}">
+                <MenuItem Command="{x:Static local:Commands.MeasureStandard}" Header="{StaticResource MenuItem_MeasureStandard}">
+                    <MenuItem.Icon>
+                        <Image Source="../Images/StandardMeasurement.png" Style="{StaticResource MenuItemIconStyle}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="{x:Static local:Commands.StandardAdventureMeasure}" Header="{StaticResource MenuItem_AdventureStandardMeasurement}" />
+                <MenuItem Command="{x:Static local:Commands.MeasureTrial}" Header="{StaticResource MenuItem_MeasureTest}">
+                    <MenuItem.Icon>
+                        <Image Source="../Images/TestMeasurement.png" Style="{StaticResource MenuItemIconStyle}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="{x:Static local:Commands.TestAdventureMeasure}" Header="{StaticResource MenuItem_AdventureTestMeasurement}" />
+                <Separator />
+                <MenuItem
+                    Header="{StaticResource HazeMeasurement}"
+                    IsCheckable="True"
+                    IsChecked="{Binding Path=IsHazeEnabled}"
+                    IsEnabled="{Binding Path=IsCanUseHaze}" />
+                <Separator />
+                <MenuItem
+                    Header="{StaticResource MenuItem_AutoSelectStandard}"
+                    IsCheckable="True"
+                    IsChecked="{Binding Path=IsAutoSelectStandard}" />
+                <MenuItem Command="{x:Static local:Commands.AutoSelectStandardSetting}" />
+                <MenuItem
+                    Header="{StaticResource MenuItem_AutoNaming}"
+                    IsCheckable="True"
+                    IsChecked="{Binding Path=IsAutoNaming, Mode=TwoWay}" />
+                <MenuItem Command="{x:Static local:Commands.SetRulesOfAutoNaming}" Header="{StaticResource MenuItem_SetAutoNamingRules}" />
+            </MenuItem>
+
+            <!--  存样库菜单  -->
+            <MenuItem Name="LibraryManagementMenuItem" Header="{StaticResource MenuItem_LibraryManagement}">
+                <MenuItem Click="OnSpecifyLibraryPath" Header="{StaticResource MenuItem_SpecifyLibraryPath}" />
+                <MenuItem Command="{x:Static local:Commands.ManageLibrary}" />
+                <MenuItem
+                    Click="LibrarySearch_OnClick"
+                    Header="{StaticResource MenuItem_ColorMatch}"
+                    IsEnabled="True" />
+                <MenuItem
+                    Click="LibraryEdit_OnClick"
+                    Header="{StaticResource MenuItem_ColorInput}"
+                    IsEnabled="True" />
+                <MenuItem
+                    Header="{StaticResource AutoSaveToLibrary}"
+                    IsCheckable="True"
+                    IsChecked="{Binding AutoSaveStandardToLibrary}"
+                    IsEnabled="True" />
+                <Separator Name="LibrarySeparator" Visibility="Collapsed" />
+            </MenuItem>
+
+
+            <!--  数据菜单  -->
+            <MenuItem Header="{StaticResource MenuItem_Data}">
+                <MenuItem Command="{x:Static local:Commands.Rename}" Header="{StaticResource MenuItem_Rename}" />
+                <MenuItem Command="{x:Static local:Commands.ModifyMaterial}" Header="{StaticResource MenuItem_ModifyMaterial}" />
+                <MenuItem Command="Delete" Header="{StaticResource MenuItem_Delete}">
+                    <MenuItem.Icon>
+                        <Image Source="../Images/Delete.png" Style="{StaticResource MenuItemIconStyle}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Command="{x:Static local:Commands.ExportSelected}" />
+                <MenuItem Command="{x:Static local:Commands.ExportSelectedWithTests}" />
+                <MenuItem Command="{x:Static local:Commands.ExportAll}" Header="{StaticResource MenuItem_ExportAll}">
+                    <MenuItem.Icon>
+                        <Image Source="../Images/Export.png" Style="{StaticResource MenuItemIconStyle}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Command="{x:Static local:Commands.InputStandard}" Header="{StaticResource MenuItem_InputStandard}" />
+                <MenuItem Command="{x:Static local:Commands.ImportFromExcel}" Header="{StaticResource MenuItem_ImportFromExcel}" />
+                <MenuItem Command="{x:Static local:Commands.ImportFromFile}">
+                    <MenuItem.Header>
+                        <TextBlock>
+                            <Run Text="{DynamicResource Label_Import}" />
+                            <Run Text="SpetraMagic NX " />
+                            <Run Text="{DynamicResource Standard}" />
+                        </TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Command="{x:Static local:Commands.ImportFromFile}">
+                    <MenuItem.Header>
+                        <TextBlock>
+                            <Run Text="{DynamicResource Label_Import}" />
+                            <Run Text="SpetraMagic NX " />
+                            <Run Text="{DynamicResource Test}" />
+                        </TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Command="{x:Static local:Commands.ExportOneNMSpectrum}" Header="{DynamicResource MenuItem_ExportOneNMIntervalSpectrum}"/>
+                <MenuItem Command="{x:Static local:Commands.ExportFiveNMSpectrum}" Header="{DynamicResource MenuItem_ExportFiveNMIntervalSpectrum}"/>
+                <Separator />
+                <MenuItem Command="{x:Static local:Commands.InstrumentDataManagement}" Header="{StaticResource MenuItem_InstrumentDataManagement}" />
+            </MenuItem>
+            <!--  色度指标  -->
+            <!--<MenuItem Header="Color _Analysis">
+                <MenuItem Header="Color Difference _Analysis" />
+                <MenuItem Header="Color Difference _Cumulative Analysis" />
+                <Separator />
+                <MenuItem Header="C_hromaticity Index..." />
+                <MenuItem Command="{x:Static local:Commands.WhitenessIndex}" />
+                <MenuItem Command="{x:Static local:Commands.YellownessIndex}" />
+                <MenuItem Command="{x:Static local:Commands.FastnessIndex}" />
+                <MenuItem Command="{x:Static local:Commands.StrengthIndex}" />
+                <MenuItem Command="{x:Static local:Commands.MetamericIndex}" />
+                <MenuItem Command="{x:Static local:Commands.Opacity}" />
+            </MenuItem>-->
+
+            <!--  设置  -->
+            <MenuItem Header="{StaticResource MenuItem_Setting}">
+                <MenuItem Name="LanguagesMenuItem" Header="{StaticResource MenuItem_Languages}" />
+                <MenuItem Command="{x:Static local:Commands.ObserverAndIlluminant}" Header="{StaticResource MenuItem_ObserverAndIlluminant}" />
+                <MenuItem Command="{x:Static local:Commands.ChromaticitySetting}" Header="{StaticResource MenuItem_ChromaticitySetting}" />
+                <MenuItem Command="{x:Static local:Commands.ToleranceSetting}" Header="{StaticResource MenuItem_ToleranceSetting}" />
+                <MenuItem Command="{x:Static local:Commands.StandardToleranceSetting}" Header="{StaticResource MenuItem_StandardToleranceSetting}" />
+                <Separator/>
+                <MenuItem Command="{x:Static local:Commands.SetReportInfo}" Header="{StaticResource MenuItem_ReportSetting}" />
+                <MenuItem Command="{x:Static local:Commands.PathlenthSelect}" Header="{StaticResource MenuItem_PathlenthSelect}" />
+                <MenuItem Command="{x:Static local:Commands.TestModeSetting}" Header="{StaticResource MenuItem_TestModeSetting}" />
+                <!--扫码-->
+                <!--<MenuItem Command="{x:Static local:Commands.OpenScanBarcodeDialog}" Header="{StaticResource MenuItem_ScanBarcode}" InputGestureText="F6" />
+                <MenuItem Command="{x:Static local:Commands.CloudSetting}" Header="{StaticResource MenuItem_CloudSetting}" />-->
+                <MenuItem Header="{StaticResource MenuItem_Charts}">
+                    <MenuItem
+                        Header="{StaticResource MenuItem_ShowSpectrumChart}"
+                        IsCheckable="True"
+                        IsChecked="{Binding ShowSpectrumPlot}" />
+                    <MenuItem
+                        Header="{StaticResource MenuItem_ShowAbsorbanceChart}"
+                        IsCheckable="True"
+                        IsChecked="{Binding ShowSpectrumPlot, Converter={StaticResource BooleanReversedConverter}}" />
+                </MenuItem>
+                <!--<MenuItem Header="{StaticResource MenuItem_DiagramType}">
+                    <MenuItem
+                        Header="{StaticResource MenuItem_ToleranceType}"
+                        IsCheckable="True"
+                        IsChecked="{Binding ShowChromaticity}" />
+                    <MenuItem
+                        Header="{StaticResource MenuItem_ChromaticityType}"
+                        IsCheckable="True"
+                        IsChecked="{Binding ShowChromaticity, Converter={StaticResource BooleanReversedConverter}}" />
+                </MenuItem>-->
+                <!-- <Separator /> -->
+                <!-- <MenuItem Header="{StaticResource MenuItem_BackupSetting}" /> -->
+            </MenuItem>
+            <!--  工具菜单的位置锚点  -->
+            <MenuItem
+                Name="ToolsAnchorMenuItem"
+                Header="Tools Anchor"
+                Visibility="Collapsed" />
+
+            <!--  潘通色卡菜单  -->
+            <MenuItem
+                Command="{x:Static local:Commands.PanTongMatchSearchLilin}"
+                Header="{StaticResource MenuItem_PanTongColorMatchSearchLilin}"
+                ToolTip="{StaticResource PanTongMatchTipLilin}" />
+
+            <!--  帮助菜单  -->
+            <MenuItem Header="{StaticResource MenuItem_Help}">
+                <MenuItem
+                    Command="Help"
+                    Header="{StaticResource MenuItem_UserManual}"
+                    Visibility="{Binding IsHelpEnabled, Converter={StaticResource _booleanToVisibilityConverter}}" />
+                <MenuItem Command="{x:Static local:Commands.About}" Header="{StaticResource MenuItem_About}">
+                    <MenuItem.Icon>
+                        <Image Source="../Images/About.png" Style="{StaticResource MenuItemIconStyle}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="{x:Static local:Commands.Update}" Header="{StaticResource Label_Update}">
+                    <MenuItem.Icon>
+                        <Image Source="../Images/update.png" Style="{StaticResource MenuItemIconStyle}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <!--  工具栏  -->
+        <ToolBarTray x:Name="_toolBarTray" DockPanel.Dock="Top">
+            <!--  文件操作工具栏  -->
+            <ToolBar>
+                <Button
+                    Command="New"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource MenuItem_New}">
+                    <Image Source="../Images/New.png" Style="{StaticResource ToolButtonImageStyle}" />
+                </Button>
+                <Button
+                    Command="Open"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource MenuItem_Open}">
+                    <Image Source="../Images/Open.png" Style="{StaticResource ToolButtonImageStyle}" />
+                </Button>
+                <Button
+                    Command="Save"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource MenuItem_Save}">
+                    <Image Source="../Images/Save.png" Style="{StaticResource ToolButtonImageStyle}" />
+                </Button>
+                <Separator />
+                <Button
+                    Command="Print"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource MenuItem_Print}">
+                    <Image Source="../Images/Print.png" Style="{StaticResource ToolButtonImageStyle}" />
+                </Button>
+                <Button
+                    Command="{x:Static local:Commands.PrintToWord}"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource MenuItem_PrintToWord}">
+                    <Image Source="../Images/PrintToWord.png" Style="{StaticResource ToolButtonImageStyle}" />
+                </Button>
+                <Button
+                    Command="{x:Static local:Commands.PrintToPDF}"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource MenuItem_PrintToPDF}">
+                    <Viewbox Width="40" Height="40">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M12,10.5H13V13.5H12V10.5M7,11.5H8V10.5H7V11.5M20,6V18A2,2 0 0,1 18,20H6A2,2 0 0,1 4,18V6A2,2 0 0,1 6,4H18A2,2 0 0,1 20,6M9.5,10.5A1.5,1.5 0 0,0 8,9H5.5V15H7V13H8A1.5,1.5 0 0,0 9.5,11.5V10.5M14.5,10.5A1.5,1.5 0 0,0 13,9H10.5V15H13A1.5,1.5 0 0,0 14.5,13.5V10.5M18.5,9H15.5V15H17V13H18.5V11.5H17V10.5H18.5V9Z" Fill="Green" />
+                        </Canvas>
+                    </Viewbox>
+                </Button>
+                <Separator />
+
+                <Button
+                    Command="{x:Static local:Commands.DoCalibration}"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource MenuItem_DoCalibration}">
+                    <Image Source="../Images/Calibration.png" Style="{StaticResource ToolButtonImageStyle}" />
+                </Button>
+                <Separator />
+                <Button
+                    Command="{x:Static local:Commands.MeasureStandard}"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource MenuItem_MeasureStandard}">
+                    <Image Source="../Images/StandardMeasurement.png" Style="{StaticResource ToolButtonImageStyle}" />
+                </Button>
+                <Button
+                    Command="{x:Static local:Commands.MeasureTrial}"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource MenuItem_MeasureTest}">
+                    <Image Source="../Images/TestMeasurement.png" Style="{StaticResource ToolButtonImageStyle}" />
+                </Button>
+                <Separator />
+                <Button
+                    Command="{x:Static local:Commands.ExportSelected}"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource MenuItem_ExportSelected}">
+                    <Image Source="../Images/Export.png" Style="{StaticResource ToolButtonImageStyle}" />
+                </Button>
+                <Button
+                    Command="Delete"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource MenuItem_Delete}">
+                    <Image Source="../Images/Delete.png" Style="{StaticResource ToolButtonImageStyle}" />
+                </Button>
+                <Separator />
+                <Button
+                    Command="{x:Static local:Commands.PanTongMatchSearchLilin}"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource PanTongMatchTipLilin}">
+                    <Image Source="../Images/PanTongMatch.png" Style="{StaticResource ToolButtonImageStyle}" />
+                </Button>
+            </ToolBar>
+            <ToolBar>
+                <ComboBox
+                    Name="SpecularComponentComboBox"
+                    MinWidth="60"
+                    Margin="3,0,3,0"
+                    SelectionChanged="OnSpecularComponentSelectionChanged"
+                    ToolTip="{StaticResource Tip_SCISCEDisplaySwitch}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate DataType="optical:SpecularComponent">
+                            <TextBlock Text="{Binding Converter={StaticResource EnumItemConverter}}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <!--  主次光源切换下拉框  -->
+                <ComboBox
+                    Name="IlluminantComboBox"
+                    MinWidth="60"
+                    Margin="3,0,3,0"
+                    SelectionChanged="OnIlluminantSelectionChanged"
+                    ToolTip="{StaticResource Tip_IlluminantDisplaySwitch}" />
+            </ToolBar>
+            <!--  查找工具  -->
+            <ToolBar>
+                <toolkit:AutoCompleteBox
+                    x:Name="searchBox"
+                    MinWidth="100"
+                    VerticalAlignment="Center"
+                    Populating="OnSearchBoxPopulating"
+                    SelectionChanged="OnSearchBoxSelectionChanged"
+                    ValueMemberPath="Name">
+                    <toolkit:AutoCompleteBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle
+                                    Width="16"
+                                    Height="16"
+                                    Fill="{Binding Path=PseudoColor}" />
+                                <TextBlock Text="{Binding Path=Name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </toolkit:AutoCompleteBox.ItemTemplate>
+                </toolkit:AutoCompleteBox>
+                <Button
+                    VerticalAlignment="Center"
+                  
+                    Focusable="False">
+                    <Image Source="../Images/search_glyph.png" />
+                </Button>
+            </ToolBar>
+            <!--扫码-->
+            <!--<ToolBar>
+                <TextBlock
+                    Margin="6,0,4,0"
+                    VerticalAlignment="Center"
+                    Text="{StaticResource Label_ScanBarcode}" />
+                <TextBox
+                    x:Name="ScanBarcodeTextBox"
+                    MinWidth="160"
+                    MaxWidth="260"
+                    Margin="0,0,6,0"
+                    VerticalAlignment="Center"
+                    IsReadOnly="True"
+                    ToolTip="{StaticResource Tip_ScanBarcodeToolbar}" />
+                <Button
+                    Command="{x:Static local:Commands.OpenScanBarcodeDialog}"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource MenuItem_ScanBarcode}">
+                    <TextBlock Margin="2,0" FontWeight="SemiBold" Text="⌁" />
+                </Button>
+                <Button
+                    Command="{x:Static local:Commands.CloudSetting}"
+                    Style="{StaticResource ToolButtonStyle}"
+                    ToolTip="{StaticResource MenuItem_CloudSetting}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="2,0" FontWeight="SemiBold" Text="☁" />
+                        <TextBlock Text="云服务配置"/>
+                    </StackPanel>
+                    
+                </Button>
+            </ToolBar>-->
+        </ToolBarTray>
+
+        <!--  状态栏  -->
+        <StatusBar Name="StatusBar" DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Text="{Binding Path=StatusText}" />
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock  Margin="5,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Black">
+                      <Run Text="{Binding ConnectWay}"/>
+                    </TextBlock>
+                    <TextBox Margin="5,0,5,0"
+         HorizontalAlignment="Center"
+         VerticalAlignment="Center"
+         FontWeight="Bold"
+         Text="{Binding DeviceSN, Mode=OneWay}"
+         IsReadOnly="True"
+         BorderThickness="0"
+         Background="Transparent"
+         Cursor="IBeam"/>
+                    <Label
+                        MinWidth="50"
+                        Margin="2,0,2,0"
+                        Content="{Binding Path=InstrumentMeasurementCaliber, Converter={helper:EnumItemConverter}}"
+                        Style="{StaticResource LabelWithBorder}" />
+                    <Label
+                        Name="ConnectionStatusLabel"
+                        MinWidth="60"
+                        Foreground="Red"
+                        Style="{StaticResource LabelWithBorder}" />
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
+
+        <!--  显示区  -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--  导航树  -->
+            <TreeView
+                Name="navigationTreeView"
+                Grid.Column="0"
+                Padding="0,3,5,3"
+                PreviewMouseRightButtonUp="OnNavigationTreeViewPreviewMouseRightButtonUp"
+                SelectedItemChanged="NavigationTreeViewSelectionChanged">
+                <TreeView.Resources>
+                    <DataTemplate x:Key="GroupHeaderTemplate" DataType="{x:Type HeaderedContentControl}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" MinWidth="16" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Grid.Column="0"
+                                Width="16"
+                                Height="16"
+                                Source="../Images/folder.ico"
+                                Stretch="Uniform" />
+                            <ContentPresenter Grid.Column="1" Content="{TemplateBinding Content}" />
+                        </Grid>
+                    </DataTemplate>
+                    <DataTemplate x:Key="LibraryHeaderTemplate" DataType="{x:Type HeaderedContentControl}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" MinWidth="16" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Grid.Column="0"
+                                Width="16"
+                                Height="16"
+                                Source="../Images/cab.ico"
+                                Stretch="Uniform" />
+                            <ContentPresenter Grid.Column="1" Content="{TemplateBinding Content}" />
+                        </Grid>
+                    </DataTemplate>
+                </TreeView.Resources>
+                <!--  当前标样  -->
+                <TreeViewItem Name="CurrentStandardTreeItem" />
+                <!--  按标样分组的试样  -->
+                <TreeViewItem
+                    Name="StandardGroupTreeItem"
+                    Header="{StaticResource Label_Standard}"
+                    HeaderTemplate="{StaticResource GroupHeaderTemplate}" />
+                <!--  不属于任何标样的试样  -->
+                <TreeViewItem
+                    Name="OrphanTestsTreeItem"
+                    Header="{StaticResource Label_OrphanTests}"
+                    HeaderTemplate="{StaticResource GroupHeaderTemplate}"
+                    MouseDoubleClick="OnOrphanTestsItemDoubleClick" />
+
+                <!--  所有试样  -->
+                <TreeViewItem
+                    Name="AllTestsTreeItem"
+                    Header="{StaticResource Label_AllTests}"
+                    HeaderTemplate="{StaticResource GroupHeaderTemplate}" />
+                <!--  存样库  -->
+                <!--  <TreeViewItem Name="TargetLibraryTreeItem" Header="{StaticResource Label_Library}" Visibility="Collapsed"  -->
+                <!--  HeaderTemplate="{StaticResource LibraryHeaderTemplate}"/>  -->
+            </TreeView>
+
+            <GridSplitter
+                Grid.Column="1"
+                Width="6"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Stretch" />
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <!--  标样试样列表  -->
+                <Grid Name="DataLayoutGrid" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <!--  容差列表  -->
+                    <DataGrid
+                        Name="ToleranceDataGrid"
+                        Grid.Row="0"
+                        Margin="0,0,0,10"
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Tolerances" />
+                            <DataGridTextColumn Header="&#x0394;L*" />
+                            <DataGridTextColumn Header="&#x0394;a*" />
+                            <DataGridTextColumn Header="&#x0394;b*" />
+                            <DataGridTextColumn Header="&#x0394;E*" />
+                            <DataGridTextColumn Header="l:c:h" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <!--  标样列表  -->
+                    <DataGrid
+                        Name="StandardDataGrid"
+                        Grid.Row="1"
+                        Margin="0,0,0,10"
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        CanUserDeleteRows="False"
+                        ContextMenu="{StaticResource StandardContextMenu}"
+                        IsReadOnly="True"
+                        SelectionChanged="OnStandardDataGridSelectionChanged">
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridRow">
+                                <EventSetter Event="MouseDoubleClick" Handler="OnStandardDataGridDoubleClick" />
+                                <EventSetter Event="PreviewMouseRightButtonDown" Handler="OnSpecimenDataGridRowPreviewMouseRightButtonDown" />
+                            </Style>
+                        </DataGrid.Resources>
+                    </DataGrid>
+                    <!--  试样列表  -->
+                    <DataGrid
+                        Name="TestDataGrid"
+                        Grid.Row="2"
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        CanUserDeleteRows="False"
+                        ContextMenu="{StaticResource TestContextMenu}"
+                        IsReadOnly="True"
+                        SelectionMode="Extended"
+                        SelectionUnit="FullRow"
+                        SelectionChanged="OnTestDataGridSelectionChanged">
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridRow">
+                                <EventSetter Event="PreviewMouseRightButtonDown" Handler="OnSpecimenDataGridRowPreviewMouseRightButtonDown" />
+                            </Style>
+                        </DataGrid.Resources>
+                    </DataGrid>
+                </Grid>
+
+                <GridSplitter
+                    Grid.Row="1"
+                    Height="6"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center" />
+
+                <Expander
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    Header="{StaticResource ColorDiff}"
+                    IsExpanded="{Binding ShowingColorDiffReport}">
+                    <ui:ColorDifferenceControl
+                        x:Name="colorDiffTable"
+                        Grid.Column="0"
+                        Margin="6" />
+                </Expander>
+                <Grid Grid.Row="2" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <!--  当前标样和试样的色差表  -->
+
+                    <!--  分隔条  -->
+
+                    <!-- 容差色平图（Δa-Δb 平面 + ΔL 亮度条） -->
+                    <ContentControl
+                        x:Name="ToleranceChartView"
+                        Grid.Column="0"
+                        Margin="6" />
+
+                    <GridSplitter
+                        Grid.Column="1"
+                        Width="6"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Stretch" />
+
+                    <ui:StatisticsPlotControl
+                        x:Name="StatisticsPlot"
+                        Grid.Column="2"
+                        Margin="6"
+                        PreviewMouseRightButtonUp="OnStaticsPlotPreviewMouseRightButtonUp" />
+
+
+                    <!--  分隔条  -->
+                    <GridSplitter
+                        Grid.Column="3"
+                        Width="6"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Stretch" />
+
+                    <!--  吸光度图  -->
+                    <myctrls:AbsorbancePlotControl
+                        x:Name="AbsorbancePlot"
+                        Grid.Column="4"
+                        Margin="6"
+                        IsFillSeries="True" />
+                    <!--  反射率图  -->
+                    <myctrls:SpectrumPlotControl
+                        x:Name="SpectrumPlot"
+                        Grid.Column="4"
+                        Margin="6"
+                        IsFillSeries="True" />
+                    <!--  分隔条  -->
+                    <GridSplitter
+                        Grid.Column="5"
+                        Width="6"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Stretch" />
+                    <!--  马蹄形图  -->
+                    <ContentControl
+                        x:Name="TriaxialChartView"
+                        Grid.Column="6"
+                        Margin="6" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Window>

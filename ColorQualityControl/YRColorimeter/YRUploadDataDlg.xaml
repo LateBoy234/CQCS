@@ -1,0 +1,70 @@
+﻿<Window x:Class="ThreeNH.ColorQualityControl.YRColorimeter.YRUploadDataDlg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ThreeNH.ColorQualityControl.YRColorimeter"
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
+        Title="YR 测试数据上传" Height="600" MinWidth="700" SizeToContent="Width">
+    <Window.Resources>
+        <Style x:Key="btnStyle" TargetType="Button">
+            <Setter Property="MinWidth" Value="72" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Top">
+            <Button Style="{StaticResource btnStyle}" Click="BtnUploadStandard_Click">上传所有标样</Button>
+            <!--<Button Style="{StaticResource btnStyle}" Click="BtnUploadTests_Click">上传所有试样</Button>-->
+            <Button Style="{StaticResource btnStyle}" Click="BtnExport_Click">导出所有数据</Button>
+        </StackPanel>
+        <Grid DockPanel.Dock="Bottom" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <ProgressBar Grid.Column="0" Height="24" HorizontalAlignment="Stretch" Name="processBar" />
+            <TextBlock Grid.Column="1" Margin="5" VerticalAlignment="Center" MinWidth="72" Name="processTextBlock" />
+        </Grid>
+
+        <DataGrid 
+                Name="dataGrid"
+                Grid.Column="0"
+                AutoGenerateColumns="False" 
+                CanUserAddRows="False"
+                IsReadOnly="True"
+                LoadingRow="DataGrid_LoadingRow"
+                ItemsSource="{Binding Path=SpecimenList}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="仿真色">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Rectangle 
+                                    MinWidth="16" 
+                                    MinHeight="16"
+                                    Fill="{Binding PseudoColor}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="L*" Binding="{Binding Path=Lab.L, StringFormat=F2}" />
+                <DataGridTextColumn Header="a*" Binding="{Binding Path=Lab.a, StringFormat=F2}" />
+                <DataGridTextColumn Header="b*" Binding="{Binding Path=Lab.b, StringFormat=F2}" />
+                <DataGridTextColumn Header="X" Binding="{Binding Path=XYZ.X, StringFormat=F2}" />
+                <DataGridTextColumn Header="Y" Binding="{Binding Path=XYZ.Y, StringFormat=F2}" />
+                <DataGridTextColumn Header="Z" Binding="{Binding Path=XYZ.Z, StringFormat=F2}" />
+
+                <DataGridTextColumn Header="主灯亮-X" Binding="{Binding Path=RawData.MajorLightOn[0]}" />
+                <DataGridTextColumn Header="主灯亮-Y" Binding="{Binding Path=RawData.MajorLightOn[1]}"/>
+                <DataGridTextColumn Header="主灯亮-Z" Binding="{Binding Path=RawData.MajorLightOn[2]}"/>
+                <DataGridTextColumn Header="辅灯亮-X" Binding="{Binding Path=RawData.MinorLightOn[0]}"/>
+                <DataGridTextColumn Header="辅灯亮-Y" Binding="{Binding Path=RawData.MinorLightOn[1]}"/>
+                <DataGridTextColumn Header="辅灯亮-Z" Binding="{Binding Path=RawData.MinorLightOn[2]}"/>
+
+                <DataGridTextColumn Header="主灯灭-X" Binding="{Binding Path=RawData.MajorLightOff[0]}" />
+                <DataGridTextColumn Header="主灯灭-Y" Binding="{Binding Path=RawData.MajorLightOff[1]}" />
+                <DataGridTextColumn Header="主灯灭-Z" Binding="{Binding Path=RawData.MajorLightOff[2]}" />
+                <DataGridTextColumn Header="辅灯灭-X" Binding="{Binding Path=RawData.MinorLightOff[0]}" />
+                <DataGridTextColumn Header="辅灯灭-Y" Binding="{Binding Path=RawData.MinorLightOff[1]}" />
+                <DataGridTextColumn Header="辅灯灭-Z" Binding="{Binding Path=RawData.MinorLightOff[2]}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

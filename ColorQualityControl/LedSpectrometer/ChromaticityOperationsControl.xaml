@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="ThreeNH.LedSpectrometer.ChromaticityOperationsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ThreeNH.LedSpectrometer"
+             >
+    <UserControl.Resources>
+        <Style x:Key="LabelStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="ValueStyle" TargetType="TextBox">
+            <Setter Property="Margin" Value="3" />
+        </Style>
+    </UserControl.Resources>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <GroupBox Margin="6" Grid.Column="0" Header="Color Space">
+                <ComboBox Margin="6" />
+            </GroupBox>
+            <GroupBox Margin="6" Grid.Column="1" Header="Color Difference Formula">
+                <ComboBox Margin="6" />
+            </GroupBox>
+        </Grid>
+        <GroupBox Margin="6" Header="Tolerance">
+            <Grid Margin="6">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Lower:</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center">Upper:</TextBlock>
+
+                <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource LabelStyle}">&#x0394;L*</TextBlock>
+                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ValueStyle}" />
+                <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource ValueStyle}" />
+                
+                <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource LabelStyle}">&#x0394;a*</TextBlock>
+                <TextBox Grid.Row="1" Grid.Column="2" Style="{StaticResource ValueStyle}" />
+                <TextBox Grid.Row="2" Grid.Column="2" Style="{StaticResource ValueStyle}" />
+
+                <TextBlock Grid.Row="0" Grid.Column="3" Style="{StaticResource LabelStyle}">&#x0394;b*</TextBlock>
+                <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource ValueStyle}" />
+                <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource ValueStyle}" />
+
+                <TextBlock Grid.Row="0" Grid.Column="4" Style="{StaticResource LabelStyle}">&#x0394;E*</TextBlock>
+                <TextBox Grid.Row="2" Grid.Column="4" Style="{StaticResource ValueStyle}" />
+            </Grid>
+        </GroupBox>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,184 @@
+﻿<Window x:Class="ThreeNH.ColorQualityControl.UI.MetamerismIndiexDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:adapter="clr-namespace:ThreeNH.ColorQualityControl.Adapter"
+        xmlns:helper="clr-namespace:ThreeNH.Helper;assembly=ThreeNH.Helper"
+        xmlns:myctrls="clr-namespace:ThreeNH.Controls"
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
+        SizeToContent="WidthAndHeight"
+        Title="{StaticResource Title_MetamerismIndex}">
+    <Window.Resources>
+        <DataTemplate x:Key="SpecimenComboBoxItemTemplate" DataType="adapter:SpecimenAdapter">
+            <StackPanel Orientation="Horizontal">
+                <Rectangle Width="16" Height="16" Fill="{Binding Path=PseudoColorBrush}" Margin="0, 0, 3, 0" />
+                <TextBlock Text="{Binding Path=Name}" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <DockPanel>
+        <Grid DockPanel.Dock="Bottom" Margin="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Margin="3" MinWidth="60" Content="{StaticResource Label_Print}" />
+            <Button Grid.Column="1" Margin="3" MinWidth="60" Content="{StaticResource Label_PrintToWord}" />
+            <Button Grid.Column="3" Margin="3" MinWidth="60" IsCancel="True" Content="{StaticResource Label_Close}" />
+        </Grid>
+
+        <StackPanel DockPanel.Dock="Left">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="6, 6, 3, 6" Text="{StaticResource Label_StandardColon}" />
+                <ComboBox Grid.Row="0" Grid.Column="1" Margin="6, 6, 3, 6" MinWidth="80"
+                          ItemTemplate="{StaticResource SpecimenComboBoxItemTemplate}"
+                          Name="_standardComboBox"
+                          SelectionChanged="OnStandardComboBoxSelectionChanged"/>
+                <Button Grid.Row="0" Grid.Column="2" Margin="6, 6, 3, 6" MinWidth="60" Content="{StaticResource Label_Measure}" />
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="6, 6, 3, 6" Text="{StaticResource Label_TestColon}"/>
+                <ComboBox Grid.Row="1" Grid.Column="1" Margin="6, 6, 3, 6"  MinWidth="80" 
+                          ItemTemplate="{StaticResource SpecimenComboBoxItemTemplate}"
+                          Name="_testComboBox"
+                          SelectionChanged="OnTestComboBoxSelectionChanged"/>
+                <Button Grid.Row="1" Grid.Column="2" Margin="6, 6, 3, 6" MinWidth="60" Content="{StaticResource Label_Measure}" />
+            </Grid>
+
+            <GroupBox Margin="6"
+                  Header="{StaticResource Label_SpecularComponent}">
+                <myctrls:SpecularComponentControl 
+                    x:Name="_specularComponentControl"
+                    SpecularComponent="SCIAndSCE"
+                    SpecularComponentChanged="OnSpecularComponentChanged"/>
+            </GroupBox>
+
+            <GroupBox Margin="6"
+                  Header="{StaticResource Label_Reference1}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Margin="3" VerticalAlignment="Center" Text="{StaticResource Label_IlluminantColon}" /> 
+                    <ComboBox Grid.Column="1" Margin="3,0,6,3" MinWidth="80"
+                          ItemsSource="{Binding Path=ReferenceIlluminant1, Converter={helper:EnumToCollectionConverter}, ConverterParameter=1}"
+                          SelectedValuePath="Value"
+                          DisplayMemberPath="Description"
+                          SelectedValue="{Binding Path=ReferenceIlluminant1}" Height="21" VerticalAlignment="Bottom"/>
+
+                    <TextBlock Grid.Column="2" Margin="6, 3, 3, 3" VerticalAlignment="Center" Text="{StaticResource Label_ObserverColon}"/>
+                    <ComboBox Grid.Column="3" Margin="3" MinWidth="80"
+                          ItemsSource="{Binding Path=ReferenceObserver1, Converter={helper:EnumToCollectionConverter}, ConverterParameter=1}"
+                          SelectedValuePath="Value"
+                          DisplayMemberPath="Description"
+                          SelectedValue="{Binding Path=ReferenceObserver1}" />
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Margin="6"
+                  Header="{StaticResource Label_Reference2}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Margin="3" VerticalAlignment="Center" Text="{StaticResource Label_IlluminantColon}" />
+                    <ComboBox Grid.Column="1" Margin="3, 3, 6, 3" MinWidth="80"
+                          ItemsSource="{Binding Path=ReferenceIlluminant2, Converter={helper:EnumToCollectionConverter}, ConverterParameter=1}"
+                          SelectedValuePath="Value"
+                          DisplayMemberPath="Description"
+                          SelectedValue="{Binding Path=ReferenceIlluminant2}" />
+
+                    <TextBlock Grid.Column="2" Margin="6, 3, 3, 3" VerticalAlignment="Center" Text="{StaticResource Label_ObserverColon}" />
+                    <ComboBox Grid.Column="3" Margin="3" MinWidth="80"
+                          ItemsSource="{Binding Path=ReferenceObserver2, Converter={helper:EnumToCollectionConverter}, ConverterParameter=1}"
+                          SelectedValuePath="Value"
+                          DisplayMemberPath="Description"
+                          SelectedValue="{Binding Path=ReferenceObserver2}" />
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Margin="6" Padding="3"
+                  Header="{StaticResource Label_MetamerismIndex}">
+                <myctrls:GridWithLine ShowCellLines="True">
+                    <Grid.Resources>
+                        <Style x:Key="SCICellTextBlockStyle" TargetType="TextBlock">
+                            <Setter Property="Margin" Value="6" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Visibility" Value="{Binding SCIVisiblity}" />
+                        </Style>
+                        <Style x:Key="SCECellTextBlockStyle" TargetType="TextBlock">
+                            <Setter Property="Margin" Value="6" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Visibility" Value="{Binding SCEVisiblity}" />
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.RowSpan="2" Style="{StaticResource SCICellTextBlockStyle}">SCI</TextBlock>
+
+                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource SCICellTextBlockStyle}"
+                               Text="{Binding Path=SCIMI1Label}"></TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource SCICellTextBlockStyle}" 
+                               Text="{Binding Path=SCIMI1}"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource SCICellTextBlockStyle}"
+                               Text="{Binding Path=SCIMI2Label}"></TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource SCICellTextBlockStyle}"
+                               Text="{Binding Path=SCIMI2}"/>
+
+                    <TextBlock Grid.Row="2" Grid.RowSpan="2" Style="{StaticResource SCECellTextBlockStyle}">SCE</TextBlock>
+
+                    <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource SCECellTextBlockStyle}"
+                               Text="{Binding Path=SCEMI1Label}"></TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource SCECellTextBlockStyle}" 
+                               Text="{Binding Path=SCEMI1}"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource SCECellTextBlockStyle}"
+                               Text="{Binding Path=SCEMI2Label}"></TextBlock>
+                    <TextBlock Grid.Row="3" Grid.Column="2" Style="{StaticResource SCECellTextBlockStyle}"
+                               Text="{Binding Path=SCEMI2}"/>
+                </myctrls:GridWithLine>
+            </GroupBox>
+        </StackPanel>
+
+        <myctrls:SpectrumPlotControl
+            DockPanel.Dock="Right" Margin="6" MinWidth="400" 
+            x:Name="_spectrumPlotControl"/>
+    </DockPanel>
+
+</Window>

@@ -1,0 +1,905 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    x:Uid="LangResourceDictionary">
+
+    <s:String x:Key="MenuItem_SwitchToStandard" x:Uid="MenuItem_SwitchToStandard">切換至標準樣品</s:String>
+    <!--  语句  -->
+
+    <s:String x:Key="NoUpdates" x:Uid="NoUpdates">已是最新版本，無更新內容</s:String>
+    <s:String x:Key="UpdateConfirmMessage" x:Uid="UpdateConfirmMessage">你確定要下載這個新版本嗎？</s:String>
+    <s:String x:Key="UpdateConfirmTitle" x:Uid="UpdateConfirmTitle">新版本可供使用</s:String>
+    <s:String x:Key="DownloadingUpdatePleaseWait" x:Uid="DownloadingUpdatePleaseWait">正在更新，請稍候......</s:String>
+    <s:String x:Key="CurrentVersionText" x:Uid="CurrentVersionText">您當前的版本是：</s:String>
+    <s:String x:Key="FileSizeLabel" x:Uid="FileSizeLabel">更新檔案大小：</s:String>
+    <s:String x:Key="NewVersionAvailable" x:Uid="NewVersionAvailable">最新版本：</s:String>
+
+    <s:String x:Key="MeasurementCaliber_Phi2" x:Uid="MeasurementCaliber_Phi2">Φ2mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi7" x:Uid="MeasurementCaliber_Phi7">Φ7mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi9" x:Uid="MeasurementCaliber_Phi9">Φ9mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi12" x:Uid="MeasurementCaliber_Phi12">Φ12mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi13" x:Uid="MeasurementCaliber_Phi13">Φ13mm</s:String>
+
+
+    <s:String x:Key="ConfirmDelAllSpecimensFromInstrument" x:Uid="ConfirmDelAllSpecimensFromInstrument">確定要刪除儀器中所有樣品資料嗎？</s:String>
+    <s:String x:Key="DeleteAllSpecimens" x:Uid="DeleteAllSpecimens">刪除所有樣品</s:String>
+    <s:String x:Key="ConfirmDelAllTestFromInstrument" x:Uid="ConfirmDelAllTestFromInstrument">確定要從儀器中刪除所有試樣資料嗎？</s:String>
+    <s:String x:Key="DeleteAllTests" x:Uid="DeleteAllTests">刪除所有試樣</s:String>
+    <s:String x:Key="ConfirmDelTestInListFromInstrument" x:Uid="ConfirmDelTestInListFromInstrument">確定要刪除列表中的所有試樣嗎？</s:String>
+    <s:String x:Key="Index" x:Uid="Index">索引</s:String>
+    <s:String x:Key="Instrument" x:Uid="Instrument">儀器</s:String>
+    <s:String x:Key="Material" x:Uid="Material">料號</s:String>
+    <s:String x:Key="SpecularComponent" x:Uid="SpecularComponent">測光方式</s:String>
+    <s:String x:Key="UV" x:Uid="UV">UV</s:String>
+    <s:String x:Key="DateTime" x:Uid="DateTime">日期時間</s:String>
+    <s:String x:Key="OldName" x:Uid="OldName">原名</s:String>
+    <s:String x:Key="PleaseInputNewName" x:Uid="PleaseInputNewName">請輸入新的樣品名稱：</s:String>
+    <s:String x:Key="NameCanNotBeWhitespace" x:Uid="NameCanNotBeWhitespace">名稱不能為空！</s:String>
+    <s:String x:Key="SpecimenNameDuplicated" x:Uid="SpecimenNameDuplicated">樣品名稱已存在！</s:String>
+    <s:String x:Key="PleaseInputMaterial" x:Uid="PleaseInputMaterial">請輸入料號</s:String>
+    <s:String x:Key="S_FailToConnectTheInstrument" x:Uid="S_FailToConnectTheInstrument">無法連接到設備</s:String>
+    <s:String x:Key="ConnectedTo" x:Uid="ConnectedTo">已連接到：</s:String>
+    <s:String x:Key="Disconnected" x:Uid="Disconnected">已斷開</s:String>
+    <s:String x:Key="Ready" x:Uid="Ready">就緒</s:String>
+    <s:String x:Key="S_Loading" x:Uid="S_Loading">加載中,請稍等...</s:String>
+    <s:String x:Key="FileFilter" x:Uid="FileFilter">Xml 文件|*.xml|Datacolor QTX 相容文件(*.QTX)|*.QTX</s:String>
+    <s:String x:Key="ExportFileFilter" x:Uid="ExportFileFilter">Excel 工作薄(*.xlsx)|*.xlsx|Text(*.txt)|*.txt</s:String>
+    <s:String x:Key="ExcelFileFilter" x:Uid="ExcelFileFilter">Excel 工作薄(*.xlsx)|*.xlsx</s:String>
+    <s:String x:Key="WhiteCalibrationPrompt" x:Uid="WhiteCalibrationPrompt">請將儀器測量口對準白板...</s:String>
+    <s:String x:Key="BlackCalibrationPrompt" x:Uid="BlackCalibrationPrompt">請將儀器測量口對準黑筒...</s:String>
+    <s:String x:Key="CalibrationCompleted" x:Uid="CalibrationCompleted">校正完成</s:String>
+    <s:String x:Key="Calibration" x:Uid="Calibration">黑白校正</s:String>
+    <s:String x:Key="WhiteCalibrationFailed" x:Uid="WhiteCalibrationFailed">白板校正失敗</s:String>
+    <s:String x:Key="BlackCalibrationFailed" x:Uid="BlackCalibrationFailed">黑板校正失敗</s:String>
+    <s:String x:Key="NoCurrentStandard" x:Uid="NoCurrentStandard">未設置當前標樣</s:String>
+    <s:String x:Key="Horizontal" x:Uid="Horizontal">水準排列</s:String>
+    <s:String x:Key="Vertical" x:Uid="Vertical">重直並列</s:String>
+    <s:String x:Key="Wrap" x:Uid="Wrap">自動折行</s:String>
+    <s:String x:Key="PleaseSelectedAStandard" x:Uid="PleaseSelectedAStandard">請選擇一個標樣</s:String>
+    <s:String x:Key="TheStandardHasNoTests" x:Uid="TheStandardHasNoTests">選擇的標樣沒有試樣資料</s:String>
+    <s:String x:Key="ColorDiffReport" x:Uid="ColorDiffReport">色差報告</s:String>
+    <s:String x:Key="ColorDiffCumulative" x:Uid="ColorDiffCumulative">色差累計報告</s:String>
+    <s:String x:Key="StatisticsResult" x:Uid="StatisticsResult">統計結果</s:String>
+    <s:String x:Key="PleaseDisconnect" x:Uid="PleaseDisconnect">請斷開連接先</s:String>
+    <s:String x:Key="ConnectionSuccessful" x:Uid="ConnectionSuccessful">連接成功</s:String>
+    <s:String x:Key="NoStandard" x:Uid="NoStandard">未選擇標樣</s:String>
+    <s:String x:Key="Standard has written into instrument" x:Uid="Standard has written into instrument">標樣已寫入儀器</s:String>
+    <s:String x:Key="Standard" x:Uid="Standard">標樣</s:String>
+    <s:String x:Key="Min" x:Uid="Min">最小</s:String>
+    <s:String x:Key="Max" x:Uid="Max">最大</s:String>
+    <s:String x:Key="Range" x:Uid="Range">範圍</s:String>
+    <s:String x:Key="Mean" x:Uid="Mean">平均值</s:String>
+    <s:String x:Key="StdDev" x:Uid="StdDev">標準差</s:String>
+    <s:String x:Key="PrecentOfPass" x:Uid="PrecentOfPass">合格率</s:String>
+    <s:String x:Key="ColorIndexes" x:Uid="ColorIndexes">顏色指數</s:String>
+    <s:String x:Key="Test" x:Uid="Test">試樣</s:String>
+    <s:String x:Key="ColorDiff" x:Uid="ColorDiff">色差</s:String>
+    <s:String x:Key="Judgement" x:Uid="Judgement">結論</s:String>
+    <s:String x:Key="TotalJudgement" x:Uid="TotalJudgement">總結論</s:String>
+    <s:String x:Key="SampleInfo" x:Uid="SampleInfo">樣品資訊</s:String>
+    <s:String x:Key="Name" x:Uid="Name">名稱</s:String>
+    <s:String x:Key="MeasurementCondition" x:Uid="MeasurementCondition">測試條件</s:String>
+    <s:String x:Key="MeasurementDateTime" x:Uid="MeasurementDateTime">測試時間</s:String>
+    <s:String x:Key="ChromaticityIndexes" x:Uid="ChromaticityIndexes">色度指標</s:String>
+    <s:String x:Key="Tolerance" x:Uid="Tolerance">容差</s:String>
+    <s:String x:Key="Test__" x:Uid="Test__">測試：______________</s:String>
+    <s:String x:Key="Audit__" x:Uid="Audit__">審核：______________</s:String>
+    <s:String x:Key="Underline__" x:Uid="Underline__">______________</s:String>
+    <s:String x:Key="TestColorDiff" x:Uid="TestColorDiff">試樣色差</s:String>
+    <s:String x:Key="SpecifyFieldsToExport" x:Uid="SpecifyFieldsToExport">指定要匯出的欄位</s:String>
+    <s:String x:Key="InstrumentModel" x:Uid="InstrumentModel">儀器型號</s:String>
+    <s:String x:Key="OpenExcelFailed" x:Uid="OpenExcelFailed">打開Excel失敗</s:String>
+    <s:String x:Key="SomethingWrongOnExcel" x:Uid="SomethingWrongOnExcel">發生了一些不幸的是，Excel出了問題：</s:String>
+    <s:String x:Key="Delete" x:Uid="Delete">刪除</s:String>
+    <s:String x:Key="Store" x:Uid="Store">存儲</s:String>
+    <s:String x:Key="AverageMeasure" x:Uid="AverageMeasure">平均測量</s:String>
+    <s:String x:Key="EndAverageMeasure" x:Uid="EndAverageMeasure">平均結束</s:String>
+    <s:String x:Key="Standard_SCI" x:Uid="Standard_SCI">標樣（SCI）</s:String>
+    <s:String x:Key="Standard_SCE" x:Uid="Standard_SCE">標樣（SCE）</s:String>
+    <s:String x:Key="Test_SCI" x:Uid="Test_SCI">試樣（SCI）</s:String>
+    <s:String x:Key="Test_SCE" x:Uid="Test_SCE">試樣（SCE）</s:String>
+    <s:String x:Key="StanardRulesInvalid" x:Uid="StanardRulesInvalid">標樣命名規則無效</s:String>
+    <s:String x:Key="TestRulesInvalid" x:Uid="TestRulesInvalid">試樣命名規則無效</s:String>
+    <s:String x:Key="PleaseSelectAStandard" x:Uid="PleaseSelectAStandard">請選擇一個標樣</s:String>
+    <s:String x:Key="PromatSaveToleranceChanges" x:Uid="PromatSaveToleranceChanges">請確認是否要保存數據?</s:String>
+    <s:String x:Key="StandardAdventureMeasure" x:Uid="StandardAdventureMeasure">標樣高級測量...</s:String>
+    <s:String x:Key="TestAdventureMeasure" x:Uid="TestAdventureMeasure">試樣高級測量...</s:String>
+    <s:String x:Key="PleaseInputSciData" x:Uid="PleaseInputSciData">請輸入SCI資料</s:String>
+    <s:String x:Key="PleaseInputSceData" x:Uid="PleaseInputSceData">請輸入SCE資料</s:String>
+    <s:String x:Key="LanugageChangedYouNeedRestart" x:Uid="LanugageChangedYouNeedRestart">設置需要重啟軟件才能生效.是否現在重啟?</s:String>
+    <s:String x:Key="ToConfirmSaveFile" x:Uid="ToConfirmSaveFile">請確認是否要保存?</s:String>
+    <s:String x:Key="PleaseInputName" x:Uid="PleaseInputName">請輸入名稱。</s:String>
+    <s:String x:Key="PleaseInputInnerNumber" x:Uid="PleaseInputInnerNumber">請輸入內部編號。</s:String>
+    <s:String x:Key="PleaseInputExternalNumber" x:Uid="PleaseInputExternalNumber">請輸入外部編號。</s:String>
+    <s:String x:Key="PleaseInputReflectance" x:Uid="PleaseInputReflectance">請輸入反射率。</s:String>
+    <s:String x:Key="TheReflectanceMustBeNumerics" x:Uid="TheReflectanceMustBeNumerics">反射率必須是數位。</s:String>
+    <s:String x:Key="MeasurementAbnormalPleaseCalibrate" x:Uid="MeasurementAbnormalPleaseCalibrate">測量結果異常，請重新校正儀器！</s:String>
+    <s:String x:Key="TheLowerMustBeLessThanTheUpper" x:Uid="TheLowerMustBeLessThanTheUpper">容差下限必須小於上限！</s:String>
+    <s:String x:Key="Writing standard into instrument..." x:Uid="WritingStandardIntoInstrument">正在將標樣寫入儀器...</s:String>
+    <s:String x:Key="All standards has been written into instrument">所有標樣已寫入儀器</s:String>
+    <s:String x:Key="TransmissionBlackCalibrationPrompt" x:Uid="TransmissionBlackCalibrationPrompt">請確認透射倉設置黑擋板，然後點擊“測量”</s:String>
+    <s:String x:Key="TransmissionWhiteCalibrationPrompt" x:Uid="TransmissionWhiteCalibrationPrompt">請確認透射倉清空或者白校參照物，然後點擊“測量”</s:String>
+    <s:String x:Key="HazeMeasurement" x:Uid="HazeMeasurement">霧度測量</s:String>
+    <s:String x:Key="Step2MeasureIncidentLight" x:Uid="Step2MeasureIncidentLight">測量參考2/2：白色襯背</s:String>
+    <s:String x:Key="Measure" x:Uid="Measure">測量</s:String>
+    <s:String x:Key="PutReflectanceStandardInPosition" x:Uid="PutReflectanceStandardInPosition">請確認反射夾放置白板，透射倉清空，然後點擊“測量”。</s:String>
+    <s:String x:Key="Step1MeasureLightScatteredByInstrument" x:Uid="Step1MeasureLightScatteredByInstrument">測量參考1/2： 黑色襯背</s:String>
+    <s:String x:Key="PutLightTrapInPosition" x:Uid="PutLightTrapInPosition">請確認反射夾放置黑桶，透射倉清空，然後點擊“測量”。</s:String>
+    <s:String x:Key="Step2MeasureTotalLightTransmittedBySpecimen" x:Uid="Step2MeasureTotalLightTransmittedBySpecimen">測量樣品霧度值2/2：白色襯背</s:String>
+    <s:String x:Key="PutSpecimenAndReflectanceInPosition" x:Uid="PutSpecimenAndReflectanceInPosition">請確認反射夾放置白板，透射倉放置樣品，然後點擊“測量”。</s:String>
+    <s:String x:Key="Step1MeasureLightScatteredByInstrumentAndSpecimen" x:Uid="Step1MeasureLightScatteredByInstrumentAndSpecimen">測量樣品霧度值1/2：黑色襯背</s:String>
+    <s:String x:Key="PutSpecimenAndLightTrapInPosition" x:Uid="PutSpecimenAndLightTrapInPosition">請確認反射夾放置黑桶，透射倉放置樣品，然後點擊“測量”。</s:String>
+    <s:String x:Key="MeasureHazeReference" x:Uid="MeasureHazeReference">測量霧度參考</s:String>
+    <s:String x:Key="MeasureHaze" x:Uid="MeasureHaze">測量霧度</s:String>
+    <s:String x:Key="PleaseInputNumber" x:Uid="PleaseInputNumber">請輸入數位</s:String>
+    <s:String x:Key="Absorbance" x:Uid="Absorbance">吸光度</s:String>
+    <!--  格式化字符串  -->
+    <s:String x:Key="Format_GetDeviceInfoFailed_0" x:Uid="Format_GetDeviceInfoFailed_0">獲取設備資訊失敗：{0}</s:String>
+    <s:String x:Key="InstrumentModel_0" x:Uid="InstrumentModel_0">儀器型號：{0}</s:String>
+    <s:String x:Key="Total_0_Pass_1_PrecentOfPass_2" x:Uid="Total_0_Pass_1_PrecentOfPass_2">Pass {1}</s:String>
+    <s:String x:Key="UploadingStandardXN" x:Uid="UploadingStandardXN">正在上傳標樣：{0}/{1}</s:String>
+    <s:String x:Key="UploadingTestXN" x:Uid="UploadingTestXN">正在上傳試樣: {0}/{1}</s:String>
+    <s:String x:Key="UploadingTheSamplesOfX" x:Uid="UploadingTheSamplesOfX">正在上傳標樣{0}的試樣...</s:String>
+    <s:String x:Key="ConnectionFailed_0" x:Uid="ConnectionFailed_0">連接失敗： {0}</s:String>
+    <s:String x:Key="ConnectFailed_0" x:Uid="ConnectFailed_0">連接儀器失敗：{0}</s:String>
+    <s:String x:Key="RefereshInstrumentInfoFailed_0" x:Uid="RefereshInstrumentInfoFailed_0">獲取儀器資訊失敗：{0}</s:String>
+    <s:String x:Key="CalibrationInstrumentInfoConfirm_0_1" x:Uid="CalibrationInstrumentInfoConfirm_0_1">測量口徑是 {1}. 點擊OK繼續</s:String>
+    <s:String x:Key="Show_0" x:Uid="Show_0">顯示{0}</s:String>
+    <s:String x:Key="Format_UnhandledException_0_1" x:Uid="Format_UnhandledException_0_1">應用程序即將關閉  . 異常: {0} 詳細信息: {1}&quot;</s:String>
+    <s:String x:Key="ReflectanceMusetBeBetween0And_0" x:Uid="ReflectanceMusetBeBetween0And_0">反射率必須在0到{0}之間。</s:String>
+    <s:String x:Key="X_MustBeNumeric" x:Uid="X_MustBeNumeric">{0}必須是數位。</s:String>
+    <s:String x:Key="X_MustBeGreaterOrEqual_Y" x:Uid="X_MustBeGreaterOrEqual_Y">{0}必須大於或等於{1}</s:String>
+    <s:String x:Key="TheUpperOf_0_MustGreaterThanZero" x:Uid="TheUpperOf_0_MustGreaterThanZero">{0}的上限必須大於0！</s:String>
+    <s:String x:Key="HasMeasured_0" x:Uid="HasMeasured_0">已測：{0}</s:String>
+    <s:String x:Key="NoMatchAnyStandard" x:Uid="NoMatchAnyStandard">沒有匹配的標樣</s:String>
+    <s:String x:Key="PleaseInputLibraryName" x:Uid="PleaseInputName">請輸入名稱。</s:String>
+    <s:String x:Key="LibNameContInvalChars" x:Uid="LibNameContInvalChars">存樣庫名稱存在非法字元</s:String>
+    <s:String x:Key="LibAlreadExist" x:Uid="LibAlreadExist">存樣庫已存在</s:String>
+    <s:String x:Key="CreateLibSuccess" x:Uid="CreateLibSuccess">存樣庫已創建</s:String>
+    <s:String x:Key="PleaseSetCurrentLibrary" x:Uid="PleaseSetCurrentLibrary">請選擇一個存樣庫作為當前存樣庫</s:String>
+    <s:String x:Key="PleaseSelectDisplayedItems" x:Uid="PleaseSelectDisplayedItems">請選擇要顯示的項</s:String>
+    <s:String x:Key="LibraryFileFilter" x:Uid="LibraryFileFilter">SQCX文件(*.xml)|*.xml|QTX文件(*.QTX)|*.QTX|Excel文件(*.xlsx)|*.xlsx</s:String>
+    <s:String x:Key="ImportStandardFileFilter" x:Uid="ImportStandardFileFilter">SQCX File(*.xml)|*.xml|QTX File(*.QTX)|*.QTX</s:String>
+    <s:String x:Key="LoadFileFailed" x:Uid="LoadFileFailed">載入檔失敗</s:String>
+    <s:String x:Key="FileTypeNotSupported" x:Uid="FileTypeNotSupported">未提供指定的檔案類型</s:String>
+    <s:String x:Key="AddNSamplesInTotal" x:Uid="AddNSamplesInTotal">總計：{0}</s:String>
+    <s:String x:Key="AddNReplacedMSamples" x:Uid="AddNReplacedMSamples">替換 {1}{&quot;</s:String>
+    <s:String x:Key="AddNJumpedMSamples" x:Uid="AddNJumpedMSamples">跳过 {1}&quot;</s:String>
+    <s:String x:Key="Format_ConfirmDeleteLibrary_0" x:Uid="Format_ConfirmDeleteLibrary">刪除操不能撤銷，確定要刪除存樣庫“{0}”嗎？</s:String>
+    <s:String x:Key="Format_DeleteLibrary_0" x:Uid="Format_DeleteLibrary_0">刪除“{0}”</s:String>
+    <s:String x:Key="LibraryNameConflicts" x:Uid="LibraryNameIsConflicts">存樣庫名稱衝突</s:String>
+    <s:String x:Key="PromptConfirmDeleteSampleInLibrary" x:Uid="PromptConfirmDeleteSampleInLibrary">刪除操作不能撤銷，確定要刪除所選樣品嗎？</s:String>
+    <s:String x:Key="PromptNameCantEmpty" x:Uid="PromptNameCantEmpty">名稱不能為空！</s:String>
+    <s:String x:Key="PleaseSelectASheet" x:Uid="PleaseSelectASheet">請選擇表單</s:String>
+    <s:String x:Key="PleaseSelectStartRow" x:Uid="PleaseSelectStartRow">請選擇起始行</s:String>
+    <s:String x:Key="PleaseTheStartColumnOfXYZOrSpectrum" x:Uid="PleaseTheStartColumnOfXYZOrSpectrum">或光谱</s:String>
+    <s:String x:Key="PleaseTheOpticalStructure" x:Uid="PleaseTheOpticalStructure">請選擇光學結構</s:String>
+    <s:String x:Key="TheOperationIsNotSupported" x:Uid="TheOperationIsNotSupported">不支援該操作。</s:String>
+    <s:String x:Key="Deleting" x:Uid="Deleting">正在刪除...</s:String>
+    <s:String x:Key="Measuring" x:Uid="Measuring">正在測量...</s:String>
+    <s:String x:Key="Measuring_m_n" x:Uid="Measuring_m_n">正在測量： {0}/{1}</s:String>
+    <s:String x:Key="Measured_m_n" x:Uid="Measured_m_n">已經測量：{0}/{1}</s:String>
+    <s:String x:Key="UnknownError" x:Uid="UnknownError">未知錯誤</s:String>
+    <s:String x:Key="DeviceNotFound" x:Uid="DeviceNotFound">找不到設備</s:String>
+    <s:String x:Key="DeviceNotOpen" x:Uid="DeviceNotOpen">沒有連接設備</s:String>
+    <s:String x:Key="DeviceHasOpened" x:Uid="">設備已經打開了</s:String>
+    <s:String x:Key="DeviceOpenFailed" x:Uid="DeviceOpenFailed">連接設備失敗</s:String>
+    <s:String x:Key="DeviceBusy" x:Uid="DeviceBusy">設備忙</s:String>
+    <s:String x:Key="DeviceDisconnected" x:Uid="DeviceDisconnected">設備連接已斷開</s:String>
+    <s:String x:Key="InvalidCommand" x:Uid="InvalidCommand">無效命令</s:String>
+    <s:String x:Key="InvalidParameter" x:Uid="InvalidParameter">無效參數</s:String>
+    <s:String x:Key="ReceivingTimeout" x:Uid="ReceivingTimeout">接收超時</s:String>
+    <s:String x:Key="WritingTimeout" x:Uid="WritingTimeout">發送超時</s:String>
+    <s:String x:Key="NotSupported" x:Uid="NotSupported">不支援的操作</s:String>
+    <s:String x:Key="ParsedBadCommand" x:Uid="ParsedBadCommand">解析到錯誤命令</s:String>
+    <s:String x:Key="ParsedBadData" x:Uid="ParsedBadData">解析資料出錯</s:String>
+    <s:String x:Key="ParsedBadCheckSum" x:Uid="ParsedBadCheckSum">校驗碼出錯</s:String>
+    <s:String x:Key="ExecuteCommandFailed" x:Uid="ExecuteCommandFailed">執行命令失敗</s:String>
+    <s:String x:Key="CalibrationExpired" x:Uid="CalibrationExpired">校準過期</s:String>
+    <s:String x:Key="CalibrationFailed" x:Uid="CalibrationFailed">校準失敗</s:String>
+    <s:String x:Key="MeasurementAbnormal" x:Uid="MeasurementAbnormal">測量異常</s:String>
+    <s:String x:Key="AccessDenied" x:Uid="AccessDenied">拒絕訪問</s:String>
+    <s:String x:Key="SystemException" x:Uid="SystemException">系統錯誤</s:String>
+    <s:String x:Key="ReplaceInLocal" x:Uid="ReplaceInLocal">在原文件上替換</s:String>
+    <s:String x:Key="UploadAborted" x:Uid="UploadAborted">上位被終止</s:String>
+    <s:String x:Key="FileHasBeenRemoved" x:Uid="FileHasBeenRemoved">文件已被移除</s:String>
+    <s:String x:Key="ObserverAndIlluminantSettingMustBeDeference" x:Uid="ObserverAndIlluminantSettingMustBeDeference">所選光源/觀察者必須不同</s:String>
+    <s:String x:Key="ConfirmLoadUnsavedFile" x:Uid="ConfirmLoadUnsavedFile">發現未保存的數據,請確認是否要重新加載?</s:String>
+    <s:String x:Key="DataFormatError" x:Uid="DataFormatError">資料格式錯誤</s:String>
+    <s:String x:Key="WriteWhiteBoardParameterCompleted" x:Uid="WriteWhiteBoardParameterCompleted">設置白板參數成功</s:String>
+    <!--  菜单项  -->
+    <s:String x:Key="MenuItem_New" x:Uid="MenuItem_New">新建</s:String>
+    <s:String x:Key="MenuItem_Open" x:Uid="MenuItem_Open">打開...</s:String>
+    <s:String x:Key="MenuItem_Save" x:Uid="MenuItem_Save">保存</s:String>
+    <s:String x:Key="MenuItem_SaveAs" x:Uid="MenuItem_SaveAs">另存為...</s:String>
+    <s:String x:Key="MenuItem_Print" x:Uid="MenuItem_Print">列印...</s:String>
+    <s:String x:Key="MenuItem_PrintPreview" x:Uid="MenuItem_PrintPreview">預覽列印</s:String>
+    <s:String x:Key="MenuItem_Exit" x:Uid="MenuItem_Exit">退出</s:String>
+    <s:String x:Key="MenuItem_Edit" x:Uid="MenuItem_Edit">編輯</s:String>
+    <s:String x:Key="MenuItem_AutoNaming" x:Uid="MenuItem_AutoNaming">自動命名</s:String>
+    <s:String x:Key="MenuItem_ExportAll" x:Uid="MenuItem_ExportAll">匯出所有...</s:String>
+    <s:String x:Key="MenuItem_PrinterSetup" x:Uid="MenuItem_PrinterSetup">列印設置</s:String>
+    <s:String x:Key="MenuItem_SetAutoNamingRules" x:Uid="MenuItem_SetAutoNamingRules">設置自動命名規則</s:String>
+    <s:String x:Key="MenuItem_Rename" x:Uid="MenuItem_Rename">重命名...</s:String>
+    <s:String x:Key="MenuItem_ModifyMaterial" x:Uid="MenuItem_ModifyMaterial">修改料號</s:String>
+    <s:String x:Key="MenuItem_Delete" x:Uid="MenuItem_Delete">刪除</s:String>
+    <s:String x:Key="MenuItem_Instrument" x:Uid="MenuItem_Instrument">儀器</s:String>
+    <s:String x:Key="MenuItem_ConnectionMethod" x:Uid="MenuItem_ConnectionMethod">連接方式</s:String>
+    <s:String x:Key="MenuItem_Connect" x:Uid="MenuItem_Connect">連接</s:String>
+    <s:String x:Key="MenuItem_Disconnect" x:Uid="MenuItem_Disconnect">斷開連接</s:String>
+    <s:String x:Key="MenuItem_InstrumentStatus" x:Uid="MenuItem_InstrumentStatus">儀器狀態</s:String>
+    <s:String x:Key="MenuItem_ConnectByUsb" x:Uid="MenuItem_ConnectByUsb">通過USB連接</s:String>
+    <s:String x:Key="MenuItem_ConnectByBluetooth" x:Uid="MenuItem_ConnectByBluetooth">通過藍牙連接</s:String>
+    <s:String x:Key="MenuItem_InstrumentType" x:Uid="MenuItem_InstrumentType">儀器類型</s:String>
+    <s:String x:Key="MenuItem_LedSpectrometer" x:Uid="MenuItem_LedSpectrometer">NS分光測色儀系列</s:String>
+    <s:String x:Key="MenuItem_GratingSpectrometer" x:Uid="MenuItem_GratingSpectrometer">YS分光測色儀系列</s:String>
+    <s:String x:Key="MenuItem_DoCalibration" x:Uid="MenuItem_DoCalibration">黑白校正...</s:String>
+    <s:String x:Key="MenuItem_MeasureStandard" x:Uid="MenuItem_MeasureStandard">測量標樣</s:String>
+    <s:String x:Key="MenuItem_MeasureTest" x:Uid="MenuItem_MeasureTest">測量試樣</s:String>
+    <s:String x:Key="MenuItem_AdventureStandardMeasurement" x:Uid="MenuItem_AdventureStandardMeasurement">標樣高級測量</s:String>
+    <s:String x:Key="MenuItem_AdventureTestMeasurement" x:Uid="MenuItem_AdventureTestMeasurement">試樣高級測量</s:String>
+    <s:String x:Key="MenuItem_WriteStandardToInstrument" x:Uid="MenuItem_WriteStandardToInstrument">將標樣寫入儀器</s:String>
+    <s:String x:Key="MenuItem_InstrumentConfiguration" x:Uid="MenuItem_InstrumentConfiguration">儀器配置</s:String>
+    <s:String x:Key="MenuItem_Data" x:Uid="MenuItem_Data">數據</s:String>
+    <s:String x:Key="MenuItem_ObserverAndIlluminant" x:Uid="MenuItem_ObserverAndIlluminant">標準觀察者和光源...</s:String>
+    <s:String x:Key="MenuItem_ChromaticitySetting" x:Uid="MenuItem_ChromaticitySetting">資料顯示項設置...</s:String>
+    <s:String x:Key="MenuItem_ToleranceSetting" x:Uid="MenuItem_ToleranceSetting">系統容差設置</s:String>
+    <s:String x:Key="MenuItem_InstrumentDataManagement" x:Uid="MenuItem_InstrumentDataManagement">儀器資料管理</s:String>
+    <s:String x:Key="MenuItem_InputStandard" x:Uid="MenuItem_InputStandard">輸入標樣</s:String>
+    <s:String x:Key="MenuItem_ExportOneNMIntervalSpectrum" x:Uid="MenuItem_ExportOneNMIntervalSpectrum">導出1nm間隔光譜</s:String>
+    <s:String x:Key="MenuItem_ExportFiveNMIntervalSpectrum" x:Uid="MenuItem_ExportFiveNMIntervalSpectrum">導出5nm間隔光譜</s:String>
+    <s:String x:Key="MenuItem_Help" x:Uid="MenuItem_Help">幫助</s:String>
+    <s:String x:Key="MenuItem_UserManual" x:Uid="MenuItem_UserManual">打開用戶手冊...</s:String>
+    <s:String x:Key="MenuItem_About" x:Uid="MenuItem_About">關於</s:String>
+    <s:String x:Key="MenuItem_ImportSelectedStandards" x:Uid="MenuItem_ImportSelectedStandards">添加所選標樣...</s:String>
+    <s:String x:Key="MenuItem_ImportSelectedStandardsWithTests" x:Uid="MenuItem_ImportSelectedStandardsWithTests">添加所選標樣及相關試樣...</s:String>
+    <s:String x:Key="MenuItem_ImportAllStandards" x:Uid="MenuItem_ImportAllStandards">添加所有標樣...</s:String>
+    <s:String x:Key="MenuItem_ImportAllStandardsWithTests" x:Uid="MenuItem_ImportAllStandardsWithTests">添加所有標樣及相關試樣...</s:String>
+    <s:String x:Key="MenuItem_ImportSelectedTests" x:Uid="MenuItem_ImportSelectedTests">添加所選試樣...</s:String>
+    <s:String x:Key="MenuItem_ImportAllTests" x:Uid="MenuItem_ImportAllTests">添加所有試樣...</s:String>
+    <s:String x:Key="MenuItem_ExportSelectedStandards" x:Uid="MenuItem_ExportSelectedStandards">匯出所選標樣...</s:String>
+    <s:String x:Key="MenuItem_ExportSelectedStandardsWithTests" x:Uid="MenuItem_ExportSelectedStandardsWithTests">匯出所選標樣及相關試樣...</s:String>
+    <s:String x:Key="MenuItem_ExportAllStandards" x:Uid="MenuItem_ExportAllStandards">匯出所有標樣...</s:String>
+    <s:String x:Key="MenuItem_ExportAllStandardsWithTests" x:Uid="MenuItem_ExportAllStandardsWithTests">匯出所有標樣及相關試樣...</s:String>
+    <s:String x:Key="MenuItem_ExportSelectedTests" x:Uid="MenuItem_ExportSelectedTests">匯出所選試樣...</s:String>
+    <s:String x:Key="MenuItem_ExportAllTests" x:Uid="MenuItem_ExportAllTests">匯出所有試樣...</s:String>
+    <s:String x:Key="MenuItem_DeleteAllSamples" x:Uid="MenuItem_DeleteAllSamples">刪除儀器中所有樣品</s:String>
+    <s:String x:Key="MenuItem_DeleteTestsInList" x:Uid="MenuItem_DeleteTestsInList">刪除列表中對應的所有試樣</s:String>
+    <s:String x:Key="MenuItem_DeleteAllTests" x:Uid="MenuItem_DeleteAllTests">刪除儀器中所有試樣</s:String>
+    <s:String x:Key="MenuItem_UploadAllSamples" x:Uid="MenuItem_UploadAllSamples">上傳所有樣品</s:String>
+    <s:String x:Key="MenuItem_Setting" x:Uid="MenuItem_Setting">設置</s:String>
+    <s:String x:Key="MenuItem_Languages" x:Uid="MenuItem_Languages">語言</s:String>
+    <s:String x:Key="MenuItem_Themes" x:Uid="MenuItem_Themes">主题</s:String>
+    <s:String x:Key="MenuItem_WhitenessIndex" x:Uid="MenuItem_WhitenessIndex">白度指數...</s:String>
+    <s:String x:Key="MenuItem_YellownessIndex" x:Uid="MenuItem_YellownessIndex">黃度指數...</s:String>
+    <s:String x:Key="MenuItem_FastnessIndex" x:Uid="MenuItem_FastnessIndex">牢度指數...</s:String>
+    <s:String x:Key="MenuItem_StrengthIndex" x:Uid="MenuItem_StrengthIndex">力份...</s:String>
+    <s:String x:Key="MenuItem_MetamericIndex" x:Uid="MenuItem_MetamericIndex">同色異譜指數...</s:String>
+    <s:String x:Key="MenuItem_Opacity" x:Uid="MenuItem_Opacity">遮蓋度...</s:String>
+    <s:String x:Key="MenuItem_StandardToleranceSetting" x:Uid="MenuItem_StandardToleranceSetting">標樣容差設置...</s:String>
+    <s:String x:Key="MenuItem_DeleteTests" x:Uid="MenuItem_DeleteTests">刪除試樣</s:String>
+    <s:String x:Key="MenuItem_StandardChromaticitySetting" x:Uid="MenuItem_StandardChromaticitySetting">顯示設定...</s:String>
+    <s:String x:Key="MenuItem_SetAsCurrentStandard" x:Uid="MenuItem_SetAsCurrentStandard">設為當前標樣</s:String>
+    <s:String x:Key="MenuItem_ExportSelected" x:Uid="MenuItem_ExportSelected">匯出所選樣品...</s:String>
+    <s:String x:Key="MenuItem_ExportSelectedWithTests" x:Uid="MenuItem_ExportSelectedWithTests">匯出所選標樣及其下試樣...</s:String>
+    <s:String x:Key="MenuItem_MoveToStandard" x:Uid="MenuItem_MoveToStandard">移到標樣</s:String>
+    <s:String x:Key="MenuItem_ChangeStandard" x:Uid="MenuItem_ChangeStandard">改變所屬標樣...</s:String>
+    <s:String x:Key="MenuItem_DeleteSpeciment" x:Uid="MenuItem_DeleteSpeciment">刪除</s:String>
+    <s:String x:Key="MenuItem_File" x:Uid="MenuItem_File">文件</s:String>
+    <s:String x:Key="MenuItem_Index" x:Uid="MenuItem_Index">索引</s:String>
+    <s:String x:Key="MenuItem_InstrumentModel" x:Uid="MenuItem_InstrumentModel">儀器型號</s:String>
+    <s:String x:Key="MenuItem_Material" x:Uid="MenuItem_Material">料號</s:String>
+    <s:String x:Key="MenuItem_SpecularComponent" x:Uid="MenuItem_SpecularComponent">測光方式</s:String>
+    <s:String x:Key="MenuItem_UV" x:Uid="MenuItem_UV">UV</s:String>
+    <s:String x:Key="MenuItem_DateTime" x:Uid="MenuItem_DateTime">測試時間</s:String>
+    <s:String x:Key="MenuItem_OldName" x:Uid="MenuItem_OldName">原名</s:String>
+    <s:String x:Key="MenuItem_PrintToWord" x:Uid="MenuItem_PrintToWord">列印到Word</s:String>
+    <s:String x:Key="MenuItem_PrintToPDF" x:Uid="MenuItem_PrintToWord">列印到PDF</s:String>
+    <s:String x:Key="MenuItem_ReportSetting" x:Uid="MenuItem_ReportSetting">報表設置…</s:String>
+    <s:String x:Key="MenuItem_WhiteBoardParameterSetting" x:Uid="MenuItem_WhiteBoardParameterSetting">白板參數設置…</s:String>
+    <s:String x:Key="MenuItem_Measurement" x:Uid="MenuItem_Measurement">測量</s:String>
+    <s:String x:Key="MenuItem_ConnectToSerialPort" x:Uid="MenuItem_ConnectToSerialPort">連接到串口</s:String>
+    <s:String x:Key="MenuItem_AutoSelectStandard" x:Uid="MenuItem_AutoSelectStandard">試樣測量時自動選擇標樣</s:String>
+    <s:String x:Key="MenuItem_AutoSelectStandardSetting" x:Uid="MenuItem_AutoSelectStandardSetting">標樣匹配設置…</s:String>
+    <s:String x:Key="MenuItem_AutoMatchStandard" x:Uid="MenuItem_AutoMatchStandard">自動匹配標樣</s:String>
+    <s:String x:Key="MenuItem_GotoStandard" x:Uid="MenuItem_GotoStandard">跳轉到標樣</s:String>
+    <s:String x:Key="MenuItem_ShowAssociatedTests" x:Uid="MenuItem_ShowAssociatedTests">顯示關聯的試樣</s:String>
+    <s:String x:Key="MenuItem_CopyToTest" x:Uid="MenuItem_CopyToTest">複製到樣品組</s:String>
+    <s:String x:Key="MenuItem_CopyToUnderAStandard" x:Uid="MenuItem_CopyToUnderAStandard">複製到其他標樣</s:String>
+    <s:String x:Key="MenuItem_LibraryManagement" x:Uid="MenuItem_LibraryManagement">存樣庫管理</s:String>
+    <s:String x:Key="MenuItem_NewLibrary" x:Uid="MenuItem_NewLibrary">新建存樣庫...</s:String>
+    <s:String x:Key="MenuItem_ImportLibrary" x:Uid="MenuItem_ImportLibrary">導入存樣庫...</s:String>
+    <s:String x:Key="MenuItem_AddToLibrary" x:Uid="MenuItem_AddToLibrary">添加到當前存樣庫</s:String>
+    <s:String x:Key="MenuItem_ManageLibrary" x:Uid="MenuItem_ManageLibrary">管理存樣庫...</s:String>
+    <s:String x:Key="MenuItem_Modify" x:Uid="MenuItem_Modify">修改</s:String>
+    <s:String x:Key="MenuItem_SpecifyLibraryPath" x:Uid="MenuItem_SpecifyLibraryPath">指定存樣庫存儲路徑...</s:String>
+    <s:String x:Key="MenuItem_ImportFromExcel" x:Uid="MenuItem_ImportFromExcel">從Excel導入標樣...</s:String>
+    <s:String x:Key="MenuItem_ImportFromFile" x:Uid="MenuItem_ImportFromFile">從文件導入標樣...</s:String>
+    <s:String x:Key="MenuItem_ConvertWhiteBoardData" x:Uid="MenuItem_ConvertWhiteBoardData">替換白板資料的Lab值</s:String>
+    <s:String x:Key="MenuItem_InstrumentMeasurementConfigs" x:Uid="MenuItem_InstrumentMeasurementConfigs">測量參數配置</s:String>
+    <s:String x:Key="MenuItem_RecentFiles" x:Uid="MenuItem_RecentFiles">最近使用的檔</s:String>
+    <s:String x:Key="MenuItem_DeleteSelectedStandards" x:Uid="MenuItem_DeleteSelectedStandards">删除所选标样</s:String>
+    <s:String x:Key="MenuItem_ShowSpectrumChart" x:Uid="MenuItem_ShowSpectrumChart">顯示光譜圖</s:String>
+    <s:String x:Key="MenuItem_ShowAbsorbanceChart" x:Uid="MenuItem_ShowAbsorbanceChart">顯示吸光度圖</s:String>
+    <s:String x:Key="MenuItem_Charts" x:Uid="MenuItem_Charts">圖表顯示</s:String>
+    <!--  提示  -->
+    <s:String x:Key="Tip_SCISCEDisplaySwitch" x:Uid="Tip_SCISCEDisplaySwitch">切換SCI/SCE顯示</s:String>
+    <s:String x:Key="Tip_IlluminantDisplaySwitch" x:Uid="Tip_IlluminantDisplaySwitch">切換顯示光源</s:String>
+    <s:String x:Key="Tip_OpenOrCloseUV" x:Uid="Tip_OpenOrCloseUV">開啟或關閉UV</s:String>
+    <s:String x:Key="Tip_SetSpecularCompoentOfMeasurement" x:Uid="Tip_SetSpecularCompoentOfMeasurement">設置測量時使用的測光方式</s:String>
+    <s:String x:Key="Tip_CreateNewLibrary" x:Uid="Tip_CreateNewLibrary">創建新的存樣庫</s:String>
+    <s:String x:Key="Tip_DeleteLibrary" x:Uid="Tip_DeleteLibrary">刪除存樣庫</s:String>
+    <s:String x:Key="Tip_RenameLibrary" x:Uid="Tip_RenameLibrary">重命名存樣庫</s:String>
+    <s:String x:Key="Tip_ImportLibrary" x:Uid="Tip_ImportLibrary">導入存樣庫</s:String>
+    <s:String x:Key="Tip_PleaseEnterName" x:Uid="Tip_PleaseEnterName">請輸入存樣庫名稱</s:String>
+    <s:String x:Key="Tip_BeginDate" x:Uid="Tip_BeginDateTime">起始日期</s:String>
+    <s:String x:Key="Tip_EndDate" x:Uid="Tip_EndDate">結束日期</s:String>
+    <s:String x:Key="Tip_PleaseEnterANewName" x:Uid="Tip_PleaseEnterANewName">請輸入一個新名稱：</s:String>
+    <!--  控件的标签或表格标签  -->
+    <s:String x:Key="Label_Connected" x:Uid="Label_Connected">已連接</s:String>
+    <s:String x:Key="Label_Disconnected" x:Uid="Label_Disconnected">已斷開</s:String>
+    <s:String x:Key="Label_Standard" x:Uid="Label_Standard">標樣</s:String>
+    <s:String x:Key="Label_OrphanTests" x:Uid="Label_OrphanTests">絕對數據</s:String>
+    <s:String x:Key="Label_AllTests" x:Uid="Label_AllTests">所有試樣</s:String>
+    <s:String x:Key="Label_Close" x:Uid="Label_Close">關閉</s:String>
+    <s:String x:Key="Label_Preset" x:Uid="Label_Preset">預設值</s:String>
+    <s:String x:Key="Label_ColorSpace" x:Uid="Label_ColorSpace">顏色空間</s:String>
+    <s:String x:Key="Label_ColorSapceColon" x:Uid="Label_ColorSapceColon">顏色空間：</s:String>
+    <s:String x:Key="Label_ColorDiffFormula" x:Uid="Label_ColorDiffFormula">色差公式</s:String>
+    <s:String x:Key="Label_DataItemList" x:Uid="Label_DataItemList">資料項目列表</s:String>
+    <s:String x:Key="Label_AllDataItems" x:Uid="Label_AllDataItems">所有資料項目</s:String>
+    <s:String x:Key="Label_SampleAttributes" x:Uid="Label_SampleAttributes">樣品屬性</s:String>
+    <s:String x:Key="Label_ChormaticAttributes" x:Uid="Label_ChormaticAttributes">顏色屬性</s:String>
+    <s:String x:Key="Label_ColorDiffAttributes" x:Uid="Label_ColorDiffAttributes">色差</s:String>
+    <s:String x:Key="Label_ColorIndexes" x:Uid="Label_ColorIndexes">指數</s:String>
+    <s:String x:Key="Label_ColorIndex" x:Uid="Label_ColorIndex">顏色指數</s:String>
+    <s:String x:Key="Label_RemoveAll" x:Uid="Label_RemoveAll">移除所有</s:String>
+    <s:String x:Key="Label_DisplayedItems" x:Uid="Label_DisplayedItems">顯示的資料項目</s:String>
+    <s:String x:Key="Label_OK" x:Uid="Label_OK">確定</s:String>
+    <s:String x:Key="Label_Cancel" x:Uid="Label_Cancel">取消</s:String>
+    <s:String x:Key="Label_Restore" x:Uid="Label_Restore">恢復</s:String>
+    <s:String x:Key="Label_MoveToTop" x:Uid="Label_MoveToTop">置頂</s:String>
+    <s:String x:Key="Label_MoveToBottom" x:Uid="Label_MoveToBottom">置底</s:String>
+    <s:String x:Key="Label_MoveUp" x:Uid="Label_MoveUp">上移</s:String>
+    <s:String x:Key="Label_MoveDown" x:Uid="Label_MoveDown">下移</s:String>
+    <s:String x:Key="Label_UseSystemDefault" x:Uid="Label_UseSystemDefault">使用系統預設設置</s:String>
+    <s:String x:Key="Label_UseStandardSelf" x:Uid="Label_UseStandardSelf">使用標樣自身</s:String>
+    <s:String x:Key="Label_UseSpecific" x:Uid="Label_UseSpecific">使用指定設置</s:String>
+    <s:String x:Key="Label_StandardColon" x:Uid="Label_StandardColon">標樣：</s:String>
+    <s:String x:Key="Label_TestColon" x:Uid="Label_TestColon">試樣：</s:String>
+    <s:String x:Key="Label_Index" x:Uid="Label_Index">索引</s:String>
+    <s:String x:Key="Label_Name" x:Uid="Label_Name">名稱</s:String>
+    <s:String x:Key="Label_NameColon" x:Uid="Label_NameColon">名稱：</s:String>
+    <s:String x:Key="Label_DateTime" x:Uid="Label_DateTime">日期時間</s:String>
+    <s:String x:Key="Label_DateTimeColon" x:Uid="Label_DateTimeColon">日期時間：</s:String>
+    <s:String x:Key="Label_SpecularComponent" x:Uid="Label_SpecularComponent">測光方式</s:String>
+    <s:String x:Key="Label_SpecularComponentColon" x:Uid="Label_SpecularComponentColon">測光方式：</s:String>
+    <s:String x:Key="Label_IlluminantColon" x:Uid="Label_IlluminantColon">光源：</s:String>
+    <s:String x:Key="Label_ObserverColon" x:Uid="Label_ObserverColon">觀察者：</s:String>
+    <s:String x:Key="Label_PseudoColor" x:Uid="Label_PseudoColor">模擬色</s:String>
+    <s:String x:Key="Label_AutoStore" x:Uid="Label_AutoStore">自動存儲</s:String>
+    <s:String x:Key="Label_Measure" x:Uid="Label_Measure">測量</s:String>
+    <s:String x:Key="Label_Delete" x:Uid="Label_Delete">刪除</s:String>
+    <s:String x:Key="Label_Print" x:Uid="Label_Print">列印</s:String>
+    <s:String x:Key="Label_PrintToWord" x:Uid="Label_PrintToWord">列印到Word</s:String>
+    <s:String x:Key="Label_AverageMeasure" x:Uid="Label_AverageMeasure">平均測量</s:String>
+    <s:String x:Key="Label_Reference1" x:Uid="Label_Reference1">參考 1</s:String>
+    <s:String x:Key="Label_Reference2" x:Uid="Label_Reference2">參考 2</s:String>
+    <s:String x:Key="Label_MetamerismIndex" x:Uid="Label_MetamerismIndex">同色異譜指數</s:String>
+    <s:String x:Key="Label_Observer" x:Uid="Label_Observer">觀察者</s:String>
+    <s:String x:Key="Label_Primary" x:Uid="Label_PrimaryIlluminant">主要光源/觀察者</s:String>
+    <s:String x:Key="Label_Secondary" x:Uid="Label_SecondaryIlluminant">參考光源/觀察者一</s:String>
+    <s:String x:Key="Label_Tertiary" x:Uid="Label_TertiaryIlluminant">參考光源/觀察者二</s:String>
+    <s:String x:Key="Label_StandardNamingRulesColon" x:Uid="Label_StandardNamingRulesColon">標樣命名規則：</s:String>
+    <s:String x:Key="Label_TestNamingRulesColon" x:Uid="Label_TestNamingRulesColon">試樣命名規則：</s:String>
+    <s:String x:Key="Label_MaterialColon" x:Uid="Label_MaterialColon">料號</s:String>
+    <s:String x:Key="Label_StandardLinkageSetting" x:Uid="Label_StandardLinkageSetting">所屬標樣設置</s:String>
+    <s:String x:Key="Label_LinkToStandard" x:Uid="Label_LinkToStandard">關聯到標樣</s:String>
+    <s:String x:Key="Label_DontLinkToStandard" x:Uid="Label_DontLinkToStandard">不關聯任何標樣</s:String>
+    <s:String x:Key="Label_ToleranceData" x:Uid="Label_ToleranceData">容差數據</s:String>
+    <s:String x:Key="Label_ColorDiff" x:Uid="Label_ColorDiff">色差</s:String>
+    <s:String x:Key="Label_UseForJudgement" x:Uid="Label_UseForJudgement">用於合格判斷</s:String>
+    <s:String x:Key="Label_LowerLimit" x:Uid="Label_LowerLimit">下限</s:String>
+    <s:String x:Key="Label_UpperLimit" x:Uid="Label_UpperLimit">上限</s:String>
+    <s:String x:Key="Label_ColorDiffFormulaParameterFactor" x:Uid="Label_ColorDiffFormulaParameterFactor">參數因數</s:String>
+    <s:String x:Key="Label_PrimaryTolerance" x:Uid="Label_PrimaryTolerance">主容差</s:String>
+    <s:String x:Key="Label_SecondaryTolerance" x:Uid="Label_SecondaryTolerance">參考容差一</s:String>
+    <s:String x:Key="Label_TertiaryTolerance" x:Uid="Label_TertiaryTolerance">參考容差二</s:String>
+    <s:String x:Key="Label_GetToleranceFrom" x:Uid="Label_GetToleranceFrom">從哪獲取容差</s:String>
+    <s:String x:Key="Label_SystemSetting" x:Uid="Label_SystemSetting">系統設置</s:String>
+    <s:String x:Key="Label_Accept" x:Uid="Label_Accept">接受</s:String>
+    <s:String x:Key="Label_StandardIlluminant" x:Uid="Label_StandardIlluminant">標準光源</s:String>
+    <s:String x:Key="Label_StandardObserver" x:Uid="Label_StandardObserver">標準觀察者</s:String>
+    <s:String x:Key="Label_TestSample" x:Uid="Label_TestSample">試樣</s:String>
+    <s:String x:Key="Label_Whiteness" x:Uid="Label_Whiteness">白度</s:String>
+    <s:String x:Key="Label_Diff" x:Uid="Label_Diff">差值</s:String>
+    <s:String x:Key="Label_Other" x:Uid="Label_Other">其他</s:String>
+    <s:String x:Key="Label_DataTypeColon" x:Uid="Label_DataTypeColon">資料類型：</s:String>
+    <s:String x:Key="Label_Reflectance" x:Uid="Label_Reflectance">反射率</s:String>
+    <s:String x:Key="Label_MeasurementCaliber" x:Uid="Label_MeasurementCaliber">測量口徑</s:String>
+    <s:String x:Key="Label_AxisWavelengthNm" x:Uid="Label_AxisWavelengthNm">波長(nm)</s:String>
+    <s:String x:Key="Label_AxisReflectancePercent" x:Uid="Label_AxisReflectancePercent">反射率(%)</s:String>
+    <s:String x:Key="Label_UvOn" x:Uid="Label_UvOn">開啟</s:String>
+    <s:String x:Key="Label_UvOff" x:Uid="Label_UvNone">無</s:String>
+    <s:String x:Key="Label_ConnectionStatusColon" x:Uid="Label_ConnectionStatusColon">連接狀態：</s:String>
+    <s:String x:Key="Label_InstrumentModelColon" x:Uid="Label_InstrumentModelColon">儀器型號：</s:String>
+    <s:String x:Key="Label_OpticalStructColon" x:Uid="Label_OpticalStructColon">光學結構：</s:String>
+    <s:String x:Key="Label_SNColon" x:Uid="Label_SNColon">SN：</s:String>
+    <s:String x:Key="Label_HardwareVersionColon" x:Uid="Label_HardwareVersionColon">硬體版本：</s:String>
+    <s:String x:Key="Label_SoftwareVersionColon" x:Uid="Label_SoftwareVersionColon">軟體版本：</s:String>
+    <s:String x:Key="Label_WhiteBoardNumberColon" x:Uid="Label_WhiteBoardNumberColon">白板編號：</s:String>
+    <s:String x:Key="Label_BlackCalibrationColon" x:Uid="Label_BlackCalibrationColon">黑校正：</s:String>
+    <s:String x:Key="Label_WhiteCalibrationColon" x:Uid="Label_WhiteCalibrationColon">白校正：</s:String>
+    <s:String x:Key="Label_CapacityColon" x:Uid="Label_CapacityColon">記錄容量：</s:String>
+    <s:String x:Key="Label_StandardCountColon" x:Uid="Label_StandardCountColon">標樣數：</s:String>
+    <s:String x:Key="Label_TestCountColon" x:Uid="Label_TestCountColon">試樣數：</s:String>
+    <s:String x:Key="Label_Calibrated" x:Uid="Label_Calibrated">已校準</s:String>
+    <s:String x:Key="Label_Uncalibrated" x:Uid="Label_Uncalibrated">未校準</s:String>
+    <s:String x:Key="Label_FirmwareVersionColon" x:Uid="Label_FirmwareVersionColon">固件版本：</s:String>
+    <s:String x:Key="Label_Tolerance" x:Uid="Label_Tolerance">容差</s:String>
+    <s:String x:Key="Label_Judgement" x:Uid="Label_Judgement">結論</s:String>
+    <s:String x:Key="Label_DisplaySetting" x:Uid="Label_DisplaySetting">顯示設定</s:String>
+    <s:String x:Key="Label_Number" x:Uid="Label_Number">編號</s:String>
+    <s:String x:Key="Label_ReportTitle" x:Uid="Label_ReportTitle">標題：</s:String>
+    <s:String x:Key="Label_ReportSubtitle" x:Uid="Label_ReportSubtitle">副標題：</s:String>
+    <s:String x:Key="Label_CompanyAddress" x:Uid="Label_CompanyAddress">地址：</s:String>
+    <s:String x:Key="Label_CompanyEnglishAddress" x:Uid="Label_CompanyEnglishAddress">英文地址：</s:String>
+    <s:String x:Key="Label_UserProfile" x:Uid="Label_UserProfile">使用者資訊</s:String>
+    <s:String x:Key="Label_InnerNumberColon" x:Uid="Label_InnerNumberColon">內部編號：</s:String>
+    <s:String x:Key="Label_ExteralNumberColon" x:Uid="Label_ExteralNumberColon">外部編號：</s:String>
+    <s:String x:Key="Label_Read" x:Uid="Label_Read">從儀器讀取</s:String>
+    <s:String x:Key="Label_Write" x:Uid="Label_Write">寫入儀器</s:String>
+    <s:String x:Key="Label_SaveToFile" x:Uid="Label_SaveToFile">存儲到檔</s:String>
+    <s:String x:Key="Label_LoadFromFile" x:Uid="Label_LoadFromFile">從文件讀取</s:String>
+    <s:String x:Key="Label_AvailableItems" x:Uid="Label_AvailableItems">可用資料項目</s:String>
+    <s:String x:Key="Label_AutoSelectStandardLimit" x:Uid="Label_AutoSelectStandardLimit">標樣限制</s:String>
+    <s:String x:Key="Label_Import" x:Uid="Label_Import">導入</s:String>
+    <s:String x:Key="Label_DeleteSelectedSamples" x:Uid="Label_DeleteSelectedSamples">刪除所選樣品</s:String>
+    <s:String x:Key="Label_SearchCondition" x:Uid="Label_SearchCondition">條件：</s:String>
+    <s:String x:Key="Label_Search" x:Uid="Label_Search">查找</s:String>
+    <s:String x:Key="Label_Library" x:Uid="Label_Library">存樣庫</s:String>
+    <s:String x:Key="Label_RowOrderOfSCIAndSCE" x:Uid="Label_RowOrderOfSCIAndSCE">SCI和SCE的順序</s:String>
+    <s:String x:Key="Label_SCIFollowedBySCE" x:Uid="Label_SCIFollowedBySCE">SCI後跟SCE</s:String>
+    <s:String x:Key="Label_SCEFollowedBySCI" x:Uid="Label_SCEFollowedBySCI">SCE後跟SCI</s:String>
+    <s:String x:Key="Label_Unknown" x:Uid="Label_Unknown">未知</s:String>
+    <s:String x:Key="Label_WorksheetColon" x:Uid="Label_WorksheetColon">表單：</s:String>
+    <s:String x:Key="Label_StartRowColon" x:Uid="Label_StartRowColon">起始行：</s:String>
+    <s:String x:Key="Label_EndRowColon" x:Uid="Label_EndRowColon">結束行：</s:String>
+    <s:String x:Key="Label_NameColumnColon" x:Uid="Label_NameColumnColon">名稱列：</s:String>
+    <s:String x:Key="Label_XYZColumnColon" x:Uid="Label_XYZColumnColon">XYZ起始列：</s:String>
+    <s:String x:Key="Label_LabColumnColon" x:Uid="Label_LabColumnColon">Lab起始列：</s:String>
+    <s:String x:Key="Label_SpectrumColumnColon" x:Uid="Label_SpectrumColumnColon">光譜起始列：</s:String>
+    <s:String x:Key="Label_WavelengthRangeColon" x:Uid="Label_WavelengthRangeColon">波長範圍：</s:String>
+    <s:String x:Key="Label_None" x:Uid="Label_None">無</s:String>
+    <s:String x:Key="Label_Default" x:Uid="Label_Default">預設值</s:String>
+    <s:String x:Key="Label_MeasurementMethod" x:Uid="Label_MeasurementMethod">測量方法：</s:String>
+    <s:String x:Key="Label_MeasurementTimes" x:Uid="Label_MeasurementTimes">次數：</s:String>
+    <s:String x:Key="Label_MeasurementInterval" x:Uid="Label_MeasurementInterval">間隔：</s:String>
+    <s:String x:Key="Label_ManuallyStop" x:Uid="Label_ManuallyStop">手動停止</s:String>
+    <!--  黑桶编号：  -->
+    <s:String x:Key="Label_BlackBucketNumberColon" x:Uid="Label_BlackBucketNumberColon">黑筒編號：</s:String>
+    <!--  校准：  -->
+    <s:String x:Key="Label_CalibrationColon" x:Uid="Label_CalibrationColon">校準：</s:String>
+    <!--  标样容量  -->
+    <s:String x:Key="Label_StandardCapacityColon" x:Uid="Label_StandardCapacityColon">標樣容量：</s:String>
+    <!--  试样容量  -->
+    <s:String x:Key="Label_SampleCapacityColon" x:Uid="Label_SampleCapacityColon">試樣容量：</s:String>
+    <s:String x:Key="Label_StopMeasuring" x:Uid="Label_StopMeasuring">停止測量</s:String>
+    <s:String x:Key="Label_PauseMeasuring" x:Uid="Label_PauseMeasuring">暫停測量</s:String>
+    <s:String x:Key="Label_ContinueMeasure" x:Uid="Label_ContinueMeasure">繼續測量</s:String>
+    <s:String x:Key="Label_AutoMeasure" x:Uid="Label_AutoMeasure">自動測量</s:String>
+    <s:String x:Key="Label_WavelengthRange" x:Uid="Label_WavelengthRange">波長範圍</s:String>
+    <s:String x:Key="Label_Transmittance" x:Uid="Label_Transmittance">透射</s:String>
+    <s:String x:Key="Label_LensPosition" x:Uid="Label_LensPosition">透鏡位置</s:String>
+    <s:String x:Key="Label_LensSwitchMode" x:Uid="Label_LensSwitchMode">透鏡切換方式</s:String>
+    <s:String x:Key="Label_MeasureHazeReference" x:Uid="Label_MeasureHazeReference">測量參考值</s:String>
+    <!--  窗口标题  -->
+    <s:String x:Key="Title_About" x:Uid="Title_About">關於 SQCX</s:String>
+    <!--  SQCX  -->
+    <s:String x:Key="Title_DisplaySetting" x:Uid="Title_DisplaySetting">資料顯示項設置</s:String>
+    <s:String x:Key="Title_StandardDisplaySetting" x:Uid="Title_StandardDisplaySetting">標樣顯示項設置</s:String>
+    <s:String x:Key="Title_Export" x:Uid="Title_Export">匯出</s:String>
+    <s:String x:Key="Title_InstrumentDataManagement" x:Uid="Title_InstrumentDataManagement">儀器資料管理</s:String>
+    <s:String x:Key="Title_Measurment" x:Uid="Title_Measurment">測量</s:String>
+    <s:String x:Key="Title_MetamerismIndex" x:Uid="Title_MetamerismIndex">同色異譜指數</s:String>
+    <s:String x:Key="Title_IlluminantAndObserverSetting" x:Uid="Title_IlluminantAndObserverSetting">標準光源和觀察者設置</s:String>
+    <s:String x:Key="Title_AutoNamingRulesSetting" x:Uid="Title_AutoNamingRulesSetting">自動命名規則設置</s:String>
+    <s:String x:Key="Title_StandardInput" x:Uid="Title_StandardInput">標樣輸入</s:String>
+    <s:String x:Key="Title_StandardLinkageSetting" x:Uid="Title_StandardLinkageSetting">標樣設置</s:String>
+    <s:String x:Key="Title_ToleranceSetting" x:Uid="Title_ToleranceSetting">容差設置</s:String>
+    <s:String x:Key="Title_WhitenessIndex" x:Uid="Title_WhitenessIndex">白度指數</s:String>
+    <s:String x:Key="Title_InstrumentStatus" x:Uid="Title_InstrumentStatus">儀器狀態</s:String>
+    <s:String x:Key="Title_ReportSetting" x:Uid="Title_ReportSetting">報表設置</s:String>
+    <s:String x:Key="Title_ReportTitle" x:Uid="Title_ReportTitle">報表標題</s:String>
+    <s:String x:Key="Title_Rename" x:Uid="Title_Rename">重命名</s:String>
+    <s:String x:Key="Title_ModifyMaterial" x:Uid="Title_ModifyMaterial">修改料號</s:String>
+    <s:String x:Key="Title_WhiteBoardParameterSetting" x:Uid="Title_WhiteBoardParameterSetting">白板參數設置</s:String>
+    <s:String x:Key="Title_WhiteCalibration" x:Uid="Title_WhiteCalibration">白校正</s:String>
+    <s:String x:Key="Title_BlackCalibration" x:Uid="Title_BlackCalibration">黑校正</s:String>
+    <s:String x:Key="Title_InputSpecimenName" x:Uid="Title_InputSpecimenName">輸入名稱</s:String>
+    <s:String x:Key="Title_AutoSelectStandardSetting" x:Uid="Title_AutoSelectStandardSetting">標樣匹配設置</s:String>
+    <s:String x:Key="Title_MeasurementAbnormal" x:Uid="Title_MeasurementAbnormal">測量結果異常</s:String>
+    <s:String x:Key="Title_LibraryManagement" x:Uid="Title_LibraryManagement">存樣庫管理</s:String>
+    <s:String x:Key="Title_ImportLibrary" x:Uid="Title_ImportLibrary">導入存樣庫</s:String>
+    <s:String x:Key="Title_NewLibrary" x:Uid="Title_NewLibrary">新建存樣庫</s:String>
+    <s:String x:Key="Title_ModifyLibrarySample" x:Uid="Title_ModifyLibrarySample">修改樣品</s:String>
+    <s:String x:Key="Title_DeviceInfo" x:Uid="Title_DeviceInfo">設備資訊</s:String>
+    <s:String x:Key="Title_UploadingStandards" x:Uid="Title_UploadingStandards">上傳標樣</s:String>
+    <s:String x:Key="Title_UploadingTests" x:Uid="Title_UploadingTests">上傳試樣</s:String>
+    <!--  枚举的说明符  -->
+    <s:String x:Key="WI_E313" x:Uid="WI_E313">WI(ASTM E313-2005)</s:String>
+    <s:String x:Key="T_E313" x:Uid="T_E313">T(ASTM E313-2005)</s:String>
+    <s:String x:Key="WI_CIE_ISO" x:Uid="WI_CIE_ISO">WI(CIE/ISO)</s:String>
+    <s:String x:Key="T_CIE_ISO" x:Uid="T_CIE_ISO">T(CIE/ISO)</s:String>
+    <s:String x:Key="WI_Hunter1942" x:Uid="WI_Hunter1942">WI(Hunter 1942)</s:String>
+    <s:String x:Key="WI_Hunter1960" x:Uid="WI_Hunter1960">WI(Hunter 1960)</s:String>
+    <s:String x:Key="WI_Tapple" x:Uid="WI_Tapple">WI(Tappl)</s:String>
+    <s:String x:Key="WI_Taube" x:Uid="WI_Taube">WI(Taube)</s:String>
+    <s:String x:Key="WI_R457" x:Uid="WI_R457">WI(R457)</s:String>
+    <s:String x:Key="WI_Berger" x:Uid="WI_Berger">WI(Berger)</s:String>
+    <s:String x:Key="WI_Granz" x:Uid="WI_Granz">WI(Ganz)</s:String>
+    <s:String x:Key="WI_GOST_16873" x:Uid="WI_GOST_16873">WI(GOST 16873)</s:String>
+    <s:String x:Key="YI_D1925" x:Uid="YI_D1925">YI(ASTM D1925-1970)</s:String>
+    <s:String x:Key="YI_E313" x:Uid="YI_E313">YI(ASTM E313-2005)</s:String>
+    <s:String x:Key="MI" x:Uid="MI">同色異譜</s:String>
+    <s:String x:Key="StainingFastness_dEgs" x:Uid="StainingFastness_dEgs">沾色牢度ΔEgs</s:String>
+    <s:String x:Key="StainingFastness_SSRLevel" x:Uid="StainingFastness_SSRLevel">沾色牢度等級</s:String>
+    <s:String x:Key="ColorFastness_dEf" x:Uid="ColorFastness_dEf">變色牢度ΔEf</s:String>
+    <s:String x:Key="ColorFastness_GSRLevel" x:Uid="ColorFastness_GSRLevel">變色牢度等級</s:String>
+    <s:String x:Key="AverageStrength" x:Uid="AverageStrength">力份（K/S總和）</s:String>
+    <s:String x:Key="PrecentStrengthSWL" x:Uid="PrecentStrengthSWL">力份（最大吸收波長）</s:String>
+    <s:String x:Key="WeightedStrengthSWL" x:Uid="WeightedStrengthSWL">加強力份</s:String>
+    <s:String x:Key="Opacity" x:Uid="Opacity">遮蓋度</s:String>
+    <s:String x:Key="SampleID" x:Uid="SampleID">ID</s:String>
+    <s:String x:Key="MeasurementCaliber" x:Uid="MeasurementCaliber">測量口徑</s:String>
+    <s:String x:Key="InstrumentName" x:Uid="InstrumentName">儀器型號</s:String>
+    <s:String x:Key="Spectrum" x:Uid="Spectrum">光譜反射率</s:String>
+    <s:String x:Key="UV_None" x:Uid="UV_None">無</s:String>
+    <s:String x:Key="UV_On" x:Uid="UV_On">UV</s:String>
+    <s:String x:Key="UV_NoCut" x:Uid="UV_NoCut">無截止</s:String>
+    <s:String x:Key="UV_Cut400nm" x:Uid="UV_Cut400nm">400nm截止</s:String>
+    <s:String x:Key="UV_Cut420nm" x:Uid="UV_Cut420nm">420nm截止</s:String>
+    <s:String x:Key="UV_Cut460nm" x:Uid="UV_Cut460nm">460nm截止</s:String>
+    <s:String x:Key="JudgementLevel_Invalid" x:Uid="JudgementLevel_Invalid">--</s:String>
+    <s:String x:Key="JudgementLevel_NG" x:Uid="JudgementLevel_NG">不良</s:String>
+    <s:String x:Key="JudgementLevel_Warning" x:Uid="JudgementLevel_Warning">警告</s:String>
+    <s:String x:Key="JudgementLevel_Pass" x:Uid="JudgementLevel_Pass">合格</s:String>
+    <s:String x:Key="IlluminantAndObserver" x:Uid="IlluminantAndObserver">光源觀察者</s:String>
+    <s:String x:Key="R360" x:Uid="R360">360nm</s:String>
+    <s:String x:Key="R370" x:Uid="R370">370nm</s:String>
+    <s:String x:Key="R380" x:Uid="R380">380nm</s:String>
+    <s:String x:Key="R390" x:Uid="R390">390nm</s:String>
+    <s:String x:Key="R400" x:Uid="R400">400nm</s:String>
+    <s:String x:Key="R410" x:Uid="R410">410nm</s:String>
+    <s:String x:Key="R420" x:Uid="R420">420nm</s:String>
+    <s:String x:Key="R430" x:Uid="R430">430nm</s:String>
+    <s:String x:Key="R440" x:Uid="R440">440nm</s:String>
+    <s:String x:Key="R450" x:Uid="R450">450nm</s:String>
+    <s:String x:Key="R460" x:Uid="R460">460nm</s:String>
+    <s:String x:Key="R470" x:Uid="R470">470nm</s:String>
+    <s:String x:Key="R480" x:Uid="R480">480nm</s:String>
+    <s:String x:Key="R490" x:Uid="R490">490nm</s:String>
+    <s:String x:Key="R500" x:Uid="R500">500nm</s:String>
+    <s:String x:Key="R510" x:Uid="R510">510nm</s:String>
+    <s:String x:Key="R520" x:Uid="R520">520nm</s:String>
+    <s:String x:Key="R530" x:Uid="R530">530nm</s:String>
+    <s:String x:Key="R540" x:Uid="R540">540nm</s:String>
+    <s:String x:Key="R550" x:Uid="R550">550nm</s:String>
+    <s:String x:Key="R560" x:Uid="R560">560nm</s:String>
+    <s:String x:Key="R570" x:Uid="R570">570nm</s:String>
+    <s:String x:Key="R580" x:Uid="R580">580nm</s:String>
+    <s:String x:Key="R590" x:Uid="R590">590nm</s:String>
+    <s:String x:Key="R600" x:Uid="R600">600nm</s:String>
+    <s:String x:Key="R610" x:Uid="R610">610nm</s:String>
+    <s:String x:Key="R620" x:Uid="R620">620nm</s:String>
+    <s:String x:Key="R630" x:Uid="R630">630nm</s:String>
+    <s:String x:Key="R640" x:Uid="R640">640nm</s:String>
+    <s:String x:Key="R650" x:Uid="R650">650nm</s:String>
+    <s:String x:Key="R660" x:Uid="R660">660nm</s:String>
+    <s:String x:Key="R670" x:Uid="R670">670nm</s:String>
+    <s:String x:Key="R680" x:Uid="R680">680nm</s:String>
+    <s:String x:Key="R690" x:Uid="R690">690nm</s:String>
+    <s:String x:Key="R700" x:Uid="R700">700nm</s:String>
+    <s:String x:Key="R710" x:Uid="R710">710nm</s:String>
+    <s:String x:Key="R720" x:Uid="R720">720nm</s:String>
+    <s:String x:Key="R730" x:Uid="R730">730nm</s:String>
+    <s:String x:Key="R740" x:Uid="R740">740nm</s:String>
+    <s:String x:Key="R750" x:Uid="R750">750nm</s:String>
+    <s:String x:Key="R760" x:Uid="R760">760nm</s:String>
+    <s:String x:Key="R770" x:Uid="R770">770nm</s:String>
+    <s:String x:Key="R780" x:Uid="R780">780nm</s:String>
+    <s:String x:Key="dR360" x:Uid="dR360">Δ360nm</s:String>
+    <s:String x:Key="dR370" x:Uid="dR370">Δ370nm</s:String>
+    <s:String x:Key="dR380" x:Uid="dR380">Δ380nm</s:String>
+    <s:String x:Key="dR390" x:Uid="dR390">Δ390nm</s:String>
+    <s:String x:Key="dR400" x:Uid="dR400">Δ400nm</s:String>
+    <s:String x:Key="dR410" x:Uid="dR410">Δ410nm</s:String>
+    <s:String x:Key="dR420" x:Uid="dR420">Δ420nm</s:String>
+    <s:String x:Key="dR430" x:Uid="dR430">Δ430nm</s:String>
+    <s:String x:Key="dR440" x:Uid="dR440">Δ440nm</s:String>
+    <s:String x:Key="dR450" x:Uid="dR450">Δ450nm</s:String>
+    <s:String x:Key="dR460" x:Uid="dR460">Δ460nm</s:String>
+    <s:String x:Key="dR470" x:Uid="dR470">Δ470nm</s:String>
+    <s:String x:Key="dR480" x:Uid="dR480">Δ480nm</s:String>
+    <s:String x:Key="dR490" x:Uid="dR490">Δ490nm</s:String>
+    <s:String x:Key="dR500" x:Uid="dR500">Δ500nm</s:String>
+    <s:String x:Key="dR510" x:Uid="dR510">Δ510nm</s:String>
+    <s:String x:Key="dR520" x:Uid="dR520">Δ520nm</s:String>
+    <s:String x:Key="dR530" x:Uid="dR530">Δ530nm</s:String>
+    <s:String x:Key="dR540" x:Uid="dR540">Δ540nm</s:String>
+    <s:String x:Key="dR550" x:Uid="dR550">Δ550nm</s:String>
+    <s:String x:Key="dR560" x:Uid="dR560">Δ560nm</s:String>
+    <s:String x:Key="dR570" x:Uid="dR570">Δ570nm</s:String>
+    <s:String x:Key="dR580" x:Uid="dR580">Δ580nm</s:String>
+    <s:String x:Key="dR590" x:Uid="dR590">Δ590nm</s:String>
+    <s:String x:Key="dR600" x:Uid="dR600">Δ600nm</s:String>
+    <s:String x:Key="dR610" x:Uid="dR610">Δ610nm</s:String>
+    <s:String x:Key="dR620" x:Uid="dR620">Δ620nm</s:String>
+    <s:String x:Key="dR630" x:Uid="dR630">Δ630nm</s:String>
+    <s:String x:Key="dR640" x:Uid="dR640">Δ640nm</s:String>
+    <s:String x:Key="dR650" x:Uid="dR650">Δ650nm</s:String>
+    <s:String x:Key="dR660" x:Uid="dR660">Δ660nm</s:String>
+    <s:String x:Key="dR670" x:Uid="dR670">Δ670nm</s:String>
+    <s:String x:Key="dR680" x:Uid="dR680">Δ680nm</s:String>
+    <s:String x:Key="dR690" x:Uid="dR690">Δ690nm</s:String>
+    <s:String x:Key="dR700" x:Uid="dR700">Δ700nm</s:String>
+    <s:String x:Key="dR710" x:Uid="dR710">Δ710nm</s:String>
+    <s:String x:Key="dR720" x:Uid="dR720">Δ720nm</s:String>
+    <s:String x:Key="dR730" x:Uid="dR730">Δ730nm</s:String>
+    <s:String x:Key="dR740" x:Uid="dR740">Δ740nm</s:String>
+    <s:String x:Key="dR750" x:Uid="dR750">Δ750nm</s:String>
+    <s:String x:Key="dR760" x:Uid="dR760">Δ760nm</s:String>
+    <s:String x:Key="dR770" x:Uid="dR770">Δ770nm</s:String>
+    <s:String x:Key="dR780" x:Uid="dR780">Δ780nm</s:String>
+    <s:String x:Key="PseudoColor" x:Uid="PseudoColor">模擬色</s:String>
+    <s:String x:Key="ColorOffset" x:Uid="ColorOffset">顏色偏向</s:String>
+    <s:String x:Key="ColorOffset_None" x:Uid="ColorOffset_None">正常</s:String>
+    <s:String x:Key="ColorOffset_SlightlyDark" x:Uid="ColorOffset_SlightlyDark">輕微偏黑</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyDark" x:Uid="ColorOffset_SignificantlyDark">明顯偏黑</s:String>
+    <s:String x:Key="ColorOffset_SlightlyBright" x:Uid="ColorOffset_SlightlyBright">輕微偏白</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyBright" x:Uid="ColorOffset_SignificantlyBright">明顯偏白</s:String>
+    <s:String x:Key="ColorOffset_SlightlyGreen" x:Uid="ColorOffset_SlightlyGreen">輕微偏綠</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyGreen" x:Uid="ColorOffset_SignificantlyGreen">明顯偏綠</s:String>
+    <s:String x:Key="ColorOffset_SlightlyRed" x:Uid="ColorOffset_SlightlyRed">輕微偏紅</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyRed" x:Uid="ColorOffset_SignificantlyRed">明顯偏紅</s:String>
+    <s:String x:Key="ColorOffset_SlightlyBlue" x:Uid="ColorOffset_SlightlyBlue">輕微偏藍</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyBlue" x:Uid="ColorOffset_SignificantlyBlue">明顯偏藍</s:String>
+    <s:String x:Key="ColorOffset_SlightlyYellow" x:Uid="ColorOffset_SlightlyYellow">輕微偏黃</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyYellow" x:Uid="ColorOffset_SignificantlyYellow">明顯偏黃</s:String>
+    <s:String x:Key="SpecularComponent_Unknown" x:Uid="SpecularComponent_Unknown">---</s:String>
+    <s:String x:Key="SpecularComponent_SCI" x:Uid="SpecularComponent_SCI">SCI</s:String>
+    <s:String x:Key="SpecularComponent_SCE" x:Uid="SpecularComponent_SCE">SCE</s:String>
+    <s:String x:Key="SpecularComponent_SCIAndSCE" x:Uid="SpecularComponent_SCIAndSCE">SCI/SCE</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi4" x:Uid="MeasurementCaliber_Phi4">Φ4mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi8" x:Uid="MeasurementCaliber_Phi8">Φ8mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi15" x:Uid="MeasurementCaliber_Phi15">Φ15mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi20" x:Uid="MeasurementCaliber_Phi20">Φ20mm</s:String>
+    <s:String x:Key="MeasurementCaliber_1Inch" x:Uid="MeasurementCaliber_1Inch">Φ25.4mm</s:String>
+    <s:String x:Key="MeasurementCaliber_1by3" x:Uid="MeasurementCaliber_1by3">Φ1x3mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi11" x:Uid="MeasurementCaliber_Phi11">Φ11mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi10" x:Uid="MeasurementCaliber_Phi10">Φ10mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi6" x:Uid="MeasurementCaliber_Phi6">Φ6mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi5" x:Uid="MeasurementCaliber_Phi5">Φ5mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi3" x:Uid="MeasurementCaliber_Phi3">Φ3mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Customized" x:Uid="MeasurementCaliber_Customized">定制</s:String>
+    <s:String x:Key="TransmissionFlag" x:Uid="TransmissionFlag">反射/透射</s:String>
+    <s:String x:Key="ShadeBy555" x:Uid="ShadeBy555">555色調分類</s:String>
+    <s:String x:Key="GardnerIndex" x:Uid="GardnerIndex">Gardner指數</s:String>
+    <s:String x:Key="IronCobaltIndex" x:Uid="IronCobaltIndex">鐵鈷指數</s:String>
+    <!-- <s:String x:Uid="Transmission" x:Key="Transmission">%T</s:String> -->
+    <!-- <s:String x:Uid="Reflection" x:Key="Reflection">%R</s:String> -->
+    <s:String x:Key="PtCoIndex" x:Uid="PtCoIndex">鈷鉑指數</s:String>
+    <s:String x:Key="HazeA2" x:Uid="HazeA2">H(A/2)</s:String>
+    <s:String x:Key="HazeC2" x:Uid="HazeC2">H(C/2)</s:String>
+    <s:String x:Key="HazeD65" x:Uid="HazeD65">H(D65/2)</s:String>
+    <s:String x:Key="DeltaHazeA2" x:Uid="DeltaHazeA2">\u0394H(A/2)</s:String>
+    <s:String x:Key="DeltaHazeC2" x:Uid="DeltaHazeC2">\u0394H(C/2)</s:String>
+    <s:String x:Key="DeltaHazeD65" x:Uid="DeltaHazeD65">\u0394H(D65/2)</s:String>
+    <s:String x:Key="MeasurementMethod_Single" x:Uid="MeasurementMethod_Single">單次</s:String>
+    <s:String x:Key="MeasurementMethod_Average" x:Uid="MeasurementMethod_Average">平均</s:String>
+    <s:String x:Key="MeasurementMethod_Continuous" x:Uid="MeasurementMethod_Continuous">連續</s:String>
+    <s:String x:Key="MeasurementMethod_AverageContinuous" x:Uid="MeasurementMethod_AverageContinuous">平均連續</s:String>
+    <s:String x:Key="LensPosition_Pos4" x:Uid="LensPosition_Pos4">4mm</s:String>
+    <s:String x:Key="LensPosition_Pos8" x:Uid="LensPosition_Pos8">8mm</s:String>
+    <s:String x:Key="LensPosition_Pos15" x:Uid="LensPosition_Pos15">15mm</s:String>
+    <s:String x:Key="LensPosition_Pos25" x:Uid="LensPosition_Pos25">25.4mm</s:String>
+    <s:String x:Key="None" x:Uid="None">無</s:String>
+    <s:String x:Key="Yellowness" x:Uid="Yellowness">黃度</s:String>
+    <s:String x:Key="Whiteness" x:Uid="Whiteness">白度</s:String>
+    <s:String x:Key="Strength" x:Uid="Strength">力份</s:String>
+    <!-- <s:String x:Key="Shade555" x:Uid="Shade555">Shade555</s:String> -->
+    <s:String x:Key="StainingFastness" x:Uid="StainingFastness">變色牢度</s:String>
+    <s:String x:Key="ColorFastness" x:Uid="ColorFastness">沾色牢度</s:String>
+    <s:String x:Key="Gloss8" x:Uid="Gloss8">8度光澤度</s:String>
+    <s:String x:Key="Auto" x:Uid="Auto">自動</s:String>
+    <s:String x:Key="Manual" x:Uid="Manual">手動</s:String>
+    <s:String x:Key="Unknown" x:Uid="Unknown">未知</s:String>
+    <s:String x:Key="Reflective" x:Uid="Reflective">反射</s:String>
+    <s:String x:Key="Transmissive" x:Uid="Transmissive">透射</s:String>
+    <s:String x:Key="About_AppName" x:Uid="About_AppName">SQCX色彩品質管理系統</s:String>
+    <s:String x:Key="About_Company" x:Uid="About_Company">LTD.&quot;</s:String>
+    <s:String x:Key="About_Copyright" x:Uid="About_Copyright">版權所有 ©2016</s:String>
+    <s:String x:Key="About_AllRightsReserved" x:Uid="About_AllRightsReserved">保留所有權利</s:String>
+    <s:String x:Key="Report_ExportTolerance" x:Uid="Report_ExportTolerance">匯出容差</s:String>
+    <s:String x:Key="Report_ExportReferences" x:Uid="Report_ExportReferences">列印參考</s:String>
+    <s:String x:Key="Report_ExportTestLab" x:Uid="Report_ExportTestLab">匯出試樣Lab</s:String>
+    <s:String x:Key="PleaseInputColorData" x:Uid="PleaseInputColorData">請輸入顏色資料</s:String>
+    <s:String x:Key="Label_RemarkColon" x:Uid="Label_RemarkColon">備註：</s:String>
+    <s:String x:Key="Label_ColorFormula" x:Uid="Label_ColorFormula">顏色配方</s:String>
+    <s:String x:Key="Title_ColorMatching" x:Uid="Title_ColorMatching">色彩匹配</s:String>
+    <s:String x:Key="Title_LibraryColorInput" x:Uid="Title_LibraryColorInput">顏色錄入</s:String>
+    <s:String x:Key="Label_Update" x:Uid="Label_Update">更新</s:String>
+    <s:String x:Key="Label_NumberColon" x:Uid="Label_NumberColon">編號：</s:String>
+    <s:String x:Key="Label_ColorFormulaColon" x:Uid="Label_ColorFormulaColon">配方</s:String>
+    <s:String x:Key="Label_LibraryColon" x:Uid="Label_LibraryColon">存樣庫：</s:String>
+    <s:String x:Key="Label_LibraryOptions" x:Uid="Label_LibraryOptions">存樣庫選項</s:String>
+    <s:String x:Key="Label_StoredSample" x:Uid="Label_StoredSample">存樣</s:String>
+    <s:String x:Key="Label_SpectrumDiagram" x:Uid="Label_SpectrumDiagram">光譜圖</s:String>
+    <s:String x:Key="Label_ChromaticDiagram" x:Uid="Label_ChromaticDiagram">色度圖</s:String>
+    <s:String x:Key="Label_Remark" x:Uid="Label_Remark">備註</s:String>
+    <s:String x:Key="Label_Input" x:Uid="Label_Input">輸入</s:String>
+    <s:String x:Key="MenuItem_WriteToInstrumentLibrary" x:Uid="MenuItem_WriteToInstrumentLibrary">寫入儀器顏色庫</s:String>
+    <s:String x:Key="MenuItem_ClearInstrumentLibrary" x:Uid="MenuItem_ClearInstrumentLibrary">清空儀器顏色庫</s:String>
+    <s:String x:Key="MenuItem_ReadInstrumentLibrary" x:Uid="MenuItem_ReadInstrumentLibrary">讀取儀器顏色庫</s:String>
+    <s:String x:Key="MenuItem_UpdateInstrumentLibrary" x:Uid="MenuItem_UpdateInstrumentLibrary">更新儀器顏色庫</s:String>
+    <s:String x:Key="WritingStandards" x:Uid="WritingStandards">正在將標樣寫入儀器...</s:String>
+    <s:String x:Key="AllStandardsWritten" x:Uid="AllStandardsWritten">所有標樣都已寫入儀器</s:String>
+    <s:String x:Key="InWriting" x:Uid="InWriting">正在寫入……</s:String>
+    <s:String x:Key="WritingToInstrumentLibraryCompleted" x:Uid="WritingToInstrumentLibraryCompleted">寫入儀器顏色庫完成。</s:String>
+    <s:String x:Key="InReading" x:Uid="InReading">正在讀取……</s:String>
+    <s:String x:Key="OptionCompleted" x:Uid="OptionCompleted">操作完成</s:String>
+    <s:String x:Key="ConfirmClearInstrumentLibrary" x:Uid="ConfirmClearInstrumentLibrary">且無法恢復。建議清除前先做好備份。是否繼續操作?</s:String>
+    <s:String x:Key="ConfirmUpdateInstrumentLibrary" x:Uid="ConfirmUpdateInstrumentLibrary">然後將所有標樣寫入儀器庫。是否繼續?</s:String>
+    <s:String x:Key="HasStored" x:Uid="HasStored">已存儲</s:String>
+    <s:String x:Key="HasDeleted" x:Uid="HasDeleted">已刪除</s:String>
+    <s:String x:Key="CannotFoundSpecifiedColorNumber" x:Uid="CannotFoundSpecifiedColorNumber">找不到指定的顏色編號</s:String>
+    <s:String x:Key="ColorNumberInvalid" x:Uid="ColorNumberInvalid">顏色編號重複或無效</s:String>
+    <s:String x:Key="CannotFindMatchedColor" x:Uid="CannotFindMatchedColor">找不到匹配的顏色</s:String>
+    <s:String x:Key="PleaseSelectedAColorLibrary" x:Uid="PleaseSelectedAColorLibrary">請選擇色庫</s:String>
+    <s:String x:Key="MenuItem_ColorMatch" x:Uid="MenuItem_ColorMatch">顏色匹配</s:String>
+    <s:String x:Key="MenuItem_ColorInput" x:Uid="MenuItem_ColorInput">顏色錄入</s:String>
+    <s:String x:Key="Label_Clear" x:Uid="Label_Clear">清空</s:String>
+    <s:String x:Key="Label_AutoClearAfterStored" x:Uid="Label_AutoClearAfterStored">存儲後自動清空輸入</s:String>
+    <s:String x:Key="PleaseInputTheColorNumber" x:Uid="PleaseInputTheColorNumber">請輸入顏色編號。</s:String>
+    <s:String x:Key="Label_TargetColor" x:Uid="Label_TargetColor">目標色</s:String>
+    <s:String x:Key="Label_StoredColor" x:Uid="Label_StoredColor">存樣色</s:String>
+    <s:String x:Key="Label_ReflectiveSlashTransitiveColon" x:Uid="Label_ReflectiveSlashTransitiveColon">反射/透射：</s:String>
+    <s:String x:Key="MenuItem_ImportToStandardList" x:Uid="MenuItem_ImportToStandardList">導入標準列表</s:String>
+    <s:String x:Key="AddedToLibrarySuccessfully" x:Uid="AddedToLibrarySuccessfully">已成功添加到當前存樣庫。</s:String>
+    <s:String x:Key="WarningColorNumberDuplicated" x:Uid="WarningColorNumberDuplicated">顏色編號重複！</s:String>
+    <s:String x:Key="MenuItem_FindClosedColorsFromLibrary" x:Uid="MenuItem_FindClosedColorsFromLibrary">從當前存樣庫查找接近的顏色</s:String>
+    <s:String x:Key="StandardFirstInfoLilin" x:Uid="StandardFirstInfoLilin">請先測量標樣!!!</s:String>
+    <s:String x:Key="PanTongMatchTipLilin" x:Uid="PanTongMatchTipLilin">色卡匹配與檢索</s:String>
+    <s:String x:Key="MenuItem_PanTongColorMatchSearchLilin" x:Uid="MenuItem_PanTongColorMatchSearchLilin">色卡匹檢</s:String>
+    <s:String x:Key="BestMatchWindowLilin" x:Uid="BestMatchWindowLilin">色卡匹配與檢索窗口</s:String>
+    <s:String x:Key="Label_LibraryOptionsLilin" x:Uid="Label_LibraryOptionsLilin">樣品庫選擇</s:String>
+    <s:String x:Key="Label_LibraryOptionsKeySearchLilin" x:Uid="Label_LibraryOptionsKeySearchLilin">色卡類型及關鍵字檢索</s:String>
+    <s:String x:Key="Btn_KeySearchPanTongLibraryLilin" x:Uid="Btn_KeySearchPanTongLibraryLilin">關鍵字檢索</s:String>
+    <s:String x:Key="Label_SearchResultListLilin" x:Uid="Label_SearchResultListLilin">關鍵字檢索結果清單</s:String>
+    <s:String x:Key="Label_SetSearchFilterLilin" x:Uid="Label_SetSearchFilterLilin">輸入檢索字元</s:String>
+    <s:String x:Key="Label_SamplingLilin" x:Uid="Label_SamplingLilin">採樣</s:String>
+    <s:String x:Key="Label_SearchFilterLilin" x:Uid="Label_SearchFilterLilin">搜索條件設定</s:String>
+    <s:String x:Key="Label_SearchResultLilin" x:Uid="Label_SearchResultLilin">蒐索匹配結果</s:String>
+    <s:String x:Key="Label_MatchedBestColorLilin" x:Uid="Label_MatchedBestColorLilin">最匹配色</s:String>
+    <s:String x:Key="Label_ColorDifFormulaLilin" x:Uid="Label_ColorDifFormulaLilin">色差值</s:String>
+    <s:String x:Key="Label_PantonColorFileLilin" x:Uid="Label_PantonColorFileLilin">色卡Excel文件</s:String>
+    <s:String x:Key="NoPanTongColorDataLilin" x:Uid="NoPanTongColorDataLilin">沒有色卡數據</s:String>
+    <s:String x:Key="NoSampleColorDataLilin" x:Uid="NoSampleColorDataLilin">沒有採樣數據</s:String>
+    <s:String x:Key="SearchTime$0$ShowLilin" x:Uid="SearchTime$0$ShowLilin">蒐索時間花費 {0:F3} 毫秒</s:String>
+    <s:String x:Key="CannotFindMatchedColorLilin" x:Uid="CannotFindMatchedColorLilin">蒐索失敗</s:String>
+    <s:String x:Key="InstumentTypeErrorLilin" x:Uid="InstumentTypeErrorLilin">儀器類型不正確</s:String>
+    <s:String x:Key="Label_SortConditionLilin" x:Uid="Label_SortConditionLilin">排序條件</s:String>
+    <s:String x:Key="Label_CoatedLilin" x:Uid="Label_CoatedLilin">塗層色卡系列</s:String>
+    <s:String x:Key="Label_UncoatedLilin" x:Uid="Label_UncoatedLilin">無塗層色卡系列</s:String>
+    <s:String x:Key="Common_Name" x:Uid="Common_Name">色卡名稱</s:String>
+    <s:String x:Key="SetMatchToBeStdLilin" x:Uid="SetMatchToBeStdLilin">設定所選匹配記錄為當前標樣</s:String>
+    <s:String x:Key="SetCurSamToBeStdLilin" x:Uid="SetCurSamToBeStdLilin">設定採樣為當前標樣</s:String>
+    <s:String x:Key="CurrentMatchColorChangeLilin" x:Uid="CurrentMatchColorChangeLilin">匹配的模擬色變為</s:String>
+    <s:String x:Key="PanTongStdSuccessLilin" x:Uid="PanTongStdSuccessLilin">設定為標樣成功</s:String>
+    <s:String x:Key="PanTongStdFailLilin" x:Uid="PanTongStdFailLilin">設定為標樣失敗</s:String>
+    <s:String x:Key="SetToBeStandardEnsureLilin" x:Uid="SetToBeStandardEnsureLilin">確認?</s:String>
+    <s:String x:Key="AddToStandardListSuccessLilin" x:Uid="AddToStandardListSuccessLilin">成功</s:String>
+    <s:String x:Key="AddToStandardListFailLilin" x:Uid="AddToStandardListFailLilin">失敗:已存在</s:String>
+    <s:String x:Key="StandardListAndShiftStandardLilin" x:Uid="StandardListAndShiftStandardLilin">改變當前標樣</s:String>
+    <s:String x:Key="SampleModeLilin" x:Uid="SampleModeLilin">試樣量測模式：</s:String>
+    <s:String x:Key="dEab">dE</s:String>
+    <s:String x:Key="CIEDE1976">△E</s:String>
+    <s:String x:Key="CIEDE1994">△E94</s:String>
+    <s:String x:Key="CIEDE2000">△E00</s:String>
+    <s:String x:Key="CMCDE">△Ecmc</s:String>
+    <s:String x:Key="ColorDiff_CIELAB_L">△L</s:String>
+    <s:String x:Key="ColorDiffFormula_DL1994">△L94</s:String>
+    <s:String x:Key="ColorDiffFormula_DL2000">△L00</s:String>
+    <s:String x:Key="ColorDiffFormula_DLcmc">△Lcmc</s:String>
+    <s:String x:Key="ColorDiff_CIELAB_a">△a</s:String>
+    <s:String x:Key="ColorDiff_CIELAB_b">△b</s:String>
+    <s:String x:Key="Msg_SuccessfulCalibration" x:Uid="Msg_SuccessfulCalibration">校準成功!</s:String>
+    <s:String x:Key="Report_ExportCIEYxyChromaticityChart" x:Uid="Report_ExportCIEYxyChromaticityChart">打印色品圖</s:String>
+    <s:String x:Key="MenuItem_DeleteSelectedSamples" x:Uid="MenuItem_DeleteSelectedSamples">刪除所選試樣</s:String>
+    <s:String x:Key="Label_Back" x:Uid="Label_Back">後退</s:String>
+    <s:String x:Key="Title_SelectABlueToothDevice" x:Uid="Title_SelectABlueToothDevice">
+        選擇藍牙設備
+    </s:String>
+    <s:String x:Key="InvalidValue" x:Uid="InvalidValue">無效的數值:</s:String>
+    <s:String x:Key="All" x:Uid="All">All</s:String>
+    <s:String x:Key="Label_Cover" x:Uid="Label_Cover">覆蓋</s:String>
+    <s:String x:Key="Label_Skip" x:Uid="Label_Skip">跳過</s:String>
+    <s:String x:Key="MenuItem_ConnectByBluetooth_4" x:Uid="MenuItem_ConnectByBluetooth_4">藍牙連接 4.2</s:String>
+    <s:String x:Key="MenuItem_ConnectByBluetooth_5" x:Uid="MenuItem_ConnectByBluetooth_4">藍牙連接 5.0</s:String>
+
+    <s:String x:Key="s_WhiteBoardTableFilePath">數據文件</s:String>
+    <s:String x:Key="s_Browse">瀏覽……</s:String>
+    <s:String x:Key="SuccessfullyWritten">參數已成功寫入!</s:String>
+
+    <s:String x:Key="DeltaGloss8" x:Uid="DeltaGloss8">△8°Gloss</s:String>
+
+    <!--驱动查找提示-->
+    <s:String x:Key="SpreadtrumDriverNotFound">未偵測到展訊驅動程式，部分功能可能無法正常運作。請確認已安裝展訊驅動程式且版本相容。</s:String>
+    <s:String x:Key="DriverNotFoundTitle">找不到驅動程式</s:String>
+    <s:String x:Key="DownLoadSpreadtrumDriver">是否下載該驅動</s:String>
+
+    <s:String x:Key="s_SelectAStandard" x:Uid="s_SelectAStandard">選擇標樣</s:String>
+    <s:String x:Key="Label_ColorIndexesDiff" x:Uid="Label_ColorIndexesDiff">指數差</s:String>
+    <s:String x:Key="MY_Carbon" x:Uid="MY_Carbon">MY Carbon</s:String>
+    <s:String x:Key="MC_Carbon" x:Uid="MC_Carbon">MC Carbon</s:String>
+    <s:String x:Key="dM_Carbon" x:Uid="dM_Carbon">dM Carbon</s:String>
+    <s:String x:Key="StartSearch">开始搜索</s:String>
+    <s:String x:Key="StopSearch">停止搜索</s:String>
+    <s:String x:Key="s_Ports">端口</s:String>
+    <s:String x:Key="s_SearchBluetoothDevice">搜索藍牙設備</s:String>
+    <s:String x:Key="DeviceAddress">設備地址</s:String>
+    <s:String x:Key="SignalIntensity">信號強弱</s:String>
+    <s:String x:Key="StopSearchingFirst">請先停止搜索設備!</s:String>
+    <s:String x:Key="AtLeastSelectedABluetoothDevice">請選擇藍牙設備!</s:String>
+    <s:String x:Key="ConnectFailed$0$">連接失敗:{0}</s:String>
+    <s:String x:Key="Clarity">清晰度</s:String>
+    <s:String x:Key="MenuItem_ClarityCalibration">清晰度校正</s:String>
+    <s:String x:Key="ClarityMeasurement">清晰度測量</s:String>
+    <s:String x:Key="ClarityCalibrationPrompt">請蓋住'Comp AP',然後將清晰度校準貼到清晰度口'ClarityAP',然後點擊'測量'按鍵</s:String>
+    <s:String x:Key="ClarityCalibrationFailed">請檢查透射口'Trans AP'是否已經打開</s:String>
+    <s:String x:Key="ZeroPercentCalibration">0% 校正</s:String>
+    <s:String x:Key="HundredPercentCalibration">100% 校正</s:String>
+    <s:String x:Key="ZeroPercentCalibrationPrompt">請蓋好0%校準蓋(Zero Calibration)和補償口蓋(Cap for Comp AP)，然後點擊測量按鈕</s:String>
+    <s:String x:Key="HundredPercentCalibrationPrompt">請移走0%校準蓋(Zero Calibration),然後點擊測量按鈕</s:String>
+    <s:String x:Key="MeasureClarityPrompt">請將樣品對準'ClarityAP',然後點擊OK開始測量</s:String>
+    <s:String x:Key="MeasureClarityFailed">測量清晰度失敗:</s:String>
+    <s:String x:Key="SampleReport">樣品報告</s:String>
+    <s:String x:Key="SampleData">樣品數據</s:String>
+    <s:String x:Key="Title_SelectASerialPort">請選擇串口</s:String>
+    <s:String x:Key="Alert_YouNeedToReplugTheUSB">請重新插拔USB</s:String>
+    <s:String x:Key="AutoSaveToLibrary">自動保存到存樣庫</s:String>
+
+    <s:String x:Key="H_TestSetting" x:Uid="H_TestSetting">測量模式設定</s:String>
+    <s:String x:Key="rd_SingleMeasure" x:Uid="rd_SingleMeasure">單次測量</s:String>
+    <s:String x:Key="rd_ContinuousMeasure" x:Uid="rd_ContinuousMeasure">連續測量</s:String>
+    <s:String x:Key="label_Times" x:Uid="rd_SingleMeasure">測量次數</s:String>
+    <s:String x:Key="label_MeasureInterval" x:Uid="rd_ContinuousMeasure">測量間隔</s:String>
+
+    <s:String x:Key="LoadingStandards">正在從儀器載入標準樣品...</s:String>
+    <s:String x:Key="ProgressDialogTitle">正在載入資料</s:String>
+    <s:String x:Key="LoadingStandardsProgress">正在載入標準樣品</s:String>
+    <s:String x:Key="InstrumentCommunicationTimeout">儀器通訊逾時</s:String>
+    <s:String x:Key="InstrumentTimeoutSuggestion">儀器可能已斷開連線或無回應，請檢查連線。</s:String>
+    <s:String x:Key="RetryConnectionQuestion">是否要嘗試重新連線儀器？</s:String>
+    <s:String x:Key="PleaseReconnectManually">請手動重新連線儀器後重試。</s:String>
+
+    <!-- 掃碼 / 雲端 -->
+    <s:String x:Key="MenuItem_CloudSetting">雲端服務配置...</s:String>
+    <s:String x:Key="Title_CloudSetting">Web API 配置</s:String>
+    <s:String x:Key="Label_CloudEnabled">啟用雲端服務</s:String>
+    <s:String x:Key="Label_CloudApiBaseUrl">服務地址：</s:String>
+    <s:String x:Key="Label_CloudUploadPath">上傳路徑：</s:String>
+    <s:String x:Key="Label_CloudApiToken">訪問令牌：</s:String>
+    <s:String x:Key="Label_CloudTimeoutSeconds">逾時(秒)：</s:String>
+    <s:String x:Key="Tip_CloudSetting">配置保存在程式目錄 Cloud\CloudConfig.json。啟用後需填寫完整的服務地址，上傳路徑為相對路徑。</s:String>
+    <s:String x:Key="CloudTimeoutInvalid">逾時時間必須為不小於 5 的整數。</s:String>
+    <s:String x:Key="CloudUploadUrlMissing">啟用雲端服務時，服務地址不能為空。</s:String>
+    <s:String x:Key="MenuItem_ScanBarcode">掃碼輸入...</s:String>
+    <s:String x:Key="Title_ScanBarcode">掃碼輸入</s:String>
+    <s:String x:Key="Label_ScanBarcode">掃碼:</s:String>
+    <s:String x:Key="Tip_ScanBarcodeToolbar">最近一次掃碼結果；按 F6 開啟掃碼視窗</s:String>
+    <s:String x:Key="Tip_ScanBarcodeDialog">請使用掃碼槍掃描條碼（Enter 結束並全選）。需要手動換行請按 Shift+Enter。</s:String>
+    <s:String x:Key="Tip_ScanBarcodeWaiting">等待掃碼...</s:String>
+    <s:String x:Key="ScanBarcodeCapturedHint">已掃碼：{0}</s:String>
+</ResourceDictionary>

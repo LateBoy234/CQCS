@@ -1,0 +1,1387 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    x:Uid="LangResourceDictionary">
+
+    <s:String x:Key="MenuItem_SwitchToStandard" x:Uid="MenuItem_SwitchToStandard">標準サンプルに切り替え</s:String>
+
+    <!--驱动查找提示-->
+    <s:String x:Key="SpreadtrumDriverNotFound">
+        展訊ドライバーのインストールが検出されませんでした。一部の機能が使用できない可能性があります。
+        展訊ドライバーがインストールされていること、そしてバージョンが互換性があることをご確認ください。</s:String>
+    <s:String x:Key="DriverNotFoundTitle">ドライバーが見つかりません</s:String>
+    <s:String x:Key="DownLoadSpreadtrumDriver">このドライバーをダウンロードしますか？</s:String>
+
+    <s:String x:Key="MeasurementCaliber_Phi2" x:Uid="MeasurementCaliber_Phi2">Φ2mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi7" x:Uid="MeasurementCaliber_Phi7">Φ7mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi9" x:Uid="MeasurementCaliber_Phi9">Φ9mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi12" x:Uid="MeasurementCaliber_Phi12">Φ12mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi13" x:Uid="MeasurementCaliber_Phi13">Φ13mm</s:String>
+
+    <!--  语句  -->
+
+    <s:String x:Key="NoUpdates" x:Uid="NoUpdates">すでに最新バージョンで、更新内容はありません</s:String>
+    <s:String x:Key="UpdateConfirmMessage" x:Uid="UpdateConfirmMessage">この新しいバージョンをダウンロードしてもよろしいですか？</s:String>
+    <s:String x:Key="UpdateConfirmTitle" x:Uid="UpdateConfirmTitle">新しいバージョンが利用可能</s:String>
+    <s:String x:Key="DownloadingUpdatePleaseWait" x:Uid="DownloadingUpdatePleaseWait">更新中です、お待ちください......</s:String>
+    <s:String x:Key="CurrentVersionText" x:Uid="CurrentVersionText">現在のバージョンは：</s:String>
+    <s:String x:Key="FileSizeLabel" x:Uid="FileSizeLabel">更新ファイルサイズ：</s:String>
+    <s:String x:Key="NewVersionAvailable" x:Uid="NewVersionAvailable">最新バージョン：</s:String>
+
+    <s:String x:Key="SampleMode" x:Uid="SampleMode">サンプルタイプに切り替え：</s:String>
+    <s:String x:Key="MenuItem_TestModeSetting" x:Uid="MenuItem_TestModeSetting">テストほうしき</s:String>
+    <s:String x:Key="SwitchToReflection" x:Uid="SwitchToReflection">反射</s:String>
+    <s:String x:Key="ConfirmDelAllSpecimensFromInstrument" x:Uid="ConfirmDelAllSpecimensFromInstrument">計器内のすべてのデータを削除しますか？</s:String>
+    <s:String x:Key="DeleteAllSpecimens" x:Uid="DeleteAllSpecimens">すべてのデータを削除する</s:String>
+    <s:String x:Key="ConfirmDelAllTestFromInstrument" x:Uid="ConfirmDelAllTestFromInstrument">計器内のすべてのサンプルデータを削除しますか？</s:String>
+    <s:String x:Key="DeleteAllTests" x:Uid="DeleteAllTests">すべてのサンプルデータを削除する</s:String>
+    <s:String x:Key="ConfirmDelTestInListFromInstrument" x:Uid="ConfirmDelTestInListFromInstrument">リスト内のすべてのサンプルデータを削除しますか？</s:String>
+    <s:String x:Key="Index" x:Uid="Index">インデックス</s:String>
+    <s:String x:Key="Instrument" x:Uid="Instrument">計器</s:String>
+    <s:String x:Key="Material" x:Uid="Material">材料</s:String>
+    <s:String x:Key="SpecularComponent" x:Uid="SpecularComponent">反射鏡コンポーネント</s:String>
+    <s:String x:Key="S_FailToConnectTheInstrument" x:Uid="S_FailToConnectTheInstrument">計器に接続できません</s:String>
+    <s:String x:Key="UV" x:Uid="UV">UV</s:String>
+    <s:String x:Key="DateTime" x:Uid="DateTime">日付 / 時刻</s:String>
+    <s:String x:Key="OldName" x:Uid="OldName">古い名前</s:String>
+    <s:String x:Key="S_Loading" x:Uid="S_Loading">読み込み中です。しばらくお待ちください...</s:String>
+    <s:String x:Key="PleaseInputNewName" x:Uid="PleaseInputNewName">新しい名前を入力してください：</s:String>
+    <s:String x:Key="NameCanNotBeWhitespace" x:Uid="NameCanNotBeWhitespace">名前は省略できません！</s:String>
+    <s:String x:Key="SpecimenNameDuplicated" x:Uid="SpecimenNameDuplicated">サンプル名は既に存在します！</s:String>
+    <s:String x:Key="PleaseInputMaterial" x:Uid="PleaseInputMaterial">材料を入力してください</s:String>
+    <s:String x:Key="ConnectedTo" x:Uid="ConnectedTo">接続先：</s:String>
+    <s:String x:Key="Disconnected" x:Uid="Disconnected">切断されています</s:String>
+    <s:String x:Key="Ready" x:Uid="Ready">準備完了</s:String>
+    <s:String x:Key="FileFilter" x:Uid="FileFilter">Xml File|*.xml|QTX File(*.QTX)|*.QTX</s:String>
+    <s:String x:Key="ExportFileFilter" x:Uid="ExportFileFilter">Excel Workbook(*.xlsx)|*.xlsx|Text(*.txt)|*.txt</s:String>
+    <s:String x:Key="ExcelFileFilter" x:Uid="ExcelFileFilter">Excel Workbook(*.xlsx)|*.xlsx</s:String>
+    <s:String x:Key="WhiteCalibrationPrompt" x:Uid="WhiteCalibrationPrompt">測定アパーチャをホワイトボードに合わせてください...</s:String>
+    <s:String x:Key="BlackCalibrationPrompt" x:Uid="BlackCalibrationPrompt">測定開口をブラックボードに合わせてください...</s:String>
+    <s:String x:Key="CalibrationCompleted" x:Uid="CalibrationCompleted">較正が完了しました</s:String>
+    <s:String x:Key="Calibration" x:Uid="Calibration">較正</s:String>
+    <s:String x:Key="WhiteCalibrationFailed" x:Uid="WhiteCalibrationFailed">ホワイトキャリブレーションが失敗しました</s:String>
+    <s:String x:Key="BlackCalibrationFailed" x:Uid="BlackCalibrationFailed">ブラックキャリブレーションが失敗しました</s:String>
+    <s:String x:Key="NoCurrentStandard" x:Uid="NoCurrentStandard">最新標準なし</s:String>
+    <s:String x:Key="Horizontal" x:Uid="Horizontal">水平</s:String>
+    <s:String x:Key="Vertical" x:Uid="Vertical">垂直</s:String>
+    <s:String x:Key="Wrap" x:Uid="Wrap">ラップ</s:String>
+    <s:String x:Key="PleaseSelectedAStandard" x:Uid="PleaseSelectedAStandard">標準を選択してください</s:String>
+    <s:String x:Key="TheStandardHasNoTests" x:Uid="TheStandardHasNoTests">サンプルがありません</s:String>
+    <s:String x:Key="ColorDiffReport" x:Uid="ColorDiffReport">色差レポート</s:String>
+    <s:String x:Key="ColorDiffCumulative" x:Uid="ColorDiffCumulative">色差累積レポート</s:String>
+    <s:String x:Key="StatisticsResult" x:Uid="StatisticsResult">統計結果</s:String>
+    <s:String x:Key="PleaseDisconnect" x:Uid="PleaseDisconnect">最初に接続を切り離してください</s:String>
+    <s:String x:Key="ConnectionSuccessful" x:Uid="ConnectionSuccessful">接続成功</s:String>
+    <s:String x:Key="NoStandard" x:Uid="NoStandard">標準が選択されていません。</s:String>
+    <s:String x:Key="Standard has written into instrument" x:Uid="Standard has written into instrument">標準は既に計器に書き込まれています</s:String>
+    <s:String x:Key="Standard" x:Uid="Standard">標準</s:String>
+    <s:String x:Key="Min" x:Uid="Min">分</s:String>
+    <s:String x:Key="Max" x:Uid="Max">最大</s:String>
+    <s:String x:Key="Range" x:Uid="Range">範囲</s:String>
+    <s:String x:Key="Mean" x:Uid="Mean">平均</s:String>
+    <s:String x:Key="StdDev" x:Uid="StdDev">標準偏差</s:String>
+    <s:String x:Key="PrecentOfPass" x:Uid="PrecentOfPass">合格比率（%）</s:String>
+    <s:String x:Key="ColorIndexes" x:Uid="ColorIndexes">カラーインデックス</s:String>
+    <s:String x:Key="Test" x:Uid="Test">サンプル</s:String>
+    <s:String x:Key="ColorDiff" x:Uid="ColorDiff">色差</s:String>
+    <s:String x:Key="Judgement" x:Uid="Judgement">判定</s:String>
+    <s:String x:Key="TotalJudgement" x:Uid="TotalJudgement">総合判定</s:String>
+    <s:String x:Key="SampleInfo" x:Uid="SampleInfo">検体情報</s:String>
+    <s:String x:Key="Name" x:Uid="Name">名前</s:String>
+    <s:String x:Key="MeasurementCondition" x:Uid="MeasurementCondition">状態</s:String>
+    <s:String x:Key="MeasurementDateTime" x:Uid="MeasurementDateTime">日付 / 時刻</s:String>
+    <s:String x:Key="ChromaticityIndexes" x:Uid="ChromaticityIndexes">色度インデックス</s:String>
+    <s:String x:Key="Tolerance" x:Uid="Tolerance">許容値</s:String>
+    <s:String x:Key="Test__" x:Uid="Test__">試験:______________</s:String>
+    <s:String x:Key="Audit__" x:Uid="Audit__">監査:______________</s:String>
+    <s:String x:Key="Underline__" x:Uid="Underline__">______________</s:String>
+    <s:String x:Key="TestColorDiff" x:Uid="TestColorDiff">色差</s:String>
+    <s:String x:Key="SpecifyFieldsToExport" x:Uid="SpecifyFieldsToExport">エクスポートするフィールドを指定してください</s:String>
+    <s:String x:Key="InstrumentModel" x:Uid="InstrumentModel">計器型式</s:String>
+    <s:String x:Key="OpenExcelFailed" x:Uid="OpenExcelFailed">Excelを開くのに失敗しました</s:String>
+    <s:String x:Key="SomethingWrongOnExcel" x:Uid="SomethingWrongOnExcel">Excelが正常に作動しません：</s:String>
+    <s:String x:Key="Delete" x:Uid="Delete">削除</s:String>
+    <s:String x:Key="Store" x:Uid="Store">保存</s:String>
+    <s:String x:Key="AverageMeasure" x:Uid="AverageMeasure">平均測定</s:String>
+    <s:String x:Key="EndAverageMeasure" x:Uid="EndAverageMeasure">平均測定を終了する</s:String>
+    <s:String x:Key="Standard_SCI" x:Uid="Standard_SCI">標準（SCI）</s:String>
+    <s:String x:Key="Standard_SCE" x:Uid="Standard_SCE">標準（SCE）</s:String>
+    <s:String x:Key="Test_SCI" x:Uid="Test_SCI">サンプル（SCI）</s:String>
+    <s:String x:Key="Test_SCE" x:Uid="Test_SCE">サンプル（SCE）</s:String>
+    <s:String x:Key="StanardRulesInvalid" x:Uid="StanardRulesInvalid">標準の自動命名規則が無効です</s:String>
+    <s:String x:Key="TestRulesInvalid" x:Uid="TestRulesInvalid">サンプルの自動命名規則が無効です</s:String>
+    <s:String x:Key="PleaseSelectAStandard" x:Uid="PleaseSelectAStandard">標準を選択してください</s:String>
+    <s:String x:Key="PromatSaveToleranceChanges" x:Uid="PromatSaveToleranceChanges">do you want to save changes?&amp;quot;&quot;</s:String>
+    <s:String x:Key="StandardAdventureMeasure" x:Uid="StandardAdventureMeasure">標準のアドバンス測定...</s:String>
+    <s:String x:Key="TestAdventureMeasure" x:Uid="TestAdventureMeasure">サンプルのアドバンス測定...</s:String>
+    <s:String x:Key="PleaseInputSciData" x:Uid="PleaseInputSciData">SCIデータを入力してください</s:String>
+    <s:String x:Key="PleaseInputSceData" x:Uid="PleaseInputSceData">SCEデータを入力してください</s:String>
+    <s:String x:Key="LanugageChangedYouNeedRestart" x:Uid="LanugageChangedYouNeedRestart">you have to restart the program to take effect. Would you like to restart now?&quot;</s:String>
+    <s:String x:Key="ToConfirmSaveFile" x:Uid="ToConfirmSaveFile">would you like to save it?&quot;</s:String>
+    <s:String x:Key="PleaseInputName" x:Uid="PleaseInputName">名前を入力してください。</s:String>
+    <s:String x:Key="PleaseInputInnerNumber" x:Uid="PleaseInputInnerNumber">内部番号を入力してください。</s:String>
+    <s:String x:Key="PleaseInputExternalNumber" x:Uid="PleaseInputExternalNumber">外部番号を入力してください。</s:String>
+    <s:String x:Key="PleaseInputReflectance" x:Uid="PleaseInputReflectance">反射率を入力してください</s:String>
+    <s:String x:Key="TheReflectanceMustBeNumerics" x:Uid="TheReflectanceMustBeNumerics">反射率は数値でなければなりません</s:String>
+    <s:String x:Key="MeasurementAbnormalPleaseCalibrate" x:Uid="MeasurementAbnormalPleaseCalibrate">測定異常！計器を校正してください！</s:String>
+    <s:String x:Key="TheLowerMustBeLessThanTheUpper" x:Uid="TheLowerMustBeLessThanTheUpper">下限は上限を下回らなければなりません！</s:String>
+    <s:String x:Key="Writing standard into instrument..." x:Uid="WritingStandardIntoInstrument">
+        標準を楽器に書く
+    </s:String>
+    <s:String x:Key="All standards has been written into instrument">
+        すべての規格はinstrumentに書かれています
+    </s:String>
+    <s:String x:Key="TransmissionBlackCalibrationPrompt" x:Uid="TransmissionBlackCalibrationPrompt">
+        Place  the black bezel in the transmissive measurement position, then click &quot;OK&quot;.
+    </s:String>
+    <s:String x:Key="TransmissionWhiteCalibrationPrompt" x:Uid="TransmissionWhiteCalibrationPrompt">
+        Remove the black bezel from the transmissive measurement position and place the empty transparent container or leave nothing, then click &quot;OK&quot;.
+    </s:String>
+    <s:String x:Key="HazeMeasurement" x:Uid="HazeMeasurement">
+        ヘイズ測定
+    </s:String>
+    <s:String x:Key="Step2MeasureIncidentLight" x:Uid="Step2MeasureIncidentLight">
+        Step 2/2: Measure Incident Light
+    </s:String>
+    <s:String x:Key="Measure" x:Uid="Measure">Measure</s:String>
+    <s:String x:Key="PutReflectanceStandardInPosition" x:Uid="PutReflectanceStandardInPosition">
+        「白板を反射測定位置に置き、透過測定位置は空けてください。」.
+    </s:String>
+    <s:String x:Key="Step1MeasureLightScatteredByInstrument" x:Uid="Step1MeasureLightScatteredByInstrument">
+        Step 1/2: Measure Light Scattered by instrument
+    </s:String>
+    <s:String x:Key="PutLightTrapInPosition" x:Uid="PutLightTrapInPosition">
+        「ライトトラップを反射測定位置に置き、透過測定位置は空けてください。」
+    </s:String>
+    <s:String x:Key="Step2MeasureTotalLightTransmittedBySpecimen" x:Uid="Step2MeasureTotalLightTransmittedBySpecimen">
+        Step 2/2: Measure Total Light Transmitted by Specimen
+    </s:String>
+    <s:String x:Key="PutSpecimenAndReflectanceInPosition" x:Uid="PutSpecimenAndReflectanceInPosition">
+        「試料を透過測定位置に置き、白板を反射測定位置に置いてください。」.
+    </s:String>
+    <s:String x:Key="Step1MeasureLightScatteredByInstrumentAndSpecimen" x:Uid="Step1MeasureLightScatteredByInstrumentAndSpecimen">
+        Step 1/2: Measure Light Scattered by Instrument and Specimen
+    </s:String>
+    <s:String x:Key="PutSpecimenAndLightTrapInPosition" x:Uid="PutSpecimenAndLightTrapInPosition">
+        「試料を透過測定位置に置き、ライトトラップを反射測定位置に置いてください。」.
+    </s:String>
+    <s:String x:Key="MeasureHazeReference" x:Uid="MeasureHazeReference">
+        「ヘイズ基準を測定してください。」
+    </s:String>
+    <s:String x:Key="MeasureHaze" x:Uid="MeasureHaze">
+        「ヘイズを測定してください。」
+    </s:String>
+    <s:String x:Key="PleaseInputNumber" x:Uid="PleaseInputNumber">
+        「数字を入力してください。」
+    </s:String>
+    <s:String x:Key="Absorbance" x:Uid="Absorbance">「吸光度」</s:String>
+    <!--  格式化字符串  -->
+    <s:String x:Key="Format_GetDeviceInfoFailed_0" x:Uid="Format_GetDeviceInfoFailed_0">デバイス情報を取得できませんでした：{0}</s:String>
+    <s:String x:Key="InstrumentModel_0" x:Uid="InstrumentModel_0">計器型式: {0}</s:String>
+    <s:String x:Key="Total_0_Pass_1_PrecentOfPass_2" x:Uid="Total_0_Pass_1_PrecentOfPass_2">Pass {1}</s:String>
+    <s:String x:Key="UploadingStandardXN" x:Uid="UploadingStandardXN">標準のアップロード：{0}/{1}</s:String>
+    <s:String x:Key="UploadingTestXN" x:Uid="UploadingTestXN">サンプルのアップロード：{0}/{1}</s:String>
+    <s:String x:Key="UploadingTheSamplesOfX" x:Uid="UploadingTheSamplesOfX">{0}のサンプルをアップロード中...</s:String>
+    <s:String x:Key="ConnectionFailed_0" x:Uid="ConnectionFailed_0">接続に失敗しました：{0}</s:String>
+    <s:String x:Key="ConnectFailed_0" x:Uid="ConnectFailed_0">接続に失敗しました：{0}</s:String>
+    <s:String x:Key="RefereshInstrumentInfoFailed_0" x:Uid="RefereshInstrumentInfoFailed_0">デバイス情報を取得できませんでした：{0}</s:String>
+    <s:String x:Key="CalibrationInstrumentInfoConfirm_0_1" x:Uid="CalibrationInstrumentInfoConfirm_0_1">Measurement aperture is {1}. Enter the &amp;apos;OK&amp;apos; to continue</s:String>
+    <s:String x:Key="Show_0" x:Uid="Show_0">表示 {0}</s:String>
+    <s:String x:Key="Format_UnhandledException_0_1" x:Uid="Format_UnhandledException_0_1">the application will exit. Exception: {0} Detail: {1}&quot;</s:String>
+    <s:String x:Key="ReflectanceMusetBeBetween0And_0" x:Uid="ReflectanceMusetBeBetween0And_0">反射率は0と{0}の間でなければなりません。</s:String>
+    <s:String x:Key="X_MustBeNumeric" x:Uid="X_MustBeNumeric">{0}は数値でなければなりません。</s:String>
+    <s:String x:Key="X_MustBeGreaterOrEqual_Y" x:Uid="X_MustBeGreaterOrEqual_Y">{0}は{1}以上でなければなりません。</s:String>
+    <s:String x:Key="TheUpperOf_0_MustGreaterThanZero" x:Uid="TheUpperOf_0_MustGreaterThanZero">'{0}'の上限は0より大きくなければなりません！</s:String>
+    <s:String x:Key="HasMeasured_0" x:Uid="HasMeasured_0">測定済み：{0}</s:String>
+    <s:String x:Key="NoMatchAnyStandard" x:Uid="NoMatchAnyStandard">「一致する標準がありません。」.</s:String>
+    <s:String x:Key="PleaseInputLibraryName" x:Uid="PleaseInputName">名前を入力してください。</s:String>
+    <s:String x:Key="LibNameContInvalChars" x:Uid="LibNameContInvalChars">ライブラリ名に無効な文字が含まれています</s:String>
+    <s:String x:Key="LibAlreadExist" x:Uid="LibAlreadExist">このライブラリは既に存在しています.</s:String>
+    <s:String x:Key="CreateLibSuccess" x:Uid="CreateLibSuccess">ライブラリが作成されました.</s:String>
+    <s:String x:Key="PleaseSetCurrentLibrary" x:Uid="PleaseSetCurrentLibrary">まずライブラリを現在（アクティブ）として選択してください.</s:String>
+    <s:String x:Key="PleaseSelectDisplayedItems" x:Uid="PleaseSelectDisplayedItems">表示項目を選択してください.</s:String>
+    <s:String x:Key="LibraryFileFilter" x:Uid="LibraryFileFilter">SQCX File(*.xml)|*.xml|QTX File(*.QTX)|*.QTX|Excel File(*.xlsx)|*.xlsx</s:String>
+    <s:String x:Key="ImportStandardFileFilter" x:Uid="ImportStandardFileFilter">SQCX File(*.xml)|*.xml|QTX File(*.QTX)|*.QTX</s:String>
+    <s:String x:Key="LoadFileFailed" x:Uid="LoadFileFailed">ファイルの読み込みに失敗しました</s:String>
+    <s:String x:Key="FileTypeNotSupported" x:Uid="FileTypeNotSupported">指定されたファイルタイプはサポートされていません</s:String>
+    <s:String x:Key="AddNSamplesInTotal" x:Uid="AddNSamplesInTotal">合計: {0}</s:String>
+
+    <!-- {0}件追加、{1}件置換{ -->
+    <s:String x:Key="AddNReplacedMSamples" x:Uid="AddNReplacedMSamples">{0}件追加、{1}件置換</s:String>
+
+    <!-- {0}件追加、{1}件スキップ -->
+    <s:String x:Key="AddNJumpedMSamples" x:Uid="AddNJumpedMSamples">{0}件追加、{1}件スキップ</s:String>
+    <s:String x:Key="Format_ConfirmDeleteLibrary_0" x:Uid="Format_ConfirmDeleteLibrary">
+        削除すると復元できません。本当にライブラリを削除してもよろしいですか '{0}'?
+    </s:String>
+    <s:String x:Key="Format_DeleteLibrary_0" x:Uid="Format_DeleteLibrary_0">
+        Delete &quot;{0}&quot;
+    </s:String>
+    <s:String x:Key="LibraryNameConflicts" x:Uid="LibraryNameIsConflicts">
+        ライブラリ名が重複しています!
+    </s:String>
+    <s:String x:Key="PromptConfirmDeleteSampleInLibrary" x:Uid="PromptConfirmDeleteSampleInLibrary">
+        削除したサンプルは復元できません。選択したサンプルを本当に削除してもよろしいですか?
+    </s:String>
+    <s:String x:Key="PromptNameCantEmpty" x:Uid="PromptNameCantEmpty">
+        名前を空にすることはできません!
+    </s:String>
+    <s:String x:Key="PleaseSelectASheet" x:Uid="PleaseSelectASheet">シートを選択してください.</s:String>
+    <s:String x:Key="PleaseSelectStartRow" x:Uid="PleaseSelectStartRow">開始行を選択してください</s:String>
+    <s:String x:Key="PleaseTheStartColumnOfXYZOrSpectrum" x:Uid="PleaseTheStartColumnOfXYZOrSpectrum">
+        XYZ、スペクトル、またはLabデータの開始列を選択してください.
+    </s:String>
+    <s:String x:Key="PleaseTheOpticalStructure" x:Uid="PleaseTheOpticalStructure">
+        測定光学系を選択してください
+    </s:String>
+    <s:String x:Key="TheOperationIsNotSupported" x:Uid="TheOperationIsNotSupported">
+        この操作はサポートされていません.
+    </s:String>
+    <s:String x:Key="Deleting" x:Uid="Deleting">
+        削除中...
+    </s:String>
+    <s:String x:Key="Measuring" x:Uid="Measuring">
+        測定中...
+    </s:String>
+    <s:String x:Key="Measuring_m_n" x:Uid="Measuring_m_n">
+        Measuring: {0}/{1}
+    </s:String>
+    <s:String x:Key="Measured_m_n" x:Uid="Measured_m_n">
+        Measured: {0}/{1}
+    </s:String>
+    <s:String x:Key="UnknownError" x:Uid="UnknownError">
+        不明なエラー
+    </s:String>
+    <s:String x:Key="DeviceNotFound" x:Uid="DeviceNotFound">
+        デバイスが見つかりません
+    </s:String>
+    <s:String x:Key="DeviceNotOpen" x:Uid="DeviceNotOpen">
+        デバイスが開かれていません
+    </s:String>
+    <s:String x:Key="DeviceHasOpened" x:Uid="">
+        デバイスは既に開かれています
+    </s:String>
+    <s:String x:Key="DeviceOpenFailed" x:Uid="DeviceOpenFailed">
+        デバイスのオープンに失敗しました
+    </s:String>
+    <s:String x:Key="DeviceBusy" x:Uid="DeviceBusy">
+        デバイスがビジーです
+    </s:String>
+    <s:String x:Key="DeviceDisconnected" x:Uid="DeviceDisconnected">
+        デバイスが切断されました
+    </s:String>
+    <s:String x:Key="InvalidCommand" x:Uid="InvalidCommand">
+        無効なコマンドです
+    </s:String>
+    <s:String x:Key="InvalidParameter" x:Uid="InvalidParameter">
+        無効なパラメータです
+    </s:String>
+    <s:String x:Key="ReceivingTimeout" x:Uid="ReceivingTimeout">
+        受信タイムアウト
+    </s:String>
+    <s:String x:Key="WritingTimeout" x:Uid="WritingTimeout">
+        送信タイムアウト
+    </s:String>
+    <s:String x:Key="NotSupported" x:Uid="NotSupported">
+        サポートされていません
+    </s:String>
+    <s:String x:Key="ParsedBadCommand" x:Uid="ParsedBadCommand">
+        コマンドの解析エラー
+    </s:String>
+    <s:String x:Key="ParsedBadData" x:Uid="ParsedBadData">
+        データの解析エラー
+    </s:String>
+    <s:String x:Key="ParsedBadCheckSum" x:Uid="ParsedBadCheckSum">
+        チェックサムエラー
+    </s:String>
+    <s:String x:Key="ExecuteCommandFailed" x:Uid="ExecuteCommandFailed">
+        コマンド実行に失敗しました
+    </s:String>
+    <s:String x:Key="CalibrationExpired" x:Uid="CalibrationExpired">
+        キャリブレーションの有効期限が切れています
+    </s:String>
+    <s:String x:Key="CalibrationFailed" x:Uid="CalibrationFailed">
+        キャリブレーションに失敗しました
+    </s:String>
+    <s:String x:Key="MeasurementAbnormal" x:Uid="MeasurementAbnormal">
+        測定が異常です
+    </s:String>
+    <s:String x:Key="AccessDenied" x:Uid="AccessDenied">
+        アクセスが拒否されました
+    </s:String>
+    <s:String x:Key="SystemException" x:Uid="SystemException">
+        システム例外が発生しました
+    </s:String>
+    <s:String x:Key="ReplaceInLocal" x:Uid="ReplaceInLocal">
+        ローカルで置き換える
+    </s:String>
+    <s:String x:Key="UploadAborted" x:Uid="UploadAborted">
+        アップロードが中止されました
+    </s:String>
+    <s:String x:Key="FileHasBeenRemoved" x:Uid="FileHasBeenRemoved">
+        ファイルは削除されました
+    </s:String>
+    <s:String x:Key="ObserverAndIlluminantSettingMustBeDeference" x:Uid="ObserverAndIlluminantSettingMustBeDeference">
+        光源・視野角は異なる必要があります
+    </s:String>
+    <s:String x:Key="ConfirmLoadUnsavedFile" x:Uid="ConfirmLoadUnsavedFile">
+        アプリケーションが異常終了した際に保存されていないファイルが検出されました。読み込みますか？
+    </s:String>
+    <s:String x:Key="DataFormatError" x:Uid="DataFormatError">
+        データフォーマットエラー
+    </s:String>
+    <s:String x:Key="WriteWhiteBoardParameterCompleted" x:Uid="WriteWhiteBoardParameterCompleted">
+        白板パラメータの設定が完了しました
+    </s:String>
+    <!--  菜单项  -->
+    <s:String x:Key="MenuItem_New" x:Uid="MenuItem_New">新規</s:String>
+    <s:String x:Key="MenuItem_Open" x:Uid="MenuItem_Open">開く...</s:String>
+    <s:String x:Key="MenuItem_Save" x:Uid="MenuItem_Save">保存</s:String>
+    <s:String x:Key="MenuItem_SaveAs" x:Uid="MenuItem_SaveAs">名前を付けて保存...</s:String>
+    <s:String x:Key="MenuItem_Print" x:Uid="MenuItem_Print">印刷...</s:String>
+    <s:String x:Key="MenuItem_PrintPreview" x:Uid="MenuItem_PrintPreview">印刷プレビュー...</s:String>
+    <s:String x:Key="MenuItem_Exit" x:Uid="MenuItem_Exit">終了</s:String>
+    <s:String x:Key="MenuItem_Edit" x:Uid="MenuItem_Edit">編集</s:String>
+    <s:String x:Key="MenuItem_AutoNaming" x:Uid="MenuItem_AutoNaming">自動命名</s:String>
+    <s:String x:Key="MenuItem_ExportAll" x:Uid="MenuItem_ExportAll">すべてエクスポートする...</s:String>
+    <s:String x:Key="MenuItem_PrinterSetup" x:Uid="MenuItem_PrinterSetup">印刷設定...</s:String>
+    <s:String x:Key="MenuItem_SetAutoNamingRules" x:Uid="MenuItem_SetAutoNamingRules">自動命名規則を設定する...</s:String>
+    <s:String x:Key="MenuItem_Rename" x:Uid="MenuItem_Rename">名前の変更...</s:String>
+    <s:String x:Key="MenuItem_ModifyMaterial" x:Uid="MenuItem_ModifyMaterial">材料の修正...</s:String>
+    <s:String x:Key="MenuItem_Delete" x:Uid="MenuItem_Delete">削除</s:String>
+    <s:String x:Key="MenuItem_Instrument" x:Uid="MenuItem_Instrument">計器</s:String>
+    <s:String x:Key="MenuItem_ConnectionMethod" x:Uid="MenuItem_ConnectionMethod">接続方法</s:String>
+    <s:String x:Key="MenuItem_Connect" x:Uid="MenuItem_Connect">接続する</s:String>
+    <s:String x:Key="MenuItem_Disconnect" x:Uid="MenuItem_Disconnect">切断する</s:String>
+    <s:String x:Key="MenuItem_InstrumentStatus" x:Uid="MenuItem_InstrumentStatus">計器ステータス</s:String>
+    <s:String x:Key="MenuItem_ConnectByUsb" x:Uid="MenuItem_ConnectByUsb">USB接続</s:String>
+    <s:String x:Key="MenuItem_ConnectByBluetooth" x:Uid="MenuItem_ConnectByBluetooth">Bluetooth接続</s:String>
+    <s:String x:Key="MenuItem_InstrumentType" x:Uid="MenuItem_InstrumentType">装置の種類</s:String>
+    <s:String x:Key="MenuItem_LedSpectrometer" x:Uid="MenuItem_LedSpectrometer">NS分光光度計シリーズ</s:String>
+    <s:String x:Key="MenuItem_GratingSpectrometer" x:Uid="MenuItem_GratingSpectrometer">YS分光光度計シリーズ</s:String>
+    <s:String x:Key="MenuItem_DoCalibration" x:Uid="MenuItem_DoCalibration">較正...</s:String>
+    <s:String x:Key="MenuItem_MeasureStandard" x:Uid="MenuItem_MeasureStandard">基準を測定する</s:String>
+    <s:String x:Key="MenuItem_MeasureTest" x:Uid="MenuItem_MeasureTest">サンプルを測定する</s:String>
+    <s:String x:Key="MenuItem_AdventureStandardMeasurement" x:Uid="MenuItem_AdventureStandardMeasurement">標準のアドバンス測定</s:String>
+    <s:String x:Key="MenuItem_AdventureTestMeasurement" x:Uid="MenuItem_AdventureTestMeasurement">サンプルのアドバンス測定</s:String>
+    <s:String x:Key="MenuItem_WriteStandardToInstrument" x:Uid="MenuItem_WriteStandardToInstrument">標準を機器に書き込む</s:String>
+    <s:String x:Key="MenuItem_InstrumentConfiguration" x:Uid="MenuItem_InstrumentConfiguration">計器の構成</s:String>
+    <s:String x:Key="MenuItem_Data" x:Uid="MenuItem_Data">データ</s:String>
+    <s:String x:Key="MenuItem_ObserverAndIlluminant" x:Uid="MenuItem_ObserverAndIlluminant">標準オブザーバーとイルミナント...</s:String>
+    <s:String x:Key="MenuItem_ChromaticitySetting" x:Uid="MenuItem_ChromaticitySetting">データアイテムの設定</s:String>
+    <s:String x:Key="MenuItem_ToleranceSetting" x:Uid="MenuItem_ToleranceSetting">システム許容値の設定</s:String>
+    <s:String x:Key="MenuItem_InstrumentDataManagement" x:Uid="MenuItem_InstrumentDataManagement">計器データ管理</s:String>
+    <s:String x:Key="MenuItem_InputStandard" x:Uid="MenuItem_InputStandard">標準を入力する...</s:String>
+    <s:String x:Key="MenuItem_ExportOneNMIntervalSpectrum" x:Uid="MenuItem_ExportOneNMIntervalSpectrum">1 nm 間隔のスペクトルをエクスポートしてください</s:String>
+    <s:String x:Key="MenuItem_ExportFiveNMIntervalSpectrum" x:Uid="MenuItem_ExportFiveNMIntervalSpectrum">5nm 間隔のスペクトルをエクスポートしてください</s:String>
+    <s:String x:Key="MenuItem_Help" x:Uid="MenuItem_Help">ヘルプ</s:String>
+    <s:String x:Key="MenuItem_UserManual" x:Uid="MenuItem_UserManual">取扱説明書...</s:String>
+    <s:String x:Key="MenuItem_About" x:Uid="MenuItem_About">約</s:String>
+    <s:String x:Key="MenuItem_ImportSelectedStandards" x:Uid="MenuItem_ImportSelectedStandards">選択した標準をインポートする...</s:String>
+    <s:String x:Key="MenuItem_ImportSelectedStandardsWithTests" x:Uid="MenuItem_ImportSelectedStandardsWithTests">サンプルと共に選択した標準をインポートする...</s:String>
+    <s:String x:Key="MenuItem_ImportAllStandards" x:Uid="MenuItem_ImportAllStandards">すべての標準をインポートする</s:String>
+    <s:String x:Key="MenuItem_ImportAllStandardsWithTests" x:Uid="MenuItem_ImportAllStandardsWithTests">サンプルと共にすべての標準をインポートする...</s:String>
+    <s:String x:Key="MenuItem_ImportSelectedTests" x:Uid="MenuItem_ImportSelectedTests">選択したサンプルをインポートする...</s:String>
+    <s:String x:Key="MenuItem_ImportAllTests" x:Uid="MenuItem_ImportAllTests">すべてのサンプルをインポートする...</s:String>
+    <s:String x:Key="MenuItem_ExportSelectedStandards" x:Uid="MenuItem_ExportSelectedStandards">選択した標準をエクスポートする...</s:String>
+    <s:String x:Key="MenuItem_ExportSelectedStandardsWithTests" x:Uid="MenuItem_ExportSelectedStandardsWithTests">サンプルと共に選択した標準をエクスポートする...</s:String>
+    <s:String x:Key="MenuItem_ExportAllStandards" x:Uid="MenuItem_ExportAllStandards">すべての標準をエクスポートする...</s:String>
+    <s:String x:Key="MenuItem_ExportAllStandardsWithTests" x:Uid="MenuItem_ExportAllStandardsWithTests">サンプルと共にすべての標準をエクスポートする...</s:String>
+    <s:String x:Key="MenuItem_ExportSelectedTests" x:Uid="MenuItem_ExportSelectedTests">選択したサンプルをエクスポートする...</s:String>
+    <s:String x:Key="MenuItem_ExportAllTests" x:Uid="MenuItem_ExportAllTests">すべてのサンプルをエクスポートする...</s:String>
+    <s:String x:Key="MenuItem_DeleteAllSamples" x:Uid="MenuItem_DeleteAllSamples">計器内のすべての標準とサンプルを削除する</s:String>
+    <s:String x:Key="MenuItem_DeleteTestsInList" x:Uid="MenuItem_DeleteTestsInList">リスト内の対応するサンプルを削除する</s:String>
+    <s:String x:Key="MenuItem_DeleteAllTests" x:Uid="MenuItem_DeleteAllTests">計器内のすべてのサンプルを削除する</s:String>
+    <s:String x:Key="MenuItem_UploadAllSamples" x:Uid="MenuItem_UploadAllSamples">すべての標準とサンプルをアップロードする</s:String>
+    <s:String x:Key="MenuItem_Setting" x:Uid="MenuItem_Setting">設定</s:String>
+    <s:String x:Key="MenuItem_Languages" x:Uid="MenuItem_Languages">言語</s:String>
+    <s:String x:Key="MenuItem_WhitenessIndex" x:Uid="MenuItem_WhitenessIndex">白色度指数...</s:String>
+    <s:String x:Key="MenuItem_YellownessIndex" x:Uid="MenuItem_YellownessIndex">黄色度指数...</s:String>
+    <s:String x:Key="MenuItem_FastnessIndex" x:Uid="MenuItem_FastnessIndex">堅牢度指数...</s:String>
+    <s:String x:Key="MenuItem_StrengthIndex" x:Uid="MenuItem_StrengthIndex">強度指数...</s:String>
+    <s:String x:Key="MenuItem_MetamericIndex" x:Uid="MenuItem_MetamericIndex">メタメリック指数...</s:String>
+    <s:String x:Key="MenuItem_Opacity" x:Uid="MenuItem_Opacity">不透明度...</s:String>
+    <s:String x:Key="MenuItem_StandardToleranceSetting" x:Uid="MenuItem_StandardToleranceSetting">標準許容差の設定...</s:String>
+    <s:String x:Key="MenuItem_DeleteTests" x:Uid="MenuItem_DeleteTests">サンプルを削除する</s:String>
+    <s:String x:Key="MenuItem_StandardChromaticitySetting" x:Uid="MenuItem_StandardChromaticitySetting">設定を表示する</s:String>
+    <s:String x:Key="MenuItem_SetAsCurrentStandard" x:Uid="MenuItem_SetAsCurrentStandard">最新標準として設定する</s:String>
+    <s:String x:Key="MenuItem_ExportSelected" x:Uid="MenuItem_ExportSelected">選択したものをエクスポートする...</s:String>
+    <s:String x:Key="MenuItem_ExportSelectedWithTests" x:Uid="MenuItem_ExportSelectedWithTests">サンプルと共に選択した標準をエクスポートする...</s:String>
+    <s:String x:Key="MenuItem_MoveToStandard" x:Uid="MenuItem_MoveToStandard">標準グループに移動</s:String>
+    <s:String x:Key="MenuItem_ChangeStandard" x:Uid="MenuItem_ChangeStandard">関連標準を変更する</s:String>
+    <s:String x:Key="MenuItem_DeleteSpeciment" x:Uid="MenuItem_DeleteSpeciment">削除</s:String>
+    <s:String x:Key="MenuItem_File" x:Uid="MenuItem_File">ファイル</s:String>
+    <s:String x:Key="MenuItem_Index" x:Uid="MenuItem_Index">インデックス</s:String>
+    <s:String x:Key="MenuItem_InstrumentModel" x:Uid="MenuItem_InstrumentModel">計器型式</s:String>
+    <s:String x:Key="MenuItem_Material" x:Uid="MenuItem_Material">材料</s:String>
+    <s:String x:Key="MenuItem_SpecularComponent" x:Uid="MenuItem_SpecularComponent">反射鏡コンポーネント</s:String>
+    <s:String x:Key="MenuItem_UV" x:Uid="MenuItem_UV">UV</s:String>
+    <s:String x:Key="MenuItem_DateTime" x:Uid="MenuItem_DateTime">日付 / 時刻</s:String>
+    <s:String x:Key="MenuItem_OldName" x:Uid="MenuItem_OldName">古い名前</s:String>
+    <s:String x:Key="MenuItem_PrintToWord" x:Uid="MenuItem_PrintToWord">Wordに印刷する</s:String>
+    <s:String x:Key="MenuItem_PrintToPDF" x:Uid="MenuItem_PrintToWord">PDFに印刷</s:String>
+    <s:String x:Key="MenuItem_ReportSetting" x:Uid="MenuItem_ReportSetting">レポートの設定...</s:String>
+    <s:String x:Key="MenuItem_WhiteBoardParameterSetting" x:Uid="MenuItem_WhiteBoardParameterSetting">ホワイトボードパラメータの設定...</s:String>
+    <s:String x:Key="MenuItem_Measurement" x:Uid="MenuItem_Measurement">測定</s:String>
+    <s:String x:Key="MenuItem_ConnectToSerialPort" x:Uid="MenuItem_ConnectToSerialPort">シリアルポートに接続する</s:String>
+    <s:String x:Key="MenuItem_AutoSelectStandard" x:Uid="MenuItem_AutoSelectStandard">標準を自動選択する</s:String>
+    <s:String x:Key="MenuItem_AutoSelectStandardSetting" x:Uid="MenuItem_AutoSelectStandardSetting">標準の設定を自動選択する...</s:String>
+    <s:String x:Key="MenuItem_AutoMatchStandard" x:Uid="MenuItem_AutoMatchStandard">標準をオートマッチする</s:String>
+    <s:String x:Key="MenuItem_GotoStandard" x:Uid="MenuItem_GotoStandard">標準へ進む</s:String>
+    <s:String x:Key="MenuItem_ShowAssociatedTests" x:Uid="MenuItem_ShowAssociatedTests">関連サンプルを表示する</s:String>
+    <s:String x:Key="MenuItem_CopyToTest" x:Uid="MenuItem_CopyToTest">サンプルグループにコピー</s:String>
+    <s:String x:Key="MenuItem_CopyToUnderAStandard" x:Uid="MenuItem_CopyToUnderAStandard">他の標準にコピー</s:String>
+    <s:String x:Key="MenuItem_LibraryManagement" x:Uid="MenuItem_LibraryManagement">ライブラリ管理</s:String>
+    <s:String x:Key="MenuItem_NewLibrary" x:Uid="MenuItem_NewLibrary">新規ライブラリ...</s:String>
+    <s:String x:Key="MenuItem_ImportLibrary" x:Uid="MenuItem_ImportLibrary">ライブラリをインポート...</s:String>
+    <s:String x:Key="MenuItem_AddToLibrary" x:Uid="MenuItem_AddToLibrary">現在のライブラリに追加</s:String>
+    <s:String x:Key="MenuItem_ManageLibrary" x:Uid="MenuItem_ManageLibrary">ライブラリを管理...</s:String>
+    <s:String x:Key="MenuItem_Modify" x:Uid="MenuItem_Modify">修正</s:String>
+    <s:String x:Key="MenuItem_SpecifyLibraryPath" x:Uid="MenuItem_SpecifyLibraryPath">
+        ライブラリ保存先を指定...
+    </s:String>
+    <s:String x:Key="MenuItem_ImportFromExcel" x:Uid="MenuItem_ImportFromExcel">
+        Excelから標準をインポート...
+    </s:String>
+    <s:String x:Key="MenuItem_ImportFromFile" x:Uid="MenuItem_ImportFromFile">
+        ファイルから標準をインポート...
+    </s:String>
+    <s:String x:Key="MenuItem_ConvertWhiteBoardData" x:Uid="MenuItem_ConvertWhiteBoardData">
+        白板データのLab値を置換
+    </s:String>
+    <s:String x:Key="MenuItem_InstrumentMeasurementConfigs" x:Uid="MenuItem_InstrumentMeasurementConfigs">
+        測定設定
+    </s:String>
+    <s:String x:Key="MenuItem_RecentFiles" x:Uid="MenuItem_RecentFiles">最近使ったファイル</s:String>
+    <s:String x:Key="MenuItem_DeleteSelectedStandards" x:Uid="MenuItem_DeleteSelectedStandards">選択した標準を削除</s:String>
+    <s:String x:Key="MenuItem_ShowSpectrumChart" x:Uid="MenuItem_ShowSpectrumChart">スペクトルチャートを表示</s:String>
+    <s:String x:Key="MenuItem_ShowAbsorbanceChart" x:Uid="MenuItem_ShowAbsorbanceChart">吸光度チャートを表示</s:String>
+    <s:String x:Key="MenuItem_Charts" x:Uid="MenuItem_Charts">チャート</s:String>
+    <!--  提示  -->
+    <s:String x:Key="Tip_SCISCEDisplaySwitch" x:Uid="Tip_SCISCEDisplaySwitch">SCI/SCEを切り替える</s:String>
+    <s:String x:Key="Tip_IlluminantDisplaySwitch" x:Uid="Tip_IlluminantDisplaySwitch">イルミナントを切り替える</s:String>
+    <s:String x:Key="Tip_OpenOrCloseUV" x:Uid="Tip_OpenOrCloseUV">UVを有効または無効にする</s:String>
+    <s:String x:Key="Tip_SetSpecularCompoentOfMeasurement" x:Uid="Tip_SetSpecularCompoentOfMeasurement">測定スペキュラコンポーネントを設定する</s:String>
+    <s:String x:Key="Tip_CreateNewLibrary" x:Uid="Tip_CreateNewLibrary">新規ライブラリを作成</s:String>
+    <s:String x:Key="Tip_DeleteLibrary" x:Uid="Tip_DeleteLibrary">ライブラリを削除</s:String>
+    <s:String x:Key="Tip_RenameLibrary" x:Uid="Tip_RenameLibrary">ライブラリ名を変更</s:String>
+    <s:String x:Key="Tip_ImportLibrary" x:Uid="Tip_ImportLibrary">ライブラリをインポート</s:String>
+    <s:String x:Key="Tip_PleaseEnterName" x:Uid="Tip_PleaseEnterName">検索したい名前を入力してください。</s:String>
+    <s:String x:Key="Tip_BeginDate" x:Uid="Tip_BeginDateTime">開始日</s:String>
+    <s:String x:Key="Tip_EndDate" x:Uid="Tip_EndDate">終了日</s:String>
+    <s:String x:Key="Tip_PleaseEnterANewName" x:Uid="Tip_PleaseEnterANewName">新しい名前を入力してください：</s:String>
+    <!--  控件的标签或表格标签  -->
+    <s:String x:Key="Label_Connected" x:Uid="Label_Connected">接続済み</s:String>
+    <s:String x:Key="Label_Disconnected" x:Uid="Label_Disconnected">切断されています</s:String>
+    <s:String x:Key="Label_Standard" x:Uid="Label_Standard">標準</s:String>
+    <s:String x:Key="Label_OrphanTests" x:Uid="Label_OrphanTests">絶対データ</s:String>
+    <s:String x:Key="Label_AllTests" x:Uid="Label_AllTests">すべてのサンプル</s:String>
+    <s:String x:Key="Label_Close" x:Uid="Label_Close">閉じる</s:String>
+    <s:String x:Key="Label_Preset" x:Uid="Label_Preset">プリセット</s:String>
+    <s:String x:Key="Label_ColorSpace" x:Uid="Label_ColorSpace">色空間</s:String>
+    <s:String x:Key="Label_ColorSapceColon" x:Uid="Label_ColorSapceColon">色空間：</s:String>
+    <s:String x:Key="Label_ColorDiffFormula" x:Uid="Label_ColorDiffFormula">しきさしき</s:String>
+    <s:String x:Key="Label_DataItemList" x:Uid="Label_DataItemList">アイテムリスト</s:String>
+    <s:String x:Key="Label_AllDataItems" x:Uid="Label_AllDataItems">全てのアイテム</s:String>
+    <s:String x:Key="Label_SampleAttributes" x:Uid="Label_SampleAttributes">サンプル属性</s:String>
+    <s:String x:Key="Label_ChormaticAttributes" x:Uid="Label_ChormaticAttributes">色度</s:String>
+    <s:String x:Key="Label_ColorDiffAttributes" x:Uid="Label_ColorDiffAttributes">色差</s:String>
+    <s:String x:Key="Label_ColorIndexes" x:Uid="Label_ColorIndexes">カラーインデックス</s:String>
+    <s:String x:Key="Label_ColorIndex" x:Uid="Label_ColorIndex">しきしすう</s:String>
+    <s:String x:Key="Label_RemoveAll" x:Uid="Label_RemoveAll">すべて削除する</s:String>
+    <s:String x:Key="Label_DisplayedItems" x:Uid="Label_DisplayedItems">表示アイテム</s:String>
+    <s:String x:Key="Label_OK" x:Uid="Label_OK">OK</s:String>
+    <s:String x:Key="Label_Cancel" x:Uid="Label_Cancel">キャンセル</s:String>
+    <s:String x:Key="Label_Restore" x:Uid="Label_Restore">復元する</s:String>
+    <s:String x:Key="Label_MoveToTop" x:Uid="Label_MoveToTop">最上部に移動する</s:String>
+    <s:String x:Key="Label_MoveToBottom" x:Uid="Label_MoveToBottom">最下部に移動する</s:String>
+    <s:String x:Key="Label_MoveUp" x:Uid="Label_MoveUp">上に移動する</s:String>
+    <s:String x:Key="Label_MoveDown" x:Uid="Label_MoveDown">下に移動する</s:String>
+    <s:String x:Key="Label_UseSystemDefault" x:Uid="Label_UseSystemDefault">システムのデフォルト設定を使用する</s:String>
+    <s:String x:Key="Label_UseStandardSelf" x:Uid="Label_UseStandardSelf">標準設定を使用する</s:String>
+    <s:String x:Key="Label_UseSpecific" x:Uid="Label_UseSpecific">指定された設定を使用する</s:String>
+    <s:String x:Key="Label_StandardColon" x:Uid="Label_StandardColon">標準：</s:String>
+    <s:String x:Key="Label_TestColon" x:Uid="Label_TestColon">サンプル：</s:String>
+    <s:String x:Key="Label_Index" x:Uid="Label_Index">インデックス</s:String>
+    <s:String x:Key="Label_Name" x:Uid="Label_Name">名前</s:String>
+    <s:String x:Key="Label_NameColon" x:Uid="Label_NameColon">名前：</s:String>
+    <s:String x:Key="Label_DateTime" x:Uid="Label_DateTime">日付 / 時刻</s:String>
+    <s:String x:Key="Label_DateTimeColon" x:Uid="Label_DateTimeColon">日付/時刻：</s:String>
+    <s:String x:Key="Label_SpecularComponent" x:Uid="Label_SpecularComponent">反射鏡コンポーネント</s:String>
+    <s:String x:Key="Label_SpecularComponentColon" x:Uid="Label_SpecularComponentColon">正反射成分:</s:String>
+    <s:String x:Key="Label_IlluminantColon" x:Uid="Label_IlluminantColon">イルミナント：</s:String>
+    <s:String x:Key="Label_ObserverColon" x:Uid="Label_ObserverColon">オブザーバー：</s:String>
+    <s:String x:Key="Label_PseudoColor" x:Uid="Label_PseudoColor">カラーシミュレーション</s:String>
+    <s:String x:Key="Label_AutoStore" x:Uid="Label_AutoStore">自動保存</s:String>
+    <s:String x:Key="Label_Measure" x:Uid="Label_Measure">測定</s:String>
+    <s:String x:Key="Label_Delete" x:Uid="Label_Delete">削除</s:String>
+    <s:String x:Key="Label_Print" x:Uid="Label_Print">印刷</s:String>
+    <s:String x:Key="Label_PrintToWord" x:Uid="Label_PrintToWord">Wordに印刷する</s:String>
+    <s:String x:Key="Label_AverageMeasure" x:Uid="Label_AverageMeasure">平均測定</s:String>
+    <s:String x:Key="Label_Reference1" x:Uid="Label_Reference1">リファレンス1</s:String>
+    <s:String x:Key="Label_Reference2" x:Uid="Label_Reference2">リファレンス2</s:String>
+    <s:String x:Key="Label_MetamerismIndex" x:Uid="Label_MetamerismIndex">MI</s:String>
+    <s:String x:Key="Label_Observer" x:Uid="Label_Observer">観察者</s:String>
+    <s:String x:Key="Label_Primary" x:Uid="Label_PrimaryIlluminant">プライマリ光源</s:String>
+    <s:String x:Key="Label_Secondary" x:Uid="Label_SecondaryIlluminant">セカンダリ光源</s:String>
+    <s:String x:Key="Label_Tertiary" x:Uid="Label_TertiaryIlluminant">ターシャリ光源</s:String>
+    <s:String x:Key="Label_StandardNamingRulesColon" x:Uid="Label_StandardNamingRulesColon">標準の自動命名規則：</s:String>
+    <s:String x:Key="Label_TestNamingRulesColon" x:Uid="Label_TestNamingRulesColon">サンプルの自動命名規則：</s:String>
+    <s:String x:Key="Label_MaterialColon" x:Uid="Label_MaterialColon">ざいりょう：</s:String>
+    <s:String x:Key="Label_StandardLinkageSetting" x:Uid="Label_StandardLinkageSetting">関連標準設定</s:String>
+    <s:String x:Key="Label_LinkToStandard" x:Uid="Label_LinkToStandard">標準に関連付ける</s:String>
+    <s:String x:Key="Label_DontLinkToStandard" x:Uid="Label_DontLinkToStandard">標準に関連付けない</s:String>
+    <s:String x:Key="Label_ToleranceData" x:Uid="Label_ToleranceData">公差データ</s:String>
+    <s:String x:Key="Label_ColorDiff" x:Uid="Label_ColorDiff">色差</s:String>
+    <s:String x:Key="Label_UseForJudgement" x:Uid="Label_UseForJudgement">判定に使用する</s:String>
+    <s:String x:Key="Label_LowerLimit" x:Uid="Label_LowerLimit">かげん</s:String>
+    <s:String x:Key="Label_UpperLimit" x:Uid="Label_UpperLimit">じょうげん</s:String>
+    <s:String x:Key="Label_ColorDiffFormulaParameterFactor" x:Uid="Label_ColorDiffFormulaParameterFactor">パラメータ係数</s:String>
+    <s:String x:Key="Label_PrimaryTolerance" x:Uid="Label_PrimaryTolerance">プライマリ許容差</s:String>
+    <s:String x:Key="Label_SecondaryTolerance" x:Uid="Label_SecondaryTolerance">セカンダリ許容差</s:String>
+    <s:String x:Key="Label_TertiaryTolerance" x:Uid="Label_TertiaryTolerance">ターシャリ許容差</s:String>
+    <s:String x:Key="Label_GetToleranceFrom" x:Uid="Label_GetToleranceFrom">許容差を取得する</s:String>
+    <s:String x:Key="Label_SystemSetting" x:Uid="Label_SystemSetting">システム設定</s:String>
+    <s:String x:Key="Label_Accept" x:Uid="Label_Accept">同意する</s:String>
+    <s:String x:Key="Label_StandardIlluminant" x:Uid="Label_StandardIlluminant">標準光源</s:String>
+    <s:String x:Key="Label_StandardObserver" x:Uid="Label_StandardObserver">標準オブザーバー</s:String>
+    <s:String x:Key="Label_TestSample" x:Uid="Label_TestSample">サンプル</s:String>
+    <s:String x:Key="Label_Whiteness" x:Uid="Label_Whiteness">白色度指数</s:String>
+    <s:String x:Key="Label_Diff" x:Uid="Label_Diff">差</s:String>
+    <s:String x:Key="Label_Other" x:Uid="Label_Other">その他</s:String>
+    <s:String x:Key="Label_DataTypeColon" x:Uid="Label_DataTypeColon">データタイプ</s:String>
+    <s:String x:Key="Label_Reflectance" x:Uid="Label_Reflectance">反射率</s:String>
+    <s:String x:Key="Label_MeasurementCaliber" x:Uid="Label_MeasurementCaliber">測定開口部</s:String>
+    <s:String x:Key="Label_AxisWavelengthNm" x:Uid="Label_AxisWavelengthNm">波長（nm）</s:String>
+    <s:String x:Key="Label_AxisReflectancePercent" x:Uid="Label_AxisReflectancePercent">反射率（％）</s:String>
+    <s:String x:Key="Label_UvOn" x:Uid="Label_UvOn">オン</s:String>
+    <s:String x:Key="Label_UvOff" x:Uid="Label_UvNone">オフ</s:String>
+    <s:String x:Key="Label_ConnectionStatusColon" x:Uid="Label_ConnectionStatusColon">接続：</s:String>
+    <s:String x:Key="Label_InstrumentModelColon" x:Uid="Label_InstrumentModelColon">計器型式:</s:String>
+    <s:String x:Key="Label_OpticalStructColon" x:Uid="Label_OpticalStructColon">光学構造：</s:String>
+    <s:String x:Key="Label_SNColon" x:Uid="Label_SNColon">SN：</s:String>
+    <s:String x:Key="Label_HardwareVersionColon" x:Uid="Label_HardwareVersionColon">ハードウェアのバージョン：</s:String>
+    <s:String x:Key="Label_SoftwareVersionColon" x:Uid="Label_SoftwareVersionColon">ソフトウェアのバージョン：</s:String>
+    <s:String x:Key="Label_WhiteBoardNumberColon" x:Uid="Label_WhiteBoardNumberColon">ホワイトボード番号：</s:String>
+    <s:String x:Key="Label_BlackCalibrationColon" x:Uid="Label_BlackCalibrationColon">ブラックキャリブレーション：</s:String>
+    <s:String x:Key="Label_WhiteCalibrationColon" x:Uid="Label_WhiteCalibrationColon">ホワイトキャリブレーション：</s:String>
+    <s:String x:Key="Label_CapacityColon" x:Uid="Label_CapacityColon">記録容量：</s:String>
+    <s:String x:Key="Label_StandardCountColon" x:Uid="Label_StandardCountColon">標準総数：</s:String>
+    <s:String x:Key="Label_TestCountColon" x:Uid="Label_TestCountColon">サンプル総数：</s:String>
+    <s:String x:Key="Label_Calibrated" x:Uid="Label_Calibrated">較正済み</s:String>
+    <s:String x:Key="Label_Uncalibrated" x:Uid="Label_Uncalibrated">未較正</s:String>
+    <s:String x:Key="Label_FirmwareVersionColon" x:Uid="Label_FirmwareVersionColon">ファームウェアのバージョン:</s:String>
+    <s:String x:Key="Label_Tolerance" x:Uid="Label_Tolerance">許容値</s:String>
+    <s:String x:Key="Label_Judgement" x:Uid="Label_Judgement">判定</s:String>
+    <s:String x:Key="Label_DisplaySetting" x:Uid="Label_DisplaySetting">設定を表示する</s:String>
+    <s:String x:Key="Label_Number" x:Uid="Label_Number">数</s:String>
+    <s:String x:Key="Label_ReportTitle" x:Uid="Label_ReportTitle">レポートのタイトル：</s:String>
+    <s:String x:Key="Label_ReportSubtitle" x:Uid="Label_ReportSubtitle">レポートのサブタイトル：</s:String>
+    <s:String x:Key="Label_CompanyAddress" x:Uid="Label_CompanyAddress">住所：</s:String>
+    <s:String x:Key="Label_CompanyEnglishAddress" x:Uid="Label_CompanyEnglishAddress">英語での住所：</s:String>
+    <s:String x:Key="Label_UserProfile" x:Uid="Label_UserProfile">ユーザープロファイル</s:String>
+    <s:String x:Key="Label_InnerNumberColon" x:Uid="Label_InnerNumberColon">内部番号：</s:String>
+    <s:String x:Key="Label_ExteralNumberColon" x:Uid="Label_ExteralNumberColon">外部番号：</s:String>
+    <s:String x:Key="Label_Read" x:Uid="Label_Read">読み込む</s:String>
+    <s:String x:Key="Label_Write" x:Uid="Label_Write">書き込む</s:String>
+    <s:String x:Key="Label_SaveToFile" x:Uid="Label_SaveToFile">Save to File</s:String>
+    <s:String x:Key="Label_LoadFromFile" x:Uid="Label_LoadFromFile">Load from File</s:String>
+    <s:String x:Key="Label_AvailableItems" x:Uid="Label_AvailableItems">利用可能なアイテム</s:String>
+    <s:String x:Key="Label_AutoSelectStandardLimit" x:Uid="Label_AutoSelectStandardLimit">標準の上下限</s:String>
+    <!-- Import -->
+    <s:String x:Key="Label_Import" x:Uid="Label_Import">インポート</s:String>
+
+    <!-- Delete selected samples -->
+    <s:String x:Key="Label_DeleteSelectedSamples" x:Uid="Label_DeleteSelectedSamples">選択サンプルを削除</s:String>
+
+    <!-- Condition: -->
+    <s:String x:Key="Label_SearchCondition" x:Uid="Label_SearchCondition">条件:</s:String>
+
+    <!-- Search -->
+    <s:String x:Key="Label_Search" x:Uid="Label_Search">検索</s:String>
+
+    <!-- Library -->
+    <s:String x:Key="Label_Library" x:Uid="Label_Library">ライブラリ</s:String>
+
+    <!-- The Order of SCI and SCE -->
+    <s:String x:Key="Label_RowOrderOfSCIAndSCE" x:Uid="Label_RowOrderOfSCIAndSCE">SCI/SCEの並び順</s:String>
+
+    <!-- SCI Followed by SCE -->
+    <s:String x:Key="Label_SCIFollowedBySCE" x:Uid="Label_SCIFollowedBySCE">SCI→SCE</s:String>
+
+    <!-- SCE Followed by SCI -->
+    <s:String x:Key="Label_SCEFollowedBySCI" x:Uid="Label_SCEFollowedBySCI">SCE→SCI</s:String>
+
+    <!-- Unknown -->
+    <s:String x:Key="Label_Unknown" x:Uid="Label_Unknown">不明</s:String>
+
+    <!-- Worksheet: -->
+    <s:String x:Key="Label_WorksheetColon" x:Uid="Label_WorksheetColon">ワークシート:</s:String>
+
+    <!-- Start Row: -->
+    <s:String x:Key="Label_StartRowColon" x:Uid="Label_StartRowColon">開始行:</s:String>
+
+    <!-- End Row: -->
+    <s:String x:Key="Label_EndRowColon" x:Uid="Label_EndRowColon">終了行:</s:String>
+
+    <!-- Name Column: -->
+    <s:String x:Key="Label_NameColumnColon" x:Uid="Label_NameColumnColon">名称列:</s:String>
+
+    <!-- XYZ Start Column: -->
+    <s:String x:Key="Label_XYZColumnColon" x:Uid="Label_XYZColumnColon">XYZ開始列:</s:String>
+
+    <!-- Lab Start Column: -->
+    <s:String x:Key="Label_LabColumnColon" x:Uid="Label_LabColumnColon">Lab開始列:</s:String>
+
+    <!-- Spectrum Start Column: -->
+    <s:String x:Key="Label_SpectrumColumnColon" x:Uid="Label_SpectrumColumnColon">スペクトル開始列:</s:String>
+
+    <!-- Wavelength Range: -->
+    <s:String x:Key="Label_WavelengthRangeColon" x:Uid="Label_WavelengthRangeColon">波長範囲:</s:String>
+
+    <!-- None -->
+    <s:String x:Key="Label_None" x:Uid="Label_None">なし</s:String>
+
+    <!-- Default -->
+    <s:String x:Key="Label_Default" x:Uid="Label_Default">デフォルト</s:String>
+
+    <!-- Measurement Method: -->
+    <s:String x:Key="Label_MeasurementMethod" x:Uid="Label_MeasurementMethod">測定方法:</s:String>
+
+    <!-- Times: -->
+    <s:String x:Key="Label_MeasurementTimes" x:Uid="Label_MeasurementTimes">回数:</s:String>
+
+    <!-- Interval: -->
+    <s:String x:Key="Label_MeasurementInterval" x:Uid="Label_MeasurementInterval">間隔:</s:String>
+
+    <!-- Manually Stop -->
+    <s:String x:Key="Label_ManuallyStop" x:Uid="Label_ManuallyStop">手動停止</s:String>
+
+    <!-- Black Trap Number: -->
+    <s:String x:Key="Label_BlackBucketNumberColon" x:Uid="Label_BlackBucketNumberColon">ブラックトラップ番号:</s:String>
+
+    <!-- Calibration: -->
+    <s:String x:Key="Label_CalibrationColon" x:Uid="Label_CalibrationColon">キャリブレーション:</s:String>
+
+    <!-- Standard Capacity: -->
+    <s:String x:Key="Label_StandardCapacityColon" x:Uid="Label_StandardCapacityColon">標準容量:</s:String>
+
+    <!-- Sample Capacity: -->
+    <s:String x:Key="Label_SampleCapacityColon" x:Uid="Label_SampleCapacityColon">試料容量:</s:String>
+
+    <!-- Stop Measuring -->
+    <s:String x:Key="Label_StopMeasuring" x:Uid="Label_StopMeasuring">測定停止</s:String>
+
+    <!-- Pause Measuring -->
+    <s:String x:Key="Label_PauseMeasuring" x:Uid="Label_PauseMeasuring">測定一時停止</s:String>
+
+    <!-- Continue Measure -->
+    <s:String x:Key="Label_ContinueMeasure" x:Uid="Label_ContinueMeasure">測定再開</s:String>
+
+    <!-- Auto Measure -->
+    <s:String x:Key="Label_AutoMeasure" x:Uid="Label_AutoMeasure">自動測定</s:String>
+
+    <!-- Wavelength Range -->
+    <s:String x:Key="Label_WavelengthRange" x:Uid="Label_WavelengthRange">波長範囲</s:String>
+
+    <!-- Transmissive -->
+    <s:String x:Key="Label_Transmittance" x:Uid="Label_Transmittance">透過測定</s:String>
+
+    <!-- Lens Position -->
+    <s:String x:Key="Label_LensPosition" x:Uid="Label_LensPosition">レンズ位置</s:String>
+
+    <!-- Lens Switch Mode -->
+    <s:String x:Key="Label_LensSwitchMode" x:Uid="Label_LensSwitchMode">レンズ切替モード</s:String>
+
+    <!-- Measure References -->
+    <s:String x:Key="Label_MeasureHazeReference" x:Uid="Label_MeasureHazeReference">参照測定</s:String>
+    <!--  窗口标题  -->
+    <s:String x:Key="Title_About" x:Uid="Title_About">SQCXについて</s:String>
+    <!--  SQCX  -->
+    <s:String x:Key="Title_DisplaySetting" x:Uid="Title_DisplaySetting">設定を表示する</s:String>
+    <s:String x:Key="Title_StandardDisplaySetting" x:Uid="Title_StandardDisplaySetting">標準表示設定</s:String>
+    <s:String x:Key="Title_Export" x:Uid="Title_Export">エクスポート</s:String>
+    <s:String x:Key="Title_InstrumentDataManagement" x:Uid="Title_InstrumentDataManagement">計器データ管理</s:String>
+    <s:String x:Key="Title_Measurment" x:Uid="Title_Measurment">測定</s:String>
+    <s:String x:Key="Title_MetamerismIndex" x:Uid="Title_MetamerismIndex">メタメリック指数</s:String>
+    <s:String x:Key="Title_IlluminantAndObserverSetting" x:Uid="Title_IlluminantAndObserverSetting">標準光源とオブザーバーの設定</s:String>
+    <s:String x:Key="Title_AutoNamingRulesSetting" x:Uid="Title_AutoNamingRulesSetting">自動命名規則の設定</s:String>
+    <s:String x:Key="Title_StandardInput" x:Uid="Title_StandardInput">標準入力</s:String>
+    <s:String x:Key="Title_StandardLinkageSetting" x:Uid="Title_StandardLinkageSetting">標準設定</s:String>
+    <s:String x:Key="Title_ToleranceSetting" x:Uid="Title_ToleranceSetting">公差設定</s:String>
+    <s:String x:Key="Title_WhitenessIndex" x:Uid="Title_WhitenessIndex">白色度指数</s:String>
+    <s:String x:Key="Title_InstrumentStatus" x:Uid="Title_InstrumentStatus">計器ステータス</s:String>
+    <s:String x:Key="Title_ReportSetting" x:Uid="Title_ReportSetting">レポート設定</s:String>
+    <s:String x:Key="Title_ReportTitle" x:Uid="Title_ReportTitle">レポートのタイトル</s:String>
+    <s:String x:Key="Title_Rename" x:Uid="Title_Rename">名前の変更</s:String>
+    <s:String x:Key="Title_ModifyMaterial" x:Uid="Title_ModifyMaterial">材料の修正</s:String>
+    <s:String x:Key="Title_WhiteBoardParameterSetting" x:Uid="Title_WhiteBoardParameterSetting">ホワイトボードパラメータ設定</s:String>
+    <s:String x:Key="Title_WhiteCalibration" x:Uid="Title_WhiteCalibration">ホワイトキャリブレーション</s:String>
+    <s:String x:Key="Title_BlackCalibration" x:Uid="Title_BlackCalibration">ブラックキャリブレーション</s:String>
+    <s:String x:Key="Title_InputSpecimenName" x:Uid="Title_InputSpecimenName">名前を入力する</s:String>
+    <s:String x:Key="Title_AutoSelectStandardSetting" x:Uid="Title_AutoSelectStandardSetting">自動選択標準設定</s:String>
+    <s:String x:Key="Title_MeasurementAbnormal" x:Uid="Title_MeasurementAbnormal">測定異常</s:String>
+    <s:String x:Key="Title_LibraryManagement" x:Uid="Title_LibraryManagement">ライブラリ管理</s:String>
+    <s:String x:Key="Title_ImportLibrary" x:Uid="Title_ImportLibrary">ライブラリインポート</s:String>
+    <s:String x:Key="Title_NewLibrary" x:Uid="Title_NewLibrary">新規ライブラリ</s:String>
+    <s:String x:Key="Title_ModifyLibrarySample" x:Uid="Title_ModifyLibrarySample">
+        サンプル修正
+    </s:String>
+    <s:String x:Key="Title_DeviceInfo" x:Uid="Title_DeviceInfo">
+        デバイス情報
+    </s:String>
+    <s:String x:Key="Title_UploadingStandards" x:Uid="Title_UploadingStandards">
+        標準をアップロード中
+    </s:String>
+    <s:String x:Key="Title_UploadingTests" x:Uid="Title_UploadingTests">
+        サンプルをアップロード中
+    </s:String>
+    <!--  枚举的说明符  -->
+    <s:String x:Key="WI_E313" x:Uid="WI_E313">WI(ASTM E313-2005)</s:String>
+    <s:String x:Key="T_E313" x:Uid="T_E313">T(ASTM E313-2005)</s:String>
+    <s:String x:Key="WI_CIE_ISO" x:Uid="WI_CIE_ISO">WI(CIE/ISO)</s:String>
+    <s:String x:Key="T_CIE_ISO" x:Uid="T_CIE_ISO">T(CIE/ISO)</s:String>
+    <s:String x:Key="WI_Hunter1942" x:Uid="WI_Hunter1942">WI(Hunter 1942)</s:String>
+    <s:String x:Key="WI_Hunter1960" x:Uid="WI_Hunter1960">WI(Hunter 1960)</s:String>
+    <s:String x:Key="WI_Tapple" x:Uid="WI_Tapple">WI(Tappl)</s:String>
+    <s:String x:Key="WI_Taube" x:Uid="WI_Taube">WI(Taube)</s:String>
+    <s:String x:Key="WI_R457" x:Uid="WI_R457">WI(R457)</s:String>
+    <s:String x:Key="WI_Berger" x:Uid="WI_Berger">WI(Berger)</s:String>
+    <s:String x:Key="WI_Granz" x:Uid="WI_Granz">WI(Ganz)</s:String>
+    <s:String x:Key="WI_GOST_16873" x:Uid="WI_GOST_16873">WI(GOST 16873)</s:String>
+    <s:String x:Key="YI_D1925" x:Uid="YI_D1925">YI(ASTM D1925-1970)</s:String>
+    <s:String x:Key="YI_E313" x:Uid="YI_E313">YI(ASTM E313-2005)</s:String>
+    <s:String x:Key="MI" x:Uid="MI">MI</s:String>
+    <s:String x:Key="StainingFastness_dEgs" x:Uid="StainingFastness_dEgs">染色堅牢度ΔEgs</s:String>
+    <s:String x:Key="StainingFastness_SSRLevel" x:Uid="StainingFastness_SSRLevel">SSRレベル</s:String>
+    <s:String x:Key="ColorFastness_dEf" x:Uid="ColorFastness_dEf">色堅牢度ΔEf</s:String>
+    <s:String x:Key="ColorFastness_GSRLevel" x:Uid="ColorFastness_GSRLevel">GSRレベル</s:String>
+    <s:String x:Key="AverageStrength" x:Uid="AverageStrength">％強度SUM</s:String>
+    <s:String x:Key="PrecentStrengthSWL" x:Uid="PrecentStrengthSWL">％強度SWL</s:String>
+    <s:String x:Key="Opacity" x:Uid="Opacity">不透明度</s:String>
+    <s:String x:Key="SampleID" x:Uid="SampleID">ID</s:String>
+    <s:String x:Key="MeasurementCaliber" x:Uid="MeasurementCaliber">測定開口部</s:String>
+    <s:String x:Key="InstrumentName" x:Uid="InstrumentName">計器</s:String>
+    <s:String x:Key="Spectrum" x:Uid="Spectrum">スペクトル反射率</s:String>
+    <s:String x:Key="UV_None" x:Uid="UV_None">None</s:String>
+    <s:String x:Key="UV_On" x:Uid="UV_On">UV オン</s:String>
+    <s:String x:Key="UV_NoCut" x:Uid="UV_NoCut">Cut None</s:String>
+    <s:String x:Key="UV_Cut400nm" x:Uid="UV_Cut400nm">Cut 400nm</s:String>
+    <s:String x:Key="UV_Cut420nm" x:Uid="UV_Cut420nm">Cut 420nm</s:String>
+    <s:String x:Key="UV_Cut460nm" x:Uid="UV_Cut460nm">Cut 460nm</s:String>
+    <s:String x:Key="JudgementLevel_Invalid" x:Uid="JudgementLevel_Invalid">--</s:String>
+    <s:String x:Key="JudgementLevel_NG" x:Uid="JudgementLevel_NG">失敗</s:String>
+    <s:String x:Key="JudgementLevel_Warning" x:Uid="JudgementLevel_Warning">警告</s:String>
+    <s:String x:Key="JudgementLevel_Pass" x:Uid="JudgementLevel_Pass">合格</s:String>
+    <s:String x:Key="IlluminantAndObserver" x:Uid="IlluminantAndObserver">Ill/Obs</s:String>
+    <s:String x:Key="R360" x:Uid="R360">360nm</s:String>
+    <s:String x:Key="R370" x:Uid="R370">370nm</s:String>
+    <s:String x:Key="R380" x:Uid="R380">380nm</s:String>
+    <s:String x:Key="R390" x:Uid="R390">390nm</s:String>
+    <s:String x:Key="R400" x:Uid="R400">400nm</s:String>
+    <s:String x:Key="R410" x:Uid="R410">410nm</s:String>
+    <s:String x:Key="R420" x:Uid="R420">420nm</s:String>
+    <s:String x:Key="R430" x:Uid="R430">430nm</s:String>
+    <s:String x:Key="R440" x:Uid="R440">440nm</s:String>
+    <s:String x:Key="R450" x:Uid="R450">450nm</s:String>
+    <s:String x:Key="R460" x:Uid="R460">460nm</s:String>
+    <s:String x:Key="R470" x:Uid="R470">470nm</s:String>
+    <s:String x:Key="R480" x:Uid="R480">480nm</s:String>
+    <s:String x:Key="R490" x:Uid="R490">490nm</s:String>
+    <s:String x:Key="R500" x:Uid="R500">500nm</s:String>
+    <s:String x:Key="R510" x:Uid="R510">510nm</s:String>
+    <s:String x:Key="R520" x:Uid="R520">520nm</s:String>
+    <s:String x:Key="R530" x:Uid="R530">530nm</s:String>
+    <s:String x:Key="R540" x:Uid="R540">540nm</s:String>
+    <s:String x:Key="R550" x:Uid="R550">550nm</s:String>
+    <s:String x:Key="R560" x:Uid="R560">560nm</s:String>
+    <s:String x:Key="R570" x:Uid="R570">570nm</s:String>
+    <s:String x:Key="R580" x:Uid="R580">580nm</s:String>
+    <s:String x:Key="R590" x:Uid="R590">590nm</s:String>
+    <s:String x:Key="R600" x:Uid="R600">600nm</s:String>
+    <s:String x:Key="R610" x:Uid="R610">610nm</s:String>
+    <s:String x:Key="R620" x:Uid="R620">620nm</s:String>
+    <s:String x:Key="R630" x:Uid="R630">630nm</s:String>
+    <s:String x:Key="R640" x:Uid="R640">640nm</s:String>
+    <s:String x:Key="R650" x:Uid="R650">650nm</s:String>
+    <s:String x:Key="R660" x:Uid="R660">660nm</s:String>
+    <s:String x:Key="R670" x:Uid="R670">670nm</s:String>
+    <s:String x:Key="R680" x:Uid="R680">680nm</s:String>
+    <s:String x:Key="R690" x:Uid="R690">690nm</s:String>
+    <s:String x:Key="R700" x:Uid="R700">700nm</s:String>
+    <s:String x:Key="R710" x:Uid="R710">710nm</s:String>
+    <s:String x:Key="R720" x:Uid="R720">720nm</s:String>
+    <s:String x:Key="R730" x:Uid="R730">730nm</s:String>
+    <s:String x:Key="R740" x:Uid="R740">740nm</s:String>
+    <s:String x:Key="R750" x:Uid="R750">750nm</s:String>
+    <s:String x:Key="R760" x:Uid="R760">760nm</s:String>
+    <s:String x:Key="R770" x:Uid="R770">770nm</s:String>
+    <s:String x:Key="R780" x:Uid="R780">780nm</s:String>
+    <s:String x:Key="dR360" x:Uid="dR360">Δ360nm</s:String>
+    <s:String x:Key="dR370" x:Uid="dR370">Δ370nm</s:String>
+    <s:String x:Key="dR380" x:Uid="dR380">Δ380nm</s:String>
+    <s:String x:Key="dR390" x:Uid="dR390">Δ390nm</s:String>
+    <s:String x:Key="dR400" x:Uid="dR400">Δ400nm</s:String>
+    <s:String x:Key="dR410" x:Uid="dR410">Δ410nm</s:String>
+    <s:String x:Key="dR420" x:Uid="dR420">Δ420nm</s:String>
+    <s:String x:Key="dR430" x:Uid="dR430">Δ430nm</s:String>
+    <s:String x:Key="dR440" x:Uid="dR440">Δ440nm</s:String>
+    <s:String x:Key="dR450" x:Uid="dR450">Δ450nm</s:String>
+    <s:String x:Key="dR460" x:Uid="dR460">Δ460nm</s:String>
+    <s:String x:Key="dR470" x:Uid="dR470">Δ470nm</s:String>
+    <s:String x:Key="dR480" x:Uid="dR480">Δ480nm</s:String>
+    <s:String x:Key="dR490" x:Uid="dR490">Δ490nm</s:String>
+    <s:String x:Key="dR500" x:Uid="dR500">Δ500nm</s:String>
+    <s:String x:Key="dR510" x:Uid="dR510">Δ510nm</s:String>
+    <s:String x:Key="dR520" x:Uid="dR520">Δ520nm</s:String>
+    <s:String x:Key="dR530" x:Uid="dR530">Δ530nm</s:String>
+    <s:String x:Key="dR540" x:Uid="dR540">Δ540nm</s:String>
+    <s:String x:Key="dR550" x:Uid="dR550">Δ550nm</s:String>
+    <s:String x:Key="dR560" x:Uid="dR560">Δ560nm</s:String>
+    <s:String x:Key="dR570" x:Uid="dR570">Δ570nm</s:String>
+    <s:String x:Key="dR580" x:Uid="dR580">Δ580nm</s:String>
+    <s:String x:Key="dR590" x:Uid="dR590">Δ590nm</s:String>
+    <s:String x:Key="dR600" x:Uid="dR600">Δ600nm</s:String>
+    <s:String x:Key="dR610" x:Uid="dR610">Δ610nm</s:String>
+    <s:String x:Key="dR620" x:Uid="dR620">Δ620nm</s:String>
+    <s:String x:Key="dR630" x:Uid="dR630">Δ630nm</s:String>
+    <s:String x:Key="dR640" x:Uid="dR640">Δ640nm</s:String>
+    <s:String x:Key="dR650" x:Uid="dR650">Δ650nm</s:String>
+    <s:String x:Key="dR660" x:Uid="dR660">Δ660nm</s:String>
+    <s:String x:Key="dR670" x:Uid="dR670">Δ670nm</s:String>
+    <s:String x:Key="dR680" x:Uid="dR680">Δ680nm</s:String>
+    <s:String x:Key="dR690" x:Uid="dR690">Δ690nm</s:String>
+    <s:String x:Key="dR700" x:Uid="dR700">Δ700nm</s:String>
+    <s:String x:Key="dR710" x:Uid="dR710">Δ710nm</s:String>
+    <s:String x:Key="dR720" x:Uid="dR720">Δ720nm</s:String>
+    <s:String x:Key="dR730" x:Uid="dR730">Δ730nm</s:String>
+    <s:String x:Key="dR740" x:Uid="dR740">Δ740nm</s:String>
+    <s:String x:Key="dR750" x:Uid="dR750">Δ750nm</s:String>
+    <s:String x:Key="dR760" x:Uid="dR760">Δ760nm</s:String>
+    <s:String x:Key="dR770" x:Uid="dR770">Δ770nm</s:String>
+    <s:String x:Key="dR780" x:Uid="dR780">Δ780nm</s:String>
+    <s:String x:Key="PseudoColor" x:Uid="PseudoColor">カラーシミュレーション</s:String>
+    <s:String x:Key="ColorOffset" x:Uid="ColorOffset">カラーオフセット</s:String>
+    <s:String x:Key="ColorOffset_None" x:Uid="ColorOffset_None">正常</s:String>
+    <s:String x:Key="ColorOffset_SlightlyDark" x:Uid="ColorOffset_SlightlyDark">やや黒寄り</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyDark" x:Uid="ColorOffset_SignificantlyDark">明らかに黒寄り</s:String>
+    <s:String x:Key="ColorOffset_SlightlyBright" x:Uid="ColorOffset_SlightlyBright">やや白寄り</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyBright" x:Uid="ColorOffset_SignificantlyBright">明らかに白寄り</s:String>
+    <s:String x:Key="ColorOffset_SlightlyGreen" x:Uid="ColorOffset_SlightlyGreen">やや緑寄り</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyGreen" x:Uid="ColorOffset_SignificantlyGreen">明らかに緑寄り</s:String>
+    <s:String x:Key="ColorOffset_SlightlyRed" x:Uid="ColorOffset_SlightlyRed">やや赤寄り</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyRed" x:Uid="ColorOffset_SignificantlyRed">明らかに赤寄り</s:String>
+    <s:String x:Key="ColorOffset_SlightlyBlue" x:Uid="ColorOffset_SlightlyBlue">やや青寄り</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyBlue" x:Uid="ColorOffset_SignificantlyBlue">明らかに青寄り</s:String>
+    <s:String x:Key="ColorOffset_SlightlyYellow" x:Uid="ColorOffset_SlightlyYellow">やや黄寄り</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyYellow" x:Uid="ColorOffset_SignificantlyYellow">明らかに黄寄り</s:String>
+    <s:String x:Key="SpecularComponent_Unknown" x:Uid="SpecularComponent_Unknown">---</s:String>
+    <s:String x:Key="SpecularComponent_SCI" x:Uid="SpecularComponent_SCI">SCI</s:String>
+    <s:String x:Key="SpecularComponent_SCE" x:Uid="SpecularComponent_SCE">SCE</s:String>
+    <s:String x:Key="SpecularComponent_SCIAndSCE" x:Uid="SpecularComponent_SCIAndSCE">SCI/SCE</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi1" x:Uid="MeasurementCaliber_Phi1">Φ1mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi50" x:Uid="MeasurementCaliber_Phi50">Φ50mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi4" x:Uid="MeasurementCaliber_Phi4">Φ4mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi8" x:Uid="MeasurementCaliber_Phi8">Φ8mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi15" x:Uid="MeasurementCaliber_Phi15">Φ15mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi20" x:Uid="MeasurementCaliber_Phi20">Φ20mm</s:String>
+    <s:String x:Key="MeasurementCaliber_1Inch" x:Uid="MeasurementCaliber_1Inch">Φ25.4mm</s:String>
+    <s:String x:Key="MeasurementCaliber_1by3" x:Uid="MeasurementCaliber_1by3">Φ1x3mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi11" x:Uid="MeasurementCaliber_Phi11">Φ11mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi10" x:Uid="MeasurementCaliber_Phi10">Φ10mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi6" x:Uid="MeasurementCaliber_Phi6">Φ6mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi5" x:Uid="MeasurementCaliber_Phi5">Φ5mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi3" x:Uid="MeasurementCaliber_Phi3">Φ3mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Customized" x:Uid="MeasurementCaliber_Customized">カスタマイズ済</s:String>
+    <s:String x:Key="TransmissionFlag" x:Uid="TransmissionFlag">%R/%T</s:String>
+    <s:String x:Key="ShadeBy555" x:Uid="ShadeBy555">555 シェード</s:String>
+    <s:String x:Key="GardnerIndex" x:Uid="GardnerIndex">ガードナー指数</s:String>
+    <s:String x:Key="IronCobaltIndex" x:Uid="IronCobaltIndex">鉄コバルト指数</s:String>
+    <!-- <s:String x:Uid="Transmission" x:Key="Transmission">%T</s:String> -->
+    <!-- <s:String x:Uid="Reflection" x:Key="Reflection">%R</s:String> -->
+    <s:String x:Key="PtCoIndex" x:Uid="PtCoIndex">Pt-CO Index</s:String>
+    <s:String x:Key="HazeA2" x:Uid="HazeA2">H(A/2)</s:String>
+    <s:String x:Key="HazeC2" x:Uid="HazeC2">H(C/2)</s:String>
+    <s:String x:Key="HazeD65" x:Uid="HazeD65">H(D65/2)</s:String>
+    <s:String x:Key="DeltaHazeA2" x:Uid="DeltaHazeA2">\u0394H(A/2)</s:String>
+    <s:String x:Key="DeltaHazeC2" x:Uid="DeltaHazeC2">\u0394H(C/2)</s:String>
+    <s:String x:Key="DeltaHazeD65" x:Uid="DeltaHazeD65">\u0394H(D65/2)</s:String>
+    <s:String x:Key="MeasurementMethod_Single" x:Uid="MeasurementMethod_Single">単回測定</s:String>
+    <s:String x:Key="MeasurementMethod_Average" x:Uid="MeasurementMethod_Average">平均測定</s:String>
+    <s:String x:Key="MeasurementMethod_Continuous" x:Uid="MeasurementMethod_Continuous">連続測定</s:String>
+    <s:String x:Key="MeasurementMethod_AverageContinuous" x:Uid="MeasurementMethod_AverageContinuous">平均連続測定</s:String>
+    <s:String x:Key="LensPosition_Pos4" x:Uid="LensPosition_Pos4">4mm</s:String>
+    <s:String x:Key="LensPosition_Pos8" x:Uid="LensPosition_Pos8">8mm</s:String>
+    <s:String x:Key="LensPosition_Pos15" x:Uid="LensPosition_Pos15">15mm</s:String>
+    <s:String x:Key="LensPosition_Pos25" x:Uid="LensPosition_Pos25">25.4mm</s:String>
+    <s:String x:Key="None" x:Uid="None">なし</s:String>
+    <s:String x:Key="Yellowness" x:Uid="Yellowness">黄度</s:String>
+    <s:String x:Key="Whiteness" x:Uid="Whiteness">白度</s:String>
+    <s:String x:Key="Strength" x:Uid="Strength">濃度</s:String>
+    <!-- <s:String x:Key="Shade555" x:Uid="Shade555">Shade555</s:String> -->
+    <s:String x:Key="StainingFastness" x:Uid="StainingFastness">汚染堅牢度</s:String>
+    <s:String x:Key="ColorFastness" x:Uid="ColorFastness">変色堅牢度</s:String>
+    <s:String x:Key="Auto" x:Uid="Auto">自動</s:String>
+    <s:String x:Key="Manual" x:Uid="Manual">手動</s:String>
+    <s:String x:Key="Unknown" x:Uid="Unknown">不明</s:String>
+    <s:String x:Key="Reflective" x:Uid="Reflective">反射</s:String>
+    <s:String x:Key="Transmissive" x:Uid="Transmissive">透過</s:String>
+    <s:String x:Key="About_AppName" x:Uid="About_AppName">SQCXカラー品質管理システム</s:String>
+    <s:String x:Key="About_Company" x:Uid="About_Company">LTD.&quot;</s:String>
+    <s:String x:Key="About_Copyright" x:Uid="About_Copyright">著作権©2016</s:String>
+    <s:String x:Key="About_AllRightsReserved" x:Uid="About_AllRightsReserved">無断複写・複製・転載を禁じます</s:String>
+    <!-- 帳票：許容差を印刷 -->
+    <s:String x:Key="Report_ExportTolerance" x:Uid="Report_ExportTolerance">許容差を印刷</s:String>
+
+    <!-- 帳票：参照を印刷 -->
+    <s:String x:Key="Report_ExportReferences" x:Uid="Report_ExportReferences">参照を印刷</s:String>
+    <!-- 帳票：試料Labを印刷 -->
+    <s:String x:Key="Report_ExportTestLab" x:Uid="Report_ExportTestLab">試料Labを印刷</s:String>
+
+    <!-- 色データを入力してください -->
+    <s:String x:Key="PleaseInputColorData" x:Uid="PleaseInputColorData">色データを入力してください。</s:String>
+
+    <!-- 備考: -->
+    <s:String x:Key="Label_RemarkColon" x:Uid="Label_RemarkColon">備考:</s:String>
+
+    <!-- 色式 -->
+    <s:String x:Key="Label_ColorFormula" x:Uid="Label_ColorFormula">色式</s:String>
+
+    <!-- カラーマッチング -->
+    <s:String x:Key="Title_ColorMatching" x:Uid="Title_ColorMatching">カラーマッチング</s:String>
+
+    <!-- 色入力 -->
+    <s:String x:Key="Title_LibraryColorInput" x:Uid="Title_LibraryColorInput">色入力</s:String>
+
+    <!-- 更新 -->
+    <s:String x:Key="Label_Update" x:Uid="Label_Update">更新</s:String>
+
+    <!-- 番号: -->
+    <s:String x:Key="Label_NumberColon" x:Uid="Label_NumberColon">番号:</s:String>
+
+    <!-- 色式: -->
+    <s:String x:Key="Label_ColorFormulaColon" x:Uid="Label_ColorFormulaColon">色式:</s:String>
+
+    <!-- ライブラリ: -->
+    <s:String x:Key="Label_LibraryColon" x:Uid="Label_LibraryColon">ライブラリ:</s:String>
+
+    <!-- ライブラリオプション -->
+    <s:String x:Key="Label_LibraryOptions" x:Uid="Label_LibraryOptions">ライブラリオプション</s:String>
+
+    <!-- 保存済みサンプル -->
+    <s:String x:Key="Label_StoredSample" x:Uid="Label_StoredSample">保存済み</s:String>
+
+    <!-- スペクトル図 -->
+    <s:String x:Key="Label_SpectrumDiagram" x:Uid="Label_SpectrumDiagram">スペクトル図</s:String>
+
+    <!-- 色度図 -->
+    <s:String x:Key="Label_ChromaticDiagram" x:Uid="Label_ChromaticDiagram">色度図</s:String>
+
+    <!-- 備考 -->
+    <s:String x:Key="Label_Remark" x:Uid="Label_Remark">備考</s:String>
+
+    <!-- 入力 -->
+    <s:String x:Key="Label_Input" x:Uid="Label_Input">入力</s:String>
+
+    <!-- 器内ライブラリに書込む -->
+    <s:String x:Key="MenuItem_WriteToInstrumentLibrary" x:Uid="MenuItem_WriteToInstrumentLibrary">器内ライブラリに書込む</s:String>
+
+    <!-- 器内ライブラリをクリア -->
+    <s:String x:Key="MenuItem_ClearInstrumentLibrary" x:Uid="MenuItem_ClearInstrumentLibrary">器内ライブラリをクリア</s:String>
+
+    <!-- 器内ライブラリを読出す -->
+    <s:String x:Key="MenuItem_ReadInstrumentLibrary" x:Uid="MenuItem_ReadInstrumentLibrary">器内ライブラリを読出す</s:String>
+
+    <!-- 器内ライブラリを更新 -->
+    <s:String x:Key="MenuItem_UpdateInstrumentLibrary" x:Uid="MenuItem_UpdateInstrumentLibrary">器内ライブラリを更新</s:String>
+
+    <!-- 器内標準書込中... -->
+    <s:String x:Key="WritingStandards" x:Uid="WritingStandards">器内標準書込中...</s:String>
+
+    <!-- 全標準を器内に書き込みました -->
+    <s:String x:Key="AllStandardsWritten" x:Uid="AllStandardsWritten">全標準を器内に書き込みました。</s:String>
+
+    <!-- 書込中... -->
+    <s:String x:Key="InWriting" x:Uid="InWriting">書込中...</s:String>
+
+    <!-- 器内ライブラリ書込完了 -->
+    <s:String x:Key="WritingToInstrumentLibraryCompleted" x:Uid="WritingToInstrumentLibraryCompleted">器内ライブラリ書込完了</s:String>
+
+    <!-- 読出中... -->
+    <s:String x:Key="InReading" x:Uid="InReading">読出中...</s:String>
+
+    <!-- 処理完了 -->
+    <s:String x:Key="OptionCompleted" x:Uid="OptionCompleted">処理完了</s:String>
+
+    <!-- 器内ライブラリクリア確認 -->
+    <s:String x:Key="ConfirmClearInstrumentLibrary" x:Uid="ConfirmClearInstrumentLibrary">
+        器内ライブラリの全色データが削除され復元できません。クリア前にバックアップを推奨します。クリアしますか？
+    </s:String>
+
+    <!-- 器内ライブラリ更新確認 -->
+    <s:String x:Key="ConfirmUpdateInstrumentLibrary" x:Uid="ConfirmUpdateInstrumentLibrary">
+        器内ライブラリを一旦クリア後、全標準を書き込みます。実行しますか？
+    </s:String>
+
+    <!-- 保存済み -->
+    <s:String x:Key="HasStored" x:Uid="HasStored">保存済みです。</s:String>
+
+    <!-- 削除済み -->
+    <s:String x:Key="HasDeleted" x:Uid="HasDeleted">削除済みです。</s:String>
+
+    <!-- 指定色番が見つかりません -->
+    <s:String x:Key="CannotFoundSpecifiedColorNumber" x:Uid="CannotFoundSpecifiedColorNumber">指定色番が見つかりません。</s:String>
+
+    <!-- 色番が重複または無効です -->
+    <s:String x:Key="ColorNumberInvalid" x:Uid="ColorNumberInvalid">色番が重複または無効です。</s:String>
+
+    <!-- マッチング可能な色が見つかりません -->
+    <s:String x:Key="CannotFindMatchedColor" x:Uid="CannotFindMatchedColor">マッチング可能な色が見つかりません。</s:String>
+
+    <!-- カラーライブラリを選択してください -->
+    <s:String x:Key="PleaseSelectedAColorLibrary" x:Uid="PleaseSelectedAColorLibrary">カラーライブラリを選択してください。</s:String>
+
+    <!-- カラーマッチ -->
+    <s:String x:Key="MenuItem_ColorMatch" x:Uid="MenuItem_ColorMatch">カラーマッチ</s:String>
+
+    <!-- 色入力 -->
+    <s:String x:Key="MenuItem_ColorInput" x:Uid="MenuItem_ColorInput">色入力</s:String>
+
+    <!-- クリア -->
+    <s:String x:Key="Label_Clear" x:Uid="Label_Clear">クリア</s:String>
+
+    <!-- 保存後自動クリア -->
+    <s:String x:Key="Label_AutoClearAfterStored" x:Uid="Label_AutoClearAfterStored">色保存後に自動クリア</s:String>
+
+    <!-- 色番を入力してください -->
+    <s:String x:Key="PleaseInputTheColorNumber" x:Uid="PleaseInputTheColorNumber">色番を入力してください。</s:String>
+
+    <!-- 標準色 -->
+    <s:String x:Key="Label_TargetColor" x:Uid="Label_TargetColor">標準色</s:String>
+
+    <!-- ライブラリ色 -->
+    <s:String x:Key="Label_StoredColor" x:Uid="Label_StoredColor">ライブラリ色</s:String>
+
+    <!-- R%/T%: -->
+    <s:String x:Key="Label_ReflectiveSlashTransitiveColon" x:Uid="Label_ReflectiveSlashTransitiveColon">R%/T%:</s:String>
+
+    <!-- 標準リストにインポート -->
+    <s:String x:Key="MenuItem_ImportToStandardList" x:Uid="MenuItem_ImportToStandardList">標準リストにインポート</s:String>
+
+    <!-- ターゲットライブラリに追加完了 -->
+    <s:String x:Key="AddedToLibrarySuccessfully" x:Uid="AddedToLibrarySuccessfully">ターゲットライブラリに追加完了しました。</s:String>
+
+    <!-- 色番重複警告 -->
+    <s:String x:Key="WarningColorNumberDuplicated" x:Uid="WarningColorNumberDuplicated">色番が重複しています！</s:String>
+    <s:String x:Key="MenuItem_FindClosedColorsFromLibrary" x:Uid="MenuItem_FindClosedColorsFromLibrary">現在のサンプルライブラリから近い色を検索します</s:String>
+    <!-- 先に標準を測定してください !!! -->
+    <s:String x:Key="StandardFirstInfoLilin" x:Uid="StandardFirstInfoLilin">先に標準を測定してください!!!</s:String>
+
+    <!-- 色カードマッチング＆検索 -->
+    <s:String x:Key="PanTongMatchTipLilin" x:Uid="PanTongMatchTipLilin">色カードマッチング＆検索</s:String>
+
+    <!-- CCMAS -->
+    <s:String x:Key="MenuItem_PanTongColorMatchSearchLilin" x:Uid="MenuItem_PanTongColorMatchSearchLilin">しきカードしょうごう</s:String>
+
+    <!-- 色カードマッチング＆検索ウィンドウ -->
+    <s:String x:Key="BestMatchWindowLilin" x:Uid="BestMatchWindowLilin">色カードマッチング＆検索ウィンドウ</s:String>
+
+    <!-- サンプルライブラリオプション -->
+    <s:String x:Key="Label_LibraryOptionsLilin" x:Uid="Label_LibraryOptionsLilin">サンプルライブラリオプション</s:String>
+
+    <!-- ライブラリ＆キーワード検索 -->
+    <s:String x:Key="Label_LibraryOptionsKeySearchLilin" x:Uid="Label_LibraryOptionsKeySearchLilin">ライブラリ＆キーワード検索</s:String>
+
+    <!-- キーワード検索... -->
+    <s:String x:Key="Btn_KeySearchPanTongLibraryLilin" x:Uid="Btn_KeySearchPanTongLibraryLilin">キーワード検索...</s:String>
+
+    <!-- 検索結果リスト -->
+    <s:String x:Key="Label_SearchResultListLilin" x:Uid="Label_SearchResultListLilin">検索結果リスト</s:String>
+
+    <!-- フィルター文字入力 -->
+    <s:String x:Key="Label_SetSearchFilterLilin" x:Uid="Label_SetSearchFilterLilin">フィルター文字を入力</s:String>
+
+    <!-- サンプリング -->
+    <s:String x:Key="Label_SamplingLilin" x:Uid="Label_SamplingLilin">サンプリング</s:String>
+
+    <!-- 検索フィルター -->
+    <s:String x:Key="Label_SearchFilterLilin" x:Uid="Label_SearchFilterLilin">検索フィルター</s:String>
+
+    <!-- 検索マッチ結果 -->
+    <s:String x:Key="Label_SearchResultLilin" x:Uid="Label_SearchResultLilin">検索マッチ結果</s:String>
+
+    <!-- 最適色 -->
+    <s:String x:Key="Label_MatchedBestColorLilin" x:Uid="Label_MatchedBestColorLilin">最適色</s:String>
+
+    <!-- 色差値 -->
+    <s:String x:Key="Label_ColorDifFormulaLilin" x:Uid="Label_ColorDifFormulaLilin">色差値</s:String>
+
+    <!-- 色Excelファイル: -->
+    <s:String x:Key="Label_PantonColorFileLilin" x:Uid="Label_PantonColorFileLilin">色Excelファイル:</s:String>
+
+    <!-- 色カードデータなし!!! -->
+    <s:String x:Key="NoPanTongColorDataLilin" x:Uid="NoPanTongColorDataLilin">色カードデータがありません!!!</s:String>
+
+    <!-- サンプル色データなし!!! -->
+    <s:String x:Key="NoSampleColorDataLilin" x:Uid="NoSampleColorDataLilin">サンプル色データがありません!!!</s:String>
+
+    <!-- 検索時間: {0:F3} ms -->
+    <s:String x:Key="SearchTime$0$ShowLilin" x:Uid="SearchTime$0$ShowLilin">検索時間: {0:F3} ms</s:String>
+
+    <!-- 検索失敗!!! -->
+    <s:String x:Key="CannotFindMatchedColorLilin" x:Uid="CannotFindMatchedColorLilin">検索失敗!!!</s:String>
+
+    <!-- 器種エラー!!! -->
+    <s:String x:Key="InstumentTypeErrorLilin" x:Uid="InstumentTypeErrorLilin">器種エラー!!!</s:String>
+
+    <!-- ソート条件 -->
+    <s:String x:Key="Label_SortConditionLilin" x:Uid="Label_SortConditionLilin">ソート条件</s:String>
+
+    <!-- コート色カード -->
+    <s:String x:Key="Label_CoatedLilin" x:Uid="Label_CoatedLilin">コート色カード</s:String>
+
+    <!-- 無コート色カード -->
+    <s:String x:Key="Label_UncoatedLilin" x:Uid="Label_UncoatedLilin">無コート色カード</s:String>
+
+    <!-- 色カード名 -->
+    <s:String x:Key="Common_Name" x:Uid="Common_Name">色カード名</s:String>
+
+    <!-- マッチ項目を現在の標準に設定 -->
+    <s:String x:Key="SetMatchToBeStdLilin" x:Uid="SetMatchToBeStdLilin">マッチ項目を現在の標準に設定</s:String>
+
+    <!-- 現在のサンプルを標準に設定 -->
+    <s:String x:Key="SetCurSamToBeStdLilin" x:Uid="SetCurSamToBeStdLilin">現在のサンプルを標準に設定</s:String>
+
+    <!-- 現在のマッチ擬似色が変更されました -->
+    <s:String x:Key="CurrentMatchColorChangeLilin" x:Uid="CurrentMatchColorChangeLilin">現在のマッチ擬似色が変更されました</s:String>
+
+    <!-- 標準設定成功 -->
+    <s:String x:Key="PanTongStdSuccessLilin" x:Uid="PanTongStdSuccessLilin">標準設定成功</s:String>
+
+    <!-- 標準設定失敗 -->
+    <s:String x:Key="PanTongStdFailLilin" x:Uid="PanTongStdFailLilin">標準設定失敗</s:String>
+
+    <!-- 標準に設定しますか？ -->
+    <s:String x:Key="SetToBeStandardEnsureLilin" x:Uid="SetToBeStandardEnsureLilin">標準に設定しますか？</s:String>
+
+    <!-- 標準リスト追加成功 -->
+    <s:String x:Key="AddToStandardListSuccessLilin" x:Uid="AddToStandardListSuccessLilin">標準リストに追加成功</s:String>
+
+    <!-- 標準リスト追加失敗：既存 -->
+    <s:String x:Key="AddToStandardListFailLilin" x:Uid="AddToStandardListFailLilin">標準リスト追加失敗：既に存在します</s:String>
+
+    <!-- 標準リスト表示＆現在標準切替 -->
+    <s:String x:Key="StandardListAndShiftStandardLilin" x:Uid="StandardListAndShiftStandardLilin">標準リスト表示＆現在標準切替</s:String>
+
+    <!-- サンプル測定モード: -->
+    <s:String x:Key="SampleModeLilin" x:Uid="SampleModeLilin">サンプル測定モード:</s:String>
+    <s:String x:Key="dEab">dE</s:String>
+    <s:String x:Key="CIEDE1976">△E</s:String>
+    <s:String x:Key="CIEDE1994">△E94</s:String>
+    <s:String x:Key="CIEDE2000">△E00</s:String>
+    <s:String x:Key="CMCDE">△Ecmc</s:String>
+    <s:String x:Key="ColorDiff_CIELAB_L">△L</s:String>
+    <s:String x:Key="ColorDiffFormula_DL1994">△L94</s:String>
+    <s:String x:Key="ColorDiffFormula_DL2000">△L00</s:String>
+    <s:String x:Key="ColorDiffFormula_DLcmc">△Lcmc</s:String>
+    <s:String x:Key="ColorDiff_CIELAB_a">△a</s:String>
+    <s:String x:Key="ColorDiff_CIELAB_b">△b</s:String>
+    <!-- シリアルポート選択 -->
+    <s:String x:Key="Title_SelectASerialPort" x:Uid="Title_SelectASerialPort">シリアルポートを選択</s:String>
+
+    <!-- USBを抜き差ししてください -->
+    <s:String x:Key="Alert_YouNeedToReplugTheUSB" x:Uid="Alert_YouNeedToReplugTheUSB">USBを抜き差ししてください</s:String>
+
+    <!-- Bluetoothデバイス選択 -->
+    <s:String x:Key="Title_SelectABlueToothDevice" x:Uid="Title_SelectABlueToothDevice">Bluetoothデバイスを選択</s:String>
+
+    <!-- 選択サンプルを削除 -->
+    <s:String x:Key="MenuItem_DeleteSelectedSamples" x:Uid="MenuItem_DeleteSelectedSamples">選択サンプルを削除</s:String>
+
+    <!-- 色度図印刷 -->
+    <s:String x:Key="Report_ExportCIEYxyChromaticityChart" x:Uid="Report_ExportCIEYxyChromaticityChart">色度図を印刷</s:String>
+
+    <!-- 戻る -->
+    <s:String x:Key="Label_Back" x:Uid="Label_Back">戻る</s:String>
+
+    <!-- 無効な値 -->
+    <s:String x:Key="InvalidValue" x:Uid="InvalidValue">無効な値:</s:String>
+
+    <!-- すべて -->
+    <s:String x:Key="All" x:Uid="All">すべて</s:String>
+
+    <!-- 上書き -->
+    <s:String x:Key="Label_Cover" x:Uid="Label_Cover">上書き</s:String>
+
+    <!-- スキップ -->
+    <s:String x:Key="Label_Skip" x:Uid="Label_Skip">スキップ</s:String>
+
+    <!-- Bluetooth 4.2 で接続 -->
+    <s:String x:Key="MenuItem_ConnectByBluetooth_4" x:Uid="MenuItem_ConnectByBluetooth_4">Bluetooth 4.2 で接続</s:String>
+
+    <!-- Bluetooth 5.0 で接続 -->
+    <s:String x:Key="MenuItem_ConnectByBluetooth_5" x:Uid="MenuItem_ConnectByBluetooth_5">Bluetooth 5.0 で接続</s:String>
+
+    <!-- データファイル -->
+    <s:String x:Key="s_WhiteBoardTableFilePath" x:Uid="s_WhiteBoardTableFilePath">データファイル</s:String>
+
+    <!-- 参照... -->
+    <s:String x:Key="s_Browse" x:Uid="s_Browse">参照...</s:String>
+
+    <!-- 書込成功 -->
+    <s:String x:Key="SuccessfullyWritten" x:Uid="SuccessfullyWritten">書込成功！</s:String>
+
+    <!-- 8°グロス -->
+    <s:String x:Key="Gloss8" x:Uid="Gloss8">8°グロス</s:String>
+
+    <!-- △8°グロス -->
+    <s:String x:Key="DeltaGloss8" x:Uid="DeltaGloss8">△8°グロス</s:String>
+
+    <!-- 標準を選択 -->
+    <s:String x:Key="s_SelectAStandard" x:Uid="s_SelectAStandard">標準を選択</s:String>
+
+    <!-- 色指標差 -->
+    <s:String x:Key="Label_ColorIndexesDiff" x:Uid="Label_ColorIndexesDiff">色指標差</s:String>
+
+    <!-- MY カーボン -->
+    <s:String x:Key="MY_Carbon" x:Uid="MY_Carbon">MY カーボン</s:String>
+
+    <!-- MC カーボン -->
+    <s:String x:Key="MC_Carbon" x:Uid="MC_Carbon">MC カーボン</s:String>
+
+    <!-- dM カーボン -->
+    <s:String x:Key="dM_Carbon" x:Uid="dM_Carbon">dM カーボン</s:String>
+
+    <!-- 検索開始 -->
+    <s:String x:Key="StartSearch" x:Uid="StartSearch">検索開始</s:String>
+
+    <!-- 検索停止 -->
+    <s:String x:Key="StopSearch" x:Uid="StopSearch">検索停止</s:String>
+
+    <!-- ポート -->
+    <s:String x:Key="s_Ports" x:Uid="s_Ports">ポート</s:String>
+
+    <!-- Bluetoothデバイスを検索 -->
+    <s:String x:Key="s_SearchBluetoothDevice" x:Uid="s_SearchBluetoothDevice">Bluetoothデバイスを検索</s:String>
+
+    <!-- デバイスアドレス -->
+    <s:String x:Key="DeviceAddress" x:Uid="DeviceAddress">デバイスアドレス</s:String>
+
+    <!-- 信号強度 -->
+    <s:String x:Key="SignalIntensity" x:Uid="SignalIntensity">信号強度</s:String>
+
+    <!-- 先に検索を停止してください！ -->
+    <s:String x:Key="StopSearchingFirst" x:Uid="StopSearchingFirst">先に検索を停止してください！</s:String>
+
+    <!-- Bluetoothデバイスを至少1つ選択してください！ -->
+    <s:String x:Key="AtLeastSelectedABluetoothDevice" x:Uid="AtLeastSelectedABluetoothDevice">Bluetoothデバイスを至少1つ選択してください！</s:String>
+
+    <!-- 接続失敗: {0} -->
+    <s:String x:Key="ConnectFailed$0$" x:Uid="ConnectFailed$0$">接続失敗: {0}</s:String>
+
+    <!-- クラリティ -->
+    <s:String x:Key="Clarity" x:Uid="Clarity">クラリティ</s:String>
+
+    <!-- クラリティ校正 -->
+    <s:String x:Key="MenuItem_ClarityCalibration" x:Uid="MenuItem_ClarityCalibration">クラリティ校正</s:String>
+
+    <!-- クラリティ測定 -->
+    <s:String x:Key="ClarityMeasurement" x:Uid="ClarityMeasurement">クラリティ測定</s:String>
+
+    <!-- クラリティ校正プロンプト -->
+    <s:String x:Key="ClarityCalibrationPrompt" x:Uid="ClarityCalibrationPrompt">
+        キャップで'Comp AP'を覆い、クラリティ校正標準を'ClarityAP'に密着させてください
+    </s:String>
+
+    <!-- クラリティ校正失敗：Trans APを開けてください -->
+    <s:String x:Key="ClarityCalibrationFailed" x:Uid="ClarityCalibrationFailed">
+        'Trans AP'が開いていることを確認してください
+    </s:String>
+
+    <!-- 0％校正 -->
+    <s:String x:Key="ZeroPercentCalibration" x:Uid="ZeroPercentCalibration">0％校正</s:String>
+
+    <!-- 100％校正 -->
+    <s:String x:Key="HundredPercentCalibration" x:Uid="HundredPercentCalibration">100％校正</s:String>
+
+    <!-- 0％校正プロンプト -->
+    <s:String x:Key="ZeroPercentCalibrationPrompt" x:Uid="ZeroPercentCalibrationPrompt">
+        'Zero calibration'キャップと'Comp AP'の両方を覆い、ボタンを押して続行
+    </s:String>
+
+    <!-- 100％校正プロンプト -->
+    <s:String x:Key="HundredPercentCalibrationPrompt" x:Uid="HundredPercentCalibrationPrompt">
+        'Zero Calibration'キャップを'Trans AP'から外し、ボタンを押して続行
+    </s:String>
+
+    <!-- クラリティ測定プロンプト -->
+    <s:String x:Key="MeasureClarityPrompt" x:Uid="MeasureClarityPrompt">
+        サンプルを'ClarityAP'に密着させ、'OK'をクリックしてクラリティを測定
+    </s:String>
+
+    <!-- クラリティ測定失敗： -->
+    <s:String x:Key="MeasureClarityFailed" x:Uid="MeasureClarityFailed">クラリティ測定失敗：</s:String>
+    <s:String x:Key="SampleReport">サンプル報告</s:String>
+    <s:String x:Key="SampleData">サンプルデータ</s:String>
+    <s:String x:Key="AutoSaveToLibrary">ライブラリに自動保存</s:String>
+
+    <s:String x:Key="MenuItem_PathlenthSelect" x:Uid="MenuItem_PathlenthSelect">キュベット設定...</s:String>
+    <s:String x:Key="Gb_PathLength" x:Uid="Gb_PathLength">キュベットの光路長</s:String>
+    <s:String x:Key="ChP" x:Uid="ChP">中国薬典</s:String>
+    <s:String x:Key="Label_Absorbance" x:Uid="Label_Absorbance">吸光度</s:String>
+    <s:String x:Key="Label_ChP" x:Uid="Label_ChP">中国薬典</s:String>
+
+    <s:String x:Key="ChpGY" x:Uid="ChpGY">ChpGY(薬典)</s:String>
+    <s:String x:Key="ChpYG" x:Uid="ChpYG">ChpYG(薬典)</s:String>
+    <s:String x:Key="ChpY" x:Uid="ChpY">ChpY(薬典)</s:String>
+    <s:String x:Key="ChpOY" x:Uid="ChpOY">ChpOY(薬典)</s:String>
+    <s:String x:Key="ChpOR" x:Uid="ChpOR">ChpOR(薬典)</s:String>
+    <s:String x:Key="ChpBR" x:Uid="ChpBR">ChpBR(薬典)</s:String>
+
+    <!--  比色皿光程  Pathlength-->
+    <s:String x:Key="Rb_10" x:Uid="Rb_10">10mm</s:String>
+    <s:String x:Key="Rb_30" x:Uid="Rb_30">30mm</s:String>
+    <s:String x:Key="Rb_50" x:Uid="Rb_50">50mm</s:String>
+    <s:String x:Key="Rb_100" x:Uid="Rb_100">100mm</s:String>
+
+    <!--糖度-->
+    <s:String x:Key="Label_Thickness" x:Uid="Label_Thickness">セル厚さ:</s:String>
+    <s:String x:Key="Label_Concentration" x:Uid="Label_Concentration">濃度:</s:String>
+
+    <s:String x:Key="Gb_ICUMSA" x:Uid="Gb_ICUMSA">糖度パラメータ</s:String>
+
+    <s:String x:Key="H_TestSetting" x:Uid="H_TestSetting">測定モード設定</s:String>
+    <s:String x:Key="rd_SingleMeasure" x:Uid="rd_SingleMeasure">単発測定</s:String>
+    <s:String x:Key="rd_ContinuousMeasure" x:Uid="rd_ContinuousMeasure">連続測定</s:String>
+    <s:String x:Key="label_Times" x:Uid="rd_SingleMeasure">測定回数</s:String>
+    <s:String x:Key="label_MeasureInterval" x:Uid="rd_ContinuousMeasure">測定間隔</s:String>
+
+    <s:String x:Key="LoadingStandards">機器から標準サンプルを読み込んでいます...</s:String>
+    <s:String x:Key="ProgressDialogTitle">データ読み込み中</s:String>
+    <s:String x:Key="LoadingStandardsProgress">標準サンプルを読み込んでいます</s:String>
+    <s:String x:Key="InstrumentCommunicationTimeout">機器通信タイムアウト</s:String>
+    <s:String x:Key="InstrumentTimeoutSuggestion">機器が切断されているか、応答がありません。接続を確認してください。</s:String>
+    <s:String x:Key="RetryConnectionQuestion">機器の再接続を試行しますか？</s:String>
+    <s:String x:Key="PleaseReconnectManually">機器を手動で再接続してから再試行してください。</s:String>
+
+    <!-- バーコードスキャン / クラウド -->
+    <s:String x:Key="MenuItem_CloudSetting">クラウドサービス設定...</s:String>
+    <s:String x:Key="Title_CloudSetting">Web API 設定</s:String>
+    <s:String x:Key="Label_CloudEnabled">クラウドサービスを有効にする</s:String>
+    <s:String x:Key="Label_CloudApiBaseUrl">サービス URL:</s:String>
+    <s:String x:Key="Label_CloudUploadPath">アップロードパス:</s:String>
+    <s:String x:Key="Label_CloudApiToken">アクセストークン:</s:String>
+    <s:String x:Key="Label_CloudTimeoutSeconds">タイムアウト(秒):</s:String>
+    <s:String x:Key="Tip_CloudSetting">設定はプログラムフォルダの Cloud\CloudConfig.json に保存されます。有効にした場合は完全なサービス URL を入力し、アップロードパスは相対パスです。</s:String>
+    <s:String x:Key="CloudTimeoutInvalid">タイムアウトは 5 以上の整数である必要があります。</s:String>
+    <s:String x:Key="CloudUploadUrlMissing">クラウドサービスを有効にする場合、サービス URL は必須です。</s:String>
+    <s:String x:Key="MenuItem_ScanBarcode">バーコードスキャン...</s:String>
+    <s:String x:Key="Title_ScanBarcode">バーコードスキャン</s:String>
+    <s:String x:Key="Label_ScanBarcode">スキャン:</s:String>
+    <s:String x:Key="Tip_ScanBarcodeToolbar">直近のスキャン結果; F6 でスキャンウィンドウを開く</s:String>
+    <s:String x:Key="Tip_ScanBarcodeDialog">バーコードスキャナでスキャンしてください(Enter で確定して全選択)。手動改行は Shift+Enter。</s:String>
+    <s:String x:Key="Tip_ScanBarcodeWaiting">スキャン待機中...</s:String>
+    <s:String x:Key="ScanBarcodeCapturedHint">スキャン済み: {0}</s:String>
+
+</ResourceDictionary>

@@ -1,0 +1,117 @@
+﻿<Window x:Class="ThreeNH.ColorQualityControl.UI.ReportSettingDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{StaticResource Title_ReportSetting}"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        MinWidth="450"
+        SizeToContent="WidthAndHeight">
+
+    <StackPanel>
+        <GroupBox Header="{StaticResource Label_UserProfile}" Margin="6">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock 
+                    Grid.Row="0" 
+                    Grid.Column="0"
+                    Margin="6"
+                    VerticalAlignment="Center"
+                    Text="{StaticResource Label_ReportTitle}" />
+                <TextBox 
+                    Name="txtTitle"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="6"
+                    Text="{Binding Path=ReportSetting.Title, Mode=OneWay}" />
+
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="6"
+                    VerticalAlignment="Center"
+                    Text="{StaticResource Label_ReportSubtitle}" />
+                <TextBox
+                    Name="txtSubtitle"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="6"
+                    Text="{Binding Path=ReportSetting.Subtitle, Mode=OneWay}" />
+
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="6"
+                    VerticalAlignment="Center"
+                    Text="{StaticResource Label_CompanyAddress}" />
+                <TextBox
+                    Name="txtAddress"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="6"
+                    Text="{Binding Path=ReportSetting.CompanyAddress, Mode=OneWay}" />
+
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Margin="6"
+                    VerticalAlignment="Center"
+                    Text="{StaticResource Label_CompanyEnglishAddress}" />
+                <TextBox
+                    Name="txtEnglishAddress"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="6"
+                    Text="{Binding Path=ReportSetting.CompanyEnglishAddress, Mode=OneWay}" />
+
+            </Grid>
+        </GroupBox>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="0 5"> 
+                <CheckBox Content="{StaticResource Report_ExportTolerance}"
+       IsChecked="{Binding Path=ReportSetting.IsExportTolerance}"
+       Margin="50,5,20,5"/>
+
+                <CheckBox Content="{StaticResource Report_ExportReferences}"
+       IsChecked="{Binding Path=ReportSetting.IsExportReferences}"
+       Margin="50,5,20,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 5">
+                <CheckBox Content="{StaticResource Report_ExportCIEYxyChromaticityChart}"
+      IsChecked="{Binding Path=ReportSetting.IsExportChromaticityChart}"
+      Margin="50,5,20,5"/>
+                <CheckBox Content="{StaticResource Report_ExportTestLab}"
+      IsChecked="{Binding Path=ReportSetting.IsExportTestLab}"
+      Margin="50,5,20,5"/>
+            </StackPanel>
+            
+        </StackPanel>
+
+
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            Margin="6">
+            <Button 
+                Margin="0, 0, 10, 0"
+                MinWidth="60"
+                Content="{StaticResource Label_OK}" 
+                IsDefault="True"
+                Click="OnOkClick" />
+            <Button
+                Margin="10, 0, 0, 0"
+                MinWidth="60"
+                Content="{StaticResource Label_Cancel}"
+                IsCancel="True" />
+        </StackPanel>
+    </StackPanel>
+</Window>

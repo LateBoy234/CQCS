@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="ThreeNH.ColorQualityControl.UI.ToleranceControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ThreeNH.ColorQualityControl.UI">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Column="0" Margin="3" Padding="3" Header="{StaticResource Label_ToleranceData}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <DataGrid Margin="3" AutoGenerateColumns="False"
+                      CanUserAddRows="False" CanUserSortColumns="False"
+                      Name="ToleranceItems">
+                    <!-- <DataGrid.Resources> -->
+                    <!--     ~1~ the non-editing cell @1@ -->
+                    <!--     <DataTemplate x:Key="ReadonlyCellTemplate"> -->
+                    <!--         <TextBlock Text="{Binding Lower}" /> -->
+                    <!--     </DataTemplate> -->
+                    <!--     ~1~ the editing cell @1@ -->
+                    <!--     <DataTemplate x:Key="EditableCellTemplate"> -->
+                    <!--         <TextBox Text="{Binding Lower}" /> -->
+                    <!--     </DataTemplate> -->
+                    <!-- </DataGrid.Resources> -->
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{StaticResource Label_ColorDiff}" IsReadOnly="True"
+                                        Binding="{Binding Path=Name, Mode=OneWay}"/>
+                        <DataGridCheckBoxColumn Header="{StaticResource Label_UseForJudgement}" 
+                                            Binding="{Binding Path=UseForJudgement}" />
+                        <DataGridTextColumn Header="{StaticResource Label_LowerLimit}"
+                                        Binding="{Binding Path=Lower}"/>
+                        <DataGridTextColumn Header="{StaticResource Label_UpperLimit}"
+                                        Binding="{Binding Path=Upper}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <!--<CheckBox Grid.Row="1" Margin="3" Click="ShowAllItems_Click">Show all items</CheckBox>-->
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Column="1" Margin="6,3,3,3" Header="{StaticResource Label_ColorDiffFormulaParameterFactor}" MinWidth="120">
+            <StackPanel Grid.IsSharedSizeScope="True">
+                <GroupBox Margin="3" Padding="3" Header="CMC">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Label" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Margin="3">l</TextBlock>
+                        <TextBox Grid.Row="0" Grid.Column="1" Margin="3" 
+                                 Text="{Binding KLcmc, NotifyOnSourceUpdated=True}"
+                                 SourceUpdated="ToleranceChanged"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="3">c</TextBlock>
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="3"
+                                 Text="{Binding KCcmc, NotifyOnSourceUpdated=True}"
+                                 SourceUpdated="ToleranceChanged"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Margin="3" Padding="3" Header="&#x0394;E94">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Label" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Margin="3">l</TextBlock>
+                        <TextBox Grid.Row="0" Grid.Column="1" Margin="3" 
+                                 Text="{Binding Path=KL94, NotifyOnSourceUpdated=True}"
+                                 SourceUpdated="ToleranceChanged"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="3">c</TextBlock>
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="3"
+                                 Text="{Binding KC94, NotifyOnSourceUpdated=True}" 
+                                 SourceUpdated="ToleranceChanged"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Margin="3">h</TextBlock>
+                        <TextBox Grid.Row="2" Grid.Column="1" Margin="3"
+                                 Text="{Binding KH94, NotifyOnSourceUpdated=True}"
+                                 SourceUpdated="ToleranceChanged" />
+                    </Grid>
+                </GroupBox>
+                <GroupBox Margin="3" Padding="3" Header="&#x0394;E00">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Label" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Margin="3">l</TextBlock>
+                        <TextBox Grid.Row="0" Grid.Column="1" Margin="3" 
+                                 Text="{Binding KL00, NotifyOnSourceUpdated=True}"
+                                 SourceUpdated="ToleranceChanged"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="3">c</TextBlock>
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="3"
+                                 Text="{Binding KC00, NotifyOnSourceUpdated=True}"
+                                 SourceUpdated="ToleranceChanged"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Margin="3">h</TextBlock>
+                        <TextBox Grid.Row="2" Grid.Column="1" Margin="3" 
+                                 Text="{Binding KH00, NotifyOnSourceUpdated=True}"
+                                 SourceUpdated="ToleranceChanged"/>
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>

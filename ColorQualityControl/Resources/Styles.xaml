@@ -1,0 +1,60 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:ThreeNH.ColorQualityControl.Converters">
+
+    <converters:BooleanReversedConverter x:Key="BooleanReversedConverter" />
+    <Style x:Key="ButtonStyle" TargetType="Button">
+        <Setter Property="MinWidth" Value="60" />
+        <Setter Property="Margin" Value="6" />
+    </Style>
+
+    <Style x:Key="FormLabelStyle" TargetType="Label">
+        <Setter Property="Margin" Value="6,6,3,6" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="FormTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Margin" Value="6,6,3,6" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="FormTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Margin" Value="3,6,6,6" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="ColumnHeaderTextBoxStyle" TargetType="TextBlock">
+        <Setter Property="Margin" Value="6" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="RowHeaderTextBoxStyle" TargetType="TextBlock">
+        <Setter Property="Margin" Value="6" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="CellTextBoxStyle" TargetType="TextBlock">
+        <Setter Property="Margin" Value="6" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="FormComboBoxStyle" TargetType="ComboBox">
+        <Setter Property="Margin" Value="6" />
+        <Setter Property="MinWidth" Value="60" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="ToolButtonImageStyle" TargetType="Image">
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.5" />
+            </Trigger>
+        </Style.Triggers>
+        <Style.Setters>
+            <Setter Property="Width" Value="32" />
+            <Setter Property="Height" Value="32" />
+        </Style.Setters>
+    </Style>
+    <Style x:Key="ToolButtonStyle" TargetType="Button">
+        <Style.Setters>
+            <Setter Property="Padding" Value="3" />
+        </Style.Setters>
+    </Style>
+</ResourceDictionary>

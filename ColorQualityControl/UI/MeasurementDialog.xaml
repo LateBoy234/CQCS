@@ -1,0 +1,203 @@
+﻿<Window x:Class="ThreeNH.ColorQualityControl.UI.MeasurementDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:myctrls="clr-namespace:ThreeNH.Controls"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        SizeToContent="WidthAndHeight"
+        Title="{StaticResource Title_Measurment}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resources/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <CheckBox Grid.Row="0" Grid.Column="0" Margin="6" VerticalAlignment="Center"
+                      IsChecked="{Binding Path=AutoSave}" Content="{StaticResource Label_AutoStore}" />
+
+            <CheckBox Grid.Row="0" Grid.Column="1" Margin="6" VerticalAlignment="Center"
+                      Name="AutoMeasureCheckBox"
+                      IsChecked="{Binding Path=AutoMeasure}" Content="{StaticResource Label_AutoMeasure}" />
+
+            <StackPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Horizontal">
+                <TextBlock Margin="6, 6, 2, 6" VerticalAlignment="Center" 
+                           Text="{StaticResource Label_MeasurementTimes}"/>
+                <ComboBox Margin="2, 6, 6, 6" VerticalAlignment="Center" 
+                          ItemsSource="{Binding Path=TimesList}"
+                          MinWidth="50" IsEditable="True"
+                          Text="{Binding Path=Times, Mode=TwoWay}"/>
+
+                <TextBlock Margin="6, 6, 2, 6" VerticalAlignment="Center" 
+                           Text="{StaticResource Label_MeasurementInterval}"/>
+                <ComboBox Margin="2, 6, 6, 6" VerticalAlignment="Center" MinWidth="50"
+                          ItemsSource="{Binding Path=IntervalList}"
+                          SelectedItem="{Binding Path=Interval, Mode=TwoWay}"
+                          IsEnabled="{Binding Path=AutoMeasure}" />
+            </StackPanel>
+
+
+            <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource ButtonStyle}"
+                    Name="StoreDeleteButton" Click="OnStoreDeleteButtonClick"
+                    IsEnabled="False"
+                    Content="{StaticResource Label_Delete}" />
+
+            <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource ButtonStyle}"
+                    Name="MeasurementButton"
+                    Click="OnMeasureClick"
+                    IsDefault="True" Content="{StaticResource Label_Measure}" />
+
+            <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource ButtonStyle}"
+                    Name="EndAvgButton"
+                    Click="OnAverageMeasurementButtonClick" Content="{StaticResource EndAverageMeasure}" />
+            <TextBlock Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" 
+                       VerticalAlignment="Center" TextAlignment="Center"
+                       Foreground="ForestGreen"
+                       Text="{Binding Path=MeasurementTimesText}"/>
+            <Button Grid.Row="1" Grid.Column="4" Style="{StaticResource ButtonStyle}" IsCancel="True" Content="{StaticResource Label_Close}" />
+        </Grid>
+
+        <Grid DockPanel.Dock="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" Text="{StaticResource Label_NameColon}" />
+            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource FormTextBoxStyle}"
+                     Text="{Binding Path=Specimen.Name}"/>
+
+            <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource FormTextBlockStyle}" Text="{StaticResource Label_DateTimeColon}" />
+            <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource FormTextBoxStyle}"
+                     IsReadOnly="True" 
+                     Text="{Binding Path=DateTime}"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" Text="{StaticResource Label_IlluminantColon}" />
+            <myctrls:IlluminantComboBox Grid.Row="3" Grid.Column="1" Margin="3,6,6,6"
+                                       SelectedValue="{Binding Path=Illuminant}"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="2" Style="{StaticResource FormTextBlockStyle}" Text="{StaticResource Label_ObserverColon}" />
+            <myctrls:ObserverComboBox Grid.Row="3" Grid.Column="3" Margin="3,6,6,6"
+                                     SelectedValue="{Binding Path=Observer}"/>
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" Text="{StaticResource Label_ColorSapceColon}" />
+            <myctrls:ColorSpaceComboBox Grid.Row="4" Grid.Column="1" Margin="3,6,6,6"
+                                       SelectedValue="{Binding Path=ColorSpace}"/>
+
+            <myctrls:GridWithLine  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Margin="6"
+                                 Grid.IsSharedSizeScope="True">
+                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Disabled">
+                    <DataGrid ItemsSource="{Binding Rows}" MaxHeight="200"  GridLinesVisibility="All" CanUserAddRows="False" AutoGenerateColumns="False" Name="dg_date"
+                                              HorizontalGridLinesBrush="#03ffea" VerticalGridLinesBrush="#03ffea">
+                        <DataGrid.Columns>
+                            <!-- 序号 -->
+                            <DataGridTextColumn  Binding="{Binding Index}" Width="70"/>
+
+                            <!-- SCI 3 列 -->
+                            <DataGridTextColumn Width="70" Binding="{Binding Value1, StringFormat=F3}" x:Name="dgc_sci1">
+                                <DataGridTextColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ColorLabel1, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </DataTemplate>
+                                </DataGridTextColumn.HeaderTemplate>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Width="70" Binding="{Binding Value2, StringFormat=F3}" x:Name="dgc_sci2">
+                                <DataGridTextColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ColorLabel2, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </DataTemplate>
+                                </DataGridTextColumn.HeaderTemplate>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Width="70" Binding="{Binding Value3, StringFormat=F3}" x:Name="dgc_sci3">
+                                <DataGridTextColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ColorLabel3, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </DataTemplate>
+                                </DataGridTextColumn.HeaderTemplate>
+                            </DataGridTextColumn>
+
+                            <!-- SCE 3 列 -->
+                            <DataGridTextColumn Width="70" Binding="{Binding SCE_Value1, StringFormat=F3}" x:Name="dgc_sce1">
+                                <DataGridTextColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ColorSCE1, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </DataTemplate>
+                                </DataGridTextColumn.HeaderTemplate>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Width="70" Binding="{Binding SCE_Value2, StringFormat=F3}" x:Name="dgc_sce2">
+                                <DataGridTextColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ColorSCE2, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </DataTemplate>
+                                </DataGridTextColumn.HeaderTemplate>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Width="70" Binding="{Binding SCE_Value3, StringFormat=F3}" x:Name="dgc_sce3">
+                                <DataGridTextColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ColorSCE3, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </DataTemplate>
+                                </DataGridTextColumn.HeaderTemplate>
+                            </DataGridTextColumn>
+                            <!-- 其他Clr 3 列 -->
+                            <DataGridTextColumn Width="70" Binding="{Binding Value1, StringFormat=F3}" x:Name="dgc_Clr1">
+                                <DataGridTextColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ColorClr1, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </DataTemplate>
+                                </DataGridTextColumn.HeaderTemplate>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Width="70" Binding="{Binding Value2, StringFormat=F3}" x:Name="dgc_Clr2">
+                                <DataGridTextColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ColorClr2, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </DataTemplate>
+                                </DataGridTextColumn.HeaderTemplate>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Width="70" Binding="{Binding Value3, StringFormat=F3}" x:Name="dgc_Clr3">
+                                <DataGridTextColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ColorClr3, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </DataTemplate>
+                                </DataGridTextColumn.HeaderTemplate>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ScrollViewer>
+               
+            </myctrls:GridWithLine>
+        </Grid>
+        <myctrls:SpectrumPlotControl MinWidth="300"
+                                    x:Name="SpectrumPlotControl"/>
+    </DockPanel>
+</Window>

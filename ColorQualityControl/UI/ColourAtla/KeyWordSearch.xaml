@@ -1,0 +1,83 @@
+﻿<mah:MetroWindow x:Class="ThreeNH.ColorQualityControl.UI.ColourAtla.KeyWordSearch"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mah ="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Width="900" Height="500"
+      Title="{DynamicResource Btn_KeySearchPanTongLibraryLilin}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <GroupBox Grid.Row="0" Grid.Column="0"
+                      Header="{DynamicResource Label_SearchResultListLilin}">
+                <DataGrid AutoGenerateColumns="True"
+                             Name="SearchResultDataGrid"
+                             ItemsSource="{Binding SearchResultDataTable}"
+                             IsReadOnly="True"
+                             SelectedIndex="{Binding SelectIndex}" 
+                             SelectionChanged="OnSelectionChanged">
+
+                    <DataGrid.InputBindings>
+                        <KeyBinding Gesture="Ctrl+M"
+                                    Command="{Binding SetSelectToCurrentStandard}"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
+                    </DataGrid.InputBindings>
+                    <DataGrid.ContextMenu>
+                        <ContextMenu ItemsSource="{Binding ContextMenuItemsKWSLilin}">
+                            <ContextMenu.ItemContainerStyle>
+                                <Style TargetType="MenuItem">
+                                    <Setter Property="CommandParameter"
+                                                Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
+                                                        Path=PlacementTarget}"
+                                        />
+                                </Style>
+                            </ContextMenu.ItemContainerStyle>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+
+
+                </DataGrid>
+            </GroupBox>
+            <GroupBox Grid.Row="1" Grid.Column="0"
+                      Header="{DynamicResource PseudoColor}">
+                <Rectangle Width="100" Height="50"
+                           Fill="{Binding SearchPseudoColor}"
+                />
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Margin="0,30" Content="{DynamicResource Label_SetSearchFilterLilin}"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" 
+                         Name="filter"
+                         Margin="0,30"
+                         TextChanged="OnFilterTextChanged"/>
+
+        </Grid>
+
+    </Grid>
+</mah:MetroWindow>
+

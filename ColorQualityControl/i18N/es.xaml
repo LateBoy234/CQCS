@@ -1,0 +1,1167 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    x:Uid="LangResourceDictionary">
+    <!--(西班牙语)  语句  -->
+
+    <s:String x:Key="MenuItem_SwitchToStandard" x:Uid="MenuItem_SwitchToStandard">Cambiar a muestra estándar</s:String>
+    <!--驱动查找提示-->
+    <s:String x:Key="SpreadtrumDriverNotFound">
+        La instalación del controlador Zhanxun no ha sido detectada, y algunas funciones pueden no estar disponibles. Por favor, asegúrese de que el controlador Zhanxun esté instalado y que la versión sea compatible.</s:String>
+    <s:String x:Key="DriverNotFoundTitle">Conductor no encontrado</s:String>
+    <s:String x:Key="DownLoadSpreadtrumDriver">Si se debe descargar el controlador</s:String>
+
+    <s:String x:Key="NoUpdates" x:Uid="NoUpdates">Ya es la última versión, no hay contenido de actualización</s:String>
+    <s:String x:Key="UpdateConfirmMessage" x:Uid="UpdateConfirmMessage">¿Está seguro de que desea descargar esta nueva versión?</s:String>
+    <s:String x:Key="UpdateConfirmTitle" x:Uid="UpdateConfirmTitle">Nueva versión disponible</s:String>
+    <s:String x:Key="DownloadingUpdatePleaseWait" x:Uid="DownloadingUpdatePleaseWait">Actualizando, por favor espere......</s:String>
+    <s:String x:Key="CurrentVersionText" x:Uid="CurrentVersionText">Su versión actual es:</s:String>
+    <s:String x:Key="FileSizeLabel" x:Uid="FileSizeLabel">Tamaño del archivo de actualización:</s:String>
+    <s:String x:Key="NewVersionAvailable" x:Uid="NewVersionAvailable">Última versión:</s:String>
+
+    <s:String x:Key="ConfirmDelAllSpecimensFromInstrument" x:Uid="ConfirmDelAllSpecimensFromInstrument">¿Desea suprimir todos los datos del instrumento?</s:String>
+    <s:String x:Key="DeleteAllSpecimens" x:Uid="DeleteAllSpecimens">Suprimir todos los datos</s:String>
+    <s:String x:Key="ConfirmDelAllTestFromInstrument" x:Uid="ConfirmDelAllTestFromInstrument">¿Desea suprimir todos los datos de muestra del instrumento?</s:String>
+    <s:String x:Key="DeleteAllTests" x:Uid="DeleteAllTests">Suprimir todos los datos de muestra</s:String>
+    <s:String x:Key="ConfirmDelTestInListFromInstrument" x:Uid="ConfirmDelTestInListFromInstrument">¿Desea suprimir todos los datos de muestra de la lista?</s:String>
+    <s:String x:Key="Index" x:Uid="Index">Índice</s:String>
+    <s:String x:Key="Instrument" x:Uid="Instrument">Instrumento</s:String>
+    <s:String x:Key="Material" x:Uid="Material">Material</s:String>
+    <s:String x:Key="SpecularComponent" x:Uid="SpecularComponent">Componente especular</s:String>
+    <s:String x:Key="UV" x:Uid="UV">UV</s:String>
+    <s:String x:Key="S_FailToConnectTheInstrument" x:Uid="S_FailToConnectTheInstrument">fail to connect to the instrument</s:String>
+    <s:String x:Key="DateTime" x:Uid="DateTime">Fecha y hora</s:String>
+    <s:String x:Key="OldName" x:Uid="OldName">Nombre anterior</s:String>
+    <s:String x:Key="S_Loading" x:Uid="S_Loading">Loading,Please wait...</s:String>
+    <s:String x:Key="PleaseInputNewName" x:Uid="PleaseInputNewName">Introduzca un nuevo nombre:</s:String>
+    <s:String x:Key="NameCanNotBeWhitespace" x:Uid="NameCanNotBeWhitespace">El nombre no puede estar vacío.</s:String>
+    <s:String x:Key="SpecimenNameDuplicated" x:Uid="SpecimenNameDuplicated">¡El nombre de la muestra ya existe!</s:String>
+    <s:String x:Key="PleaseInputMaterial" x:Uid="PleaseInputMaterial">Introduzca el material.</s:String>
+    <s:String x:Key="ConnectedTo" x:Uid="ConnectedTo">Conectado con:</s:String>
+    <s:String x:Key="Disconnected" x:Uid="Disconnected">Desconectado</s:String>
+    <s:String x:Key="Ready" x:Uid="Ready">Preparado</s:String>
+    <s:String x:Key="FileFilter" x:Uid="FileFilter">Archivo xml|*.xml|Archivo QTX (*.QTX)|*.QTX</s:String>
+    <s:String x:Key="ExportFileFilter" x:Uid="ExportFileFilter">Libro de Excel (*.xlsx)|*.xlsx|Texto (*.txt)|*.txt</s:String>
+    <s:String x:Key="ExcelFileFilter" x:Uid="ExcelFileFilter">Excel Workbook(*.xlsx)|*.xlsx</s:String>
+    <s:String x:Key="WhiteCalibrationPrompt" x:Uid="WhiteCalibrationPrompt">Alinee la apertura de medición con el tablero blanco.</s:String>
+    <s:String x:Key="BlackCalibrationPrompt" x:Uid="BlackCalibrationPrompt">Alinee la apertura de medición con el tablero negro.</s:String>
+    <s:String x:Key="CalibrationCompleted" x:Uid="CalibrationCompleted">Calibración finalizada</s:String>
+    <s:String x:Key="Calibration" x:Uid="Calibration">Calibración</s:String>
+    <s:String x:Key="WhiteCalibrationFailed" x:Uid="WhiteCalibrationFailed">La calibración de blanco ha fallado.</s:String>
+    <s:String x:Key="BlackCalibrationFailed" x:Uid="BlackCalibrationFailed">La calibración de negro ha fallado.</s:String>
+    <s:String x:Key="NoCurrentStandard" x:Uid="NoCurrentStandard">Ningún estándar actual</s:String>
+    <s:String x:Key="Horizontal" x:Uid="Horizontal">Horizontal</s:String>
+    <s:String x:Key="Vertical" x:Uid="Vertical">Vertical</s:String>
+    <s:String x:Key="Wrap" x:Uid="Wrap">Ajustar</s:String>
+    <s:String x:Key="PleaseSelectedAStandard" x:Uid="PleaseSelectedAStandard">Seleccione un estándar.</s:String>
+    <s:String x:Key="TheStandardHasNoTests" x:Uid="TheStandardHasNoTests">No hay ninguna muestra.</s:String>
+    <s:String x:Key="ColorDiffReport" x:Uid="ColorDiffReport">Informe de diferencia de color</s:String>
+    <s:String x:Key="ColorDiffCumulative" x:Uid="ColorDiffCumulative">Informe acumulativo de diferencia de color</s:String>
+    <s:String x:Key="StatisticsResult" x:Uid="StatisticsResult">Resultado de estadísticas</s:String>
+    <s:String x:Key="PleaseDisconnect" x:Uid="PleaseDisconnect">Primero es necesario desconectarse.</s:String>
+    <s:String x:Key="ConnectionSuccessful" x:Uid="ConnectionSuccessful">Conexión correcta</s:String>
+    <s:String x:Key="NoStandard" x:Uid="NoStandard">No se ha seleccionado ningún estándar.</s:String>
+    <s:String x:Key="Standard has written into instrument" x:Uid="Standard has written into instrument">El estándar se ha escrito en el instrumento</s:String>
+    <s:String x:Key="Standard" x:Uid="Standard">Estándar</s:String>
+    <s:String x:Key="Min" x:Uid="Min">Mín.</s:String>
+    <s:String x:Key="Max" x:Uid="Max">Máx.</s:String>
+    <s:String x:Key="Range" x:Uid="Range">Rango</s:String>
+    <s:String x:Key="Mean" x:Uid="Mean">Promedio</s:String>
+    <s:String x:Key="StdDev" x:Uid="StdDev">Desv. est.</s:String>
+    <s:String x:Key="PrecentOfPass" x:Uid="PrecentOfPass">Porcentaje de superación</s:String>
+    <s:String x:Key="ColorIndexes" x:Uid="ColorIndexes">Índices de color</s:String>
+    <s:String x:Key="Test" x:Uid="Test">Muestra</s:String>
+    <s:String x:Key="ColorDiff" x:Uid="ColorDiff">Dif. color</s:String>
+    <s:String x:Key="Judgement" x:Uid="Judgement">Juicio</s:String>
+    <s:String x:Key="TotalJudgement" x:Uid="TotalJudgement">Juicio total</s:String>
+    <s:String x:Key="SampleInfo" x:Uid="SampleInfo">Información de la muestra</s:String>
+    <s:String x:Key="Name" x:Uid="Name">Nombre</s:String>
+    <s:String x:Key="MeasurementCondition" x:Uid="MeasurementCondition">Condición</s:String>
+    <s:String x:Key="MeasurementDateTime" x:Uid="MeasurementDateTime">Fecha y hora</s:String>
+    <s:String x:Key="ChromaticityIndexes" x:Uid="ChromaticityIndexes">Índices de cromaticidad</s:String>
+    <s:String x:Key="Tolerance" x:Uid="Tolerance">Tolerancia</s:String>
+    <s:String x:Key="Test__" x:Uid="Test__">Ensayo:______________</s:String>
+    <s:String x:Key="Audit__" x:Uid="Audit__">Auditoría:______________</s:String>
+    <s:String x:Key="Underline__" x:Uid="Underline__">______________</s:String>
+    <s:String x:Key="TestColorDiff" x:Uid="TestColorDiff">Diferencias de color</s:String>
+    <s:String x:Key="SpecifyFieldsToExport" x:Uid="SpecifyFieldsToExport">Especificar campos para exportación</s:String>
+    <s:String x:Key="InstrumentModel" x:Uid="InstrumentModel">Modelo de instrumento</s:String>
+    <s:String x:Key="OpenExcelFailed" x:Uid="OpenExcelFailed">La apertura de Excel ha fallado.</s:String>
+    <s:String x:Key="SomethingWrongOnExcel" x:Uid="SomethingWrongOnExcel">Se ha producido un error con Excel:</s:String>
+    <s:String x:Key="Delete" x:Uid="Delete">Suprimir</s:String>
+    <s:String x:Key="Store" x:Uid="Store">Almacenar</s:String>
+    <s:String x:Key="AverageMeasure" x:Uid="AverageMeasure">Medición promedio</s:String>
+    <s:String x:Key="EndAverageMeasure" x:Uid="EndAverageMeasure">Finalizar medición promedio</s:String>
+    <s:String x:Key="Standard_SCI" x:Uid="Standard_SCI">Estándar (SCI)</s:String>
+    <s:String x:Key="Standard_SCE" x:Uid="Standard_SCE">Estándar (SCE)</s:String>
+    <s:String x:Key="Test_SCI" x:Uid="Test_SCI">Muestra (SCI)</s:String>
+    <s:String x:Key="Test_SCE" x:Uid="Test_SCE">Muestra (SCE)</s:String>
+    <s:String x:Key="StanardRulesInvalid" x:Uid="StanardRulesInvalid">La regla de denominación automática de estándar no es válida.</s:String>
+    <s:String x:Key="TestRulesInvalid" x:Uid="TestRulesInvalid">La regla de denominación automática de muestra no es válida.</s:String>
+    <s:String x:Key="PleaseSelectAStandard" x:Uid="PleaseSelectAStandard">Seleccione un estándar.</s:String>
+    <s:String x:Key="PromatSaveToleranceChanges" x:Uid="PromatSaveToleranceChanges">do you want to save changes?&amp;quot;&quot;</s:String>
+    <s:String x:Key="StandardAdventureMeasure" x:Uid="StandardAdventureMeasure">Medición avanzada de estándar...</s:String>
+    <s:String x:Key="TestAdventureMeasure" x:Uid="TestAdventureMeasure">Medición avanzada de muestra...</s:String>
+    <s:String x:Key="PleaseInputSciData" x:Uid="PleaseInputSciData">Introduzca los datos de SCI.</s:String>
+    <s:String x:Key="PleaseInputSceData" x:Uid="PleaseInputSceData">Introduzca los datos de SCE.</s:String>
+    <s:String x:Key="LanugageChangedYouNeedRestart" x:Uid="LanugageChangedYouNeedRestart">you have to restart the program to take effect. Would you like to restart now?&quot;</s:String>
+    <s:String x:Key="ToConfirmSaveFile" x:Uid="ToConfirmSaveFile">would you like to save it?&quot;</s:String>
+    <s:String x:Key="PleaseInputName" x:Uid="PleaseInputName">Introduzca el nombre.</s:String>
+    <s:String x:Key="PleaseInputInnerNumber" x:Uid="PleaseInputInnerNumber">Introduzca el número interno.</s:String>
+    <s:String x:Key="PleaseInputExternalNumber" x:Uid="PleaseInputExternalNumber">Introduzca el número externo.</s:String>
+    <s:String x:Key="PleaseInputReflectance" x:Uid="PleaseInputReflectance">Introduzca la reflectancia.</s:String>
+    <s:String x:Key="TheReflectanceMustBeNumerics" x:Uid="TheReflectanceMustBeNumerics">La reflectancia debe ser numérica.</s:String>
+    <s:String x:Key="MeasurementAbnormalPleaseCalibrate" x:Uid="MeasurementAbnormalPleaseCalibrate">Medición anómala Calibre el instrumento.</s:String>
+    <s:String x:Key="TheLowerMustBeLessThanTheUpper" x:Uid="TheLowerMustBeLessThanTheUpper">El límite inferior tiene que ser inferior al límite superior.</s:String>
+    <s:String x:Key="Writing standard into instrument..." x:Uid="WritingStandardIntoInstrument">
+        Writing standard into instrument...
+    </s:String>
+    <s:String x:Key="All standards has been written into instrument">
+        All standards has been written into instrument
+    </s:String>
+    <s:String x:Key="TransmissionBlackCalibrationPrompt" x:Uid="TransmissionBlackCalibrationPrompt">
+        Place  the black bezel in the transmissive measurement position, then click &quot;OK&quot;.
+    </s:String>
+    <s:String x:Key="TransmissionWhiteCalibrationPrompt" x:Uid="TransmissionWhiteCalibrationPrompt">
+        Remove the black bezel from the transmissive measurement position and place the empty transparent container or leave nothing, then click &quot;OK&quot;.
+    </s:String>
+    <s:String x:Key="HazeMeasurement" x:Uid="HazeMeasurement">
+        Haze Measurement
+    </s:String>
+    <s:String x:Key="Step2MeasureIncidentLight" x:Uid="Step2MeasureIncidentLight">
+        Step 2/2: Measure Incident Light
+    </s:String>
+    <s:String x:Key="Measure" x:Uid="Measure">Measure</s:String>
+    <s:String x:Key="PutReflectanceStandardInPosition" x:Uid="PutReflectanceStandardInPosition">
+        Please put the whiteboard in the reflectance measurement position and leave the transmissive measurement position empty.
+    </s:String>
+    <s:String x:Key="Step1MeasureLightScatteredByInstrument" x:Uid="Step1MeasureLightScatteredByInstrument">
+        Step 1/2: Measure Light Scattered by instrument
+    </s:String>
+    <s:String x:Key="PutLightTrapInPosition" x:Uid="PutLightTrapInPosition">
+        Please put the light trap in the reflectance measurement position and leave the transmissive measurement position empty.
+    </s:String>
+    <s:String x:Key="Step2MeasureTotalLightTransmittedBySpecimen" x:Uid="Step2MeasureTotalLightTransmittedBySpecimen">
+        Step 2/2: Measure Total Light Transmitted by Specimen
+    </s:String>
+    <s:String x:Key="PutSpecimenAndReflectanceInPosition" x:Uid="PutSpecimenAndReflectanceInPosition">
+        Please put specimen in the transmissive measurement position and put the whiteboard in the reflectance measurement position.
+    </s:String>
+    <s:String x:Key="Step1MeasureLightScatteredByInstrumentAndSpecimen" x:Uid="Step1MeasureLightScatteredByInstrumentAndSpecimen">
+        Step 1/2: Measure Light Scattered by Instrument and Specimen
+    </s:String>
+    <s:String x:Key="PutSpecimenAndLightTrapInPosition" x:Uid="PutSpecimenAndLightTrapInPosition">
+        Please put specimen in the transmissive measurement position and put the light trap in the reflectance measurement position.
+    </s:String>
+    <s:String x:Key="MeasureHazeReference" x:Uid="MeasureHazeReference">
+        Measure Haze Reference
+    </s:String>
+    <s:String x:Key="MeasureHaze" x:Uid="MeasureHaze">
+        Measure Haze
+    </s:String>
+    <s:String x:Key="PleaseInputNumber" x:Uid="PleaseInputNumber">
+        Please input numerals
+    </s:String>
+    <s:String x:Key="Absorbance" x:Uid="Absorbance">Absorbance</s:String>
+    <!--  格式化字符串  -->
+    <s:String x:Key="Format_GetDeviceInfoFailed_0" x:Uid="Format_GetDeviceInfoFailed_0">La obtención de información del dispositivo ha fallado: {0}</s:String>
+    <s:String x:Key="InstrumentModel_0" x:Uid="InstrumentModel_0">Modelo de instrumento: {0}</s:String>
+    <s:String x:Key="Total_0_Pass_1_PrecentOfPass_2" x:Uid="Total_0_Pass_1_PrecentOfPass_2">Pass {1}</s:String>
+    <s:String x:Key="UploadingStandardXN" x:Uid="UploadingStandardXN">Cargando estándares: {0}/{1}</s:String>
+    <s:String x:Key="UploadingTestXN" x:Uid="UploadingTestXN">Cargando muestras: {0}/{1}</s:String>
+    <s:String x:Key="UploadingTheSamplesOfX" x:Uid="UploadingTheSamplesOfX">Uploading the samples of {0}...</s:String>
+    <s:String x:Key="ConnectionFailed_0" x:Uid="ConnectionFailed_0">La conexión ha fallado {0}</s:String>
+    <s:String x:Key="ConnectFailed_0" x:Uid="ConnectFailed_0">La conexión ha fallado {0}</s:String>
+    <s:String x:Key="RefereshInstrumentInfoFailed_0" x:Uid="RefereshInstrumentInfoFailed_0">La obtención de información del dispositivo ha fallado: {0}</s:String>
+    <s:String x:Key="CalibrationInstrumentInfoConfirm_0_1" x:Uid="CalibrationInstrumentInfoConfirm_0_1">Measurement aperture is {1}. Enter the &amp;apos;OK&amp;apos; to continue</s:String>
+    <s:String x:Key="Show_0" x:Uid="Show_0">Mostrar {0}</s:String>
+    <s:String x:Key="Format_UnhandledException_0_1" x:Uid="Format_UnhandledException_0_1">the application will exit. Exception: {0} Detail: {1}&quot;</s:String>
+    <s:String x:Key="ReflectanceMusetBeBetween0And_0" x:Uid="ReflectanceMusetBeBetween0And_0">La reflectancia debe tener un valor entre 0 y {0}.</s:String>
+    <s:String x:Key="X_MustBeNumeric" x:Uid="X_MustBeNumeric">{0} debe ser un número.</s:String>
+    <s:String x:Key="X_MustBeGreaterOrEqual_Y" x:Uid="X_MustBeGreaterOrEqual_Y">{0} debe ser superior o igual a {1}.</s:String>
+    <s:String x:Key="TheUpperOf_0_MustGreaterThanZero" x:Uid="TheUpperOf_0_MustGreaterThanZero">El límite superior de &amp;apos;{0}&amp;apos; debe ser superior a 0.</s:String>
+    <s:String x:Key="HasMeasured_0" x:Uid="HasMeasured_0">Ha medido: {0}</s:String>
+    <s:String x:Key="NoMatchAnyStandard" x:Uid="NoMatchAnyStandard">No matched standard.</s:String>
+    <s:String x:Key="PleaseInputLibraryName" x:Uid="PleaseInputName">Introduzca el nombre.</s:String>
+    <s:String x:Key="LibNameContInvalChars" x:Uid="LibNameContInvalChars">Library name contains invalid characters</s:String>
+    <s:String x:Key="LibAlreadExist" x:Uid="LibAlreadExist">The library is already existing.</s:String>
+    <s:String x:Key="CreateLibSuccess" x:Uid="CreateLibSuccess">The library has been created.</s:String>
+    <s:String x:Key="PleaseSetCurrentLibrary" x:Uid="PleaseSetCurrentLibrary">Please select a library as current at first.</s:String>
+    <s:String x:Key="PleaseSelectDisplayedItems" x:Uid="PleaseSelectDisplayedItems">Please select displayed items.</s:String>
+    <s:String x:Key="LibraryFileFilter" x:Uid="LibraryFileFilter">SQCX File(*.xml)|*.xml|QTX File(*.QTX)|*.QTX|Excel File(*.xlsx)|*.xlsx</s:String>
+    <s:String x:Key="ImportStandardFileFilter" x:Uid="ImportStandardFileFilter">SQCX File(*.xml)|*.xml|QTX File(*.QTX)|*.QTX</s:String>
+    <s:String x:Key="LoadFileFailed" x:Uid="LoadFileFailed">Load file failed</s:String>
+    <s:String x:Key="FileTypeNotSupported" x:Uid="FileTypeNotSupported">The specified file type is not supported</s:String>
+    <s:String x:Key="AddNSamplesInTotal" x:Uid="AddNSamplesInTotal">Total: {0}</s:String>
+    <s:String x:Key="AddNReplacedMSamples" x:Uid="AddNReplacedMSamples">Added {0}, replaced {1}{</s:String>
+    <s:String x:Key="AddNJumpedMSamples" x:Uid="AddNJumpedMSamples">Added {0}, jumped {1}</s:String>
+    <s:String x:Key="Format_ConfirmDeleteLibrary_0" x:Uid="Format_ConfirmDeleteLibrary">
+        Deletion can't be recovered. Are you sure to delete the library '{0}'?
+    </s:String>
+    <s:String x:Key="Format_DeleteLibrary_0" x:Uid="Format_DeleteLibrary_0">
+        Delete &quot;{0}&quot;
+    </s:String>
+    <s:String x:Key="LibraryNameConflicts" x:Uid="LibraryNameIsConflicts">
+        Library name conflicts!
+    </s:String>
+    <s:String x:Key="PromptConfirmDeleteSampleInLibrary" x:Uid="PromptConfirmDeleteSampleInLibrary">
+        Deleted samples can't be recovered. Are you sure you want to delete the selected samples?
+    </s:String>
+    <s:String x:Key="PromptNameCantEmpty" x:Uid="PromptNameCantEmpty">
+        Can't leave the name empty!
+    </s:String>
+    <s:String x:Key="PleaseSelectASheet" x:Uid="PleaseSelectASheet">Please select the sheet.</s:String>
+    <s:String x:Key="PleaseSelectStartRow" x:Uid="PleaseSelectStartRow">Please select the start row.</s:String>
+    <s:String x:Key="PleaseTheStartColumnOfXYZOrSpectrum" x:Uid="PleaseTheStartColumnOfXYZOrSpectrum">
+        Please select the start column of the XYZ, or Spectrum, or the Lab.
+    </s:String>
+    <s:String x:Key="PleaseTheOpticalStructure" x:Uid="PleaseTheOpticalStructure">
+        Please select the optical structure
+    </s:String>
+    <s:String x:Key="TheOperationIsNotSupported" x:Uid="TheOperationIsNotSupported">
+        The operation is not supported.
+    </s:String>
+    <s:String x:Key="Deleting" x:Uid="Deleting">
+        Deleting...
+    </s:String>
+    <s:String x:Key="Measuring" x:Uid="Measuring">
+        Measuring...
+    </s:String>
+    <s:String x:Key="Measuring_m_n" x:Uid="Measuring_m_n">
+        Measuring: {0}/{1}
+    </s:String>
+    <s:String x:Key="Measured_m_n" x:Uid="Measured_m_n">
+        Measured: {0}/{1}
+    </s:String>
+    <s:String x:Key="UnknownError" x:Uid="UnknownError">
+        Unknown error
+    </s:String>
+    <s:String x:Key="DeviceNotFound" x:Uid="DeviceNotFound">
+        Device not found
+    </s:String>
+    <s:String x:Key="DeviceNotOpen" x:Uid="DeviceNotOpen">
+        There is no device opened.
+    </s:String>
+    <s:String x:Key="DeviceHasOpened" x:Uid="">
+        The device has been opened.
+    </s:String>
+    <s:String x:Key="DeviceOpenFailed" x:Uid="DeviceOpenFailed">
+        Open device failed.
+    </s:String>
+    <s:String x:Key="DeviceBusy" x:Uid="DeviceBusy">
+        Device busy
+    </s:String>
+    <s:String x:Key="DeviceDisconnected" x:Uid="DeviceDisconnected">
+        Device has disconnected
+    </s:String>
+    <s:String x:Key="InvalidCommand" x:Uid="InvalidCommand">
+        Invalid command
+    </s:String>
+    <s:String x:Key="InvalidParameter" x:Uid="InvalidParameter">
+        Invalid parameter
+    </s:String>
+    <s:String x:Key="ReceivingTimeout" x:Uid="ReceivingTimeout">
+        Receive timeout
+    </s:String>
+    <s:String x:Key="WritingTimeout" x:Uid="WritingTimeout">
+        Send timeout
+    </s:String>
+    <s:String x:Key="NotSupported" x:Uid="NotSupported">
+        Nonsupport
+    </s:String>
+    <s:String x:Key="ParsedBadCommand" x:Uid="ParsedBadCommand">
+        Error in parsing command
+    </s:String>
+    <s:String x:Key="ParsedBadData" x:Uid="ParsedBadData">
+        Error in parsing data
+    </s:String>
+    <s:String x:Key="ParsedBadCheckSum" x:Uid="ParsedBadCheckSum">
+        Error checksum
+    </s:String>
+    <s:String x:Key="ExecuteCommandFailed" x:Uid="ExecuteCommandFailed">
+        Execute command failed
+    </s:String>
+    <s:String x:Key="CalibrationExpired" x:Uid="CalibrationExpired">
+        Calibration expired
+    </s:String>
+    <s:String x:Key="CalibrationFailed" x:Uid="CalibrationFailed">
+        Calibration failed
+    </s:String>
+    <s:String x:Key="MeasurementAbnormal" x:Uid="MeasurementAbnormal">
+        Measurement abnormal
+    </s:String>
+    <s:String x:Key="AccessDenied" x:Uid="AccessDenied">
+        Access denied
+    </s:String>
+    <s:String x:Key="SystemException" x:Uid="SystemException">
+        System exception
+    </s:String>
+    <s:String x:Key="ReplaceInLocal" x:Uid="ReplaceInLocal">
+        Replace in local
+    </s:String>
+    <s:String x:Key="UploadAborted" x:Uid="UploadAborted">
+        Upload aborted
+    </s:String>
+    <s:String x:Key="FileHasBeenRemoved" x:Uid="FileHasBeenRemoved">
+        File has been removed.
+    </s:String>
+    <s:String x:Key="ObserverAndIlluminantSettingMustBeDeference" x:Uid="ObserverAndIlluminantSettingMustBeDeference">
+        Illuminant/Observers must be different.
+    </s:String>
+    <s:String x:Key="ConfirmLoadUnsavedFile" x:Uid="ConfirmLoadUnsavedFile">
+        The system detects a unsaved file when the application abnormal exited, would you like to load it?
+    </s:String>
+    <s:String x:Key="DataFormatError" x:Uid="DataFormatError">
+        Data format error.
+    </s:String>
+    <s:String x:Key="WriteWhiteBoardParameterCompleted" x:Uid="WriteWhiteBoardParameterCompleted">
+        Set white board parameter successful.
+    </s:String>
+    <!--  菜单项  -->
+    <s:String x:Key="MenuItem_New" x:Uid="MenuItem_New">Nuevo</s:String>
+    <s:String x:Key="MenuItem_Open" x:Uid="MenuItem_Open">Abrir...</s:String>
+    <s:String x:Key="MenuItem_Save" x:Uid="MenuItem_Save">Guardar</s:String>
+    <s:String x:Key="MenuItem_SaveAs" x:Uid="MenuItem_SaveAs">Guardar como...</s:String>
+    <s:String x:Key="MenuItem_Print" x:Uid="MenuItem_Print">Imprimir...</s:String>
+    <s:String x:Key="MenuItem_PrintPreview" x:Uid="MenuItem_PrintPreview">Vista previa de impresión...</s:String>
+    <s:String x:Key="MenuItem_Exit" x:Uid="MenuItem_Exit">Salir</s:String>
+    <s:String x:Key="MenuItem_Edit" x:Uid="MenuItem_Edit">Editar</s:String>
+    <s:String x:Key="MenuItem_AutoNaming" x:Uid="MenuItem_AutoNaming">Nombre automático</s:String>
+    <s:String x:Key="MenuItem_ExportAll" x:Uid="MenuItem_ExportAll">Exportar todo...</s:String>
+    <s:String x:Key="MenuItem_PrinterSetup" x:Uid="MenuItem_PrinterSetup">Configuración de impresión...</s:String>
+    <s:String x:Key="MenuItem_SetAutoNamingRules" x:Uid="MenuItem_SetAutoNamingRules">Establecer regla de denominación automática...</s:String>
+    <s:String x:Key="MenuItem_Rename" x:Uid="MenuItem_Rename">Renombrar...</s:String>
+    <s:String x:Key="MenuItem_ModifyMaterial" x:Uid="MenuItem_ModifyMaterial">Modificar material...</s:String>
+    <s:String x:Key="MenuItem_Delete" x:Uid="MenuItem_Delete">Suprimir</s:String>
+    <s:String x:Key="MenuItem_Instrument" x:Uid="MenuItem_Instrument">Instrumento</s:String>
+    <s:String x:Key="MenuItem_ConnectionMethod" x:Uid="MenuItem_ConnectionMethod">Mpdp de conexión</s:String>
+    <s:String x:Key="MenuItem_Connect" x:Uid="MenuItem_Connect">Conectar</s:String>
+    <s:String x:Key="MenuItem_Disconnect" x:Uid="MenuItem_Disconnect">Desconectar</s:String>
+    <s:String x:Key="MenuItem_InstrumentStatus" x:Uid="MenuItem_InstrumentStatus">Estado del instrumento</s:String>
+    <s:String x:Key="MenuItem_ConnectByUsb" x:Uid="MenuItem_ConnectByUsb">Conectar por USB</s:String>
+    <s:String x:Key="MenuItem_ConnectByBluetooth" x:Uid="MenuItem_ConnectByBluetooth">Conectar por Bluetooth</s:String>
+    <s:String x:Key="MenuItem_InstrumentType" x:Uid="MenuItem_InstrumentType">Tipo de instrumento</s:String>
+    <s:String x:Key="MenuItem_LedSpectrometer" x:Uid="MenuItem_LedSpectrometer">Serie de espectómetros NS</s:String>
+    <s:String x:Key="MenuItem_GratingSpectrometer" x:Uid="MenuItem_GratingSpectrometer">Serie de espectómetros YS</s:String>
+    <s:String x:Key="MenuItem_DoCalibration" x:Uid="MenuItem_DoCalibration">Calibración...</s:String>
+    <s:String x:Key="MenuItem_MeasureStandard" x:Uid="MenuItem_MeasureStandard">Medir estándar</s:String>
+    <s:String x:Key="MenuItem_MeasureTest" x:Uid="MenuItem_MeasureTest">Medir muestra</s:String>
+    <s:String x:Key="MenuItem_AdventureStandardMeasurement" x:Uid="MenuItem_AdventureStandardMeasurement">Medición avanzada de estándar</s:String>
+    <s:String x:Key="MenuItem_AdventureTestMeasurement" x:Uid="MenuItem_AdventureTestMeasurement">Medición avanzada de muestra</s:String>
+    <s:String x:Key="MenuItem_WriteStandardToInstrument" x:Uid="MenuItem_WriteStandardToInstrument">Escribir estándar en instrumento</s:String>
+    <s:String x:Key="MenuItem_InstrumentConfiguration" x:Uid="MenuItem_InstrumentConfiguration">Configuración del instrumento</s:String>
+    <s:String x:Key="MenuItem_Data" x:Uid="MenuItem_Data">Datos</s:String>
+    <s:String x:Key="MenuItem_ObserverAndIlluminant" x:Uid="MenuItem_ObserverAndIlluminant">Observador e iluminante de estándar...</s:String>
+    <s:String x:Key="MenuItem_ChromaticitySetting" x:Uid="MenuItem_ChromaticitySetting">Configuración de los elementos de datos</s:String>
+    <s:String x:Key="MenuItem_ToleranceSetting" x:Uid="MenuItem_ToleranceSetting">Configuración de la tolerancia del sistema</s:String>
+    <s:String x:Key="MenuItem_InstrumentDataManagement" x:Uid="MenuItem_InstrumentDataManagement">Gestión de los datos del instrumento</s:String>
+    <s:String x:Key="MenuItem_InputStandard" x:Uid="MenuItem_InputStandard">Introducir estándar...</s:String>
+    <s:String x:Key="MenuItem_ExportOneNMIntervalSpectrum" x:Uid="MenuItem_ExportOneNMIntervalSpectrum">Export 1 nm interval spectrum</s:String>
+    <s:String x:Key="MenuItem_ExportFiveNMIntervalSpectrum" x:Uid="MenuItem_ExportFiveNMIntervalSpectrum">Export 5 nm interval spectrum</s:String>
+    <s:String x:Key="MenuItem_Help" x:Uid="MenuItem_Help">Ayuda</s:String>
+    <s:String x:Key="MenuItem_UserManual" x:Uid="MenuItem_UserManual">Manual del usuario...</s:String>
+    <s:String x:Key="MenuItem_About" x:Uid="MenuItem_About">Acerca de</s:String>
+    <s:String x:Key="MenuItem_ImportSelectedStandards" x:Uid="MenuItem_ImportSelectedStandards">Importar estándares seleccionados...</s:String>
+    <s:String x:Key="MenuItem_ImportSelectedStandardsWithTests" x:Uid="MenuItem_ImportSelectedStandardsWithTests">Importar estándares seleccionados con muestras...</s:String>
+    <s:String x:Key="MenuItem_ImportAllStandards" x:Uid="MenuItem_ImportAllStandards">Importar todos los estándares</s:String>
+    <s:String x:Key="MenuItem_ImportAllStandardsWithTests" x:Uid="MenuItem_ImportAllStandardsWithTests">Importar todos los estándares con muestras...</s:String>
+    <s:String x:Key="MenuItem_ImportSelectedTests" x:Uid="MenuItem_ImportSelectedTests">Importar muestras seleccionadas...</s:String>
+    <s:String x:Key="MenuItem_ImportAllTests" x:Uid="MenuItem_ImportAllTests">Importar todas las muestras...</s:String>
+    <s:String x:Key="MenuItem_ExportSelectedStandards" x:Uid="MenuItem_ExportSelectedStandards">Exportar estándares seleccionados...</s:String>
+    <s:String x:Key="MenuItem_ExportSelectedStandardsWithTests" x:Uid="MenuItem_ExportSelectedStandardsWithTests">Exportar estándares seleccionados con muestras...</s:String>
+    <s:String x:Key="MenuItem_ExportAllStandards" x:Uid="MenuItem_ExportAllStandards">Exportar todos los estándares...</s:String>
+    <s:String x:Key="MenuItem_ExportAllStandardsWithTests" x:Uid="MenuItem_ExportAllStandardsWithTests">Exportar todos los estándares con muestras...</s:String>
+    <s:String x:Key="MenuItem_ExportSelectedTests" x:Uid="MenuItem_ExportSelectedTests">Exportar muestras seleccionadas...</s:String>
+    <s:String x:Key="MenuItem_ExportAllTests" x:Uid="MenuItem_ExportAllTests">Exportar todas las muestras...</s:String>
+    <s:String x:Key="MenuItem_DeleteAllSamples" x:Uid="MenuItem_DeleteAllSamples">Suprimir todos los estándares y las muestras del instrumento</s:String>
+    <s:String x:Key="MenuItem_DeleteTestsInList" x:Uid="MenuItem_DeleteTestsInList">Suprimir las muestras correspondientes de la lista</s:String>
+    <s:String x:Key="MenuItem_DeleteAllTests" x:Uid="MenuItem_DeleteAllTests">Suprimir todas las muestras del instrumento</s:String>
+    <s:String x:Key="MenuItem_UploadAllSamples" x:Uid="MenuItem_UploadAllSamples">Cargar todos los estándares y las muestras</s:String>
+    <s:String x:Key="MenuItem_Setting" x:Uid="MenuItem_Setting">Configuración</s:String>
+    <s:String x:Key="MenuItem_Languages" x:Uid="MenuItem_Languages">Idiomas</s:String>
+    <s:String x:Key="MenuItem_WhitenessIndex" x:Uid="MenuItem_WhitenessIndex">Índices de blancura...</s:String>
+    <s:String x:Key="MenuItem_YellownessIndex" x:Uid="MenuItem_YellownessIndex">Índice de amarillez...</s:String>
+    <s:String x:Key="MenuItem_FastnessIndex" x:Uid="MenuItem_FastnessIndex">Índice de inalterabilidad...</s:String>
+    <s:String x:Key="MenuItem_StrengthIndex" x:Uid="MenuItem_StrengthIndex">Índice de fuerza...</s:String>
+    <s:String x:Key="MenuItem_MetamericIndex" x:Uid="MenuItem_MetamericIndex">Índice metamérico...</s:String>
+    <s:String x:Key="MenuItem_Opacity" x:Uid="MenuItem_Opacity">Opacidad...</s:String>
+    <s:String x:Key="MenuItem_StandardToleranceSetting" x:Uid="MenuItem_StandardToleranceSetting">Configuración de la tolerancia del estándar</s:String>
+    <s:String x:Key="MenuItem_DeleteTests" x:Uid="MenuItem_DeleteTests">Suprimir muestras</s:String>
+    <s:String x:Key="MenuItem_StandardChromaticitySetting" x:Uid="MenuItem_StandardChromaticitySetting">Mostrar configuración</s:String>
+    <s:String x:Key="MenuItem_SetAsCurrentStandard" x:Uid="MenuItem_SetAsCurrentStandard">Establecer como estándar actual</s:String>
+    <s:String x:Key="MenuItem_ExportSelected" x:Uid="MenuItem_ExportSelected">Exportar seleccionados...</s:String>
+    <s:String x:Key="MenuItem_ExportSelectedWithTests" x:Uid="MenuItem_ExportSelectedWithTests">Exportar estándares seleccionados con muestras...</s:String>
+    <s:String x:Key="MenuItem_MoveToStandard" x:Uid="MenuItem_MoveToStandard">Mover a grupo de estándares</s:String>
+    <s:String x:Key="MenuItem_ChangeStandard" x:Uid="MenuItem_ChangeStandard">Cambiar estándar asociado</s:String>
+    <s:String x:Key="MenuItem_DeleteSpeciment" x:Uid="MenuItem_DeleteSpeciment">Suprimir</s:String>
+    <s:String x:Key="MenuItem_File" x:Uid="MenuItem_File">Archivo</s:String>
+    <s:String x:Key="MenuItem_Index" x:Uid="MenuItem_Index">Índice</s:String>
+    <s:String x:Key="MenuItem_InstrumentModel" x:Uid="MenuItem_InstrumentModel">Modelo de instrumento</s:String>
+    <s:String x:Key="MenuItem_Material" x:Uid="MenuItem_Material">Material</s:String>
+    <s:String x:Key="MenuItem_SpecularComponent" x:Uid="MenuItem_SpecularComponent">Componente especular</s:String>
+    <s:String x:Key="MenuItem_UV" x:Uid="MenuItem_UV">UV</s:String>
+    <s:String x:Key="MenuItem_DateTime" x:Uid="MenuItem_DateTime">Fecha y hora</s:String>
+    <s:String x:Key="MenuItem_OldName" x:Uid="MenuItem_OldName">Nombre anterior</s:String>
+    <s:String x:Key="MenuItem_PrintToWord" x:Uid="MenuItem_PrintToWord">Imprimir en Word</s:String>
+    <s:String x:Key="MenuItem_PrintToPDF" x:Uid="MenuItem_PrintToWord">Imprimir en  PDF</s:String>
+    <s:String x:Key="MenuItem_ReportSetting" x:Uid="MenuItem_ReportSetting">Configuración de informe...</s:String>
+    <s:String x:Key="MenuItem_WhiteBoardParameterSetting" x:Uid="MenuItem_WhiteBoardParameterSetting">Configuración de parámetros de tablero blanco...</s:String>
+    <s:String x:Key="MenuItem_Measurement" x:Uid="MenuItem_Measurement">Medición</s:String>
+    <s:String x:Key="MenuItem_ConnectToSerialPort" x:Uid="MenuItem_ConnectToSerialPort">Conectar al puerto serie</s:String>
+    <s:String x:Key="MenuItem_AutoSelectStandard" x:Uid="MenuItem_AutoSelectStandard">Selección automática de estándar</s:String>
+    <s:String x:Key="MenuItem_AutoSelectStandardSetting" x:Uid="MenuItem_AutoSelectStandardSetting">Configuración de selección automática de estándar...</s:String>
+    <s:String x:Key="MenuItem_AutoMatchStandard" x:Uid="MenuItem_AutoMatchStandard">Coincidencia automática de estándar</s:String>
+    <s:String x:Key="MenuItem_GotoStandard" x:Uid="MenuItem_GotoStandard">Ir a estándar</s:String>
+    <s:String x:Key="MenuItem_ShowAssociatedTests" x:Uid="MenuItem_ShowAssociatedTests">Mostrar muestras asociadas</s:String>
+    <s:String x:Key="MenuItem_CopyToTest" x:Uid="MenuItem_CopyToTest">Copy to Sample Group</s:String>
+    <s:String x:Key="MenuItem_CopyToUnderAStandard" x:Uid="MenuItem_CopyToUnderAStandard">Copy to other Standard</s:String>
+    <s:String x:Key="MenuItem_LibraryManagement" x:Uid="MenuItem_LibraryManagement">Library Management</s:String>
+    <s:String x:Key="MenuItem_NewLibrary" x:Uid="MenuItem_NewLibrary">New Library...</s:String>
+    <s:String x:Key="MenuItem_ImportLibrary" x:Uid="MenuItem_ImportLibrary">Import Library...</s:String>
+    <s:String x:Key="MenuItem_AddToLibrary" x:Uid="MenuItem_AddToLibrary">Add to Current Library</s:String>
+    <s:String x:Key="MenuItem_ManageLibrary" x:Uid="MenuItem_ManageLibrary">Manage Library...</s:String>
+    <s:String x:Key="MenuItem_Modify" x:Uid="MenuItem_Modify">Modify</s:String>
+    <s:String x:Key="MenuItem_SpecifyLibraryPath" x:Uid="MenuItem_SpecifyLibraryPath">
+        Specify the Libraries Storage Path...
+    </s:String>
+    <s:String x:Key="MenuItem_ImportFromExcel" x:Uid="MenuItem_ImportFromExcel">
+        Import Standard from Excel...
+    </s:String>
+    <s:String x:Key="MenuItem_ImportFromFile" x:Uid="MenuItem_ImportFromFile">
+        Import Standard from File...
+    </s:String>
+    <s:String x:Key="MenuItem_ConvertWhiteBoardData" x:Uid="MenuItem_ConvertWhiteBoardData">
+        Replace Labs of the White Board Data
+    </s:String>
+    <s:String x:Key="MenuItem_InstrumentMeasurementConfigs" x:Uid="MenuItem_InstrumentMeasurementConfigs">
+        Measurement Configs
+    </s:String>
+    <s:String x:Key="MenuItem_RecentFiles" x:Uid="MenuItem_RecentFiles">Recent Files</s:String>
+    <s:String x:Key="MenuItem_DeleteSelectedStandards" x:Uid="MenuItem_DeleteSelectedStandards">Delete selected standards</s:String>
+    <s:String x:Key="MenuItem_ShowSpectrumChart" x:Uid="MenuItem_ShowSpectrumChart">Show Spectrum Chart</s:String>
+    <s:String x:Key="MenuItem_ShowAbsorbanceChart" x:Uid="MenuItem_ShowAbsorbanceChart">Show Absorbance Chart</s:String>
+    <s:String x:Key="MenuItem_Charts" x:Uid="MenuItem_Charts">Charts</s:String>
+    <!--  提示  -->
+    <s:String x:Key="Tip_SCISCEDisplaySwitch" x:Uid="Tip_SCISCEDisplaySwitch">Cambiar entre SCI/SCE</s:String>
+    <s:String x:Key="Tip_IlluminantDisplaySwitch" x:Uid="Tip_IlluminantDisplaySwitch">Cambiar de iluminante</s:String>
+    <s:String x:Key="Tip_OpenOrCloseUV" x:Uid="Tip_OpenOrCloseUV">Activar o desactivar UV</s:String>
+    <s:String x:Key="Tip_SetSpecularCompoentOfMeasurement" x:Uid="Tip_SetSpecularCompoentOfMeasurement">Establecer componente especular de medición</s:String>
+    <s:String x:Key="Tip_CreateNewLibrary" x:Uid="Tip_CreateNewLibrary">Create a new library</s:String>
+    <s:String x:Key="Tip_DeleteLibrary" x:Uid="Tip_DeleteLibrary">Delete library</s:String>
+    <s:String x:Key="Tip_RenameLibrary" x:Uid="Tip_RenameLibrary">Rename library</s:String>
+    <s:String x:Key="Tip_ImportLibrary" x:Uid="Tip_ImportLibrary">Import library</s:String>
+    <s:String x:Key="Tip_PleaseEnterName" x:Uid="Tip_PleaseEnterName">Please enter the name you want to search.</s:String>
+    <s:String x:Key="Tip_BeginDate" x:Uid="Tip_BeginDateTime">The date from</s:String>
+    <s:String x:Key="Tip_EndDate" x:Uid="Tip_EndDate">The date to</s:String>
+    <s:String x:Key="Tip_PleaseEnterANewName" x:Uid="Tip_PleaseEnterANewName">Please enter a new name:</s:String>
+    <!--  控件的标签或表格标签  -->
+    <s:String x:Key="Label_Connected" x:Uid="Label_Connected">Conectado</s:String>
+    <s:String x:Key="Label_Disconnected" x:Uid="Label_Disconnected">Desconectado</s:String>
+    <s:String x:Key="Label_Standard" x:Uid="Label_Standard">Estándar</s:String>
+    <s:String x:Key="Label_OrphanTests" x:Uid="Label_OrphanTests">Datos absolutos</s:String>
+    <s:String x:Key="Label_AllTests" x:Uid="Label_AllTests">Todas las muestras</s:String>
+    <s:String x:Key="Label_Close" x:Uid="Label_Close">Cerrar</s:String>
+    <s:String x:Key="Label_Preset" x:Uid="Label_Preset">Prestablecer</s:String>
+    <s:String x:Key="Label_ColorSpace" x:Uid="Label_ColorSpace">Espacio de color</s:String>
+    <s:String x:Key="Label_ColorSapceColon" x:Uid="Label_ColorSapceColon">Espacio de color:</s:String>
+    <s:String x:Key="Label_ColorDiffFormula" x:Uid="Label_ColorDiffFormula">Fórmula de diferencia de color</s:String>
+    <s:String x:Key="Label_DataItemList" x:Uid="Label_DataItemList">Lista de elementos</s:String>
+    <s:String x:Key="Label_AllDataItems" x:Uid="Label_AllDataItems">Todos los elementos</s:String>
+    <s:String x:Key="Label_SampleAttributes" x:Uid="Label_SampleAttributes">Atributos de la muestra</s:String>
+    <s:String x:Key="Label_ChormaticAttributes" x:Uid="Label_ChormaticAttributes">Cromaticidades</s:String>
+    <s:String x:Key="Label_ColorDiffAttributes" x:Uid="Label_ColorDiffAttributes">Diferencias de color</s:String>
+    <s:String x:Key="Label_ColorIndexes" x:Uid="Label_ColorIndexes">Índices de color</s:String>
+    <s:String x:Key="Label_ColorIndex" x:Uid="Label_ColorIndex">Color Index</s:String>
+    <s:String x:Key="Label_RemoveAll" x:Uid="Label_RemoveAll">Eliminar todo</s:String>
+    <s:String x:Key="Label_DisplayedItems" x:Uid="Label_DisplayedItems">Elementos mostrados</s:String>
+    <s:String x:Key="Label_OK" x:Uid="Label_OK">Aceptar</s:String>
+    <s:String x:Key="Label_Cancel" x:Uid="Label_Cancel">Cancelar</s:String>
+    <s:String x:Key="Label_Restore" x:Uid="Label_Restore">Restaurar</s:String>
+    <s:String x:Key="Label_MoveToTop" x:Uid="Label_MoveToTop">Mover al principio</s:String>
+    <s:String x:Key="Label_MoveToBottom" x:Uid="Label_MoveToBottom">Mover al final</s:String>
+    <s:String x:Key="Label_MoveUp" x:Uid="Label_MoveUp">Subir</s:String>
+    <s:String x:Key="Label_MoveDown" x:Uid="Label_MoveDown">Bajar</s:String>
+    <s:String x:Key="Label_UseSystemDefault" x:Uid="Label_UseSystemDefault">Utilizar configuración por defecto del sistema</s:String>
+    <s:String x:Key="Label_UseStandardSelf" x:Uid="Label_UseStandardSelf">Utilizar configuración de estándar</s:String>
+    <s:String x:Key="Label_UseSpecific" x:Uid="Label_UseSpecific">Utilizar configuración especificada</s:String>
+    <s:String x:Key="Label_StandardColon" x:Uid="Label_StandardColon">Estándar:</s:String>
+    <s:String x:Key="Label_TestColon" x:Uid="Label_TestColon">Muestra</s:String>
+    <s:String x:Key="Label_Index" x:Uid="Label_Index">Índice</s:String>
+    <s:String x:Key="Label_Name" x:Uid="Label_Name">Nombre</s:String>
+    <s:String x:Key="Label_NameColon" x:Uid="Label_NameColon">Nombre:</s:String>
+    <s:String x:Key="Label_DateTime" x:Uid="Label_DateTime">Fecha y hora</s:String>
+    <s:String x:Key="Label_DateTimeColon" x:Uid="Label_DateTimeColon">Fecha y hora:</s:String>
+    <s:String x:Key="Label_SpecularComponent" x:Uid="Label_SpecularComponent">Componente especular</s:String>
+    <s:String x:Key="Label_SpecularComponentColon" x:Uid="Label_SpecularComponentColon">Specular Component:</s:String>
+    <s:String x:Key="Label_IlluminantColon" x:Uid="Label_IlluminantColon">Iluminante:</s:String>
+    <s:String x:Key="Label_ObserverColon" x:Uid="Label_ObserverColon">Observador:</s:String>
+    <s:String x:Key="Label_PseudoColor" x:Uid="Label_PseudoColor">Simulación del color</s:String>
+    <s:String x:Key="Label_AutoStore" x:Uid="Label_AutoStore">Almacenamiento automático</s:String>
+    <s:String x:Key="Label_Measure" x:Uid="Label_Measure">Medir</s:String>
+    <s:String x:Key="Label_Delete" x:Uid="Label_Delete">Suprimir</s:String>
+    <s:String x:Key="Label_Print" x:Uid="Label_Print">Imprimir</s:String>
+    <s:String x:Key="Label_PrintToWord" x:Uid="Label_PrintToWord">Imprimir en Word</s:String>
+    <s:String x:Key="Label_AverageMeasure" x:Uid="Label_AverageMeasure">Medición promedio</s:String>
+    <s:String x:Key="Label_Reference1" x:Uid="Label_Reference1">Referencia 1</s:String>
+    <s:String x:Key="Label_Reference2" x:Uid="Label_Reference2">Referencia 2</s:String>
+    <s:String x:Key="Label_MetamerismIndex" x:Uid="Label_MetamerismIndex">MI</s:String>
+    <s:String x:Key="Label_Observer" x:Uid="Label_Observer">Observador</s:String>
+    <s:String x:Key="Label_Primary" x:Uid="Label_PrimaryIlluminant">Iluminante primario</s:String>
+    <s:String x:Key="Label_Secondary" x:Uid="Label_SecondaryIlluminant">Iluminante secundario</s:String>
+    <s:String x:Key="Label_Tertiary" x:Uid="Label_TertiaryIlluminant">Iluminante terciario</s:String>
+    <s:String x:Key="Label_StandardNamingRulesColon" x:Uid="Label_StandardNamingRulesColon">Regla de denominación automática de estándar:</s:String>
+    <s:String x:Key="Label_TestNamingRulesColon" x:Uid="Label_TestNamingRulesColon">Regla de denominación automática de muestra:</s:String>
+    <s:String x:Key="Label_MaterialColon" x:Uid="Label_MaterialColon">Material:</s:String>
+    <s:String x:Key="Label_StandardLinkageSetting" x:Uid="Label_StandardLinkageSetting">Configuración de estándar asociada</s:String>
+    <s:String x:Key="Label_LinkToStandard" x:Uid="Label_LinkToStandard">Relacionar con estándar</s:String>
+    <s:String x:Key="Label_DontLinkToStandard" x:Uid="Label_DontLinkToStandard">No relacionar con estándar</s:String>
+    <s:String x:Key="Label_ToleranceData" x:Uid="Label_ToleranceData">Datos de tolerancia</s:String>
+    <s:String x:Key="Label_ColorDiff" x:Uid="Label_ColorDiff">Dif. color</s:String>
+    <s:String x:Key="Label_UseForJudgement" x:Uid="Label_UseForJudgement">Utilizar para juicio</s:String>
+    <s:String x:Key="Label_LowerLimit" x:Uid="Label_LowerLimit">Límite inferior</s:String>
+    <s:String x:Key="Label_UpperLimit" x:Uid="Label_UpperLimit">Límite superior</s:String>
+    <s:String x:Key="Label_ColorDiffFormulaParameterFactor" x:Uid="Label_ColorDiffFormulaParameterFactor">Factor de parámetro</s:String>
+    <s:String x:Key="Label_PrimaryTolerance" x:Uid="Label_PrimaryTolerance">Tolerancia primaria</s:String>
+    <s:String x:Key="Label_SecondaryTolerance" x:Uid="Label_SecondaryTolerance">Tolerancia secundaria</s:String>
+    <s:String x:Key="Label_TertiaryTolerance" x:Uid="Label_TertiaryTolerance">Tolerancia terciaria</s:String>
+    <s:String x:Key="Label_GetToleranceFrom" x:Uid="Label_GetToleranceFrom">Obtener tolerancia de</s:String>
+    <s:String x:Key="Label_SystemSetting" x:Uid="Label_SystemSetting">Configuración del sistema</s:String>
+    <s:String x:Key="Label_Accept" x:Uid="Label_Accept">Aceptar</s:String>
+    <s:String x:Key="Label_StandardIlluminant" x:Uid="Label_StandardIlluminant">Iluminante de estándar</s:String>
+    <s:String x:Key="Label_StandardObserver" x:Uid="Label_StandardObserver">Observador de estándar</s:String>
+    <s:String x:Key="Label_TestSample" x:Uid="Label_TestSample">Muestra</s:String>
+    <s:String x:Key="Label_Whiteness" x:Uid="Label_Whiteness">Índices de blancura</s:String>
+    <s:String x:Key="Label_Diff" x:Uid="Label_Diff">Dif.</s:String>
+    <s:String x:Key="Label_Other" x:Uid="Label_Other">Otros</s:String>
+    <s:String x:Key="Label_DataTypeColon" x:Uid="Label_DataTypeColon">Tipo de datos</s:String>
+    <s:String x:Key="Label_Reflectance" x:Uid="Label_Reflectance">Reflectancia</s:String>
+    <s:String x:Key="Label_MeasurementCaliber" x:Uid="Label_MeasurementCaliber">Apertura de medición</s:String>
+    <s:String x:Key="Label_AxisWavelengthNm" x:Uid="Label_AxisWavelengthNm">Longitud de onda (nm)</s:String>
+    <s:String x:Key="Label_AxisReflectancePercent" x:Uid="Label_AxisReflectancePercent">Reflectancia (%)</s:String>
+    <s:String x:Key="Label_UvOn" x:Uid="Label_UvOn">Encender</s:String>
+    <s:String x:Key="Label_UvOff" x:Uid="Label_UvNone">Apagar</s:String>
+    <s:String x:Key="Label_ConnectionStatusColon" x:Uid="Label_ConnectionStatusColon">Conexión:</s:String>
+    <s:String x:Key="Label_InstrumentModelColon" x:Uid="Label_InstrumentModelColon">Modelo de instrumento:</s:String>
+    <s:String x:Key="Label_OpticalStructColon" x:Uid="Label_OpticalStructColon">Construcción óptica:</s:String>
+    <s:String x:Key="Label_SNColon" x:Uid="Label_SNColon">N.º serie:</s:String>
+    <s:String x:Key="Label_HardwareVersionColon" x:Uid="Label_HardwareVersionColon">Versión de hardware:</s:String>
+    <s:String x:Key="Label_SoftwareVersionColon" x:Uid="Label_SoftwareVersionColon">Versión de software:</s:String>
+    <s:String x:Key="Label_WhiteBoardNumberColon" x:Uid="Label_WhiteBoardNumberColon">Número de tablero blanco:</s:String>
+    <s:String x:Key="Label_BlackCalibrationColon" x:Uid="Label_BlackCalibrationColon">Calibración de negro:</s:String>
+    <s:String x:Key="Label_WhiteCalibrationColon" x:Uid="Label_WhiteCalibrationColon">Calibración de blanco:</s:String>
+    <s:String x:Key="Label_CapacityColon" x:Uid="Label_CapacityColon">Capacidad de registro:</s:String>
+    <s:String x:Key="Label_StandardCountColon" x:Uid="Label_StandardCountColon">Recuento de estándares:</s:String>
+    <s:String x:Key="Label_TestCountColon" x:Uid="Label_TestCountColon">Recuento de muestras:</s:String>
+    <s:String x:Key="Label_Calibrated" x:Uid="Label_Calibrated">Calibrado</s:String>
+    <s:String x:Key="Label_Uncalibrated" x:Uid="Label_Uncalibrated">Sin calibrar</s:String>
+    <s:String x:Key="Label_FirmwareVersionColon" x:Uid="Label_FirmwareVersionColon">Versión de firmware:</s:String>
+    <s:String x:Key="Label_Tolerance" x:Uid="Label_Tolerance">Tolerancia</s:String>
+    <s:String x:Key="Label_Judgement" x:Uid="Label_Judgement">Juicio</s:String>
+    <s:String x:Key="Label_DisplaySetting" x:Uid="Label_DisplaySetting">Mostrar configuración</s:String>
+    <s:String x:Key="Label_Number" x:Uid="Label_Number">Número</s:String>
+    <s:String x:Key="Label_ReportTitle" x:Uid="Label_ReportTitle">Título del informe:</s:String>
+    <s:String x:Key="Label_ReportSubtitle" x:Uid="Label_ReportSubtitle">Subtítulo del informe:</s:String>
+    <s:String x:Key="Label_CompanyAddress" x:Uid="Label_CompanyAddress">Dirección:</s:String>
+    <s:String x:Key="Label_CompanyEnglishAddress" x:Uid="Label_CompanyEnglishAddress">Dirección en inglés:</s:String>
+    <s:String x:Key="Label_UserProfile" x:Uid="Label_UserProfile">Perfil de usuario</s:String>
+    <s:String x:Key="Label_InnerNumberColon" x:Uid="Label_InnerNumberColon">Número interno:</s:String>
+    <s:String x:Key="Label_ExteralNumberColon" x:Uid="Label_ExteralNumberColon">Número externo:</s:String>
+    <s:String x:Key="Label_Read" x:Uid="Label_Read">Lectura</s:String>
+    <s:String x:Key="Label_Write" x:Uid="Label_Write">Escritura</s:String>
+    <s:String x:Key="Label_SaveToFile" x:Uid="Label_SaveToFile">Save to File</s:String>
+    <s:String x:Key="Label_LoadFromFile" x:Uid="Label_LoadFromFile">Load from File</s:String>
+    <s:String x:Key="Label_AvailableItems" x:Uid="Label_AvailableItems">Elementos disponibles</s:String>
+    <s:String x:Key="Label_AutoSelectStandardLimit" x:Uid="Label_AutoSelectStandardLimit">Límites de estándar</s:String>
+    <s:String x:Key="Label_Import" x:Uid="Label_Import">Import</s:String>
+    <s:String x:Key="Label_DeleteSelectedSamples" x:Uid="Label_DeleteSelectedSamples">Delete selected samples</s:String>
+    <s:String x:Key="Label_SearchCondition" x:Uid="Label_SearchCondition">Condition:</s:String>
+    <s:String x:Key="Label_Search" x:Uid="Label_Search">Search</s:String>
+    <s:String x:Key="Label_Library" x:Uid="Label_Library">Library</s:String>
+    <s:String x:Key="Label_RowOrderOfSCIAndSCE" x:Uid="Label_RowOrderOfSCIAndSCE">
+        The Order of SCI and SCE
+    </s:String>
+    <s:String x:Key="Label_SCIFollowedBySCE" x:Uid="Label_SCIFollowedBySCE">SCI Followed by SCE</s:String>
+    <s:String x:Key="Label_SCEFollowedBySCI" x:Uid="Label_SCEFollowedBySCI">SCE Followed by SCI</s:String>
+    <s:String x:Key="Label_Unknown" x:Uid="Label_Unknown">Unknown</s:String>
+    <s:String x:Key="Label_WorksheetColon" x:Uid="Label_WorksheetColon">Worksheet:</s:String>
+    <s:String x:Key="Label_StartRowColon" x:Uid="Label_StartRowColon">Start Row:</s:String>
+    <s:String x:Key="Label_EndRowColon" x:Uid="Label_EndRowColon">End Row:</s:String>
+    <s:String x:Key="Label_NameColumnColon" x:Uid="Label_NameColumnColon">Name Column:</s:String>
+    <s:String x:Key="Label_XYZColumnColon" x:Uid="Label_XYZColumnColon">XYZ Start Column:</s:String>
+    <s:String x:Key="Label_LabColumnColon" x:Uid="Label_LabColumnColon">Lab Start Column:</s:String>
+    <s:String x:Key="Label_SpectrumColumnColon" x:Uid="Label_SpectrumColumnColon">Spectrum Start Column:</s:String>
+    <s:String x:Key="Label_WavelengthRangeColon" x:Uid="Label_WavelengthRangeColon">Wavelength Range:</s:String>
+    <s:String x:Key="Label_None" x:Uid="Label_None">None</s:String>
+    <s:String x:Key="Label_Default" x:Uid="Label_Default">Default</s:String>
+    <s:String x:Key="Label_MeasurementMethod" x:Uid="Label_MeasurementMethod">
+        Measurement Method:
+    </s:String>
+    <s:String x:Key="Label_MeasurementTimes" x:Uid="Label_MeasurementTimes">
+        Times:
+    </s:String>
+    <s:String x:Key="Label_MeasurementInterval" x:Uid="Label_MeasurementInterval">
+        Interval:
+    </s:String>
+    <s:String x:Key="Label_ManuallyStop" x:Uid="Label_ManuallyStop">
+        Manually Stop
+    </s:String>
+    <!--  黑桶编号：  -->
+    <s:String x:Key="Label_BlackBucketNumberColon" x:Uid="Label_BlackBucketNumberColon">
+        Black Trap Number:
+    </s:String>
+    <!--  校准：  -->
+    <s:String x:Key="Label_CalibrationColon" x:Uid="Label_CalibrationColon">
+        Calibration:
+    </s:String>
+    <!--  标样容量  -->
+    <s:String x:Key="Label_StandardCapacityColon" x:Uid="Label_StandardCapacityColon">
+        Standard Capacity:
+    </s:String>
+    <!--  试样容量  -->
+    <s:String x:Key="Label_SampleCapacityColon" x:Uid="Label_SampleCapacityColon">
+        Sample Capacity:
+    </s:String>
+    <s:String x:Key="Label_StopMeasuring" x:Uid="Label_StopMeasuring">
+        Stop Measuring
+    </s:String>
+    <s:String x:Key="Label_PauseMeasuring" x:Uid="Label_PauseMeasuring">
+        Pause Measuring
+    </s:String>
+    <s:String x:Key="Label_ContinueMeasure" x:Uid="Label_ContinueMeasure">
+        Continue Measure
+    </s:String>
+    <s:String x:Key="Label_AutoMeasure" x:Uid="Label_AutoMeasure">
+        Auto Measure
+    </s:String>
+    <s:String x:Key="Label_WavelengthRange" x:Uid="Label_WavelengthRange">
+        Wavelength Range
+    </s:String>
+    <s:String x:Key="Label_Transmittance" x:Uid="Label_Transmittance">
+        Transmissive
+    </s:String>
+    <s:String x:Key="Label_LensPosition" x:Uid="Label_LensPosition">
+        Lens Position
+    </s:String>
+    <s:String x:Key="Label_LensSwitchMode" x:Uid="Label_LensSwitchMode">
+        Lens Switch Mode
+    </s:String>
+    <s:String x:Key="Label_MeasureHazeReference" x:Uid="Label_MeasureHazeReference">
+        Measure References
+    </s:String>
+    <!--  窗口标题  -->
+    <s:String x:Key="Title_About" x:Uid="Title_About">Acerca de SQCX</s:String>
+    <!--  SQCX  -->
+    <s:String x:Key="Title_DisplaySetting" x:Uid="Title_DisplaySetting">Mostrar configuración</s:String>
+    <s:String x:Key="Title_StandardDisplaySetting" x:Uid="Title_StandardDisplaySetting">Configuración de visualización de estándar</s:String>
+    <s:String x:Key="Title_Export" x:Uid="Title_Export">Exportar</s:String>
+    <s:String x:Key="Title_InstrumentDataManagement" x:Uid="Title_InstrumentDataManagement">Gestión de los datos del instrumento</s:String>
+    <s:String x:Key="Title_Measurment" x:Uid="Title_Measurment">Medición</s:String>
+    <s:String x:Key="Title_MetamerismIndex" x:Uid="Title_MetamerismIndex">Índice metamérico</s:String>
+    <s:String x:Key="Title_IlluminantAndObserverSetting" x:Uid="Title_IlluminantAndObserverSetting">Configuración de iluminante y observador de estándar</s:String>
+    <s:String x:Key="Title_AutoNamingRulesSetting" x:Uid="Title_AutoNamingRulesSetting">Configuración de regla de denominación automática</s:String>
+    <s:String x:Key="Title_StandardInput" x:Uid="Title_StandardInput">Entrada de estándar</s:String>
+    <s:String x:Key="Title_StandardLinkageSetting" x:Uid="Title_StandardLinkageSetting">Configuración de estándar</s:String>
+    <s:String x:Key="Title_ToleranceSetting" x:Uid="Title_ToleranceSetting">Configuración de tolerancia</s:String>
+    <s:String x:Key="Title_WhitenessIndex" x:Uid="Title_WhitenessIndex">Índice de blancura</s:String>
+    <s:String x:Key="Title_InstrumentStatus" x:Uid="Title_InstrumentStatus">Estado del instrumento</s:String>
+    <s:String x:Key="Title_ReportSetting" x:Uid="Title_ReportSetting">Configuración de informe</s:String>
+    <s:String x:Key="Title_ReportTitle" x:Uid="Title_ReportTitle">Título del informe</s:String>
+    <s:String x:Key="Title_Rename" x:Uid="Title_Rename">Renombrar</s:String>
+    <s:String x:Key="Title_ModifyMaterial" x:Uid="Title_ModifyMaterial">Modificar material</s:String>
+    <s:String x:Key="Title_WhiteBoardParameterSetting" x:Uid="Title_WhiteBoardParameterSetting">Configuración de parámetros de tablero blanco</s:String>
+    <s:String x:Key="Title_WhiteCalibration" x:Uid="Title_WhiteCalibration">Calibración de blanco</s:String>
+    <s:String x:Key="Title_BlackCalibration" x:Uid="Title_BlackCalibration">Calibración de negro</s:String>
+    <s:String x:Key="Title_InputSpecimenName" x:Uid="Title_InputSpecimenName">Introducir nombre</s:String>
+    <s:String x:Key="Title_AutoSelectStandardSetting" x:Uid="Title_AutoSelectStandardSetting">Configuración de selección automática de estándar</s:String>
+    <s:String x:Key="Title_MeasurementAbnormal" x:Uid="Title_MeasurementAbnormal">Medición anómala</s:String>
+    <s:String x:Key="Title_LibraryManagement" x:Uid="Title_LibraryManagement">Library Management</s:String>
+    <s:String x:Key="Title_ImportLibrary" x:Uid="Title_ImportLibrary">Import Library</s:String>
+    <s:String x:Key="Title_NewLibrary" x:Uid="Title_NewLibrary">New Library</s:String>
+    <s:String x:Key="Title_ModifyLibrarySample" x:Uid="Title_ModifyLibrarySample">
+        Modify Sample
+    </s:String>
+    <s:String x:Key="Title_DeviceInfo" x:Uid="Title_DeviceInfo">
+        Device Information
+    </s:String>
+    <s:String x:Key="Title_UploadingStandards" x:Uid="Title_UploadingStandards">
+        Uploading Standards
+    </s:String>
+    <s:String x:Key="Title_UploadingTests" x:Uid="Title_UploadingTests">
+        Uploading Samples
+    </s:String>
+    <!--  枚举的说明符  -->
+    <s:String x:Key="WI_E313" x:Uid="WI_E313">WI (ASTM E313-2005)</s:String>
+    <s:String x:Key="T_E313" x:Uid="T_E313">T (ASTM E313-2005)</s:String>
+    <s:String x:Key="WI_CIE_ISO" x:Uid="WI_CIE_ISO">WI (CIE/ISO)</s:String>
+    <s:String x:Key="T_CIE_ISO" x:Uid="T_CIE_ISO">T (CIE/ISO)</s:String>
+    <s:String x:Key="WI_Hunter1942" x:Uid="WI_Hunter1942">WI (Hunter 1942)</s:String>
+    <s:String x:Key="WI_Hunter1960" x:Uid="WI_Hunter1960">WI (Hunter 1960)</s:String>
+    <s:String x:Key="WI_Tapple" x:Uid="WI_Tapple">WI (Tappl)</s:String>
+    <s:String x:Key="WI_Taube" x:Uid="WI_Taube">WI (Taube)</s:String>
+    <s:String x:Key="WI_R457" x:Uid="WI_R457">WI (R457)</s:String>
+    <s:String x:Key="WI_Berger" x:Uid="WI_Berger">WI(Berger)</s:String>
+    <s:String x:Key="WI_Granz" x:Uid="WI_Granz">WI(Ganz)</s:String>
+    <s:String x:Key="WI_GOST_16873" x:Uid="WI_GOST_16873">WI(GOST 16873)</s:String>
+    <s:String x:Key="YI_D1925" x:Uid="YI_D1925">YI (ASTM D1925-1970)</s:String>
+    <s:String x:Key="YI_E313" x:Uid="YI_E313">YI (ASTM E313-2005)</s:String>
+    <s:String x:Key="MI" x:Uid="MI">MI</s:String>
+    <s:String x:Key="StainingFastness_dEgs" x:Uid="StainingFastness_dEgs">Alterabilidad de la coloración ΔEgs</s:String>
+    <s:String x:Key="StainingFastness_SSRLevel" x:Uid="StainingFastness_SSRLevel">Nivel de SSR</s:String>
+    <s:String x:Key="ColorFastness_dEf" x:Uid="ColorFastness_dEf">Alterabilidad del color ΔEf</s:String>
+    <s:String x:Key="ColorFastness_GSRLevel" x:Uid="ColorFastness_GSRLevel">Nivel de GSR</s:String>
+    <s:String x:Key="AverageStrength" x:Uid="AverageStrength">% de fuerza SUM</s:String>
+    <s:String x:Key="PrecentStrengthSWL" x:Uid="PrecentStrengthSWL">% de fuerza SWL</s:String>
+    <s:String x:Key="Opacity" x:Uid="Opacity">Opacidad</s:String>
+    <s:String x:Key="SampleID" x:Uid="SampleID">ID</s:String>
+    <s:String x:Key="MeasurementCaliber" x:Uid="MeasurementCaliber">Apertura de medición</s:String>
+    <s:String x:Key="InstrumentName" x:Uid="InstrumentName">Instrumento</s:String>
+    <s:String x:Key="Spectrum" x:Uid="Spectrum">Reflectancia espectral</s:String>
+    <s:String x:Key="UV_None" x:Uid="UV_None">None</s:String>
+    <s:String x:Key="UV_On" x:Uid="UV_On">UV activado</s:String>
+    <s:String x:Key="UV_NoCut" x:Uid="UV_NoCut">Cut None</s:String>
+    <s:String x:Key="UV_Cut400nm" x:Uid="UV_Cut400nm">Cut 400nm</s:String>
+    <s:String x:Key="UV_Cut420nm" x:Uid="UV_Cut420nm">Cut 420nm</s:String>
+    <s:String x:Key="UV_Cut460nm" x:Uid="UV_Cut460nm">Cut 460nm</s:String>
+    <s:String x:Key="JudgementLevel_Invalid" x:Uid="JudgementLevel_Invalid">--</s:String>
+    <s:String x:Key="JudgementLevel_NG" x:Uid="JudgementLevel_NG">Error</s:String>
+    <s:String x:Key="JudgementLevel_Warning" x:Uid="JudgementLevel_Warning">Advertencia</s:String>
+    <s:String x:Key="JudgementLevel_Pass" x:Uid="JudgementLevel_Pass">Superado</s:String>
+    <s:String x:Key="IlluminantAndObserver" x:Uid="IlluminantAndObserver">Ill/Obs</s:String>
+    <s:String x:Key="R360" x:Uid="R360">360 nm</s:String>
+    <s:String x:Key="R370" x:Uid="R370">370 nm</s:String>
+    <s:String x:Key="R380" x:Uid="R380">380 nm</s:String>
+    <s:String x:Key="R390" x:Uid="R390">390 nm</s:String>
+    <s:String x:Key="R400" x:Uid="R400">400 nm</s:String>
+    <s:String x:Key="R410" x:Uid="R410">410 nm</s:String>
+    <s:String x:Key="R420" x:Uid="R420">420 nm</s:String>
+    <s:String x:Key="R430" x:Uid="R430">430 nm</s:String>
+    <s:String x:Key="R440" x:Uid="R440">440 nm</s:String>
+    <s:String x:Key="R450" x:Uid="R450">450 nm</s:String>
+    <s:String x:Key="R460" x:Uid="R460">460 nm</s:String>
+    <s:String x:Key="R470" x:Uid="R470">470 nm</s:String>
+    <s:String x:Key="R480" x:Uid="R480">480 nm</s:String>
+    <s:String x:Key="R490" x:Uid="R490">490 nm</s:String>
+    <s:String x:Key="R500" x:Uid="R500">500 nm</s:String>
+    <s:String x:Key="R510" x:Uid="R510">510 nm</s:String>
+    <s:String x:Key="R520" x:Uid="R520">520 nm</s:String>
+    <s:String x:Key="R530" x:Uid="R530">530 nm</s:String>
+    <s:String x:Key="R540" x:Uid="R540">540 nm</s:String>
+    <s:String x:Key="R550" x:Uid="R550">550 nm</s:String>
+    <s:String x:Key="R560" x:Uid="R560">560 nm</s:String>
+    <s:String x:Key="R570" x:Uid="R570">570 nm</s:String>
+    <s:String x:Key="R580" x:Uid="R580">580 nm</s:String>
+    <s:String x:Key="R590" x:Uid="R590">590 nm</s:String>
+    <s:String x:Key="R600" x:Uid="R600">600 nm</s:String>
+    <s:String x:Key="R610" x:Uid="R610">610 nm</s:String>
+    <s:String x:Key="R620" x:Uid="R620">620 nm</s:String>
+    <s:String x:Key="R630" x:Uid="R630">630 nm</s:String>
+    <s:String x:Key="R640" x:Uid="R640">640 nm</s:String>
+    <s:String x:Key="R650" x:Uid="R650">650 nm</s:String>
+    <s:String x:Key="R660" x:Uid="R660">660 nm</s:String>
+    <s:String x:Key="R670" x:Uid="R670">670 nm</s:String>
+    <s:String x:Key="R680" x:Uid="R680">680 nm</s:String>
+    <s:String x:Key="R690" x:Uid="R690">690 nm</s:String>
+    <s:String x:Key="R700" x:Uid="R700">700 nm</s:String>
+    <s:String x:Key="R710" x:Uid="R710">710 nm</s:String>
+    <s:String x:Key="R720" x:Uid="R720">720 nm</s:String>
+    <s:String x:Key="R730" x:Uid="R730">730 nm</s:String>
+    <s:String x:Key="R740" x:Uid="R740">740 nm</s:String>
+    <s:String x:Key="R750" x:Uid="R750">750nm</s:String>
+    <s:String x:Key="R760" x:Uid="R760">760nm</s:String>
+    <s:String x:Key="R770" x:Uid="R770">770nm</s:String>
+    <s:String x:Key="R780" x:Uid="R780">780nm</s:String>
+    <s:String x:Key="dR360" x:Uid="dR360">Δ360 nm</s:String>
+    <s:String x:Key="dR370" x:Uid="dR370">Δ370 nm</s:String>
+    <s:String x:Key="dR380" x:Uid="dR380">Δ380 nm</s:String>
+    <s:String x:Key="dR390" x:Uid="dR390">Δ390 nm</s:String>
+    <s:String x:Key="dR400" x:Uid="dR400">Δ400 nm</s:String>
+    <s:String x:Key="dR410" x:Uid="dR410">Δ410 nm</s:String>
+    <s:String x:Key="dR420" x:Uid="dR420">Δ420 nm</s:String>
+    <s:String x:Key="dR430" x:Uid="dR430">Δ430 nm</s:String>
+    <s:String x:Key="dR440" x:Uid="dR440">Δ440 nm</s:String>
+    <s:String x:Key="dR450" x:Uid="dR450">Δ450 nm</s:String>
+    <s:String x:Key="dR460" x:Uid="dR460">Δ460 nm</s:String>
+    <s:String x:Key="dR470" x:Uid="dR470">Δ470 nm</s:String>
+    <s:String x:Key="dR480" x:Uid="dR480">Δ480 nm</s:String>
+    <s:String x:Key="dR490" x:Uid="dR490">Δ490 nm</s:String>
+    <s:String x:Key="dR500" x:Uid="dR500">Δ500 nm</s:String>
+    <s:String x:Key="dR510" x:Uid="dR510">Δ510 nm</s:String>
+    <s:String x:Key="dR520" x:Uid="dR520">Δ520 nm</s:String>
+    <s:String x:Key="dR530" x:Uid="dR530">Δ530 nm</s:String>
+    <s:String x:Key="dR540" x:Uid="dR540">Δ540 nm</s:String>
+    <s:String x:Key="dR550" x:Uid="dR550">Δ550 nm</s:String>
+    <s:String x:Key="dR560" x:Uid="dR560">Δ560 nm</s:String>
+    <s:String x:Key="dR570" x:Uid="dR570">Δ570 nm</s:String>
+    <s:String x:Key="dR580" x:Uid="dR580">Δ580 nm</s:String>
+    <s:String x:Key="dR590" x:Uid="dR590">Δ590 nm</s:String>
+    <s:String x:Key="dR600" x:Uid="dR600">Δ600 nm</s:String>
+    <s:String x:Key="dR610" x:Uid="dR610">Δ610 nm</s:String>
+    <s:String x:Key="dR620" x:Uid="dR620">Δ620 nm</s:String>
+    <s:String x:Key="dR630" x:Uid="dR630">Δ630 nm</s:String>
+    <s:String x:Key="dR640" x:Uid="dR640">Δ640 nm</s:String>
+    <s:String x:Key="dR650" x:Uid="dR650">Δ650 nm</s:String>
+    <s:String x:Key="dR660" x:Uid="dR660">Δ660 nm</s:String>
+    <s:String x:Key="dR670" x:Uid="dR670">Δ670 nm</s:String>
+    <s:String x:Key="dR680" x:Uid="dR680">Δ680 nm</s:String>
+    <s:String x:Key="dR690" x:Uid="dR690">Δ690 nm</s:String>
+    <s:String x:Key="dR700" x:Uid="dR700">Δ700 nm</s:String>
+    <s:String x:Key="dR710" x:Uid="dR710">Δ710 nm</s:String>
+    <s:String x:Key="dR720" x:Uid="dR720">Δ720 nm</s:String>
+    <s:String x:Key="dR730" x:Uid="dR730">Δ730 nm</s:String>
+    <s:String x:Key="dR740" x:Uid="dR740">Δ740 nm</s:String>
+    <s:String x:Key="dR750" x:Uid="dR750">Δ750nm</s:String>
+    <s:String x:Key="dR760" x:Uid="dR760">Δ760nm</s:String>
+    <s:String x:Key="dR770" x:Uid="dR770">Δ770nm</s:String>
+    <s:String x:Key="dR780" x:Uid="dR780">Δ780nm</s:String>
+    <s:String x:Key="PseudoColor" x:Uid="PseudoColor">Simulación del color</s:String>
+    <s:String x:Key="ColorOffset" x:Uid="ColorOffset">Compensación del color</s:String>
+    <s:String x:Key="ColorOffset_None" x:Uid="ColorOffset_None">Normal</s:String>
+    <s:String x:Key="ColorOffset_SlightlyDark" x:Uid="ColorOffset_SlightlyDark">Slightly Darker</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyDark" x:Uid="ColorOffset_SignificantlyDark">Significantly Darker</s:String>
+    <s:String x:Key="ColorOffset_SlightlyBright" x:Uid="ColorOffset_SlightlyBright">Slightly Lighter</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyBright" x:Uid="ColorOffset_SignificantlyBright">Significantly Lighter</s:String>
+    <s:String x:Key="ColorOffset_SlightlyGreen" x:Uid="ColorOffset_SlightlyGreen">Slightly Greener</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyGreen" x:Uid="ColorOffset_SignificantlyGreen">Significantly Greener</s:String>
+    <s:String x:Key="ColorOffset_SlightlyRed" x:Uid="ColorOffset_SlightlyRed">Slightly Redder</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyRed" x:Uid="ColorOffset_SignificantlyRed">Significantly Redder</s:String>
+    <s:String x:Key="ColorOffset_SlightlyBlue" x:Uid="ColorOffset_SlightlyBlue">Slightly Bluer</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyBlue" x:Uid="ColorOffset_SignificantlyBlue">Significantly Bluer</s:String>
+    <s:String x:Key="ColorOffset_SlightlyYellow" x:Uid="ColorOffset_SlightlyYellow">Slightly Yellower</s:String>
+    <s:String x:Key="ColorOffset_SignificantlyYellow" x:Uid="ColorOffset_SignificantlyYellow">Significantly Yellower</s:String>
+    <s:String x:Key="SpecularComponent_Unknown" x:Uid="SpecularComponent_Unknown">---</s:String>
+    <s:String x:Key="SpecularComponent_SCI" x:Uid="SpecularComponent_SCI">SCI</s:String>
+    <s:String x:Key="SpecularComponent_SCE" x:Uid="SpecularComponent_SCE">SCE</s:String>
+    <s:String x:Key="SpecularComponent_SCIAndSCE" x:Uid="SpecularComponent_SCIAndSCE">SCI/SCE</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi4" x:Uid="MeasurementCaliber_Phi4">Φ4 mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi8" x:Uid="MeasurementCaliber_Phi8">Φ8 mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi15" x:Uid="MeasurementCaliber_Phi15">Φ15mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi20" x:Uid="MeasurementCaliber_Phi20">Φ20mm</s:String>
+    <s:String x:Key="MeasurementCaliber_1Inch" x:Uid="MeasurementCaliber_1Inch">Φ25.4mm</s:String>
+    <s:String x:Key="MeasurementCaliber_1by3" x:Uid="MeasurementCaliber_1by3">Φ1x3mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi11" x:Uid="MeasurementCaliber_Phi11">Φ11 mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi10" x:Uid="MeasurementCaliber_Phi10">Φ10 mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi6" x:Uid="MeasurementCaliber_Phi6">Φ6 mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi5" x:Uid="MeasurementCaliber_Phi5">Φ5 mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi3" x:Uid="MeasurementCaliber_Phi3">Φ3 mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Customized" x:Uid="MeasurementCaliber_Customized">Personalizado</s:String>
+    <s:String x:Key="TransmissionFlag" x:Uid="TransmissionFlag">%R/%T</s:String>
+    <s:String x:Key="ShadeBy555" x:Uid="ShadeBy555">555 Shade</s:String>
+    <s:String x:Key="GardnerIndex" x:Uid="GardnerIndex">Gardner Index</s:String>
+    <s:String x:Key="IronCobaltIndex" x:Uid="IronCobaltIndex">Iron-Cobalt Index</s:String>
+    <!-- <s:String x:Uid="Transmission" x:Key="Transmission">%T</s:String> -->
+    <!-- <s:String x:Uid="Reflection" x:Key="Reflection">%R</s:String> -->
+    <s:String x:Key="PtCoIndex" x:Uid="PtCoIndex">Pt-CO Index</s:String>
+    <s:String x:Key="HazeA2" x:Uid="HazeA2">H(A/2)</s:String>
+    <s:String x:Key="HazeC2" x:Uid="HazeC2">H(C/2)</s:String>
+    <s:String x:Key="HazeD65" x:Uid="HazeD65">H(D65/2)</s:String>
+    <s:String x:Key="DeltaHazeA2" x:Uid="DeltaHazeA2">\u0394H(A/2)</s:String>
+    <s:String x:Key="DeltaHazeC2" x:Uid="DeltaHazeC2">\u0394H(C/2)</s:String>
+    <s:String x:Key="DeltaHazeD65" x:Uid="DeltaHazeD65">\u0394H(D65/2)</s:String>
+
+    <s:String x:Key="MeasurementMethod_Single" x:Uid="MeasurementMethod_Single">Single</s:String>
+    <s:String x:Key="MeasurementMethod_Average" x:Uid="MeasurementMethod_Average">Average</s:String>
+    <s:String x:Key="MeasurementMethod_Continuous" x:Uid="MeasurementMethod_Continuous">Continuous</s:String>
+    <s:String x:Key="MeasurementMethod_AverageContinuous" x:Uid="MeasurementMethod_AverageContinuous">Average Continuous</s:String>
+    <s:String x:Key="LensPosition_Pos4" x:Uid="LensPosition_Pos4">4mm</s:String>
+    <s:String x:Key="LensPosition_Pos8" x:Uid="LensPosition_Pos8">8mm</s:String>
+    <s:String x:Key="LensPosition_Pos15" x:Uid="LensPosition_Pos15">15mm</s:String>
+    <s:String x:Key="LensPosition_Pos25" x:Uid="LensPosition_Pos25">25.4mm</s:String>
+    <s:String x:Key="None" x:Uid="None">None</s:String>
+    <s:String x:Key="Yellowness" x:Uid="Yellowness">Yellowness</s:String>
+    <s:String x:Key="Whiteness" x:Uid="Whiteness">Whiteness</s:String>
+    <s:String x:Key="Strength" x:Uid="Strength">Strength</s:String>
+    <!-- <s:String x:Key="Shade555" x:Uid="Shade555">Shade555</s:String> -->
+    <s:String x:Key="StainingFastness" x:Uid="StainingFastness">Staining Fastness</s:String>
+    <s:String x:Key="ColorFastness" x:Uid="ColorFastness">Color Fastness</s:String>
+    <s:String x:Key="Auto" x:Uid="Auto">Auto</s:String>
+    <s:String x:Key="Manual" x:Uid="Manual">Manual</s:String>
+    <s:String x:Key="Unknown" x:Uid="Unknown">Unknown</s:String>
+    <s:String x:Key="Reflective" x:Uid="Reflective">Reflective</s:String>
+    <s:String x:Key="Transmissive" x:Uid="Transmissive">Transmissive</s:String>
+    <s:String x:Key="About_AppName" x:Uid="About_AppName">Sistema de control de calidad del color SQCX</s:String>
+    <s:String x:Key="About_Company" x:Uid="About_Company">LTD.&quot;</s:String>
+    <s:String x:Key="About_Copyright" x:Uid="About_Copyright">Copyright © 2016</s:String>
+    <s:String x:Key="About_AllRightsReserved" x:Uid="About_AllRightsReserved">Reservados todos los derechos</s:String>
+    <s:String x:Key="Report_ExportTolerance" x:Uid="Report_ExportTolerance">
+        Print tolerance
+    </s:String>
+    <s:String x:Key="Report_ExportReferences" x:Uid="Report_ExportReferences">
+        Print references
+    </s:String>
+    <s:String x:Key="Report_ExportTestLab" x:Uid="Report_ExportTestLab">
+        Print sample Lab
+    </s:String>
+    <s:String x:Key="PleaseInputColorData" x:Uid="PleaseInputColorData">
+        Please input color data.
+    </s:String>
+    <s:String x:Key="Label_RemarkColon" x:Uid="Label_RemarkColon">
+        Remark:
+    </s:String>
+    <s:String x:Key="Label_ColorFormula" x:Uid="Label_ColorFormula">
+        Color Formula
+    </s:String>
+    <s:String x:Key="Title_ColorMatching" x:Uid="Title_ColorMatching">
+        Color Matching
+    </s:String>
+    <s:String x:Key="Title_LibraryColorInput" x:Uid="Title_LibraryColorInput">
+        Color Input
+    </s:String>
+    <s:String x:Key="Label_Update" x:Uid="Label_Update">
+        Update
+    </s:String>
+    <s:String x:Key="Label_NumberColon" x:Uid="Label_NumberColon">
+        Number:
+    </s:String>
+    <s:String x:Key="Label_ColorFormulaColon" x:Uid="Label_ColorFormulaColon">
+        Color Formula:
+    </s:String>
+    <s:String x:Key="Label_LibraryColon" x:Uid="Label_LibraryColon">
+        Library:
+    </s:String>
+    <s:String x:Key="Label_LibraryOptions" x:Uid="Label_LibraryOptions">
+        Library Options
+    </s:String>
+    <s:String x:Key="Label_StoredSample" x:Uid="Label_StoredSample">
+        Stored
+    </s:String>
+    <s:String x:Key="Label_SpectrumDiagram" x:Uid="Label_SpectrumDiagram">
+        Spectrum Diagram
+    </s:String>
+    <s:String x:Key="Label_ChromaticDiagram" x:Uid="Label_ChromaticDiagram">
+        Chromaticity Diagram
+    </s:String>
+    <s:String x:Key="Label_Remark" x:Uid="Label_Remark">
+        Remark
+    </s:String>
+    <s:String x:Key="Label_Input" x:Uid="Label_Input">
+        Input
+    </s:String>
+    <s:String x:Key="MenuItem_WriteToInstrumentLibrary" x:Uid="MenuItem_WriteToInstrumentLibrary">
+        Write to instrument library
+    </s:String>
+    <s:String x:Key="MenuItem_ClearInstrumentLibrary" x:Uid="MenuItem_ClearInstrumentLibrary">
+        Clear instrument library
+    </s:String>
+    <s:String x:Key="MenuItem_ReadInstrumentLibrary" x:Uid="MenuItem_ReadInstrumentLibrary">
+        Read instrument library
+    </s:String>
+    <s:String x:Key="MenuItem_UpdateInstrumentLibrary" x:Uid="MenuItem_UpdateInstrumentLibrary">
+        Update instrument library
+    </s:String>
+    <s:String x:Key="WritingStandards" x:Uid="WritingStandards">
+        Writing standard into instrument...
+    </s:String>
+    <s:String x:Key="AllStandardsWritten" x:Uid="AllStandardsWritten">
+        All standards has been written into instrument.
+    </s:String>
+    <s:String x:Key="InWriting" x:Uid="InWriting">
+        Writing...
+    </s:String>
+    <s:String x:Key="WritingToInstrumentLibraryCompleted" x:Uid="WritingToInstrumentLibraryCompleted">
+        Writing to instrument library completed.
+    </s:String>
+    <s:String x:Key="InReading" x:Uid="InReading">
+        Reading...
+    </s:String>
+    <s:String x:Key="OptionCompleted" x:Uid="OptionCompleted">
+        Option completed.
+    </s:String>
+    <s:String x:Key="ConfirmClearInstrumentLibrary" x:Uid="ConfirmClearInstrumentLibrary">
+        This option will delete all color data from the library of the instrument, and can not recover. It is recommended to backup it before clearing. Are you sure to clear the library?
+    </s:String>
+    <s:String x:Key="ConfirmUpdateInstrumentLibrary" x:Uid="ConfirmUpdateInstrumentLibrary">
+        This option will clear all color data from the library of the instrument at first, and then write all standards to the library of the instrument. Are you sure to do it?
+    </s:String>
+    <s:String x:Key="HasStored" x:Uid="HasStored">
+        Has been stored.
+    </s:String>
+    <s:String x:Key="HasDeleted" x:Uid="HasDeleted">
+        Has been deleted.
+    </s:String>
+    <s:String x:Key="CannotFoundSpecifiedColorNumber" x:Uid="CannotFoundSpecifiedColorNumber">
+        Can not find specified color number.
+    </s:String>
+    <s:String x:Key="ColorNumberInvalid" x:Uid="ColorNumberInvalid">
+        Color number is repeated or invalid.
+    </s:String>
+    <s:String x:Key="CannotFindMatchedColor" x:Uid="CannotFindMatchedColor">
+        Can not find matched color.
+    </s:String>
+    <s:String x:Key="PleaseSelectedAColorLibrary" x:Uid="PleaseSelectedAColorLibrary">
+        Please selected a color library.
+    </s:String>
+    <s:String x:Key="MenuItem_ColorMatch" x:Uid="MenuItem_ColorMatch">
+        Color Match
+    </s:String>
+    <s:String x:Key="MenuItem_ColorInput" x:Uid="MenuItem_ColorInput">
+        Color Inputting
+    </s:String>
+    <s:String x:Key="Label_Clear" x:Uid="Label_Clear">
+        Clear
+    </s:String>
+    <s:String x:Key="Label_AutoClearAfterStored" x:Uid="Label_AutoClearAfterStored">
+        Auto clear when the color has been stored.
+    </s:String>
+    <s:String x:Key="PleaseInputTheColorNumber" x:Uid="PleaseInputTheColorNumber">
+        Please input the color number.
+    </s:String>
+    <s:String x:Key="Label_TargetColor" x:Uid="Label_TargetColor">
+        Target Color
+    </s:String>
+    <s:String x:Key="Label_StoredColor" x:Uid="Label_StoredColor">
+        Color in the Library
+    </s:String>
+    <s:String x:Key="Label_ReflectiveSlashTransitiveColon" x:Uid="Label_ReflectiveSlashTransitiveColon">
+        R%/T%:
+    </s:String>
+    <s:String x:Key="MenuItem_ImportToStandardList" x:Uid="MenuItem_ImportToStandardList">
+        Import into standard list
+    </s:String>
+    <s:String x:Key="AddedToLibrarySuccessfully" x:Uid="AddedToLibrarySuccessfully">
+        Added to current target library successfully.
+    </s:String>
+    <s:String x:Key="WarningColorNumberDuplicated" x:Uid="WarningColorNumberDuplicated">
+        Color number duplicated!
+    </s:String>
+    <s:String x:Key="MenuItem_FindClosedColorsFromLibrary" x:Uid="MenuItem_FindClosedColorsFromLibrary">Buscar cerca de un color desde el Banco de muestras actual</s:String>
+    <s:String x:Key="StandardFirstInfoLilin" x:Uid="StandardFirstInfoLilin">Measure Standard First !!!&quot;</s:String>
+    <s:String x:Key="PanTongMatchTipLilin" x:Uid="PanTongMatchTipLilin">Colour Cards Matching And Searching</s:String>
+    <s:String x:Key="MenuItem_PanTongColorMatchSearchLilin" x:Uid="MenuItem_PanTongColorMatchSearchLilin">CCMAS</s:String>
+    <s:String x:Key="BestMatchWindowLilin" x:Uid="BestMatchWindowLilin">Colour Cards Matching And Searching Window</s:String>
+    <s:String x:Key="Label_LibraryOptionsLilin" x:Uid="Label_LibraryOptionsLilin">Sample Library Options</s:String>
+    <s:String x:Key="Label_LibraryOptionsKeySearchLilin" x:Uid="Label_LibraryOptionsKeySearchLilin">Library And KeyWord Search</s:String>
+    <s:String x:Key="Btn_KeySearchPanTongLibraryLilin" x:Uid="Btn_KeySearchPanTongLibraryLilin">KeyWord Search...</s:String>
+    <s:String x:Key="Label_SearchResultListLilin" x:Uid="Label_SearchResultListLilin">Search Result List</s:String>
+    <s:String x:Key="Label_SetSearchFilterLilin" x:Uid="Label_SetSearchFilterLilin">Input Filter Character</s:String>
+    <s:String x:Key="Label_SamplingLilin" x:Uid="Label_SamplingLilin">Sampling</s:String>
+    <s:String x:Key="Label_SearchFilterLilin" x:Uid="Label_SearchFilterLilin">Searching Filter</s:String>
+    <s:String x:Key="Label_SearchResultLilin" x:Uid="Label_SearchResultLilin">Search Matching Result</s:String>
+    <s:String x:Key="Label_MatchedBestColorLilin" x:Uid="Label_MatchedBestColorLilin">Matched Best Color</s:String>
+    <s:String x:Key="Label_ColorDifFormulaLilin" x:Uid="Label_ColorDifFormulaLilin">Color Difference Value</s:String>
+    <s:String x:Key="Label_PantonColorFileLilin" x:Uid="Label_PantonColorFileLilin">Color Excel File:</s:String>
+    <s:String x:Key="NoPanTongColorDataLilin" x:Uid="NoPanTongColorDataLilin">No Color Cards Data!!!</s:String>
+    <s:String x:Key="NoSampleColorDataLilin" x:Uid="NoSampleColorDataLilin">No Sample Color Data!!!</s:String>
+    <s:String x:Key="SearchTime$0$ShowLilin" x:Uid="SearchTime$0$ShowLilin">Searching Time Consuming {0:F3} ms</s:String>
+    <s:String x:Key="CannotFindMatchedColorLilin" x:Uid="CannotFindMatchedColorLilin">Searching Failure!!!</s:String>
+    <s:String x:Key="InstumentTypeErrorLilin" x:Uid="InstumentTypeErrorLilin">Instrument Type Incorrect!!!</s:String>
+    <s:String x:Key="Label_SortConditionLilin" x:Uid="Label_SortConditionLilin">Sorting Condition</s:String>
+    <s:String x:Key="Label_CoatedLilin" x:Uid="Label_CoatedLilin">Coated Color Cards</s:String>
+    <s:String x:Key="Label_UncoatedLilin" x:Uid="Label_UncoatedLilin">Uncoated Color Cards</s:String>
+    <s:String x:Key="Common_Name" x:Uid="Common_Name">Color Cards Name</s:String>
+    <s:String x:Key="SetMatchToBeStdLilin" x:Uid="SetMatchToBeStdLilin">Set The Match Item To Be Current Standard</s:String>
+    <s:String x:Key="SetCurSamToBeStdLilin" x:Uid="SetCurSamToBeStdLilin">Set Current Sample To Be Current Standard</s:String>
+    <s:String x:Key="CurrentMatchColorChangeLilin" x:Uid="CurrentMatchColorChangeLilin">Current Matched Pseudo Color Changed</s:String>
+    <s:String x:Key="PanTongStdSuccessLilin" x:Uid="PanTongStdSuccessLilin">Set To Be Current Standard Success</s:String>
+    <s:String x:Key="PanTongStdFailLilin" x:Uid="PanTongStdFailLilin">Set To Be Current Standard Fail</s:String>
+    <s:String x:Key="SetToBeStandardEnsureLilin" x:Uid="SetToBeStandardEnsureLilin">Set To Be Current Standard, ensure?</s:String>
+    <s:String x:Key="AddToStandardListSuccessLilin" x:Uid="AddToStandardListSuccessLilin">Add To Standard List, Success</s:String>
+    <s:String x:Key="AddToStandardListFailLilin" x:Uid="AddToStandardListFailLilin">Add To Standard List, Fail: Already Exists</s:String>
+    <s:String x:Key="StandardListAndShiftStandardLilin" x:Uid="StandardListAndShiftStandardLilin">Standard List Show, And Shift Current Standard</s:String>
+    <s:String x:Key="SampleModeLilin" x:Uid="SampleModeLilin">Sample Measure Mode:</s:String>
+    <s:String x:Key="dEab">dE</s:String>
+    <s:String x:Key="CIEDE1976">△E</s:String>
+    <s:String x:Key="CIEDE1994">△E94</s:String>
+    <s:String x:Key="CIEDE2000">△E00</s:String>
+    <s:String x:Key="CMCDE">△Ecmc</s:String>
+    <s:String x:Key="ColorDiff_CIELAB_L">△L</s:String>
+    <s:String x:Key="ColorDiffFormula_DL1994">△L94</s:String>
+    <s:String x:Key="ColorDiffFormula_DL2000">△L00</s:String>
+    <s:String x:Key="ColorDiffFormula_DLcmc">△Lcmc</s:String>
+    <s:String x:Key="ColorDiff_CIELAB_a">△a</s:String>
+    <s:String x:Key="ColorDiff_CIELAB_b">△b</s:String>
+    <s:String x:Key="Title_SelectASerialPort" x:Uid="Title_SelectASerialPort">
+        Select a SerialPort
+    </s:String>
+    <s:String x:Key="Alert_YouNeedToReplugTheUSB" x:Uid="Alert_YouNeedToReplugTheUSB">
+        You need to replug the USB
+    </s:String>
+    <s:String x:Key="Title_SelectABlueToothDevice" x:Uid="Title_SelectABlueToothDevice">
+        Select a BlueTooth Device
+    </s:String>
+    <s:String x:Key="MenuItem_DeleteSelectedSamples" x:Uid="MenuItem_DeleteSelectedSamples">Delete Seleted Samples</s:String>
+    <s:String x:Key="Report_ExportCIEYxyChromaticityChart" x:Uid="Report_ExportCIEYxyChromaticityChart">Print Chromaticity Chart</s:String>
+    <s:String x:Key="Label_Back" x:Uid="Label_Back">Back</s:String>
+    <s:String x:Key="InvalidValue" x:Uid="InvalidValue">Invalid Value:</s:String>
+    <s:String x:Key="All" x:Uid="All">All</s:String>
+    <s:String x:Key="Label_Cover" x:Uid="Label_Cover">Cover</s:String>
+    <s:String x:Key="Label_Skip" x:Uid="Label_Skip">Skip</s:String>
+    <s:String x:Key="MenuItem_ConnectByBluetooth_4" x:Uid="MenuItem_ConnectByBluetooth_4">Connect by Bluetooth 4.2</s:String>
+    <s:String x:Key="MenuItem_ConnectByBluetooth_5" x:Uid="MenuItem_ConnectByBluetooth_4">Connect by Bluetooth 5.0</s:String>
+
+    <s:String x:Key="s_WhiteBoardTableFilePath">Data File</s:String>
+    <s:String x:Key="s_Browse">Browse……</s:String>
+    <s:String x:Key="SuccessfullyWritten">Successfully Written!</s:String>
+    <s:String x:Key="Gloss8" x:Uid="Gloss8">8°Gloss</s:String>
+    <s:String x:Key="DeltaGloss8" x:Uid="DeltaGloss8">△8°Gloss</s:String>
+
+    <s:String x:Key="s_SelectAStandard" x:Uid="s_SelectAStandard">Select a standard</s:String>
+    <s:String x:Key="Label_ColorIndexesDiff" x:Uid="Label_ColorIndexesDiff">ColorIndex Differences</s:String>
+
+    <s:String x:Key="MY_Carbon" x:Uid="MY_Carbon">MY Carbon</s:String>
+    <s:String x:Key="MC_Carbon" x:Uid="MC_Carbon">MC Carbon</s:String>
+    <s:String x:Key="dM_Carbon" x:Uid="dM_Carbon">dM Carbon</s:String>
+    <s:String x:Key="StartSearch">Start Search</s:String>
+    <s:String x:Key="StopSearch">Stop Search</s:String>
+    <s:String x:Key="s_Ports">Ports</s:String>
+    <s:String x:Key="s_SearchBluetoothDevice">Search bluetooth device</s:String>
+    <s:String x:Key="DeviceAddress">Device Address</s:String>
+    <s:String x:Key="SignalIntensity">SignalIntensity</s:String>
+    <s:String x:Key="StopSearchingFirst">Stop searching first！</s:String>
+    <s:String x:Key="AtLeastSelectedABluetoothDevice">At Least Selected A Bluetooth Device！</s:String>
+    <s:String x:Key="ConnectFailed$0$">Connect Failed:{0}</s:String>
+    <s:String x:Key="Clarity">Clarity</s:String>
+    <s:String x:Key="MenuItem_ClarityCalibration">Clarity Calibration</s:String>
+    <s:String x:Key="ClarityMeasurement">ClarityMeasurement</s:String>
+    <s:String x:Key="ClarityCalibrationPrompt">Please cover the 'Comp AP' with the cap,and then press the clarity calibration standard against the 'ClarityAP'</s:String>
+    <s:String x:Key="ClarityCalibrationFailed">Please check that the 'Trans AP' is open</s:String>
+    <s:String x:Key="ZeroPercentCalibration">0% Calibration</s:String>
+    <s:String x:Key="HundredPercentCalibration">100% Calibration</s:String>
+    <s:String x:Key="ZeroPercentCalibrationPrompt">Please cover the both caps of 'Zero calibration' and 'Comp AP',then press the button to continue</s:String>
+    <s:String x:Key="HundredPercentCalibrationPrompt">Please remove the cap of 'Zero Calibration' from the 'Trans AP'，then press the button to continue</s:String>
+    <s:String x:Key="MeasureClarityPrompt">Please press the sample against the 'ClarityAP',and then click 'OK' to measure clarity</s:String>
+    <s:String x:Key="MeasureClarityFailed">Measure clarity failed：</s:String>
+    <s:String x:Key="SampleReport">Sample Report</s:String>
+    <s:String x:Key="SampleData">Los datos de la muestra</s:String>
+    <s:String x:Key="AutoSaveToLibrary">Auto save to library</s:String>
+
+    <s:String x:Key="H_TestSetting" x:Uid="H_TestSetting">Configuración del modo de medición</s:String>
+    <s:String x:Key="rd_SingleMeasure" x:Uid="rd_SingleMeasure">Medición única</s:String>
+    <s:String x:Key="rd_ContinuousMeasure" x:Uid="rd_ContinuousMeasure">Medición continua</s:String>
+    <s:String x:Key="label_Times" x:Uid="rd_SingleMeasure">Número de mediciones</s:String>
+    <s:String x:Key="label_MeasureInterval" x:Uid="rd_ContinuousMeasure">Intervalo de medición</s:String>
+
+    <s:String x:Key="LoadingStandards">Cargando muestras estándar del instrumento...</s:String>
+    <s:String x:Key="ProgressDialogTitle">Cargando datos</s:String>
+    <s:String x:Key="LoadingStandardsProgress">Cargando muestras estándar</s:String>
+    <s:String x:Key="InstrumentCommunicationTimeout">Tiempo de espera de comunicación del instrumento</s:String>
+    <s:String x:Key="InstrumentTimeoutSuggestion">El instrumento puede estar desconectado o no responder. Verifique la conexión.</s:String>
+    <s:String x:Key="RetryConnectionQuestion">¿Desea intentar reconectar el instrumento?</s:String>
+    <s:String x:Key="PleaseReconnectManually">Vuelva a conectar manualmente el instrumento e inténtelo de nuevo.</s:String>
+
+    <s:String x:Key="MeasurementCaliber_Phi2" x:Uid="MeasurementCaliber_Phi2">Φ2mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi7" x:Uid="MeasurementCaliber_Phi7">Φ7mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi9" x:Uid="MeasurementCaliber_Phi9">Φ9mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi12" x:Uid="MeasurementCaliber_Phi12">Φ12mm</s:String>
+    <s:String x:Key="MeasurementCaliber_Phi13" x:Uid="MeasurementCaliber_Phi13">Φ13mm</s:String>
+
+    <!-- Escaneamento / Nuvem -->
+    <s:String x:Key="MenuItem_CloudSetting">Configuración del servicio en la nube...</s:String>
+    <s:String x:Key="Title_CloudSetting">Configuración de Web API</s:String>
+    <s:String x:Key="Label_CloudEnabled">Habilitar servicio en la nube</s:String>
+    <s:String x:Key="Label_CloudApiBaseUrl">URL del servicio:</s:String>
+    <s:String x:Key="Label_CloudUploadPath">Ruta de carga:</s:String>
+    <s:String x:Key="Label_CloudApiToken">Token de acceso:</s:String>
+    <s:String x:Key="Label_CloudTimeoutSeconds">Tiempo de espera (s):</s:String>
+    <s:String x:Key="Tip_CloudSetting">La configuración se guarda en Cloud\CloudConfig.json en el directorio del programa. Al habilitar, indique la URL completa; la ruta de carga es relativa.</s:String>
+    <s:String x:Key="CloudTimeoutInvalid">El tiempo de espera debe ser un entero de al menos 5.</s:String>
+    <s:String x:Key="CloudUploadUrlMissing">La URL del servicio es obligatoria cuando el servicio en la nube está habilitado.</s:String>
+    <s:String x:Key="MenuItem_ScanBarcode">Entrada de código de barras...</s:String>
+    <s:String x:Key="Title_ScanBarcode">Entrada de código de barras</s:String>
+    <s:String x:Key="Label_ScanBarcode">Escaneo:</s:String>
+    <s:String x:Key="Tip_ScanBarcodeToolbar">Último resultado de escaneo; F6 para abrir la ventana</s:String>
+    <s:String x:Key="Tip_ScanBarcodeDialog">Use un escáner (Enter para finalizar y seleccionar todo). Shift+Enter para salto de línea manual.</s:String>
+    <s:String x:Key="Tip_ScanBarcodeWaiting">Esperando escaneo...</s:String>
+    <s:String x:Key="ScanBarcodeCapturedHint">Escaneado: {0}</s:String>
+
+</ResourceDictionary>

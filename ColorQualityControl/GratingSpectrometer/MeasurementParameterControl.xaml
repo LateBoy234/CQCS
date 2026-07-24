@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="ThreeNH.GratingSpectrometer.MeasurementParameterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ThreeNH.GratingSpectrometer">
+    <UserControl.Resources>
+        <Style x:Key="LabelStyle" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="6" />
+        </Style>
+        <Style x:Key="ValueStyle" TargetType="ComboBox">
+            <Setter Property="Margin" Value="0, 6, 6, 6" />
+        </Style>
+    </UserControl.Resources>
+    <StackPanel>
+        <GroupBox Margin="3" Header="观察者角度">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <RadioButton Grid.Column="0" Margin="6" Name="CIE1931">CIE 1931 (2&#x00B0;)</RadioButton>
+                <RadioButton Grid.Column="1" Margin="6" Name="CIE1964" IsChecked="True">CIE 1964 (10&#x00B0;)</RadioButton>
+            </Grid>
+        </GroupBox>
+        <GroupBox Margin="3" Header="标准光源">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" MinWidth="100" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelStyle}">
+                    主光源：</TextBlock>
+                <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource ValueStyle}"
+                  Name="PrimaryIlluminant"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelStyle}">
+                    参考光源一：</TextBlock>
+                <ComboBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ValueStyle}"
+                  Name="SecondaryIlluminant"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelStyle}">
+                    参考光源二：</TextBlock>
+                <ComboBox Grid.Row="2" Grid.Column="1" Style="{StaticResource ValueStyle}"
+                  Name="TertiaryIlluminant"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Margin="3" Header="测光方式">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <RadioButton Grid.Column="0" Margin="6" Name="SCI" IsChecked="True">SCI</RadioButton>
+                <RadioButton Grid.Column="1" Margin="6" Name="SCE">SCE</RadioButton>
+                <RadioButton Grid.Column="2" Margin="6" Name="SCIAndSCE">I+E</RadioButton>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Margin="3" Header="测量口径">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <RadioButton Grid.Column="0" Margin="6" Name="Phi4">&#x03A6;4mm</RadioButton>
+                <RadioButton Grid.Column="1" Margin="6" Name="Phi8" IsChecked="True">&#x03A6;8mm</RadioButton>
+                <RadioButton Grid.Column="2" Margin="6" Name="Phi8Plus">&#x03A6;8mm Plus</RadioButton>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Margin="3" Header="UV">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock VerticalAlignment="Center">关</TextBlock>
+                <Slider Margin="6" Width="150" Minimum="0" Maximum="1" Interval="1"
+                        Name="UV"/>
+                <TextBlock VerticalAlignment="Center">开</TextBlock>
+            </StackPanel>
+            
+        </GroupBox>
+    </StackPanel>
+</UserControl>

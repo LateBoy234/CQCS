@@ -1,0 +1,76 @@
+﻿<Window x:Class="ThreeNH.ColorQualityControl.UI.DuplicationOperationsDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
+        Title="重名处理选项" Height="300" Width="450">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="{x:Static SystemColors.WindowBrush}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="DarkBlue"/>
+        </Style>
+        <RoutedUICommand x:Key="CmdChoiceHowTo" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource CmdChoiceHowTo}"
+                        Executed="OnChoiceHowTo"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Key="R" Command="{StaticResource CmdChoiceHowTo}" CommandParameter="R" />
+        <KeyBinding Key="S" Command="{StaticResource CmdChoiceHowTo}" CommandParameter="S" />
+        <KeyBinding Key="L" Command="{StaticResource CmdChoiceHowTo}" CommandParameter="L"/>
+    </Window.InputBindings>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource FormTextBlockStyle}">
+            正在将<Run Text="{Binding Path=TotalCount}"/>个样品导入到<Run Foreground="DodgerBlue" Text="{Binding Path=DestinationName}"/>
+        </TextBlock>
+        <TextBlock Grid.Row="1"  Style="{StaticResource FormTextBlockStyle}" FontSize="18">
+            存样库包含<Run Text="{Binding Path=DuplicationCount}"/>个同名存样
+        </TextBlock>
+        <Button Grid.Row="2" Command="{StaticResource CmdChoiceHowTo}" CommandParameter="R">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="../Images/Tick_Green.png" Width="16" Height="16" Margin="4"/>
+                <TextBlock Grid.Column="1">
+                    替换存样库中的样品(R)
+                </TextBlock>
+            </Grid>
+        </Button>
+        <Button Grid.Row="3" Command="{StaticResource CmdChoiceHowTo}" CommandParameter="S" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="../Images/ArrowReturnLeft.png" Width="16" Height="16" Margin="4"/>
+                <TextBlock Grid.Column="1">
+                    跳过这些样品(S)
+                </TextBlock>
+            </Grid>
+        </Button>
+        <Button Grid.Row="4" Command="{StaticResource CmdChoiceHowTo}" CommandParameter="L"
+                Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="../Images/select.png" Width="24" Height="24"/>
+                <TextBlock Grid.Column="1">
+                    让我决定每个样品(L)
+                </TextBlock>
+            </Grid>
+        </Button>
+    </Grid>
+</Window>

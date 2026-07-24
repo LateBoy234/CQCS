@@ -1,0 +1,12 @@
+﻿<UserControl
+    x:Class="ThreeNH.Controls.SpectrumInputControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.CommandBindings>
+        <CommandBinding
+            CanExecute="PasteCanExecute"
+            Command="Paste"
+            Executed="OnPasteExecuted" />
+    </UserControl.CommandBindings>
+    <Grid Name="grid" Margin="3" />
+</UserControl>

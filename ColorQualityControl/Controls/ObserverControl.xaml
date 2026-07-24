@@ -1,0 +1,29 @@
+﻿<UserControl
+    x:Class="ThreeNH.Controls.ObserverControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <RadioButton
+            Name="CIE1931"
+            Grid.Column="0"
+            Margin="6"
+            VerticalAlignment="Center"
+            Checked="RadioButton_Checked">
+            CIE 1931(2&#x00B0;)
+        </RadioButton>
+        <RadioButton
+            Name="CIE1964"
+            Grid.Column="1"
+            Margin="6"
+            VerticalAlignment="Center"
+            Checked="RadioButton_Checked"
+            IsChecked="True">
+            CIE 1964(10&#x00B0;)
+        </RadioButton>
+    </Grid>
+</UserControl>

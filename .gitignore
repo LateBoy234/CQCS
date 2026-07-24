@@ -1,0 +1,49 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+ipch/
+*.VC.db
+*.VC.VC.opendb
+*.idb
+*.ilk
+*.pdb
+*.metagen
+
+# NuGet packages are restored from packages.config
+packages/
+*.nupkg
+
+# Test and tooling output
+TestResults/
+coverage/
+.idea/
+.vscode/
+
+# Local logs and temporary files
+*.log
+*.tmp
+*.bak
+*.cache
+~$*
+
+# Local credentials and signing material
+.env
+.env.*
+*.pfx
+*.p12
+*.snk
+*.pem
+*.key

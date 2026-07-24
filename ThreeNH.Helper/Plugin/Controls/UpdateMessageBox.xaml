@@ -1,0 +1,163 @@
+﻿<Window  x:Class="ThreeNH.Helper.Plugin.Controls.UpdateMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding Title}" Width="480"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False">
+
+    <Window.Resources>
+        <!-- 按钮样式 -->
+        <Style x:Key="DialogButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="85"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Margin" Value="8,0"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Opacity" Value="0.9"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Opacity" Value="0.8"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 是/确定按钮 -->
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button" 
+               BasedOn="{StaticResource DialogButtonStyle}">
+            <Setter Property="Background" Value="#cfe7d3"/>
+        </Style>
+
+        <!-- 否/取消按钮 -->
+        <Style x:Key="SecondaryButtonStyle" TargetType="Button" 
+               BasedOn="{StaticResource DialogButtonStyle}">
+            <Setter Property="Background" Value="#6C757D"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Window.Resources>
+    
+
+    <Border Background="White" 
+            CornerRadius="8" 
+            BorderBrush="#E0E0E0" 
+            BorderThickness="1"
+            Margin="10">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" 
+                              BlurRadius="10" 
+                              Opacity="0.3"/>
+        </Border.Effect>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- 标题栏 -->
+          
+            <StackPanel Grid.Row="0" 
+                    Background="#F8F9FA"  Orientation="Horizontal">
+                <Image
+                      Width="20"
+                      Height="20"
+                      Margin="5 5 10 5"
+                    Source="/ThreeNH.Helper;component/Plugin/Images/download.png"/>
+                <TextBlock Text="{Binding Title}" 
+                           FontSize="18" 
+                           FontWeight="SemiBold"
+                           Foreground="#333"/>
+            </StackPanel>
+
+            <!-- 内容区 -->
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Border Margin="5 5 10 5">
+                    <Image
+                         Width="50"
+                         Height="50"
+                         Margin="5 5 10 0"
+                        Source="/ThreeNH.Helper;component/Plugin/Images/download.png"  />
+                </Border>
+                <ScrollViewer 
+                        VerticalScrollBarVisibility="Auto"
+                        Margin="20,15">
+                    <StackPanel>
+                        <!-- 版本信息 -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <TextBlock Text="{Binding NewVersionText}" 
+                                      x:Name="tb_NewVersionText"
+                       FontSize="14" 
+                       FontWeight="SemiBold"
+                       Foreground="#0078D4"/>
+                        </StackPanel>
+
+                        <TextBlock Text="{Binding CurrentVersionText}" 
+                   FontSize="13" 
+                   Foreground="#666"
+                       x:Name="tb_CurrentVersionText"            
+                   Margin="0,0,0,15"/>
+
+
+
+                        <!-- 文件大小 -->
+                        <StackPanel Orientation="Horizontal" x:Name="sp_FileSizeText">
+                            <TextBlock Text="{Binding FileSizeLabel}" 
+                       FontSize="13" 
+                       Foreground="#666"/>
+                            <TextBlock Text="{Binding FileSizeText}" 
+                       FontSize="13" 
+                       FontWeight="SemiBold"
+                       Foreground="#333"
+                       Margin="5,0,0,0"/>
+                        </StackPanel>
+
+                        <!-- 询问 -->
+                        <TextBlock Text="{Binding DownloadPrompt}" 
+                   FontSize="13" 
+                   Foreground="#333"
+                   Margin="0,15,0,0"/>
+                    </StackPanel>
+                </ScrollViewer>
+
+            </StackPanel>
+            
+            <!-- 按钮区 -->
+            <Border Grid.Row="2" 
+                    Background="#F8F9FA" 
+                    CornerRadius="0,0,8,8"
+                    Padding="20,15">
+                <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Right">
+                    <Button x:Name="btnYes" 
+                            Content="{Binding YesButtonText}"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Foreground="Black"
+                            Click="btnYes_Click"/>
+                    <Button x:Name="btnNo" 
+                            Content="{Binding NoButtonText}"
+                            Style="{StaticResource SecondaryButtonStyle}"
+                            Click="btnNo_Click"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

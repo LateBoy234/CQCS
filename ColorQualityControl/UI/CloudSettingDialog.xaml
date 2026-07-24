@@ -1,0 +1,61 @@
+<Window x:Class="ThreeNH.ColorQualityControl.UI.CloudSettingDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{StaticResource Title_CloudSetting}"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        MinWidth="480"
+        SizeToContent="Height">
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <CheckBox x:Name="EnabledCheckBox"
+                  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                  Margin="0,0,0,10"
+                  Content="{StaticResource Label_CloudEnabled}"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,6" VerticalAlignment="Center"
+                   Text="{StaticResource Label_CloudApiBaseUrl}"/>
+        <TextBox x:Name="ApiBaseUrlTextBox" Grid.Row="1" Grid.Column="1" Margin="6" Height="28"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,6" VerticalAlignment="Center"
+                   Text="{StaticResource Label_CloudUploadPath}"/>
+        <TextBox x:Name="UploadPathTextBox" Grid.Row="2" Grid.Column="1" Margin="6" Height="28"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,6" VerticalAlignment="Center"
+                   Text="{StaticResource Label_CloudApiToken}"/>
+        <PasswordBox x:Name="ApiTokenBox" Grid.Row="3" Grid.Column="1" Margin="6" Height="28"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Margin="0,6" VerticalAlignment="Center"
+                   Text="{StaticResource Label_CloudTimeoutSeconds}"/>
+        <TextBox x:Name="TimeoutTextBox" Grid.Row="4" Grid.Column="1" Margin="6" Width="100" Height="28" HorizontalAlignment="Left"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                   Margin="0,10,0,0"
+                   TextWrapping="Wrap"
+                   Foreground="Gray"
+                   Text="{StaticResource Tip_CloudSetting}"/>
+
+        <StackPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                    Margin="0,14,0,0"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+            <Button MinWidth="72" Margin="6" IsDefault="True" Click="OnOkClick"
+                    Content="{StaticResource Label_OK}"/>
+            <Button MinWidth="72" Margin="6" IsCancel="True"
+                    Content="{StaticResource Label_Cancel}"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,13 @@
+﻿<Window x:Class="ThreeNH.ColorQualityControl.UI.ExportSettingDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterOwner"
+        SizeToContent="WidthAndHeight"
+        Title="{DynamicResource Title_Export}">
+    <StackPanel Margin="12">
+        <Button Margin="6" Click="ExportWithSystemSettingClick" Content="{DynamicResource Label_UseSystemDefault}" />
+        <Button Margin="6" Click="ExportWithStandardSetting" Content="{DynamicResource Label_UseStandardSelf}" />
+        <Button Margin="6" Click="SpecifyChromaticitySetting" Content="{DynamicResource Label_UseSpecific}"/>
+        <Button Margin="6" IsCancel="True" Content="{DynamicResource Label_Cancel}" />
+    </StackPanel>
+</Window>

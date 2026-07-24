@@ -1,0 +1,68 @@
+﻿<Window x:Class="ThreeNH.ColorQualityControl.YS60.WhiteBoardParameterSettingDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:myctrls="clr-namespace:ThreeNH.Controls"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        SizeToContent="WidthAndHeight"
+        Title="{StaticResource Title_WhiteBoardParameterSetting}" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <!--        <Label Grid.Row="0" Grid.Column="0" Content="{StaticResource Label_InnerNumberColon}" />-->
+<!--        <TextBox Grid.Row="0" Grid.Column="1"-->
+<!--                 Margin="6"-->
+<!--                 MinWidth="100" MaxLength="20"-->
+<!--                 Name="InnerNumber"/>-->
+
+        <Label Grid.Row="1" Grid.Column="0" Content="{StaticResource Label_WhiteBoardNumberColon}" />
+        <TextBox Grid.Row="1" Grid.Column="1"
+                 Margin="6"
+                 MinWidth="100" MaxLength="20"
+                 Name="OuterNumber"/>
+        <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Header="SCI" Margin="6">
+            <myctrls:SpectrumInputControl Minimum="{Binding WavelengthMinimum}" 
+                                          Maximum="{Binding WavelengthMaximum}"
+                                          Interval="10"
+                                          IsPercent="True" x:Name="SCI" />
+        </GroupBox>
+        <GroupBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Header="SCE" Margin="6">
+            <myctrls:SpectrumInputControl Minimum="{Binding WavelengthMinimum}" 
+                                          Maximum="{Binding WavelengthMaximum}"
+                                          Interval="10"
+                                          IsPercent="True" x:Name="SCE" />
+        </GroupBox>
+
+        <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" MinWidth="60" Margin="10" Content="{StaticResource Label_Read}"
+                    Click="OnReadClick"/>
+            <Button Grid.Column="1" MinWidth="60" Margin="10" Content="{StaticResource Label_Write}"
+                    Click="OnWriteClick" />
+            <Button Grid.Column="2" MinWidth="60" Margin="10" Content="{StaticResource Label_SaveToFile}"
+                    Click="OnSaveToFileClick"/>
+            <Button Grid.Column="3" MinWidth="60" Margin="10" Content="{StaticResource Label_LoadFromFile}"
+                    Click="OnLoadFromFileClick"/>
+            <Button Grid.Column="4" MinWidth="60" Margin="10" HorizontalAlignment="Right"
+                    Content="{StaticResource Label_Close}"
+                    IsDefault="True"
+                    IsCancel="True" />
+        </Grid>
+    </Grid>
+</Window>

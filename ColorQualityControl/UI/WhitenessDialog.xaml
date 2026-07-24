@@ -1,0 +1,90 @@
+﻿<Window x:Class="ThreeNH.ColorQualityControl.UI.WhitenessDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:myctrls="clr-namespace:ThreeNH.Controls"
+        xmlns:adapter="clr-namespace:ThreeNH.ColorQualityControl.Adapter"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        Title="{StaticResource Title_WhitenessIndex}"
+        SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <DataTemplate x:Key="SpecimenComboxBoxItemTemplate" DataType="adapter:SpecimenAdapter">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Rectangle Grid.Column="0" Width="16" Height="16" Margin="3" VerticalAlignment="Center"
+                           Fill="{Binding Path=PseudoColorBrush}" />
+                <TextBlock Grid.Column="1" Text="{Binding Path=Name}" />
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="3" VerticalAlignment="Center" Text="{StaticResource Label_StandardColon}" />
+            <ComboBox Grid.Row="0" Grid.Column="1" Margin="3" Name="standardListComboBox"
+                      ItemTemplate="{StaticResource SpecimenComboxBoxItemTemplate}"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="3" VerticalAlignment="Center" Text="{StaticResource Label_TestColon}" />
+            <ComboBox Grid.Row="1" Grid.Column="1" Margin="3" Name="testListComboBox"
+                      ItemTemplate="{StaticResource SpecimenComboxBoxItemTemplate}"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <GroupBox Grid.Column="0" Margin="3" Padding="3" Header="{StaticResource Label_StandardObserver}">
+                <myctrls:ObserverControl  Observer="CIE1964" />
+            </GroupBox>
+            <GroupBox Grid.Column="1" Margin="3" Padding="3" Header="{StaticResource Label_StandardIlluminant}" MinWidth="120">
+                <myctrls:IlluminantControl  Illuminant="D65" />
+            </GroupBox>
+        </Grid>
+
+        <DataGrid Grid.Row="2" Margin="6" 
+                  AutoGenerateColumns="False" IsReadOnly="True"
+                  Name="dataGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{StaticResource Label_Whiteness}" Binding="{Binding Path=Name}" />
+                <DataGridTextColumn Header="{StaticResource Label_Standard}" Binding="{Binding Path=Standard}" />
+                <DataGridTextColumn Header="{StaticResource Label_TestSample}" Binding="{Binding Path=Test}" />
+                <DataGridTextColumn Header="{StaticResource Label_Diff}" Binding="{Binding Path=Diff}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Margin="6" MinWidth="50" Content="{StaticResource Label_Print}" />
+            <Button Grid.Column="1" Margin="6" MinWidth="50" Content="{StaticResource Label_PrintToWord}" />
+            <Button Grid.Column="3" Margin="6" MinWidth="50" IsCancel="True" Content="{StaticResource Label_Close}" />
+        </Grid>
+    </Grid>
+</Window>

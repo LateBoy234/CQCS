@@ -1,0 +1,118 @@
+﻿<mah:MetroWindow  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                  x:Class="ThreeNH.ColorQualityControl.UI.MeasurementConfigsDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThreeNH.ColorQualityControl.UI"
+        xmlns:myctrl="clr-namespace:ThreeNH.Controls"
+        mc:Ignorable="d"
+        ShowInTaskbar="False"
+        ShowMinButton="False"
+        ShowMaxRestoreButton="False"
+        ShowCloseButton="False"
+        WindowStartupLocation="CenterOwner"
+        SizeToContent="WidthAndHeight"
+        Title="{StaticResource MenuItem_InstrumentMeasurementConfigs}"
+        Loaded="OnLoaded">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" MinWidth="200" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" 
+                   >
+            <Run Text="{StaticResource Label_MeasurementCaliber}" />:
+        </TextBlock>
+        <myctrl:MeasurementCaliberComboBox Grid.Row="0" Grid.Column="1" Margin="5"
+                                           x:Name="ApetureComboBox"
+                                           MeasurementCaliber="{Binding Path=Aperture, Mode=TwoWay}"/>
+
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" >
+            <Run Text="{StaticResource Label_LensPosition}" />:
+        </TextBlock>
+        <myctrl:LensPositionComboBox Grid.Row="1" Grid.Column="1" Margin="5" 
+                                     x:Name="LensPositionComboBox"
+                                     LensPosition="{Binding Path=LensPosition,Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" >
+            <Run Text="{StaticResource Label_LensSwitchMode}"/>:
+        </TextBlock>
+
+        <myctrl:LensSwitchModeComboBox Grid.Row="2" Grid.Column="1" Margin="5"
+                                       x:Name="LensSwitchModeComboBox"
+                                       LensSwitchMode="{Binding Path=LensSwitchMode,Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" 
+                   Text="{StaticResource SampleModeLilin}" />
+        <myctrl:SpecularComponentComboBox Grid.Row="3" Grid.Column="1" Margin="5"
+                                          x:Name="SpecularComponentComboBox"
+                                          SpecularComponent="{Binding Path=SpecularComponent,Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" >
+            <Run Text="{StaticResource TransmissionFlag}" />:
+        </TextBlock>
+        <myctrl:SpectrumMeasurementModeComboBox Grid.Row="4" Grid.Column="1" Margin="5"
+                                                x:Name="SpectrumMeasurementModeComboBox"
+                                                SpectrumMeasurementMode="{Binding Path=SpectrumMeasurementMode, Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" >
+            <Run Text="{StaticResource UV}" />:
+        </TextBlock>
+        <myctrl:UvFlagComboBox Grid.Row="5" Grid.Column="1" Margin="5"
+                               x:Name="UvFlagComboBox"
+                               UvFlag="{Binding Path=UvFlag,Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" 
+                   Text="{StaticResource Label_IlluminantColon}" />
+        <myctrl:IlluminantComboBox Grid.Row="6" Grid.Column="1" Margin="5"
+                                   x:Name="IlluminantComboBox"
+                                   Illuminant="{Binding Path=Illuminant,Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" 
+                   Text="{StaticResource Label_ObserverColon}" />
+        <myctrl:ObserverComboBox Grid.Row="7" Grid.Column="1" Margin="5"
+                                 x:Name="ObserverComboBox"
+                                 Observer="{Binding Path=Observer,Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="8" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" 
+                   Text="{StaticResource Label_ColorSapceColon}" />
+        <myctrl:ColorSpaceComboBox Grid.Row="8" Grid.Column="1" Margin="5"
+                                   x:Name="ColorSpaceComboBox"
+                                   ColorSpace="{Binding Path=ColorSpace,Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="9" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" >
+            <Run Text="{StaticResource Label_ColorDiffFormula}" />:
+        </TextBlock>
+        <myctrl:ColorDiffFormulaComboBox Grid.Row="9" Grid.Column="1" Margin="5"
+                                         x:Name="ColorDiffFormulaComboBox"
+                                         ColorDiffFormula="{Binding Path=ColorDiffFormula,Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="10" Grid.Column="0" Style="{StaticResource FormTextBlockStyle}" >
+            <Run Text="{StaticResource Label_ColorIndex}" />:
+        </TextBlock>
+        <myctrl:ColorIndexComboBox Grid.Row="10" Grid.Column="1" Margin="5"
+                                   x:Name="ColorIndexComboBox"
+                                   ColorIndex="{Binding Path=ColorIndex,Mode=TwoWay}"/>
+        <Button Grid.Row="11" Grid.ColumnSpan="2" MinWidth="60" Margin="5" HorizontalAlignment="Right"
+                    Content="{StaticResource Label_Close}"
+                    IsDefault="True"
+                    IsCancel="True" />
+    </Grid>
+</mah:MetroWindow>

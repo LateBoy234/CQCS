@@ -1,0 +1,47 @@
+﻿<Window x:Class="ThreeNH.ColorQualityControl.UI.Pathlength"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ThreeNH.ColorQualityControl.UI"
+         WindowStartupLocation="CenterOwner"
+              ResizeMode="NoResize" ShowInTaskbar="False" Width="300" Height="530">
+    <Grid Margin="0,0,0,-5" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        <GroupBox  Grid.Row="0" Header="{StaticResource Gb_PathLength}" HorizontalAlignment="Center"  Margin=" 10">
+            <StackPanel Orientation="Vertical"  HorizontalAlignment="Center">
+                <RadioButton x:Name="Rb_10" Content="{StaticResource Rb_10}" Margin="20" FontSize="16" IsChecked="True"/>
+                <RadioButton x:Name="Rb_30" Content="{StaticResource Rb_30}" Margin="20" FontSize="16"/>
+                <RadioButton x:Name="Rb_50" Content="{StaticResource Rb_50}" Margin="20" FontSize="16"/>
+                <RadioButton x:Name="Rb_100" Content="{StaticResource Rb_100}" Margin="20" FontSize="16"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox  Grid.Row="1" Header="{StaticResource Gb_ICUMSA}" HorizontalAlignment="Center"  Margin=" 10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=" 60"/>
+                    <RowDefinition Height=" 60"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Margin=" 0 20 0 0" Content="{StaticResource Label_Thickness}" FontSize="14" VerticalAlignment="Center"   HorizontalAlignment="Right"  />
+                <TextBox Grid.Row="0" Grid.Column="1" Margin=" 0 20 0 0" Name="txt_Thickness" FontSize="16"  MinWidth="40" VerticalAlignment="Center"  />
+                <Label Grid.Row="0" Grid.Column="2" Margin=" 0 20 0 0" Content="cm" FontSize="16" VerticalAlignment="Center"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="{StaticResource Label_Concentration}" FontSize="14" VerticalAlignment="Center"  HorizontalAlignment="Right"  />
+                <TextBox Grid.Row="1" Grid.Column="1" Name="txt_Concentration" FontSize="16"  MinWidth="40" VerticalAlignment="Center"  HorizontalAlignment="Center" />
+                <Label Grid.Row="1" Grid.Column="2" Content="g / ml" FontSize="16" VerticalAlignment="Center"/>
+            </Grid>
+        </GroupBox>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Margin="6" MinWidth="60" Click="OkClick" IsDefault="True" Content="{StaticResource Label_OK}"/>
+        </StackPanel>
+    </Grid>
+</Window>

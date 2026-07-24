@@ -1,0 +1,32 @@
+<Window x:Class="ThreeNH.ColorQualityControl.UI.ScanBarcodeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{StaticResource Title_ScanBarcode}"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        SizeToContent="Height">
+    <StackPanel Margin="16">
+        <!--<TextBlock Text="{StaticResource Tip_ScanBarcodeDialog}"
+                   TextWrapping="Wrap"
+                   Margin="0,0,0,10"/>-->
+        <TextBlock Text="{StaticResource Label_ScanBarcode}" Margin="0,0,0,4"/>
+        <RichTextBox x:Name="BarcodeRichTextBox"
+                     HorizontalAlignment="Stretch"
+                     MinHeight="120"
+                     MaxHeight="240"
+                     FontSize="16"
+                     VerticalScrollBarVisibility="Auto"
+                     Loaded="OnBarcodeRichTextBoxLoaded"
+                     PreviewKeyDown="OnBarcodePreviewKeyDown"/>
+        <TextBlock x:Name="HintTextBlock"
+                   Margin="0,10,0,0"
+                   Foreground="Gray"
+                   Text="{StaticResource Tip_ScanBarcodeWaiting}"/>
+        <StackPanel Margin="0,14,0,0"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+            <Button MinWidth="72" Margin="6" IsCancel="True"
+                    Content="{StaticResource Label_Close}"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
