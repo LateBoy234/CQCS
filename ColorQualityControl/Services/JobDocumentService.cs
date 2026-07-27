@@ -10,6 +10,7 @@ using ThreeNH.ColorQualityControl.Specimens.Events;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.DataModel;
 using ThreeNH.Optical;
+using ThreeNH.SQCX.Application.JobDocuments;
 
 namespace ThreeNH.ColorQualityControl.Services
 {
@@ -18,16 +19,21 @@ namespace ThreeNH.ColorQualityControl.Services
     /// </summary>
     internal sealed class JobDocumentService
     {
+        private readonly IJobDocumentPersistence _persistence;
         public event EventHandler<SpecimenAddedEventArgs> SpecimenAdded;
 
         public event EventHandler<SpecimenRemovedEventArgs> SpecimenRemoved;
 
         public SpecimenDatabase Database { get; }
 
-        public JobDocumentService(SpecimenDatabase database = null)
+        public JobDocumentService(
+            SpecimenDatabase database = null,
+            IJobDocumentPersistence persistence = null)
         {
             // 数据库实例由服务持有，MainWindow.Database 仅作只读转发，避免多处 new
             Database = database ?? new SpecimenDatabase();
+            _persistence = persistence ??
+                throw new ArgumentNullException(nameof(persistence));
         }
 
         public void PrepareStandardName(StandardSpecimen standard)
@@ -241,7 +247,7 @@ namespace ThreeNH.ColorQualityControl.Services
             }
 
             doc.AppendChild(root);
-            doc.Save(fileName);
+            _persistence.Save(fileName, doc.OuterXml);
             Database.FilePath = fileName;
             Database.IsModified = false;
         }
@@ -402,7 +408,7 @@ namespace ThreeNH.ColorQualityControl.Services
         private void LoadXml(string fileName, JobDocumentLoadResult result)
         {
             var doc = new XmlDocument();
-            doc.Load(fileName);
+            doc.LoadXml(_persistence.Load(fileName));
             ApplyXmlDocument(doc, result);
         }
 

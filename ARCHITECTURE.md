@@ -59,9 +59,21 @@ automatic selection and manual fallback. The legacy adapter performs the
 existing database query and color-algorithm conversion without leaking those
 dependencies into the inner layers.
 
+XML job document persistence is implemented by:
+
+- `ThreeNH.SQCX.Application/JobDocuments/IJobDocumentStore`
+- `ThreeNH.SQCX.Application/JobDocuments/JobDocumentPersistence`
+- `ThreeNH.SQCX.Infrastructure/Persistence/FileSystemJobDocumentStore`
+
+The legacy job service remains responsible for translating the existing
+`SpecimenDatabase` to and from XML. Application validates and coordinates the
+persistence request, while Infrastructure owns physical UTF-8 file access.
+`MainWindowSession` is the composition root for this dependency. The
+proprietary QTX reader/writer remains in the compatibility layer for now.
+
 ## Next migration slices
 
 1. Split device capture from UI prompts in `MeasurementService`.
-2. Implement device and persistence gateways in Infrastructure.
-3. Move job document save/load behind Application ports.
+2. Move backup discovery/retention behind Application ports.
+3. Extract QTX serialization behind a format adapter.
 4. Remove superseded legacy selection strategies after regression coverage.

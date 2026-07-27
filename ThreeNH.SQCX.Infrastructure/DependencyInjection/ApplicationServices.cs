@@ -3,6 +3,8 @@ using ThreeNH.SQCX.Application.QualityControl;
 using ThreeNH.SQCX.Domain.QualityControl;
 using ThreeNH.SQCX.Application.StandardSelection;
 using ThreeNH.SQCX.Domain.StandardSelection;
+using ThreeNH.SQCX.Application.JobDocuments;
+using ThreeNH.SQCX.Infrastructure.Persistence;
 
 namespace ThreeNH.SQCX.Infrastructure.DependencyInjection
 {
@@ -36,6 +38,11 @@ namespace ThreeNH.SQCX.Infrastructure.DependencyInjection
             return new SelectStandardUseCase<TStandard, TSample>(
                 gateway,
                 new StandardSelectionPolicy());
+        }
+
+        public static IJobDocumentPersistence CreateJobDocumentPersistence()
+        {
+            return new JobDocumentPersistence(new FileSystemJobDocumentStore());
         }
     }
 }

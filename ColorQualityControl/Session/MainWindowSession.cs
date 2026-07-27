@@ -3,6 +3,7 @@ using ThreeNH.ColorQualityControl.Refactoring.Contracts;
 using ThreeNH.ColorQualityControl.Services;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.DataModel;
+using ThreeNH.SQCX.Infrastructure.DependencyInjection;
 
 namespace ThreeNH.ColorQualityControl.Session
 {
@@ -19,7 +20,8 @@ namespace ThreeNH.ColorQualityControl.Session
             MeasurementService measurement = null,
             SpecimenSelectionState selection = null)
         {
-            JobDocument = jobDocument ?? new JobDocumentService();
+            JobDocument = jobDocument ?? new JobDocumentService(
+                persistence: ApplicationServices.CreateJobDocumentPersistence());
             Instrument = instrument ?? new InstrumentConnectionService();
             Measurement = measurement ?? new MeasurementService();
             Selection = selection ?? new SpecimenSelectionState();

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DependencyInjection\ApplicationServices.cs" />
+    <Compile Include="Persistence\FileSystemJobDocumentStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
