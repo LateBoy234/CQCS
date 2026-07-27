@@ -54,6 +54,8 @@ namespace ThreeNH.ColorQualityControl.ConnectStrategies
                 var detectedType = BleInstrumentDetector.Detect(serialPort);
                 if (TryConnectDongleInstrument(context, slaveDevice, serialPort, detectedType))
                 {
+                    // 成功后把局部变量设为 null，是为了阻止 finally 关闭串口：
+                    // SerialPort 所有权转交给创建出的仪器对象
                     serialPort = null;
                     return;
                 }
@@ -69,6 +71,8 @@ namespace ThreeNH.ColorQualityControl.ConnectStrategies
             {
                 if (serialPort != null && serialPort.IsOpen)
                 {
+                    //连接失败：
+                   // Connect 方法负责关闭 SerialPort
                     serialPort.Close();
                 }
 

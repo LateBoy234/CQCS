@@ -162,14 +162,21 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
                 {
                     SpecularComponentList.Clear();
                     if (value.Name.Contains("SCI"))
+                    {
+                        IfNot45_0 = true;
                         SpecularComponentList.Add("SCI");
+                    }
                     else if (value.Name.Contains("I+E"))
                     {
+                        IfNot45_0 = true;
                         SpecularComponentList.Add("SCI");
                         SpecularComponentList.Add("SCE");
                     }
                     else if (value.Name.Contains("450"))
+                    {
+                        IfNot45_0 = false;
                         SpecularComponentList.Add("45/0");
+                    }
                     CurrentSpecCom = SpecularComponentList.FirstOrDefault();
                 }
             }
@@ -358,7 +365,15 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
             CurrentIllum = _currentSetting.IlluObs.Illuminant;
             CurrentObserEnumType = _currentSetting.IlluObs.Observer;
             CurrentObser = CurrentObserEnumType == StandardObserver.CIE1931 ? "2" : "10";
-            CurrentSpecCom = _currentSetting.SpecCom == SpecularComponent.SCE ? "SCE" : (IfNot45_0 ? "SCI" : "45/0");
+
+            // 色库 setter 已根据 JSON 库的实际数据确定测光方式。离线状态下没有
+            // instrument，不能再用 instrument/IfNot45_0 覆盖为 45/0。
+            string preferredSpecCom = _currentSetting.SpecCom == SpecularComponent.SCE ? "SCE" :
+                (IfNot45_0 ? "SCI" : "45/0");
+            if (SpecularComponentList.Contains(preferredSpecCom))
+                CurrentSpecCom = preferredSpecCom;
+            else if (string.IsNullOrEmpty(CurrentSpecCom))
+                CurrentSpecCom = SpecularComponentList.FirstOrDefault();
         }
         private void InitViewList()
         {
@@ -839,15 +854,35 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
         public CIELAB PanTongColorDataObtainLab(PanTongColor panTongColor)
         {
             Spectrum _spectralData = ObtainSpectra(panTongColor);
+            if (_spectralData == null)
+                return null;
             return Formula.CalculateLab(_spectralData, CurrentIllum, CurrentObserEnumType);
         }
         private Spectrum ObtainSpectra(PanTongColor panTongColor)
         {
+            if (panTongColor == null || panTongColor.SpecimenData == null)
+                return null;
+
+            ColorData colorData;
+            switch (CurrentSpecCom)
+            {
+                case "SCI":
+                    colorData = panTongColor.SpecimenData.SCI;
+                    break;
+                case "SCE":
+                    colorData = panTongColor.SpecimenData.SCE;
+                    break;
+                case "45/0":
+                    colorData = panTongColor.SpecimenData.Clr;
+                    break;
+                default:
+                    return null;
+            }
+
+            if (colorData == null || colorData.Spectrum == null)
+                return null;
 
             int begin, interval, max;
-            ColorData colorData = CurrentSpecCom == "SCE" ? panTongColor.SpecimenData.SCE :
-                (IfNot45_0 ? panTongColor.SpecimenData.SCI : panTongColor.SpecimenData.Clr);
-            if (colorData == null) return null;
             begin = colorData.Spectrum.Range.Min;
             interval = colorData.Spectrum.Range.Step;
             max = colorData.Spectrum.Range.Max;
@@ -857,22 +892,26 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
         }
         public Specimen GenerateSampleFromSpectra(PanTongColor panTongColor)
         {
+            Spectrum spectrum = ObtainSpectra(panTongColor);
+            if (spectrum == null)
+                return null;
+
             Specimen sample = new Specimen();
             sample.Name = panTongColor.SampleNames;
             if (CurrentSpecCom == "SCI")
             {
                 sample.SCI = new ColorData();
-                sample.SCI.Spectrum = ObtainSpectra(panTongColor);
+                sample.SCI.Spectrum = spectrum;
             }
             else if (CurrentSpecCom == "SCE")
             {
                 sample.SCE = new ColorData();
-                sample.SCE.Spectrum = ObtainSpectra(panTongColor);
+                sample.SCE.Spectrum = spectrum;
             }
             else
             {
                 sample.Clr = new ColorData();
-                sample.Clr.Spectrum = ObtainSpectra(panTongColor);
+                sample.Clr.Spectrum = spectrum;
             }
             return sample;
         }
@@ -992,7 +1031,9 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
                     from pantong_ in PanTongColorResult.AsEnumerable()
                     let lab = PanTongColorDataObtainLab(pantong_)
                     let sample = GenerateSampleFromSpectra(pantong_)
+                    where lab != null && sample != null
                     let delta = CalDeltaLab(new CIELAB((double)Lab_L, (double)Lab_a, (double)Lab_b), lab, sample)
+                    where !double.IsNaN(delta) && !double.IsInfinity(delta)
                     orderby fabsfunc(delta)
                     select new MatchedColorItem
                     {
