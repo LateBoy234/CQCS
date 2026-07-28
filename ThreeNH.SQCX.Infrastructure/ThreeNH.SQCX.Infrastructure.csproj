@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,19 +32,183 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=10.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.10.0.2\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NModbus, Version=3.0.81.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NModbus.3.0.81\lib\net46\NModbus.dll</HintPath>
+    </Reference>
+    <Reference Include="NModbus4, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NModbus4.2.1.0\lib\net40\NModbus4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=9.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.9.0.3\lib\net462\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Pipelines, Version=10.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.10.0.2\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=10.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.10.0.2\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=10.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.10.0.2\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.6.1\lib\net462\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DependencyInjection\ApplicationServices.cs" />
     <Compile Include="Persistence\FileSystemJobDocumentStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <!-- Device adapters migrated from standalone projects into Instruments/<Name> -->
+    <!-- PTS -->
+    <Compile Include="Instruments\PTS\BleSpectrophotometer.cs" />
+    <Compile Include="Instruments\PTS\BluetoothDongleSpectrometer.cs" />
+    <Compile Include="Instruments\PTS\CommandConstantEnum.cs" />
+    <Compile Include="Instruments\PTS\CommandPacket.cs" />
+    <Compile Include="Instruments\PTS\CommandsPacketGenerate.cs" />
+    <Compile Include="Instruments\PTS\ConstantsEnumDefine.cs" />
+    <Compile Include="Instruments\PTS\DefineConverters.cs" />
+    <Compile Include="Instruments\PTS\Record.cs" />
+    <Compile Include="Instruments\PTS\RecordFlags.cs" />
+    <Compile Include="Instruments\PTS\RemoteError.cs" />
+    <Compile Include="Instruments\PTS\Spectrometer.cs" />
+    <Compile Include="Instruments\PTS\SpecialInstrumentType.cs" />
+    <Compile Include="Instruments\PTS\Structures.cs" />
+    <!-- ColorReader -->
+    <Compile Include="Instruments\ColorReader\BleSpectrophotometer.cs" />
+    <Compile Include="Instruments\ColorReader\BluetoothDongleSpectrometer.cs" />
+    <Compile Include="Instruments\ColorReader\CommandConstantEnum.cs" />
+    <Compile Include="Instruments\ColorReader\CommandPacket.cs" />
+    <Compile Include="Instruments\ColorReader\CommandsPacketGenerate.cs" />
+    <Compile Include="Instruments\ColorReader\ConstantsEnumDefine.cs" />
+    <Compile Include="Instruments\ColorReader\DefineConverters.cs" />
+    <Compile Include="Instruments\ColorReader\Record.cs" />
+    <Compile Include="Instruments\ColorReader\RecordFlags.cs" />
+    <Compile Include="Instruments\ColorReader\RemoteError.cs" />
+    <Compile Include="Instruments\ColorReader\Spectrometer.cs" />
+    <Compile Include="Instruments\ColorReader\Structures.cs" />
+    <!-- LedSpectrometer -->
+    <Compile Include="Instruments\LedSpectrometer\Command.cs" />
+    <Compile Include="Instruments\LedSpectrometer\Defines.cs" />
+    <Compile Include="Instruments\LedSpectrometer\DefinesConverter.cs" />
+    <Compile Include="Instruments\LedSpectrometer\PacketContentExtension.cs" />
+    <Compile Include="Instruments\LedSpectrometer\Parser.cs" />
+    <Compile Include="Instruments\LedSpectrometer\Spectrometer.cs" />
+    <Compile Include="Instruments\LedSpectrometer\StandardIlluminantExtensions.cs" />
+    <!-- GratingSpectrometer -->
+    <Compile Include="Instruments\LedSpectrometer\GratingSpectrometer\Command.cs" />
+    <Compile Include="Instruments\LedSpectrometer\GratingSpectrometer\Defines.cs" />
+    <Compile Include="Instruments\LedSpectrometer\GratingSpectrometer\DefinesConverter.cs" />
+    <Compile Include="Instruments\LedSpectrometer\GratingSpectrometer\PacketContentExtension.cs" />
+    <Compile Include="Instruments\LedSpectrometer\GratingSpectrometer\Parser.cs" />
+    <Compile Include="Instruments\LedSpectrometer\GratingSpectrometer\Spectrometer.cs" />
+    <!-- NRColorimeter -->
+    <Compile Include="Instruments\Bluetooth\NRColorimeter\Colorimeter.cs" />
+    <Compile Include="Instruments\Bluetooth\NRColorimeter\Defines.cs" />
+    <Compile Include="Instruments\Bluetooth\NRColorimeter\DefinesConverter.cs" />
+    <Compile Include="Instruments\Bluetooth\NRColorimeter\PacketContentExtension.cs" />
+    <!-- YRColorimeter -->
+    <Compile Include="Instruments\Bluetooth\YRColorimeter\Colorimeter.cs" />
+    <Compile Include="Instruments\Bluetooth\YRColorimeter\Defines.cs" />
+    <Compile Include="Instruments\Bluetooth\YRColorimeter\DefinesConverter.cs" />
+    <Compile Include="Instruments\Bluetooth\YRColorimeter\PacketContentExtension.cs" />
+    <!-- CR400 -->
+    <Compile Include="Instruments\CR400\Instrument.cs" />
+    <!-- BTS -->
+    <Compile Include="Instruments\Bluetooth\BTS\BleSpectrophotometer.cs" />
+    <Compile Include="Instruments\Bluetooth\BTS\BluetoothDongleSpectrometer.cs" />
+    <Compile Include="Instruments\Bluetooth\BTS\BtsBleWrapper.cs" />
+    <Compile Include="Instruments\Bluetooth\BTS\Command.cs" />
+    <Compile Include="Instruments\Bluetooth\BTS\CommandPacket.cs" />
+    <Compile Include="Instruments\Bluetooth\BTS\Commands.cs" />
+    <Compile Include="Instruments\Bluetooth\BTS\Constants.cs" />
+    <Compile Include="Instruments\Bluetooth\BTS\DefineConverters.cs" />
+    <Compile Include="Instruments\Bluetooth\BTS\Record.cs" />
+    <Compile Include="Instruments\Bluetooth\BTS\RecordFlags.cs" />
+    <Compile Include="Instruments\Bluetooth\BTS\RemoteError.cs" />
+    <Compile Include="Instruments\Bluetooth\BTS\Spectrometer.cs" />
+    <Compile Include="Instruments\Bluetooth\BTS\Structures.cs" />
+    <!-- Spectrophotometer -->
+    <Compile Include="Instruments\Common\Spectrophotometer\DefineConveter.cs" />
+    <Compile Include="Instruments\Common\Spectrophotometer\ProtocolContract\CommResult.cs" />
+    <Compile Include="Instruments\Common\Spectrophotometer\ProtocolContract\IJsonCommProtocol.cs" />
+    <Compile Include="Instruments\Common\Spectrophotometer\ProtocolImplementation\JsonCommProtocol.cs" />
+    <Compile Include="Instruments\Common\Spectrophotometer\ProtocolImplementation\SocketCommProtocol.cs" />
+    <Compile Include="Instruments\Common\Spectrophotometer\TS8450.cs" />
+    <!-- YL30 -->
+    <Compile Include="Instruments\YL30\Comm\ICommDevice.cs" />
+    <Compile Include="Instruments\YL30\Comm\ModbusRtuMaster.cs" />
+    <Compile Include="Instruments\YL30\Comm\PortService\SerialPortInformation.cs" />
+    <Compile Include="Instruments\YL30\Comm\PortService\SerialPortService.cs" />
+    <Compile Include="Instruments\YL30\Comm\Result\RequestResult{T}.cs" />
+    <Compile Include="Instruments\YL30\Comm\Result\ResultType.cs" />
+    <Compile Include="Instruments\YL30\Comm\SerialPortDevice.cs" />
+    <Compile Include="Instruments\YL30\Command.cs" />
+    <Compile Include="Instruments\YL30\Defines.cs" />
+    <Compile Include="Instruments\YL30\Interface\IProduceTool.cs" />
+    <Compile Include="Instruments\YL30\Interface\ISpectormeter.cs" />
+    <Compile Include="Instruments\YL30\Model\ComSetting.cs" />
+    <Compile Include="Instruments\YL30\Model\Sample.cs" />
+    <Compile Include="Instruments\YL30\Model\Specimen.cs" />
+    <Compile Include="Instruments\YL30\Model\Standard.cs" />
+    <Compile Include="Instruments\YL30\Model\StandardStruct.cs" />
+    <Compile Include="Instruments\YL30\Model\SystemInfo.cs" />
+    <Compile Include="Instruments\YL30\Model\SystemSetting.cs" />
+    <Compile Include="Instruments\YL30\Model\ToleranceForYL30.cs" />
+    <Compile Include="Instruments\YL30\PacketContent.cs" />
+    <Compile Include="Instruments\YL30\PacketContentConverter.cs" />
+    <Compile Include="Instruments\YL30\RegisterHelper.cs" />
+    <Compile Include="Instruments\YL30\Spectrometer.cs" />
+    <Compile Include="Instruments\YL30\StructHelper\CRC.cs" />
+    <Compile Include="Instruments\YL30\StructHelper\EndianConverter.cs" />
+    <Compile Include="Instruments\YL30\StructHelper\ListExtension.cs" />
+    <Compile Include="Instruments\YL30\StructHelper\Packer.cs" />
+    <Compile Include="Instruments\YL30\StructHelper\StructConverter.cs" />
+    <Compile Include="Instruments\YL30\Structs.cs" />
+    <!-- ThreeNH.YL30 -->
+    <Compile Include="Instruments\YL30\ThreeNH.YL30\CommunicaImplementation\ModbusCommunication.cs" />
+    <Compile Include="Instruments\YL30\ThreeNH.YL30\CommunicaImplementation\SerialCommunication.cs" />
+    <Compile Include="Instruments\YL30\ThreeNH.YL30\CommunicationContract\ISpectrometerCom.cs" />
+    <Compile Include="Instruments\YL30\ThreeNH.YL30\DataHandle\ComBuffer.cs" />
+    <Compile Include="Instruments\YL30\ThreeNH.YL30\DataHandle\PacketContent.cs" />
+    <Compile Include="Instruments\YL30\ThreeNH.YL30\DataHandle\ReadDataPacket.cs" />
+    <Compile Include="Instruments\YL30\ThreeNH.YL30\DataHandle\WriteDataPacket.cs" />
+    <Compile Include="Instruments\YL30\ThreeNH.YL30\Extensions\ModelExtension.cs" />
+    <Compile Include="Instruments\YL30\ThreeNH.YL30\ModbusRtuMaster.cs" />
+    <Compile Include="Instruments\YL30\ThreeNH.YL30\Model\CommandType.cs" />
+    <Compile Include="Instruments\YL30\ThreeNH.YL30\SpectrometerForYL30.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThreeNH.SQCX.Application\ThreeNH.SQCX.Application.csproj">
@@ -53,6 +218,59 @@
     <ProjectReference Include="..\ThreeNH.SQCX.Domain\ThreeNH.SQCX.Domain.csproj">
       <Project>{1C3D0C9A-0CC2-4723-A89B-0D1C2144CE1F}</Project>
       <Name>ThreeNH.SQCX.Domain</Name>
+    </ProjectReference>
+    <!-- Shared references adopted from the standalone device projects -->
+    <ProjectReference Include="..\ColorAlgorithm\ColorAlgorithm.vcxproj">
+      <Project>{f59c0aff-9d67-4a84-94a7-a09c125f0316}</Project>
+      <Name>ColorAlgorithm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ColorimeterInterface\ColorimeterInterface.csproj">
+      <Project>{39bf4056-e99f-44c5-bcf6-bccf6a3434be}</Project>
+      <Name>ColorimeterInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ColorLibrary\ColorLibrary.csproj">
+      <Project>{878BA6FB-1F58-49DE-B22D-45CF183A4AC6}</Project>
+      <Name>ColorLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ColorSpecimen\ColorSpecimen.csproj">
+      <Project>{24c4efde-26cb-41fe-8962-1494dcfd42cf}</Project>
+      <Name>ColorSpecimen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunicationBase\CommunicationBase.csproj">
+      <Project>{f773553f-30c0-4587-abe0-523fdd500c70}</Project>
+      <Name>CommunicationBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataModel\DataModel.csproj">
+      <Project>{84cd4737-051e-4adf-99fc-55fa6962ce58}</Project>
+      <Name>DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpticalDefines\OpticalDefines.csproj">
+      <Project>{c3cd9017-b596-407c-92d3-389f741d8ab1}</Project>
+      <Name>OpticalDefines</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PortService\PortService.csproj">
+      <Project>{87904435-4ac5-4fe5-b889-29ac825b4695}</Project>
+      <Name>PortService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.BleProtocol\ThreeNH.BleProtocol.csproj">
+      <Project>{7d111eea-b228-4edd-8347-c9e670084315}</Project>
+      <Name>ThreeNH.BleProtocol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.CommDevice\ThreeNH.CommDevice.csproj">
+      <Project>{24aea196-4f26-4738-aa89-1100a4bb9d1d}</Project>
+      <Name>ThreeNH.CommDevice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.CommProtocol\ThreeNH.CommProtocol.csproj">
+      <Project>{9bb774c0-5c91-4a5b-b5c7-562a94ca9e3a}</Project>
+      <Name>ThreeNH.CommProtocol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.Helper\ThreeNH.Helper.csproj">
+      <Project>{e7350766-23eb-4d75-a80d-19bbcc9ec70f}</Project>
+      <Name>ThreeNH.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.StructHelper\ThreeNH.StructHelper.csproj">
+      <Project>{a6e3abca-dc5b-4f66-b475-a644451b3d32}</Project>
+      <Name>ThreeNH.StructHelper</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

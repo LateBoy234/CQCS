@@ -529,7 +529,7 @@ namespace ThreeNH.ColorQualityControl
         private void InitConnection()
         {
             WireInstrumentConnectionState();
-            _session.Measurement.AttachHost(this);
+            _session.Measurement.AttachHost(this, this);
             _calibration.AttachHost(this);
             _library.AttachHost(this);
             _session.Instrument.AttachHost(this, ConnectionProgressChanged, ConnectionCompleted);

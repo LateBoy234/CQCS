@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.DataModel;
@@ -32,8 +31,6 @@ namespace ThreeNH.ColorQualityControl.Refactoring.Contracts
 
         Tolerance AutoSelectStandardLimits { get; }
 
-        string GetInstrumentModel();
-
         /// <summary>非自动命名时弹出试样命名对话框；false 表示用户取消。</summary>
         bool TryPromptTestName(TestSpecimen test, StandardSpecimen standard);
 
@@ -48,20 +45,8 @@ namespace ThreeNH.ColorQualityControl.Refactoring.Contracts
 
         string FormatMeasureProgressMessage(string modeLabel, int current, int total);
 
-        /// <summary>Loading 后台调用仪器测样；null 表示取消或失败。</summary>
-        Task<Specimen> CaptureTrialSampleAsync(string loadingMessage, double delaySeconds);
-
-        /// <summary>Loading 后台调用仪器测标；null 表示取消或失败。</summary>
-        Task<Specimen> CaptureStandardSampleAsync(string loadingMessage, double delaySeconds);
-
-        int? CalculateEightDegreesGloss(ColorData sci, ColorData sce);
-
-        bool IsInstrumentClarityValid();
-
         /// <summary>弹出清晰度测量；取消或失败时返回 NaN。</summary>
         double PromptAndMeasureClarity();
-
-        bool ShouldMarkSampleAsTransmission();
 
         /// <summary>非自动命名时弹出标样命名对话框；false 表示用户取消。</summary>
         bool TryPromptStandardName(StandardSpecimen standard);

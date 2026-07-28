@@ -18,6 +18,7 @@ namespace ThreeNH.ColorQualityControl.Services
     internal sealed class MeasurementService
     {
         private IMeasurementHost _host;
+        private IMeasurementCaptureGateway _capture;
         private ISelectStandardUseCase<StandardSpecimen, Specimen> _standardSelection;
         // 阶段1-T06：测量互斥锁，防止快速连点测样/测标导致并发入库
         private readonly SemaphoreSlim _measureLock = new SemaphoreSlim(1, 1);
@@ -41,9 +42,10 @@ namespace ThreeNH.ColorQualityControl.Services
             };
         }
 
-        public void AttachHost(IMeasurementHost host)
+        public void AttachHost(IMeasurementHost host, IMeasurementCaptureGateway capture)
         {
             _host = host;
+            _capture = capture;
             _standardSelection = host == null
                 ? null
                 : ApplicationServices.CreateStandardSelection<StandardSpecimen, Specimen>(
@@ -98,7 +100,7 @@ namespace ThreeNH.ColorQualityControl.Services
 
             if (string.IsNullOrEmpty(sample.Instrument))
             {
-                sample.Instrument = _host.GetInstrumentModel();
+                sample.Instrument = _capture.GetInstrumentModel();
             }
 
             // 在 UI 线程解析父标样；自动选标样的色差计算再丢后台，避免跨线程读错选中状态
@@ -138,13 +140,13 @@ namespace ThreeNH.ColorQualityControl.Services
             for (int i = 0; i < schedule.Times; i++)
             {
                 string msg = _host.FormatMeasureProgressMessage(schedule.ModeLabel, i + 1, schedule.Times);
-                var specimen = await _host.CaptureTrialSampleAsync(msg, schedule.DelaySeconds).ConfigureAwait(true);
+                var specimen = await _capture.CaptureTrialSampleAsync(msg, schedule.DelaySeconds).ConfigureAwait(true);
                 if (specimen == null)
                 {
                     break;
                 }
 
-                specimen.Gloss8 = _host.CalculateEightDegreesGloss(specimen.SCI, specimen.SCE);
+                specimen.Gloss8 = _capture.CalculateEightDegreesGloss(specimen.SCI, specimen.SCE);
                 await FinishMeasureOnUiAsync(specimen).ConfigureAwait(true);
             }
         }
@@ -163,7 +165,7 @@ namespace ThreeNH.ColorQualityControl.Services
             for (int i = 0; i < schedule.Times; i++)
             {
                 string msg = _host.FormatMeasureProgressMessage(schedule.ModeLabel, i + 1, schedule.Times);
-                var specimen = await _host.CaptureStandardSampleAsync(msg, schedule.DelaySeconds).ConfigureAwait(true);
+                var specimen = await _capture.CaptureStandardSampleAsync(msg, schedule.DelaySeconds).ConfigureAwait(true);
                 if (specimen == null)
                 {
                     break;
@@ -183,20 +185,20 @@ namespace ThreeNH.ColorQualityControl.Services
 
             if (string.IsNullOrWhiteSpace(sample.Instrument))
             {
-                sample.Instrument = _host.GetInstrumentModel();
+                sample.Instrument = _capture.GetInstrumentModel();
             }
 
-            if (_host.IsInstrumentClarityValid())
+            if (_capture.IsInstrumentClarityValid())
             {
                 sample.Clarity = _host.PromptAndMeasureClarity();
             }
 
-            if (_host.ShouldMarkSampleAsTransmission())
+            if (_capture.ShouldMarkSampleAsTransmission())
             {
                 sample.IsTransmission = true;
             }
 
-            sample.Gloss8 = _host.CalculateEightDegreesGloss(sample.SCI, sample.SCE);
+            sample.Gloss8 = _capture.CalculateEightDegreesGloss(sample.SCI, sample.SCE);
 
             var standard = new StandardSpecimen(sample);
             if (!_host.IsAutoNaming && !_host.TryPromptStandardName(standard))

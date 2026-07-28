@@ -402,6 +402,7 @@
     <Compile Include="Calibration\CalibrationStrategyResolver.cs" />
     <Compile Include="Refactoring\Contracts\IInstrumentConnectionHost.cs" />
     <Compile Include="Refactoring\Contracts\IMeasurementHost.cs" />
+    <Compile Include="Refactoring\Contracts\IMeasurementCaptureGateway.cs" />
     <Compile Include="Refactoring\Contracts\IInstrumentCalibrationHost.cs" />
     <Compile Include="Refactoring\Contracts\IInstrumentLibraryHost.cs" />
     <Compile Include="Refactoring\Contracts\ISpecimenTreeHost.cs" />
@@ -1210,10 +1211,7 @@
       <Project>{D0FD4DBD-AE8E-4AB0-BE3E-2DC40C716F25}</Project>
       <Name>ThreeNH.SQCX.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BTS\BTS.csproj">
-      <Project>{a723ec81-3958-4016-9fe2-f100cd501b63}</Project>
-      <Name>BTS</Name>
-    </ProjectReference>
+
     <ProjectReference Include="..\ColorAlgorithm\ColorAlgorithm.vcxproj">
       <Project>{f59c0aff-9d67-4a84-94a7-a09c125f0316}</Project>
       <Name>ColorAlgorithm</Name>
@@ -1227,10 +1225,7 @@
       <Project>{878ba6fb-1f58-49de-b22d-45cf183a4ac6}</Project>
       <Name>ColorLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ColorReader\ColorReader.csproj">
-      <Project>{331eb107-88da-4cab-97bb-d79716655945}</Project>
-      <Name>ColorReader</Name>
-    </ProjectReference>
+
     <ProjectReference Include="..\ColorSpecimen\ColorSpecimen.csproj">
       <Project>{24c4efde-26cb-41fe-8962-1494dcfd42cf}</Project>
       <Name>ColorSpecimen</Name>
@@ -1239,10 +1234,7 @@
       <Project>{f773553f-30c0-4587-abe0-523fdd500c70}</Project>
       <Name>CommunicationBase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CR400\CR400.csproj">
-      <Project>{dbf6aa09-59e0-47e9-bc95-cc3f25f2eb44}</Project>
-      <Name>CR400</Name>
-    </ProjectReference>
+
     <ProjectReference Include="..\DataModel\DataModel.csproj">
       <Project>{84cd4737-051e-4adf-99fc-55fa6962ce58}</Project>
       <Name>DataModel</Name>
@@ -1255,22 +1247,13 @@
       <Project>{1C3D0C9A-0CC2-4723-A89B-0D1C2144CE1F}</Project>
       <Name>ThreeNH.SQCX.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GratingSpectrometer\GratingSpectrometer.csproj">
-      <Project>{5e714f4f-c219-4018-9a8e-39a9b11197b6}</Project>
-      <Name>GratingSpectrometer</Name>
-    </ProjectReference>
+
     <ProjectReference Include="..\ThreeNH.SQCX.Infrastructure\ThreeNH.SQCX.Infrastructure.csproj">
       <Project>{6CF3F1D6-7DB0-465C-BBF3-5C1A4E45EAF0}</Project>
       <Name>ThreeNH.SQCX.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LedSpectrometer\LedSpectrometer.csproj">
-      <Project>{eb77642d-a9b1-4182-86e3-affe07166c78}</Project>
-      <Name>LedSpectrometer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NRColorimeter\NRColorimeter.csproj">
-      <Project>{4dcd70ff-a0a0-4937-9bcd-e8e1c305bef3}</Project>
-      <Name>NRColorimeter</Name>
-    </ProjectReference>
+
+
     <ProjectReference Include="..\OpticalDefines\OpticalDefines.csproj">
       <Project>{c3cd9017-b596-407c-92d3-389f741d8ab1}</Project>
       <Name>OpticalDefines</Name>
@@ -1283,14 +1266,8 @@
       <Project>{87904435-4ac5-4fe5-b889-29ac825b4695}</Project>
       <Name>PortService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PTS\PTS.csproj">
-      <Project>{d916c302-8107-4012-947f-2cd56df882e3}</Project>
-      <Name>PTS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Spectrophotometer\Spectrophotometer.csproj">
-      <Project>{d0a7f68b-9f52-434a-8255-dc9e89e24de4}</Project>
-      <Name>Spectrophotometer</Name>
-    </ProjectReference>
+    <!-- PTS device adapter migrated into ThreeNH.SQCX.Infrastructure (Devices\PTS) -->
+
     <ProjectReference Include="..\ThreeNH.BleProtocol\ThreeNH.BleProtocol.csproj">
       <Project>{7d111eea-b228-4edd-8347-c9e670084315}</Project>
       <Name>ThreeNH.BleProtocol</Name>
@@ -1319,10 +1296,7 @@
       <Project>{a6e3abca-dc5b-4f66-b475-a644451b3d32}</Project>
       <Name>ThreeNH.StructHelper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ThreeNH.YL30\ThreeNH.YL30.csproj">
-      <Project>{71597a42-9380-4db1-adca-b4a0e3ffd1d0}</Project>
-      <Name>ThreeNH.YL30</Name>
-    </ProjectReference>
+
     <ProjectReference Include="..\ToastNotificationMsg\ToastNotificationMsg.csproj">
       <Project>{ab07b1b1-3a70-4eed-91c8-10201dcb5a89}</Project>
       <Name>ToastNotificationMsg</Name>
@@ -1331,14 +1305,9 @@
       <Project>{aaed8184-f4f9-4ba3-a78f-5b6e83b897e3}</Project>
       <Name>YHComm</Name>
     </ProjectReference>
-    <ProjectReference Include="..\YL30\YL30.csproj">
-      <Project>{4633E245-E7DE-4CA7-A440-8C676E6FB419}</Project>
-      <Name>YL30</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\YRColorimeter\YRColorimeter.csproj">
-      <Project>{982063a2-0a6f-457e-8d9a-94ae24bbc40d}</Project>
-      <Name>YRColorimeter</Name>
-    </ProjectReference>
+
+
+    <!-- PTS device adapter migrated into ThreeNH.SQCX.Infrastructure (Devices\PTS) -->
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\logo.ico" />

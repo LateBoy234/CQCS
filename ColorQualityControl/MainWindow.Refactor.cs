@@ -35,6 +35,7 @@ namespace ThreeNH.ColorQualityControl
         , IInstrumentConnectionService
         , IInstrumentConnectionHost
         , IMeasurementHost
+        , IMeasurementCaptureGateway
         , IMeasurementService
         , ISpecimenSelectionState
         , IInstrumentCalibrationHost
@@ -490,7 +491,7 @@ namespace ThreeNH.ColorQualityControl
 
         DataModel.Tolerance IMeasurementHost.AutoSelectStandardLimits => SystemDefaultConfig.AutoSelectStandardLimits;
 
-        string IMeasurementHost.GetInstrumentModel() => colorimeter?.Model;
+        string IMeasurementCaptureGateway.GetInstrumentModel() => colorimeter?.Model;
 
         bool IMeasurementHost.TryPromptTestName(TestSpecimen test, StandardSpecimen standard)
         {
@@ -551,10 +552,10 @@ namespace ThreeNH.ColorQualityControl
         string IMeasurementHost.FormatMeasureProgressMessage(string modeLabel, int current, int total)
             => string.Format($"{modeLabel}：{S._("Measuring_m_n")}", current, total);
 
-        Task<Specimen> IMeasurementHost.CaptureTrialSampleAsync(string loadingMessage, double delaySeconds)
+        Task<Specimen> IMeasurementCaptureGateway.CaptureTrialSampleAsync(string loadingMessage, double delaySeconds)
             => CaptureInstrumentSampleAsync(loadingMessage, delaySeconds, () => colorimeter.MeasureSample());
 
-        Task<Specimen> IMeasurementHost.CaptureStandardSampleAsync(string loadingMessage, double delaySeconds)
+        Task<Specimen> IMeasurementCaptureGateway.CaptureStandardSampleAsync(string loadingMessage, double delaySeconds)
             => CaptureInstrumentSampleAsync(loadingMessage, delaySeconds, () => colorimeter.MeasureStandard());
 
         /// <summary>Loading 采集仪器的公共壳，测标/测样仅后台调用不同。</summary>
@@ -618,15 +619,15 @@ namespace ThreeNH.ColorQualityControl
             return await tcs.Task.ConfigureAwait(true);
         }
 
-        int? IMeasurementHost.CalculateEightDegreesGloss(ColorData sci, ColorData sce)
+        int? IMeasurementCaptureGateway.CalculateEightDegreesGloss(ColorData sci, ColorData sce)
             => CalculateEightDegreesGloss(sci, sce);
 
-        bool IMeasurementHost.IsInstrumentClarityValid()
+        bool IMeasurementCaptureGateway.IsInstrumentClarityValid()
             => colorimeter != null && colorimeter.IsClarityValid(); 
 
         double IMeasurementHost.PromptAndMeasureClarity() => MeasureClarity();
 
-        bool IMeasurementHost.ShouldMarkSampleAsTransmission()
+        bool IMeasurementCaptureGateway.ShouldMarkSampleAsTransmission()
             => colorimeter?.Model?.Contains("ts40") == true;
 
         bool IMeasurementHost.TryPromptStandardName(StandardSpecimen standard)
