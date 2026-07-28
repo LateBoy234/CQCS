@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ThreeNH.ColorSpecimen;
+using ThreeNH.Instruments.Measurement;
 
 namespace ThreeNH.ColorimeterInterface
 {
     /// <summary>
     /// 仪器测量接口
     /// </summary>
-    public interface IMeasurement
+    public interface IMeasurement : IMeasurementDevice<Specimen>
     {
         /// <summary>
         /// 仪器是否已校准

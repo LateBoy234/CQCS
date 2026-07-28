@@ -23,8 +23,6 @@ using StandardIlluminant = ThreeNH.Optical.StandardIlluminant;
 using StandardObserver = ThreeNH.Optical.StandardObserver;
 using ThreeNH.Helper;
 using System.Linq;
-using System.Windows.Markup;
-using System.Security.RightsManagement;
 
 namespace ThreeNH.GratingSpectrometer
 {

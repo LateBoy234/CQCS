@@ -6,52 +6,62 @@ namespace ThreeNH.SQCX.Application.Measurement
 {
     public sealed class ExecuteMeasurementUseCase : IExecuteMeasurementUseCase
     {
-        private readonly IMeasurementGateway _gateway;
+        private readonly IInstrumentMeasurementState _instrument;
+        private readonly IMeasurementExecution _execution;
+        private readonly IMeasurementConcurrency _concurrency;
+        private readonly IMeasurementFeedback _feedback;
 
-        public ExecuteMeasurementUseCase(IMeasurementGateway gateway)
+        public ExecuteMeasurementUseCase(
+            IInstrumentMeasurementState instrument,
+            IMeasurementExecution execution,
+            IMeasurementConcurrency concurrency,
+            IMeasurementFeedback feedback)
         {
-            _gateway = gateway ?? throw new ArgumentNullException(nameof(gateway));
+            _instrument = instrument ?? throw new ArgumentNullException(nameof(instrument));
+            _execution = execution ?? throw new ArgumentNullException(nameof(execution));
+            _concurrency = concurrency ?? throw new ArgumentNullException(nameof(concurrency));
+            _feedback = feedback ?? throw new ArgumentNullException(nameof(feedback));
         }
 
         public async Task ExecuteAsync(MeasurementTarget target)
         {
             try
             {
-                if (!_gateway.IsInstrumentConnected)
+                if (!_instrument.IsInstrumentConnected)
                 {
-                    _gateway.ShowError("色差仪未连接");
+                    _feedback.ShowError("色差仪未连接");
                     return;
                 }
 
-                if (_gateway.IsHazeEnabled)
+                if (_instrument.IsHazeEnabled)
                 {
-                    await _gateway.ExecuteHazeMeasurementAsync(target).ConfigureAwait(true);
+                    await _execution.ExecuteHazeMeasurementAsync(target).ConfigureAwait(true);
                     return;
                 }
 
-                if (!_gateway.IsInstrumentCalibrated)
+                if (!_instrument.IsInstrumentCalibrated)
                 {
-                    _gateway.RunCalibration();
-                    _gateway.EnsureIdle();
+                    _instrument.RunCalibration();
+                    _feedback.EnsureIdle();
                     return;
                 }
 
-                if (!await _gateway.TryAcquireLockAsync().ConfigureAwait(true))
+                if (!await _concurrency.TryAcquireLockAsync().ConfigureAwait(true))
                     return;
 
                 try
                 {
-                    await _gateway.ExecuteMeasurementAsync(target).ConfigureAwait(true);
+                    await _execution.ExecuteMeasurementAsync(target).ConfigureAwait(true);
                 }
                 finally
                 {
-                    _gateway.ReleaseLock();
+                    _concurrency.ReleaseLock();
                 }
             }
             catch (Exception ex)
             {
-                _gateway.ShowError(ex.Message);
-                _gateway.EnsureIdle();
+                _feedback.ShowError(ex.Message);
+                _feedback.EnsureIdle();
             }
         }
     }

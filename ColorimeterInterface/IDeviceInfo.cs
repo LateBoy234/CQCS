@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using ThreeNH.ColorAlgorithm;
+using ThreeNH.Instruments.DeviceInfo;
 
 namespace ThreeNH.ColorimeterInterface
 {
@@ -18,7 +19,7 @@ namespace ThreeNH.ColorimeterInterface
         transmissivity,
     }
 
-    public interface IDeviceInfo
+    public interface IDeviceInfo : IDeviceIdentity
     {
         /// <summary>
         /// 仪器型号

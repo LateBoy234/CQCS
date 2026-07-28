@@ -54,6 +54,7 @@
       <Project>{f59c0aff-9d67-4a84-94a7-a09c125f0316}</Project>
       <Name>ColorAlgorithm</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.Instruments.Abstractions\ThreeNH.Instruments.Abstractions.csproj"><Project>{A73F55A1-61A8-45C1-9411-BFFEF379582D}</Project><Name>ThreeNH.Instruments.Abstractions</Name></ProjectReference>
     <ProjectReference Include="..\ColorimeterInterface\ColorimeterInterface.csproj">
       <Project>{39BF4056-E99F-44C5-BCF6-BCCF6A3434BE}</Project>
       <Name>ColorimeterInterface</Name>

@@ -27,7 +27,20 @@ namespace ThreeNH.SQCX.Infrastructure.DependencyInjection
         public static IExecuteMeasurementUseCase CreateMeasurement(
             IMeasurementGateway gateway)
         {
-            return new ExecuteMeasurementUseCase(gateway);
+            return CreateMeasurement(gateway, gateway, gateway, gateway);
+        }
+
+        public static IExecuteMeasurementUseCase CreateMeasurement(
+            IInstrumentMeasurementState instrument,
+            IMeasurementExecution execution,
+            IMeasurementConcurrency concurrency,
+            IMeasurementFeedback feedback)
+        {
+            return new ExecuteMeasurementUseCase(
+                instrument,
+                execution,
+                concurrency,
+                feedback);
         }
 
         public static ISelectStandardUseCase<TStandard, TSample>

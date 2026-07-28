@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ThreeNH.Instruments.Connection;
 
 namespace ThreeNH.ColorimeterInterface
 {
@@ -10,7 +11,7 @@ namespace ThreeNH.ColorimeterInterface
     /// 提供连接管理（Open/Close）、设备基础信息（<see cref="IDeviceInfo"/>）与测量/校准能力（<see cref="IMeasurement"/>）。
     /// 具体仪器类型在其上扩展，例如色差仪 <see cref="IColorimeter"/>。
     /// </summary>
-    public interface IInstrument : IMeasurement, IDeviceInfo
+    public interface IInstrument : IMeasurement, IDeviceInfo, IInstrumentConnection
     {
 
         /// <summary>
