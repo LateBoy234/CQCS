@@ -1,9 +1,9 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ThreeNH.YRColorimeter
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter
 {
     /// <summary>
     /// 仪器中使用的枚举定义

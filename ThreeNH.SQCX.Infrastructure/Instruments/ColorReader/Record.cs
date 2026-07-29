@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -9,7 +9,7 @@ using ThreeNH.DataModel;
 using ThreeNH.Optical;
 using ThreeNH.StructHelper;
 
-namespace ThreeNH.ColorReader
+namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
 {
     internal static class RecordHelper
     {

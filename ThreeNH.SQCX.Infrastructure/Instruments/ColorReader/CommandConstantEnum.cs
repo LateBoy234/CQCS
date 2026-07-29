@@ -1,4 +1,4 @@
-﻿namespace ThreeNH.ColorReader
+﻿﻿﻿namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
 {
     public enum Command
     {

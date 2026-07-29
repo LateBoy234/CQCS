@@ -1,14 +1,14 @@
-﻿using System;
+﻿﻿﻿﻿﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YL30;
-using YL30.Model;
-using YL30.StructHelper;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy;
+using  param($mt) $map[$mt.Value] ;
+using  param($mt) $map[$mt.Value] ;
 
-namespace ThreeNH.YL30.DataHandle
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.DataHandle
 {
     public static class ComBuffer
     {

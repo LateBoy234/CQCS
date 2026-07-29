@@ -1,13 +1,13 @@
-﻿using System;
+﻿﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YL30;
-using YL30.Model;
-using YL30Comm.Result;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy;
+using  param($mt) $map[$mt.Value] ;
+using  param($mt) $map[$mt.Value] ;
 
-namespace ThreeNH.YL30.CommunicationContract
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.CommunicationContract
 {
     public interface ISpectrometerCom
     {

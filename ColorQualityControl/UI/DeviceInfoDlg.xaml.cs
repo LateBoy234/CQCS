@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using ThreeNH.ColorimeterInterface;
+using ThreeNH.Instruments.DeviceInfo;
 
 namespace ThreeNH.ColorQualityControl.UI
 {

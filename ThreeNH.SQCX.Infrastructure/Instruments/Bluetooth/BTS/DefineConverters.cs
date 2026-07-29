@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.Optical;
 
-namespace BTS
+namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
 {
     public static class DefineConverters
     {

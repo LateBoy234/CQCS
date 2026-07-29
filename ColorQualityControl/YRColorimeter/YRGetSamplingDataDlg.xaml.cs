@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Threading;
 using Microsoft.Win32;
 using ThreeNH.CommunicationBase;
-using ThreeNH.YRColorimeter;
+using ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter;
 
 namespace ThreeNH.ColorQualityControl.YRColorimeter
 {
@@ -16,7 +16,7 @@ namespace ThreeNH.ColorQualityControl.YRColorimeter
     /// </summary>
     public partial class YRGetSamplingDataDlg : Window, INotifyPropertyChanged
     {
-        private ThreeNH.YRColorimeter.Colorimeter colorimeter;
+        private ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter.Colorimeter colorimeter;
         private uint _times = 1;
         private uint _interval = 5;
         private DispatcherTimer _timer;
@@ -25,7 +25,7 @@ namespace ThreeNH.ColorQualityControl.YRColorimeter
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        public YRGetSamplingDataDlg(ThreeNH.YRColorimeter.Colorimeter colorimeter)
+        public YRGetSamplingDataDlg(ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter.Colorimeter colorimeter)
         {
             this.colorimeter = colorimeter;
             SamplingDataList = new ObservableCollection<YRSamplingData>();

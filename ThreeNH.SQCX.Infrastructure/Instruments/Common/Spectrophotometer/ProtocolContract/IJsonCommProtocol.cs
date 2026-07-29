@@ -1,11 +1,11 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ThreeNH.CommDevice;
 
-namespace ThreeNH.Spectrophotometer.ProtocolContract
+namespace ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer.ProtocolContract
 {
     public interface IJsonCommProtocol : IDisposable
     {

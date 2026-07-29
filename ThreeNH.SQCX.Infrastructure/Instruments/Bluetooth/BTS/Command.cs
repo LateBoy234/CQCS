@@ -1,4 +1,4 @@
-﻿namespace BTS
+﻿﻿﻿namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
 {
     public enum Command
     {

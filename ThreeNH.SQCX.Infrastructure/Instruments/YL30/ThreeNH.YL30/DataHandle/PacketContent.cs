@@ -1,11 +1,11 @@
-﻿using System;
+﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YL30;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy;
 
-namespace ThreeNH.YL30.DataHandle
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.DataHandle
 {
     /// <summary>
     /// 数据包的数据内容

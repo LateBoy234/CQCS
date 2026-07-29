@@ -1,4 +1,4 @@
-﻿namespace PTS
+﻿﻿﻿namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
 {
     public enum Command
     {

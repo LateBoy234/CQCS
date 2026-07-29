@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO.Ports;
@@ -22,13 +22,13 @@ namespace ThreeNH.ColorQualityControl
         NS,
         YS,
         YR,
-        BTS,
+        ThreeNH.SQCX.Infrastructure.Instruments.BTS,
         CR400,
-        PTS,
+        ThreeNH.SQCX.Infrastructure.Instruments.PTS,
         YH,
         CR,//微型色差宝
         JSON, // 使用JSON格式通讯协议的仪器
-        YL30, // YL30系列仪器
+         param($mt) $map[$mt.Value] , //  param($mt) $map[$mt.Value] 系列仪器
     }
 
     class Parser : PacketParser
@@ -374,10 +374,10 @@ namespace ThreeNH.ColorQualityControl
         }
 
         /// <summary>
-        /// 判断是否是PTS系列仪器
+        /// 判断是否是ThreeNH.SQCX.Infrastructure.Instruments.PTS系列仪器
         /// </summary>
         /// <param name="serialPort">已连接的串口</param>
-        /// <returns>如果是PTS返回真，否则返回假</returns>
+        /// <returns>如果是ThreeNH.SQCX.Infrastructure.Instruments.PTS返回真，否则返回假</returns>
         public static InstrumentType Detect(SerialPort serialPort)
         {
             // 先判断是否是 json 通用接口
@@ -416,13 +416,13 @@ namespace ThreeNH.ColorQualityControl
                     s.DetachSerialPort();
                     switch (pnpId)
                     {
-                        case "TNH PTS":
+                        case "TNH ThreeNH.SQCX.Infrastructure.Instruments.PTS":
                             instrumentType = InstrumentType.PTS;
                             break;
                         case "TNH PTSMCR":
                             instrumentType = InstrumentType.CR;
                             break;
-                        case "TNH BTS":
+                        case "TNH ThreeNH.SQCX.Infrastructure.Instruments.BTS":
                             if (IsJsonProtocol(serialPort))
                                 return InstrumentType.JSON;
                             instrumentType = InstrumentType.BTS;

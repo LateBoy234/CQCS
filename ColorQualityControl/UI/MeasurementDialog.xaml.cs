@@ -1,4 +1,4 @@
-﻿using DocumentFormat.OpenXml.Drawing;
+﻿﻿﻿﻿using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Drawing.Charts;
 using Microsoft.VisualBasic;
 using System;
@@ -1485,7 +1485,8 @@ namespace ThreeNH.ColorQualityControl.UI
 
                 if (IsShowSCI && _measuredSpecimens.All(_ => _.SCI != null))
                 {
-                    Spectrum spectrum = new Spectrum(((IDeviceInfo)_colorimeter).WavelengthRange);
+                    var __wr = ((ThreeNH.Instruments.DeviceInfo.IDeviceInfo)_colorimeter).WavelengthRange;
+                    Spectrum spectrum = new Spectrum(new ThreeNH.ColorAlgorithm.WavelengthRange(__wr.Min, __wr.Max, __wr.Step));
                     foreach (var specimen in _measuredSpecimens)
                     {
                         for (int wavelength = spectrum.Range.Min;
@@ -1508,7 +1509,8 @@ namespace ThreeNH.ColorQualityControl.UI
 
                 if (IsShowSCE && _measuredSpecimens.All(_ => _.SCE != null))
                 {
-                    Spectrum spectrum = new Spectrum(((IDeviceInfo)_colorimeter).WavelengthRange);
+                    var __wr = ((Instruments.DeviceInfo.IDeviceInfo)_colorimeter).WavelengthRange;
+                    Spectrum spectrum = new Spectrum(new WavelengthRange(__wr.Min, __wr.Max, __wr.Step));
                     foreach (var specimen in _measuredSpecimens)
                     {
                         for (int wavelength = spectrum.Range.Min;
@@ -1579,7 +1581,7 @@ namespace ThreeNH.ColorQualityControl.UI
                     Specimen specimen = null;
                     if (_colorimeter is GratingSpectrometer.Spectrometer && (_colorimeter as IInstrument).OpticalStructure != "45/0")
                     {
-                        specimen = ((ThreeNH.GratingSpectrometer.Spectrometer)_colorimeter).Measure(((ISystemSetting)_colorimeter).SpecularComponent,
+                        specimen = (( param($mt) $map[$mt.Value] .Spectrometer)_colorimeter).Measure(((ISystemSetting)_colorimeter).SpecularComponent,
                             ((ISystemSetting)_colorimeter).UvMode);
                     }
                     else

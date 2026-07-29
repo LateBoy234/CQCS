@@ -1,10 +1,10 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ThreeNH.CommunicationBase;
 
-namespace PTS
+namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
 {
     public enum RemoteError
     {

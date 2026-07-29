@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ThreeNH.SQCX.Infrastructure</RootNamespace>
-    <AssemblyName>ThreeNH.ColorQualityControl.Infrastructure</AssemblyName>
+    <AssemblyName>ThreeNH.SQCX.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

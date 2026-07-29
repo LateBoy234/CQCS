@@ -1,4 +1,4 @@
-﻿using Modbus.Device;
+﻿﻿﻿﻿﻿using Modbus.Device;
 using Modbus.Message;
 using System;
 using System.Collections.Generic;
@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using YL30Comm.Result;
+using  param($mt) $map[$mt.Value] ;
 
-namespace YL30
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy
 {
     public class ModbusRtuMaster
     {

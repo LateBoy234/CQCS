@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -28,7 +28,7 @@ namespace ThreeNH.BleProtocol
             Exception,
         }
 
-        public const string PTS_PNP_ID = "TNH PTS";
+        public const string PTS_PNP_ID = "TNH ThreeNH.SQCX.Infrastructure.Instruments.PTS";
 
         const string BleProtocolDllName = "BtsBle.dll";
 

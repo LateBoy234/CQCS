@@ -1,11 +1,11 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using ThreeNH.Optical;
 
-namespace ThreeNH.ColorReader
+namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
 {
     public struct RecordFlags
     {

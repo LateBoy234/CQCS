@@ -1,5 +1,5 @@
-﻿using PanTongColorMatchSearch;
-using PTS;
+﻿﻿﻿﻿using PanTongColorMatchSearch;
+using ThreeNH.SQCX.Infrastructure.Instruments.PTS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,13 +32,14 @@ using ThreeNH.ColorSpecimen;
 using ThreeNH.CommDevice;
 using ThreeNH.CommunicationBase;
 using ThreeNH.Controls;
-using ThreeNH.CR400;
+using ThreeNH.SQCX.Infrastructure.Instruments.CR400;
 using ThreeNH.DataModel;
+using ThreeNH.Instruments.DeviceInfo;
 using ThreeNH.Optical;
 using ThreeNH.PortService;
-using ThreeNH.Spectrophotometer;
-using ThreeNH.YL30;
-using BleSpectrophotometer = BTS.BleSpectrophotometer;
+using  param($mt) $map[$mt.Value] ;
+using ThreeNH.SQCX.Infrastructure.Instruments.BTS;
+using BleSpectrophotometer =  param($mt) $map[$mt.Value] .BleSpectrophotometer;
 using Formula = ThreeNH.ColorAlgorithm.Formula;
 using RelayCommand = PanTongColorMatchSearch.RelayCommand;
 
@@ -480,24 +481,27 @@ namespace ThreeNH.ColorQualityControl
             if (colorimeter == null || !colorimeter.IsOpen)
                 return;
 
-            if (colorimeter is BluetoothDongleSpectrometer bts)
+            if (colorimeter is BluetoothDongleSpectrometer  param($mt) $map[$mt.Value] )
             {
-                var productInfo = bts.GetProductInfo();
-                WSCI = new ColorData(new Spectrum(bts.WavelengthRange, Array.ConvertAll(productInfo.Sci, f => (double)f)));
-                WSCE = new ColorData(new Spectrum(bts.WavelengthRange, Array.ConvertAll(productInfo.Sce, f => (double)f)));
+                var productInfo = ThreeNH.SQCX.Infrastructure.Instruments.BTS.GetProductInfo();
+                var wr = new ThreeNH.ColorAlgorithm.WavelengthRange( param($mt) $map[$mt.Value] .WavelengthRange.Min,  param($mt) $map[$mt.Value] .WavelengthRange.Max,  param($mt) $map[$mt.Value] .WavelengthRange.Step);
+                WSCI = new ColorData(new Spectrum(wr, Array.ConvertAll(productInfo.Sci, f => (double)f)));
+                WSCE = new ColorData(new Spectrum(wr, Array.ConvertAll(productInfo.Sce, f => (double)f)));
             }
-            if (colorimeter is BTS.Spectrometer btsspectrometer)
+            if (colorimeter is ThreeNH.SQCX.Infrastructure.Instruments.BTS.Spectrometer btsspectrometer)
             {
                 var wb = btsspectrometer.GetWhiteBoardParameter();
-                WSCI = new ColorData(new Spectrum(btsspectrometer.WavelengthRange, Array.ConvertAll(wb.Sci, f => f * 0.01)));
-                WSCE = new ColorData(new Spectrum(btsspectrometer.WavelengthRange, Array.ConvertAll(wb.Sce, f => f * 0.01)));
+                var wr = new ThreeNH.ColorAlgorithm.WavelengthRange(btsspectrometer.WavelengthRange.Min, btsspectrometer.WavelengthRange.Max, btsspectrometer.WavelengthRange.Step);
+                WSCI = new ColorData(new Spectrum(wr, Array.ConvertAll(wb.Sci, f => f * 0.01)));
+                WSCE = new ColorData(new Spectrum(wr, Array.ConvertAll(wb.Sce, f => f * 0.01)));
             }
-            else if (colorimeter is PTS.Spectrometer ptsspectrometer)
+            else if (colorimeter is ThreeNH.SQCX.Infrastructure.Instruments.PTS.Spectrometer ptsspectrometer)
             {
                 var productInfo = ptsspectrometer.GetProductInfo();
-                WSCI = new ColorData(new Spectrum(ptsspectrometer.WavelengthRange,
+                var wr = new ThreeNH.ColorAlgorithm.WavelengthRange(ptsspectrometer.WavelengthRange.Min, ptsspectrometer.WavelengthRange.Max, ptsspectrometer.WavelengthRange.Step);
+                WSCI = new ColorData(new Spectrum(wr,
                     Array.ConvertAll(productInfo.WhitePlate.Sci, f => (double)f)));
-                WSCE = new ColorData(new Spectrum(ptsspectrometer.WavelengthRange,
+                WSCE = new ColorData(new Spectrum(wr,
                     Array.ConvertAll(productInfo.WhitePlate.Sce, f => (double)f)));
             }
             else if (colorimeter is GratingSpectrometer.Spectrometer gratingspectrometer)
@@ -508,17 +512,19 @@ namespace ThreeNH.ColorQualityControl
                 if (whiteBoardParameter.SCE != null)
                     WSCE = new ColorData(whiteBoardParameter.SCE);
             }
-            else if (colorimeter is ThreeNH.Spectrophotometer.TS8450 ts8450)
+            else if (colorimeter is  param($mt) $map[$mt.Value] .TS8450 ts8450)
             {
                 ts8450.GetWhiteboard(out var sn, out var number, out var sci, out var sce);
                 if (sci != null)
                 {
-                    WSCI = new ColorData(new Spectrum(ts8450.WavelengthRange,
+                    var wr = new ThreeNH.ColorAlgorithm.WavelengthRange(ts8450.WavelengthRange.Min, ts8450.WavelengthRange.Max, ts8450.WavelengthRange.Step);
+                    WSCI = new ColorData(new Spectrum(wr,
                     Array.ConvertAll(sci.Data, f => (double)f)));
                 }
                 if (sce != null)
                 {
-                    WSCE = new ColorData(new Spectrum(ts8450.WavelengthRange,
+                    var wr = new ThreeNH.ColorAlgorithm.WavelengthRange(ts8450.WavelengthRange.Min, ts8450.WavelengthRange.Max, ts8450.WavelengthRange.Step);
+                    WSCE = new ColorData(new Spectrum(wr,
                    Array.ConvertAll(sce.Data, f => (double)f)));
                 }
 
@@ -570,9 +576,9 @@ namespace ThreeNH.ColorQualityControl
                 {
                     if (colorimeter != null)
                     {
-                        if (colorimeter is SpectrometerForYL30 yL30)
+                        if (colorimeter is SpectrometerForYL30  param($mt) $map[$mt.Value] )
                         {
-                            if (string.Compare(yL30.communication.IP, e.Host, true) == 0)
+                            if (string.Compare( param($mt) $map[$mt.Value] .communication.IP, e.Host, true) == 0)
                             {
                                 TryDisconnect();
                             }
@@ -874,15 +880,15 @@ namespace ThreeNH.ColorQualityControl
                 {
                     dlg = new LedSpectrometer.WhiteBoardParameterDialog(colorimeter as LedSpectrometer.Spectrometer);
                 }
-                else if (colorimeter is ThreeNH.YRColorimeter.Colorimeter)
+                else if (colorimeter is ThreeNH.SQCX.Infrastructure.Instruments.BTS.Colorimeter)
                 {
-                    dlg = new YRWhiteBoardSettingDlg(colorimeter as ThreeNH.YRColorimeter.Colorimeter);
+                    dlg = new YRWhiteBoardSettingDlg(colorimeter as ThreeNH.SQCX.Infrastructure.Instruments.PTS.Colorimeter);
                 }
-                else if (colorimeter is BTS.Spectrometer)
+                else if (colorimeter is  param($mt) $map[$mt.Value] .Spectrometer)
                 {
-                    dlg = new YS60.WhiteBoardParameterSettingDialog(colorimeter as BTS.Spectrometer);
+                    dlg = new YS60.WhiteBoardParameterSettingDialog(colorimeter as  param($mt) $map[$mt.Value] .Spectrometer);
                 }
-                else if (colorimeter is PTS.Spectrometer ptsSpectrometer)
+                else if (colorimeter is ThreeNH.SQCX.Infrastructure.Instruments.PTS.Spectrometer ptsSpectrometer)
                 {
                     //TS7700系列和TS7010系列中的7030和7036可以设置白板参数
                     var productInfo = ptsSpectrometer.GetProductInfo();

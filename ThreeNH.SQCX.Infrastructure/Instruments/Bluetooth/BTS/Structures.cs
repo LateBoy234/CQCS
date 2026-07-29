@@ -1,10 +1,10 @@
-﻿using System;
+﻿﻿﻿﻿﻿using System;
 using System.Runtime.InteropServices;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.Optical;
 
-namespace BTS
+namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
 {
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = 4)]
     public class ProductQeuipInfoV1
@@ -682,8 +682,8 @@ namespace BTS
 
         public Spectrum GetWhiteboardSpectrum(bool isSCI)
         {
-            var range = new WavelengthRange(BTS.Constants.VALID_WAVE_BEGIN, BTS.Constants.VALID_WAVE_END,
-                        BTS.Constants.VALID_WAVE_STEP);
+            var range = new WavelengthRange( param($mt) $map[$mt.Value] .Constants.VALID_WAVE_BEGIN,  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_END,
+                        ThreeNH.SQCX.Infrastructure.Instruments.BTS.Constants.VALID_WAVE_STEP);
             return new Spectrum(range, Array.ConvertAll(isSCI ? WhiteReflectSci : WhiteReflectSce, x => (double)x));
         }
 
@@ -694,8 +694,8 @@ namespace BTS
         /// <returns></returns>
         public Spectrum GetWhiteboardSpectrum_1(bool isSCI)
         {
-            var range = new WavelengthRange(BTS.Constants.VALID_WAVE_BEGIN, BTS.Constants.VALID_WAVE_END,
-                        BTS.Constants.VALID_WAVE_STEP);
+            var range = new WavelengthRange( param($mt) $map[$mt.Value] .Constants.VALID_WAVE_BEGIN,  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_END,
+                        ThreeNH.SQCX.Infrastructure.Instruments.BTS.Constants.VALID_WAVE_STEP);
             return new Spectrum(range, Array.ConvertAll(isSCI ? WhiteReflectSci : WhiteReflectSce, x => (double)(x / 100.0)));
         }
 
@@ -1358,7 +1358,7 @@ namespace BTS
         {
             get
             {
-                return ((BTS.ColorSpace)color_space).Uniform();
+                return ((ThreeNH.SQCX.Infrastructure.Instruments.BTS.ColorSpace)color_space).Uniform();
             }
 
             set
@@ -1371,7 +1371,7 @@ namespace BTS
         {
             get
             {
-                return ((BTS.ColorDeltaFormula)color_diff_formula).Uniform();
+                return ((ThreeNH.SQCX.Infrastructure.Instruments.BTS.ColorDeltaFormula)color_diff_formula).Uniform();
             }
 
             set

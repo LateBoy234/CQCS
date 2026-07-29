@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+﻿﻿﻿﻿﻿using Newtonsoft.Json.Linq;
 using NModbus;
 using NModbus.Device;
 using System;
@@ -19,18 +19,19 @@ using ThreeNH.ColorSpecimen;
 using ThreeNH.CommDevice;
 using ThreeNH.CommunicationBase;
 using ThreeNH.Helper;
+using ThreeNH.Instruments.DeviceInfo;
 using ThreeNH.Optical;
-using ThreeNH.Spectrophotometer;
-using ThreeNH.YL30.CommunicaImplementation;
-using ThreeNH.YL30.CommunicationContract;
-using ThreeNH.YL30.Extensions;
-using ThreeNH.YL30.Model;
-using YL30;
-using YL30.Model;
-using YL30.StructHelper;
-using YL30Comm.Result;
+using  param($mt) $map[$mt.Value] ;
+using  param($mt) $map[$mt.Value] ;
+using  param($mt) $map[$mt.Value] ;
+using  param($mt) $map[$mt.Value] ;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy;
+using  param($mt) $map[$mt.Value] ;
+using  param($mt) $map[$mt.Value] ;
+using  param($mt) $map[$mt.Value] ;
+using  param($mt) $map[$mt.Value] ;
 
-namespace ThreeNH.YL30
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30
 {
     public class SpectrometerForYL30 : IDisposable, IInstrument, IMeasurementNotification, ISystemSetting
     {
@@ -127,8 +128,8 @@ namespace ThreeNH.YL30
 
         public DeviceType DeviceType => DeviceType.Spectrophotometer;
 
-        public WavelengthRange WavelengthRange {
-            get => new WavelengthRange(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP);
+        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange {
+            get => new ThreeNH.Instruments.DeviceInfo.WavelengthBand(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP);
             set => throw new NotSupportedException();
         }
 

@@ -1,15 +1,15 @@
-﻿using System.Reflection;
+﻿﻿﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("PTS")]
+[assembly: AssemblyTitle("ThreeNH.SQCX.Infrastructure.Instruments.PTS")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("PTS")]
+[assembly: AssemblyProduct("ThreeNH.SQCX.Infrastructure.Instruments.PTS")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

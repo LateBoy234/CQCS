@@ -1,9 +1,9 @@
-﻿using System;
+﻿﻿﻿using System;
 using System.ComponentModel;
 using System.Windows;
 using ThreeNH.ColorQualityControl;
 
-namespace ThreeNH.GratingSpectrometer
+namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
 {
     /// <summary>
     /// InstrumentInfoDialog.xaml 的交互逻辑

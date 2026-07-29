@@ -1,10 +1,10 @@
-﻿using System;
+﻿﻿using System;
 using System.Runtime.InteropServices;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.Optical;
 
-namespace ThreeNH.GratingSpectrometer
+namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
 {
     /// <summary>
     /// 仪器中使用的枚举定义

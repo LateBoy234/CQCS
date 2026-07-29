@@ -1,8 +1,8 @@
-﻿using System;
+﻿﻿using System;
 using ThreeNH.DataModel;
 using ThreeNH.Optical;
 
-namespace ThreeNH.GratingSpectrometer
+namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
 {
     internal static class DefinesConverter
     {

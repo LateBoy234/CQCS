@@ -1,15 +1,15 @@
-﻿using System.Reflection;
+﻿﻿﻿﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("ThreeNH.YL30")]
+[assembly: AssemblyTitle(" param($mt) $map[$mt.Value] ")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("ThreeNH.YL30")]
+[assembly: AssemblyProduct(" param($mt) $map[$mt.Value] ")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

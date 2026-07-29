@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -7,7 +7,7 @@ using System.Windows.Media;
 using Microsoft.Win32;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.CommunicationBase;
-using ThreeNH.YRColorimeter;
+using ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter;
 
 namespace ThreeNH.ColorQualityControl.YRColorimeter
 {
@@ -48,9 +48,9 @@ namespace ThreeNH.ColorQualityControl.YRColorimeter
     /// </summary>
     public partial class YRUploadDataDlg : Window
     {
-        ThreeNH.YRColorimeter.Colorimeter colorimeter;
+        ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter.Colorimeter colorimeter;
 
-        public YRUploadDataDlg(ThreeNH.YRColorimeter.Colorimeter colorimeter)
+        public YRUploadDataDlg(ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter.Colorimeter colorimeter)
         {
             this.colorimeter = colorimeter;
             SpecimenList = new ObservableCollection<YRSpecimen>();

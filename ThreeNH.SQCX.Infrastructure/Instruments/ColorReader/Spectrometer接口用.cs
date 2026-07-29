@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -17,7 +17,7 @@ using ThreeNH.CommunicationBase;
 using ThreeNH.DataModel;
 using ThreeNH.StructHelper;
 
-namespace BTS
+namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
 {
     /// <summary>
     /// 命令处理代理
@@ -502,9 +502,9 @@ namespace BTS
 
         public bool IsOpen => _clientProtocol.IsConnected;
 
-        public WavelengthRange WavelengthRange
+        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
         {
-            get { return new WavelengthRange(360, 780, 10); }
+            get { return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(360, 780, 10); }
             set { throw new NotSupportedException(); }
         }
 
@@ -1427,7 +1427,7 @@ namespace BTS
         private UVFlag GetUvMode()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.UvMode));
-            return ((BTS.UvMode)result.Data[0]).Uniform();
+            return ((ThreeNH.SQCX.Infrastructure.Instruments.BTS.UvMode)result.Data[0]).Uniform();
         }
 
         private void SetUvMode(UVFlag uv)

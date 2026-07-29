@@ -1,10 +1,10 @@
-﻿using System;
+﻿﻿using System;
 using System.Runtime.InteropServices;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.Optical;
 
-namespace ThreeNH.ColorReader
+namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
 {
 
     // 产品参数字段

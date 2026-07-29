@@ -1,4 +1,4 @@
-using System;
+﻿﻿﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +11,14 @@ using System.Threading;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.DataModel;
-using ThreeNH.NRColorimeter.Instrument;
+using ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter.Instrument;
 using DateTime = System.DateTime;
 using StandardIlluminant = ThreeNH.Optical.StandardIlluminant;
 using StandardObserver = ThreeNH.Optical.StandardObserver;
 using System.Reflection;
+using ThreeNH.Instruments.DeviceInfo;
 
-namespace ThreeNH.NRColorimeter
+namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
 {
     enum Command : byte
     {
@@ -173,12 +174,12 @@ namespace ThreeNH.NRColorimeter
             }
         }
 
-        public ThreeNH.ColorAlgorithm.WavelengthRange WavelengthRange
+        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
         {
             get
             {
                 //throw new NotImplementedException();
-                return new ColorAlgorithm.WavelengthRange(0, 0, 0);
+                return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(0, 0, 0);
             }
 
             set
@@ -719,7 +720,7 @@ namespace ThreeNH.NRColorimeter
         }
 
         public bool YTContain400 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        WavelengthRange IDeviceInfo.WavelengthRange => throw new NotImplementedException();
+        ThreeNH.Instruments.DeviceInfo.WavelengthBand IDeviceInfo.WavelengthRange => throw new NotImplementedException();
 
         public int GetSamplesCount(int standardIndex)
         {

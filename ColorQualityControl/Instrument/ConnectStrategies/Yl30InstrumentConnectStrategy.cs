@@ -1,4 +1,4 @@
-using System;
+﻿﻿﻿using System;
 using System.Diagnostics;
 using System.IO.Ports;
 using System.Threading;
@@ -6,9 +6,9 @@ using ThreeNH.ColorimeterInterface;
 using ThreeNH.CommDevice;
 using ThreeNH.CommunicationBase;
 using ThreeNH.PortService;
-using ThreeNH.Spectrophotometer;
-using ThreeNH.Spectrophotometer.ProtocolImplementation;
-using ThreeNH.YL30;
+using ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer;
+using  param($mt) $map[$mt.Value] ;
+using  param($mt) $map[$mt.Value] ;
 using static ThreeNH.CommunicationBase.EhMc17AtInterface;
 
 using ThreeNH.ColorQualityControl.Services;

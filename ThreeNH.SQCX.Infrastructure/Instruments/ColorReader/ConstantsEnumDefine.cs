@@ -1,6 +1,6 @@
-﻿using System.ComponentModel;
+﻿﻿using System.ComponentModel;
 
-namespace ThreeNH.ColorReader
+namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
 {
     public static class Constants
     {

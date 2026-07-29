@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -9,7 +9,7 @@ using ThreeNH.DataModel;
 using ThreeNH.Optical;
 using ThreeNH.StructHelper;
 
-namespace BTS
+namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
 {
     static class RecordHelper
     {
@@ -572,8 +572,8 @@ namespace BTS
         {
             if (!flags.IsSpectrum)
             {
-                BTS.Observer observer = (BTS.Observer)data[0];
-                BTS.Illuminant illuminant = (BTS.Illuminant)data[1];
+                 param($mt) $map[$mt.Value] .Observer observer = ( param($mt) $map[$mt.Value] .Observer)data[0];
+                 param($mt) $map[$mt.Value] .Illuminant illuminant = ( param($mt) $map[$mt.Value] .Illuminant)data[1];
                 float[] values = new[]
                 {
                         BitConverter.ToSingle(data, 2),

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -13,9 +13,10 @@ using System.Linq;
 using ThreeNH.Helper;
 using ThreeNH.DataModel;
 using System.IO;
+using ThreeNH.Instruments.DeviceInfo;
 
 
-namespace ThreeNH.LedSpectrometer
+namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
 {
     /// <summary>
     /// NS810、NS800的通讯接口: InstrumentBase, IColorimeter, IMetrology, ISpecimenClearing, IInstrument
@@ -23,8 +24,8 @@ namespace ThreeNH.LedSpectrometer
     public class Spectrometer : InstrumentBase, IColorimeter, IMetrology, ISpecimenClearing,  IRecordManagement, ISystemSetting
     {
         // 支持的波长范围
-        public static readonly WavelengthRange WAVELENGTHRANGE =
-            new WavelengthRange(400, 700, 10);
+        public static readonly ColorAlgorithm.WavelengthRange WAVELENGTHRANGE =
+            new ColorAlgorithm.WavelengthRange(400, 700, 10);
         int _stopUpload = 0;    // 停止异𨓿上传标志
 
         public Spectrometer()
@@ -199,11 +200,11 @@ namespace ThreeNH.LedSpectrometer
             set { throw new NotSupportedException(); }
         }
 
-        public WavelengthRange WavelengthRange
+        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
         {
             get
             {
-                return WAVELENGTHRANGE;
+                return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(WAVELENGTHRANGE.Min, WAVELENGTHRANGE.Max, WAVELENGTHRANGE.Step);
             }
 
             set
@@ -682,7 +683,7 @@ namespace ThreeNH.LedSpectrometer
             para.InnerNumber = str;
             result.PacketContent.Dequeue(out str);
             para.OuterNumber = str;
-            Spectrum spectrum = new Spectrum(new WavelengthRange(400, 700, 10));
+            Spectrum spectrum = new Spectrum(new ColorAlgorithm.WavelengthRange(400, 700, 10));
             result.PacketContent.Dequeue(spectrum);
             // 由于白板参数的反射率是百分比，全部除以100
             for (int i = 0; i < spectrum.Data.Length; i++)

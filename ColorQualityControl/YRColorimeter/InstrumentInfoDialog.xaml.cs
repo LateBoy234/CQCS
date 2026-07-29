@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ThreeNH.YRColorimeter;
+using ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter;
 
 namespace ThreeNH.ColorQualityControl.YRColorimeter
 {
@@ -20,9 +20,9 @@ namespace ThreeNH.ColorQualityControl.YRColorimeter
     /// </summary>
     public partial class InstrumentInfoDialog : Window
     {
-        private ThreeNH.YRColorimeter.Colorimeter _colorimeter;
+        private ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter.Colorimeter _colorimeter;
 
-        public InstrumentInfoDialog(ThreeNH.YRColorimeter.Colorimeter colorimeter)
+        public InstrumentInfoDialog(ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter.Colorimeter colorimeter)
         {
             _colorimeter = colorimeter;
 

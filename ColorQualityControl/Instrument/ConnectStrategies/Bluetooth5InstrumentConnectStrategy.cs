@@ -7,8 +7,8 @@ using ThreeNH.ColorimeterInterface;
 using ThreeNH.ColorQualityControl.Device;
 using ThreeNH.CommDevice;
 using ThreeNH.PortService;
-using ThreeNH.Spectrophotometer;
-using ThreeNH.Spectrophotometer.ProtocolImplementation;
+using ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer;
+using  param($mt) $map[$mt.Value] ;
 using YHComm = ThreeNH.YHComm;
 using static ThreeNH.CommunicationBase.EhMc17AtInterface;
 
@@ -115,7 +115,7 @@ namespace ThreeNH.ColorQualityControl.ConnectStrategies
             if (detectedType == InstrumentType.PTS)
             {
                 Thread.Sleep(1200);
-                var spec = new PTS.BluetoothDongleSpectrometer();
+                var spec = new ThreeNH.SQCX.Infrastructure.Instruments.PTS.BluetoothDongleSpectrometer();
                 spec.AttatchSerialPort(serialPort);
                 context.SetResult(new Tuple<IInstrument, InstrumentType>(spec, InstrumentType.PTS));
                 context.ReportProgress(100, successMessage);
@@ -126,7 +126,7 @@ namespace ThreeNH.ColorQualityControl.ConnectStrategies
             if (detectedType == InstrumentType.BTS)
             {
                 Thread.Sleep(1200);
-                var spec = new BTS.BluetoothDongleSpectrometer();
+                var spec = new ThreeNH.SQCX.Infrastructure.Instruments.BTS.BluetoothDongleSpectrometer();
                 spec.AttatchSerialPort(serialPort);
                 context.SetResult(new Tuple<IInstrument, InstrumentType>(spec, InstrumentType.BTS));
                 context.ReportProgress(100, successMessage);

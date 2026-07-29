@@ -1,9 +1,9 @@
-﻿using System;
+﻿﻿using System;
 using System.Text;
 using ThreeNH.CommunicationBase;
 using ThreeNH.ColorAlgorithm;
 
-namespace ThreeNH.LedSpectrometer
+namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
 {
     static class PacketContentExtension
     {

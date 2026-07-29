@@ -30,13 +30,17 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="ThreeNH.ColorAlgorithm">
+      <HintPath>..\ThreeNH.ColorAlgorithm\bin\Debug\ThreeNH.ColorAlgorithm.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calibration\ICalibrationCapability.cs" />
     <Compile Include="Connection\IInstrumentConnection.cs" />
-    <Compile Include="DeviceInfo\IDeviceIdentity.cs" />
+    <Compile Include="DeviceInfo\IDeviceInfo.cs" />
     <Compile Include="Measurement\IMeasurementDevice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

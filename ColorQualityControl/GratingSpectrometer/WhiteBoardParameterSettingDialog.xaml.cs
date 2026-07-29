@@ -1,10 +1,10 @@
-﻿using System;
+﻿﻿﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using ThreeNH.Controls;
 using ThreeNH.ColorQualityControl;
 
-namespace ThreeNH.GratingSpectrometer
+namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
 {
     /// <summary>
     /// WhiteBoardParameterControl.xaml 的交互逻辑

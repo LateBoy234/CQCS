@@ -1,13 +1,13 @@
-﻿using System;
+﻿﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using YL30.Model;
-using YL30Comm.Result;
+using  param($mt) $map[$mt.Value] ;
+using  param($mt) $map[$mt.Value] ;
 
-namespace YL30.Interface
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy.Interface
 {
     public interface ISpectormeter
     {

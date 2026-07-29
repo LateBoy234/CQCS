@@ -1,4 +1,4 @@
-﻿using NModbus;
+﻿﻿﻿﻿﻿using NModbus;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using ThreeNH.CommDevice;
-using ThreeNH.YL30.DataHandle;
-using ThreeNH.YL30.Model;
-using YL30;
-using YL30Comm.Result;
+using  param($mt) $map[$mt.Value] ;
+using  param($mt) $map[$mt.Value] ;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy;
+using  param($mt) $map[$mt.Value] ;
 
-namespace ThreeNH.YL30
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30
 {
 
     public class ModbusRtuMaster

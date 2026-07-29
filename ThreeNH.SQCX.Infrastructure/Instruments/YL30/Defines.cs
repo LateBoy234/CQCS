@@ -1,11 +1,11 @@
-﻿using System;
+﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YL30
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy
 {
     public static class Constants
     {
@@ -292,7 +292,7 @@ namespace YL30
     }
     public enum InstrumentInternalType
     { 
-      YL30,
+      ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy,
       Other
     }
     public enum CalibrationStatus

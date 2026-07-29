@@ -1,12 +1,12 @@
-﻿using NModbus.Utility;
+﻿﻿﻿﻿﻿using NModbus.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YL30Comm.Result;
+using  param($mt) $map[$mt.Value] ;
 
-namespace ThreeNH.YL30.DataHandle
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.DataHandle
 {
     public class WriteDataPacket
     {

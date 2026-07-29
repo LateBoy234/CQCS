@@ -1,10 +1,10 @@
-﻿using System;//InvalidOperationException
+﻿﻿using System;//InvalidOperationException
 using System.ComponentModel;//InvalidEnumArgumentException: System.dll
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.Helper;
 using ThreeNH.Optical;
 
-namespace ThreeNH.ColorReader
+namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
 {
     internal static class DefineConverters
     {

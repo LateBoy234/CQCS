@@ -1,4 +1,4 @@
-using System;
+﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -18,8 +18,9 @@ using ThreeNH.DataModel;
 using ThreeNH.StructHelper;
 using ThreeNH.Helper;
 using System.Linq;
+using ThreeNH.Instruments.DeviceInfo;
 
-namespace BTS
+namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
 {
     /// <summary>
     /// 命令处理代理
@@ -30,7 +31,7 @@ namespace BTS
     /// <returns>返回真表示已处理该命令，假表示未处理</returns>
     delegate bool CommandHandler(byte command, byte[] data, int remoteError, bool isLast);
 
-    public class Spectrometer : IColorimeter, IMetrology, ISpecimenClearing, IInstrument, IRecordManagement, ISystemSetting, IMeasurementNotification
+    public class Spectrometer : IColorimeter, IMetrology, ISpecimenClearing, IRecordManagement, ISystemSetting, IMeasurementNotification
     {
         #region Fields
 
@@ -545,9 +546,9 @@ namespace BTS
 
         public bool IsOpen => _clientProtocol.IsConnected;
 
-        public WavelengthRange WavelengthRange
+        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
         {
-            get { return new WavelengthRange(360, 780, 10); }
+            get { return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(360, 780, 10); }
             set { throw new NotSupportedException(); }
         }
 
@@ -1550,7 +1551,7 @@ namespace BTS
         public UVFlag GetUvMode()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.UvMode));
-            return ((BTS.UvMode)result.Data[0]).Uniform();
+            return (( param($mt) $map[$mt.Value] .UvMode)result.Data[0]).Uniform();
         }
 
         public void SetUvMode(UVFlag uv)
@@ -1650,7 +1651,7 @@ namespace BTS
         /// 获取默认口径
         /// </summary>
         /// <param name="isTransCaliber">如果为true获取透射默认口径</param>
-        /// <returns>如果仪器是常规型号或是获取的是透射口径，返回的口径代号为 BTS.Caliber，如果为微孔（TS8216）且为反射口径，返回的为BTS.MicroCaliber</returns>
+        /// <returns>如果仪器是常规型号或是获取的是透射口径，返回的口径代号为  param($mt) $map[$mt.Value] .Caliber，如果为微孔（TS8216）且为反射口径，返回的为 param($mt) $map[$mt.Value] .MicroCaliber</returns>
         public byte GetDefaultCaliber(bool isTransCaliber)
         {
             var packet = SendAndWait(Commands.GetDefaultCaliber(isTransCaliber));
@@ -1665,7 +1666,7 @@ namespace BTS
         /// 设置默认口径
         /// </summary>
         /// <param name="isTransCaliber">如果为真设置透射口径</param>
-        /// <param name="caliber">口径代号，如果是TS8216为BTS.MicroCaliber，否则为BTS.Caliber</param>
+        /// <param name="caliber">口径代号，如果是TS8216为 param($mt) $map[$mt.Value] .MicroCaliber，否则为 param($mt) $map[$mt.Value] .Caliber</param>
         public void SetDefaultCaliber(bool isTransCaliber, byte caliber)
         {
             SendAndWait(Commands.SetDefaultCaliber(isTransCaliber, caliber));

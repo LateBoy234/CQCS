@@ -1,4 +1,4 @@
-using System;
+﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +16,12 @@ using ThreeNH.Helper;
 using ThreeNH.ColorAlgorithm;
 using System.Diagnostics;
 using System.Windows.Forms;
-using ThreeNH.Spectrophotometer.ProtocolContract;
-using ThreeNH.Spectrophotometer.ProtocolImplementation;
+using  param($mt) $map[$mt.Value] ;
+using  param($mt) $map[$mt.Value] ;
 using System.Threading;
+using ThreeNH.Instruments.DeviceInfo;
 
-namespace ThreeNH.Spectrophotometer
+namespace ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer
 {
     public enum ErrorCode
     {
@@ -156,10 +157,10 @@ namespace ThreeNH.Spectrophotometer
         public DeviceType DeviceType => DeviceType.Spectrophotometer;
 
 
-        WavelengthRange _wavelengthRange = new ColorAlgorithm.WavelengthRange(400, 700, 10);
-        public WavelengthRange WavelengthRange
+        ColorAlgorithm.WavelengthRange _wavelengthRange = new ColorAlgorithm.WavelengthRange(400, 700, 10);
+        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
         {
-            get => _wavelengthRange;
+            get => new ThreeNH.Instruments.DeviceInfo.WavelengthBand(_wavelengthRange.Min, _wavelengthRange.Max, _wavelengthRange.Step);
             set => throw new InvalidOperationException();
         }
 

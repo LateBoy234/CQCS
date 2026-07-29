@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,7 +8,7 @@ using ThreeNH.ColorimeterInterface;
 using ThreeNH.CommunicationBase;
 using ThreeNH.StructHelper;
 
-namespace ThreeNH.ColorReader
+namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
 {
     public enum MeasurementType
     {

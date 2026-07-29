@@ -88,7 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IColorimeter.cs" />
-    <Compile Include="IDeviceInfo.cs" />
     <Compile Include="IInstrument.cs" />
     <Compile Include="IMeasurement.cs" />
     <Compile Include="IMetrology.cs" />

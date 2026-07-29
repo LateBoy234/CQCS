@@ -1,9 +1,9 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace YL30
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy
 {
     /// <summary>
     /// 数据包的数据内容

@@ -1,11 +1,11 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace YL30
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy
 {
     public class SerialPortInformation
     {

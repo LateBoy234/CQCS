@@ -1,10 +1,10 @@
-﻿using System;//InvalidOperationException
+﻿﻿﻿﻿using System;//InvalidOperationException
 using System.ComponentModel;//InvalidEnumArgumentException: System.dll
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.Helper;
 using ThreeNH.Optical;
 
-namespace PTS
+namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
 {
     internal static class DefineConverters
     {
@@ -301,7 +301,7 @@ namespace PTS
             }
         }
 
-        internal static InstrumentLanguage Uniform(this PTS.Language language)
+        internal static InstrumentLanguage Uniform(this ThreeNH.SQCX.Infrastructure.Instruments.PTS.Language language)
         {
             switch (language)
             {
@@ -320,7 +320,7 @@ namespace PTS
             }
         }
 
-        internal static PTS.Language ToInstrument(this InstrumentLanguage language)
+        internal static ThreeNH.SQCX.Infrastructure.Instruments.PTS.Language ToInstrument(this InstrumentLanguage language)
         {
             switch (language)
             {

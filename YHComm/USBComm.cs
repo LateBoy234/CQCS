@@ -16,6 +16,7 @@ using ThreeNH.CommProtocol;
 using ThreeNH.CommunicationBase;
 using ThreeNH.DataModel;
 using ThreeNH.Helper;
+using ThreeNH.Instruments.DeviceInfo;
 using ThreeNH.Optical;
 using ThreeNH.StructHelper;
 
@@ -561,9 +562,9 @@ namespace ThreeNH.YHComm
         /// </summary>
         public bool HasCompensationPort { get; private set; }
 
-        public WavelengthRange WavelengthRange
+        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
         {
-            get { return new WavelengthRange(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP); }
+            get { return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP); }
             set { throw new NotSupportedException(); }
         }
 

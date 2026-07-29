@@ -1,10 +1,10 @@
-﻿using System;
+﻿﻿﻿﻿using System;
 using System.ComponentModel;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.Optical;
-using ColorDiffFormula = ThreeNH.LedSpectrometer.Instrument.ColorDiffFormula;
+using ColorDiffFormula = ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer.Instrument.ColorDiffFormula;
 
-namespace ThreeNH.LedSpectrometer
+namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
 {
     internal static class DefinesConverter
     {

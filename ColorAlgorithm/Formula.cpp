@@ -851,22 +851,53 @@ namespace ThreeNH {
 			return gcnew Spectrum(WavelengthRange(begin, end, interval), datas);
 		}
 
-		double Formula::clralgo_calculate_ICUMSA(Spectrum^ spectralData, double icumsa_b, double icumsa_c)
-		{
-			//b = 1 (比色皿厚度，单位为厘米)
-			//c = 1 (溶液浓度g / ml)
-			//A420 = 2 - log10(T420)
-			//Y_ICUMSA = { A420 / (b + c) } *1000
-			clralgo_Spectra* spectra = ToSpectra(spectralData);
+		/// <summary>
+/// 计算白砂糖度指数
+/// </summary>
+/// <param name="spectralData"></param>
+/// <param name="icumsa_b"></param>
+/// <param name="icumsa_c"></param>
+/// <returns></returns>
+double Formula::clralgo_calculate_ICUMSA(Spectrum^ spectralData, double icumsa_b, double icumsa_c)
+{
+	//b = 1 (比色皿厚度，单位为厘米)
+	//c = 1 (溶液浓度g / ml)
+	//A420 = 2 - log10(T420)
+	//Y_ICUMSA = { A420 / (b + c) } *1000
+	clralgo_Spectra* spectra = ToSpectra(spectralData);
 
-			float ICUMSA = 0;
-			int wave = (420 - 400) / 10;
-			double T420 = (double)spectra->data[wave] * 100.0f;
-			double A420 = 2 - log10(T420);
-			ICUMSA = (A420 / (icumsa_b + icumsa_c)) * 1000;
+	float ICUMSA = 0;
+	int wave = (420 - spectra->range.start) / 10;
+	double T420 = (double)spectra->data[wave] * 100.0f;
+	double A420 = 2 - log10(T420);
+	ICUMSA = (A420 / (icumsa_b + icumsa_c)) * 1000;
 
-			return ICUMSA;
-		}
+	return ICUMSA;
+}
+
+/// <summary>
+/// 计算蔗糖指数
+/// </summary>
+/// <param name="spectralData"></param>
+/// <param name="icumsa_b"></param>
+/// <param name="icumsa_c"></param>
+/// <returns></returns>
+double Formula::clralgo_calculate_ICUMSA2(Spectrum^ spectralData, double icumsa_b, double icumsa_c)
+{
+	//b = 1 (比色皿厚度，单位为厘米)
+	//c = 1 (溶液浓度g / ml)
+	//A420 = 2 - log10(T420)
+	//Y_ICUMSA = { A420 / (b + c) } *1000
+	clralgo_Spectra* spectra = ToSpectra(spectralData);
+
+	float ICUMSA = 0;
+	int wave = (610 - spectra->range.start) / 10;
+	double T610 = (double)spectra->data[wave] * 100.0f;
+	double A610 = 2 - log10(T610);
+	ICUMSA = (A610 / (icumsa_b + icumsa_c)) * 1000;
+
+	return ICUMSA;
+}
 
 		CIEXYZ^ Formula::GetWhitePoint()
 		{
@@ -923,6 +954,30 @@ namespace ThreeNH {
 		{
 			clralgo_CIEXYZ _xyz = *xyz;
 			return clralgo_calculate_klett_index(&_xyz);
+		}
+
+		/// <summary>
+		/// 计算MI值----20270728----xdy
+		/// </summary>
+		/// <param name="spectral_data"></param>
+		/// <returns></returns>
+		float Formula::CalculateMI(Spectrum^ spectral_data)
+		{
+			float mi;
+			calculate_MI(SpectralAgent(spectral_data), &mi);
+			return mi;
+		}
+
+		/// <summary>
+		/// 计算EI值----20270728----xdy
+		/// </summary>
+		/// <param name="spectral_data"></param>
+		/// <returns></returns>
+		float Formula::CalculateEI(Spectrum^ spectral_data)
+		{
+			float ei;
+			calculate_EI(SpectralAgent(spectral_data),  &ei);
+			return ei;
 		}
 	}
 }

@@ -1,4 +1,4 @@
-﻿namespace ThreeNH.GratingSpectrometer
+﻿﻿﻿namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
 {
     class Parser : CommunicationBase.PacketParser
     {

@@ -1,10 +1,10 @@
-using System;
+﻿﻿﻿using System;
 using System.ComponentModel;
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.ColorQualityControl.Refactoring.Contracts;
 using ThreeNH.ColorQualityControl.Services;
 using ThreeNH.CommunicationBase;
-using ThreeNH.YL30;
+using  param($mt) $map[$mt.Value] ;
 using static ThreeNH.CommunicationBase.EhMc17AtInterface;
 
 namespace ThreeNH.ColorQualityControl.ConnectStrategies

@@ -1,4 +1,4 @@
-using System;
+﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -12,7 +12,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using ThreeNH.DataModel;
-using ThreeNH.GratingSpectrometer.Instrument;
+using ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer.Instrument;
 using ThreeNH.StructHelper;
 using ColorDiffFormula = ThreeNH.Optical.ColorDiffFormula;
 using ColorSpace = ThreeNH.Optical.ColorSpace;
@@ -23,13 +23,14 @@ using StandardIlluminant = ThreeNH.Optical.StandardIlluminant;
 using StandardObserver = ThreeNH.Optical.StandardObserver;
 using ThreeNH.Helper;
 using System.Linq;
+using ThreeNH.Instruments.DeviceInfo;
 
-namespace ThreeNH.GratingSpectrometer
+namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
 {
     public class Spectrometer : InstrumentBase, IColorimeter, IMetrology, ISpecimenClearing, IRecordManagement, ISystemSetting, ITargetLibraryManagement, IMeasurementNotification
     {
-        public static readonly WavelengthRange WAVELENGTHRANGE =
-            new WavelengthRange(400, 700, 10);
+        public static readonly ColorAlgorithm.WavelengthRange WAVELENGTHRANGE =
+            new ColorAlgorithm.WavelengthRange(400, 700, 10);
 
         //EventHandler<SpecimenReceivedEventArgs> UploadingArrivedHandler;
         int _stopUpload = 0;    // 停止正在进行的异步上传
@@ -304,9 +305,9 @@ namespace ThreeNH.GratingSpectrometer
             get { return DeviceType.Spectrophotometer; }
         }
 
-        public WavelengthRange WavelengthRange
+        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
         {
-            get { return WAVELENGTHRANGE; }
+            get { return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(WAVELENGTHRANGE.Min, WAVELENGTHRANGE.Max, WAVELENGTHRANGE.Step); }
             set { throw new NotImplementedException(); }
         }
 
@@ -1280,13 +1281,13 @@ namespace ThreeNH.GratingSpectrometer
                 result.PacketContent.Dequeue(out strValue);
                 para.OuterNumber = strValue;
 
-                Spectrum spectrum = new Spectrum(new WavelengthRange(400, 700, 10));
+                Spectrum spectrum = new Spectrum(new ColorAlgorithm.WavelengthRange(400, 700, 10));
                 result.PacketContent.Dequeue(spectrum);
                 for (int i = 0; i < spectrum.Data.Length; i++)
                     spectrum.Data[i] /= 100.0;
                 para.SCI = spectrum;
 
-                spectrum = new Spectrum(new WavelengthRange(400, 700, 10));
+                spectrum = new Spectrum(new ColorAlgorithm.WavelengthRange(400, 700, 10));
                 result.PacketContent.Dequeue(spectrum);
                 for (int i = 0; i < spectrum.Data.Length; i++)
                     spectrum.Data[i] /= 100.0;

@@ -1,4 +1,4 @@
-﻿using ClosedXML.Excel;
+﻿﻿﻿﻿using ClosedXML.Excel;
 using ControlzEx.Standard;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
@@ -29,6 +29,7 @@ using ThreeNH.CommDevice;
 using ThreeNH.CommunicationBase;
 using ThreeNH.Controls;
 using ThreeNH.DataModel;
+using ThreeNH.Instruments.DeviceInfo;
 using ThreeNH.Optical;
 
 namespace ThreeNH.ColorQualityControl.UI
@@ -571,7 +572,7 @@ namespace ThreeNH.ColorQualityControl.UI
 
         private bool IsBleDevice()
         {
-            return Colorimeter is BTS.BleSpectrophotometer || Colorimeter is PTS.BleSpectrophotometer ||
+            return Colorimeter is  param($mt) $map[$mt.Value] .BleSpectrophotometer || Colorimeter is  param($mt) $map[$mt.Value] .BleSpectrophotometer ||
                     Colorimeter is GratingSpectrometer.Spectrometer ys && ys.CommunicationDevice is BluetoothDevice;
         }
 
@@ -1643,7 +1644,8 @@ namespace ThreeNH.ColorQualityControl.UI
 
         private void OnDisplaySettingClick(object sender, RoutedEventArgs e)
         {
-            WavelengthRange wavelengthRange = (Colorimeter as IDeviceInfo)?.WavelengthRange ?? new WavelengthRange();
+            var __wr = (Colorimeter as ThreeNH.Instruments.DeviceInfo.IDeviceInfo)?.WavelengthRange ?? new ThreeNH.Instruments.DeviceInfo.WavelengthBand();
+            var wavelengthRange = new ThreeNH.ColorAlgorithm.WavelengthRange(__wr.Min, __wr.Max, __wr.Step);
 
             ChromaticitySettingDialog dlg = new ChromaticitySettingDialog(wavelengthRange);
             dlg.Owner = this;
@@ -1672,10 +1674,10 @@ namespace ThreeNH.ColorQualityControl.UI
 
         private void OnDeleteSelectedStandards(object sender, ExecutedRoutedEventArgs e)
         {
-            if (Colorimeter is BTS.Spectrometer ||
-                Colorimeter is PTS.Spectrometer ||
-                Colorimeter is BTS.BleSpectrophotometer ||
-                Colorimeter is PTS.BleSpectrophotometer ||
+            if (Colorimeter is ThreeNH.SQCX.Infrastructure.Instruments.BTS.Spectrometer ||
+                Colorimeter is ThreeNH.SQCX.Infrastructure.Instruments.PTS.Spectrometer ||
+                Colorimeter is  param($mt) $map[$mt.Value] .BleSpectrophotometer ||
+                Colorimeter is  param($mt) $map[$mt.Value] .BleSpectrophotometer ||
                 Colorimeter is YHComm.BleComm ||
                 Colorimeter is YHComm.USBComm ||
                 Colorimeter is Spectrophotometer.TS8450)
@@ -1709,13 +1711,13 @@ namespace ThreeNH.ColorQualityControl.UI
 
         private void CanDeleteSelectedStandards(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = Colorimeter is BTS.Spectrometer ||
-                           Colorimeter is PTS.Spectrometer ||
-                Colorimeter is BTS.BleSpectrophotometer ||
-                Colorimeter is PTS.BleSpectrophotometer ||
+            e.CanExecute = Colorimeter is ThreeNH.SQCX.Infrastructure.Instruments.BTS.Spectrometer ||
+                           Colorimeter is ThreeNH.SQCX.Infrastructure.Instruments.PTS.Spectrometer ||
+                Colorimeter is  param($mt) $map[$mt.Value] .BleSpectrophotometer ||
+                Colorimeter is  param($mt) $map[$mt.Value] .BleSpectrophotometer ||
                 Colorimeter is YHComm.USBComm ||
                 Colorimeter is YHComm.BleComm ||
-                Colorimeter is ThreeNH.Spectrophotometer.TS8450;
+                Colorimeter is  param($mt) $map[$mt.Value] .TS8450;
         }
 
         private void OnDeleteSelectedTestsExecuted(object sender, ExecutedRoutedEventArgs e)
@@ -1764,10 +1766,10 @@ namespace ThreeNH.ColorQualityControl.UI
 
         private void DeleteSelectedTestsCanExecuted(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = Colorimeter is BTS.Spectrometer ||
-               Colorimeter is PTS.Spectrometer ||
-                Colorimeter is BTS.BleSpectrophotometer ||
-                Colorimeter is PTS.BleSpectrophotometer;
+            e.CanExecute = Colorimeter is ThreeNH.SQCX.Infrastructure.Instruments.BTS.Spectrometer ||
+               Colorimeter is ThreeNH.SQCX.Infrastructure.Instruments.PTS.Spectrometer ||
+                Colorimeter is  param($mt) $map[$mt.Value] .BleSpectrophotometer ||
+                Colorimeter is  param($mt) $map[$mt.Value] .BleSpectrophotometer;
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿using System.ComponentModel;
+﻿﻿﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using ThreeNH.CommunicationBase;
-using ThreeNH.YRColorimeter;
+using ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter;
 
 namespace ThreeNH.ColorQualityControl.YRColorimeter
 {
@@ -11,9 +11,9 @@ namespace ThreeNH.ColorQualityControl.YRColorimeter
     /// </summary>
     public partial class YRWhiteBoardSettingDlg : Window, INotifyPropertyChanged
     {
-        private ThreeNH.YRColorimeter.Colorimeter colorimeter;
+        private ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter.Colorimeter colorimeter;
 
-        public YRWhiteBoardSettingDlg(ThreeNH.YRColorimeter.Colorimeter colorimeter)
+        public YRWhiteBoardSettingDlg(ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter.Colorimeter colorimeter)
         {
             this.colorimeter = colorimeter;
             DataContext = this;

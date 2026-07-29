@@ -1,11 +1,11 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YL30.Model
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy.Model
 {
     public class SystemSetting
     {

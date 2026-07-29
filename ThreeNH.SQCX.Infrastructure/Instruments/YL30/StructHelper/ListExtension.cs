@@ -1,10 +1,10 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YL30.StructHelper
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy.StructHelper
 {
     public static  class ListExtension
     {

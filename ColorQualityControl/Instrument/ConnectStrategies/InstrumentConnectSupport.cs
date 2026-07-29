@@ -1,4 +1,4 @@
-using PTS;
+﻿﻿﻿using ThreeNH.SQCX.Infrastructure.Instruments.PTS;
 using System;
 using System.Diagnostics;
 using System.Text;
@@ -8,8 +8,8 @@ using ThreeNH.ColorimeterInterface;
 using ThreeNH.CommDevice;
 using ThreeNH.CommunicationBase;
 using ThreeNH.PortService;
-using ThreeNH.Spectrophotometer;
-using ThreeNH.Spectrophotometer.ProtocolImplementation;
+using ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer;
+using  param($mt) $map[$mt.Value] ;
 using YHComm = ThreeNH.YHComm;
 
 namespace ThreeNH.ColorQualityControl.ConnectStrategies
@@ -38,13 +38,13 @@ namespace ThreeNH.ColorQualityControl.ConnectStrategies
                     instrument = new LedSpectrometer.Spectrometer();
                     break;
                 case InstrumentType.YS:
-                    instrument = new ThreeNH.GratingSpectrometer.Spectrometer();
+                    instrument = new ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer.Spectrometer();
                     break;
                 case InstrumentType.BTS:
-                    instrument = new BTS.Spectrometer();
+                    instrument = new ThreeNH.SQCX.Infrastructure.Instruments.BTS.Spectrometer();
                     break;
                 case InstrumentType.PTS:
-                    instrument = new PTS.Spectrometer();
+                    instrument = new ThreeNH.SQCX.Infrastructure.Instruments.PTS.Spectrometer();
                     break;
                 case InstrumentType.YH:
                     instrument = new YHComm.USBComm();
@@ -90,10 +90,10 @@ namespace ThreeNH.ColorQualityControl.ConnectStrategies
                 if (BleProtocolWrapper.tnhble_GetPnpId(handle, buffer, buffer.Capacity) &&
                     string.Compare(buffer.ToString(), BleProtocolWrapper.PTS_PNP_ID, StringComparison.OrdinalIgnoreCase) == 0)
                 {
-                    return new Tuple<IInstrument, InstrumentType>(new PTS.BleSpectrophotometer(handle), InstrumentType.PTS);
+                    return new Tuple<IInstrument, InstrumentType>(new ThreeNH.SQCX.Infrastructure.Instruments.PTS.BleSpectrophotometer(handle), InstrumentType.PTS);
                 }
 
-                return new Tuple<IInstrument, InstrumentType>(new BTS.BleSpectrophotometer(handle), InstrumentType.BTS);
+                return new Tuple<IInstrument, InstrumentType>(new ThreeNH.SQCX.Infrastructure.Instruments.BTS.BleSpectrophotometer(handle), InstrumentType.BTS);
             }
             catch (Exception)
             {

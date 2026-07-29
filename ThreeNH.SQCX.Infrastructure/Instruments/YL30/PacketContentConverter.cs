@@ -1,12 +1,12 @@
-﻿using System;
+﻿﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YL30.Model;
-using YL30.StructHelper;
+using  param($mt) $map[$mt.Value] ;
+using  param($mt) $map[$mt.Value] ;
 
-namespace YL30
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy
 {
     public  static  class PacketContentConverter
     {

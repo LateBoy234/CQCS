@@ -1,8 +1,8 @@
-﻿using ThreeNH.ColorAlgorithm;
+﻿﻿using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.Optical;
 
-namespace ThreeNH.LedSpectrometer
+namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
 {
 
 

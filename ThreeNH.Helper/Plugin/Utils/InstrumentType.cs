@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,20 +13,20 @@ namespace ThreeNH.Helper.Plugin.Utils
         NS,
         YS,
         YR,
-        BTS,
+        ThreeNH.SQCX.Infrastructure.Instruments.BTS,
         CR400,
-        PTS,
+        ThreeNH.SQCX.Infrastructure.Instruments.PTS,
         YH,
         CR,//微型色差宝
         MCR,
         JSON, // 使用JSON格式通讯协议的仪器
-        YL30, // YL30系列仪器
+         param($mt) $map[$mt.Value] , //  param($mt) $map[$mt.Value] 系列仪器
     }
     public enum ProductType
     {
-        BTS, // BTS系列
+         param($mt) $map[$mt.Value] , //  param($mt) $map[$mt.Value] 系列
         PGM, // YG系列
-        PTS, // PTS系列
+         param($mt) $map[$mt.Value] , //  param($mt) $map[$mt.Value] 系列
         YH,  // YH系列
         CR,
         JSON,   // 使用JSON格式通讯

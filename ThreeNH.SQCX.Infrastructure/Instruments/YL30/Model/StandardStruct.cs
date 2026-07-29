@@ -1,4 +1,4 @@
-﻿
+﻿﻿﻿﻿
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -6,7 +6,7 @@ using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.DataModel;
 
-namespace YL30.Model
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy.Model
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     public struct StandardStruct
@@ -68,7 +68,7 @@ namespace YL30.Model
     }
 
     /// <summary>
-    /// 试样结构体（仿照 PTS.Record.TrialRecord）
+    /// 试样结构体（仿照 ThreeNH.SQCX.Infrastructure.Instruments.PTS.Record.TrialRecord）
     /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     public struct SampleStruct

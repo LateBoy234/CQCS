@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using ThreeNH.DataModel;
 using ThreeNH.Optical;
 using Tolerance = ThreeNH.DataModel.Tolerance;
 
-namespace ThreeNH.Spectrophotometer
+namespace ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer
 {
     public static class DefineConveter
     {

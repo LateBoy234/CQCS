@@ -1,7 +1,7 @@
-﻿using System;
+﻿﻿using System;
 using ThreeNH.Optical;
 
-namespace ThreeNH.NRColorimeter
+namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
 {
     internal static class DefinesConverter
     {

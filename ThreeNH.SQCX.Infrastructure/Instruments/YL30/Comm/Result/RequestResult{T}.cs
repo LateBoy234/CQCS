@@ -1,10 +1,10 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YL30Comm.Result
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30Comm.Result
 {
     public class RequestResult
     {

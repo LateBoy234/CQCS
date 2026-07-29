@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,10 +10,11 @@ using ThreeNH.ColorSpecimen;
 using ThreeNH.CommunicationBase;
 using ThreeNH.DataModel;
 using ThreeNH.BleProtocol;
+using ThreeNH.Instruments.DeviceInfo;
 
-namespace ThreeNH.ColorReader
+namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
 {
-    public class BleSpectrophotometer : IInstrument, IDeviceInfo, IRecordManagement
+    public class BleSpectrophotometer : IInstrument, IRecordManagement
     {
         private ThreeNH.BleProtocol.BleSpectrophotometer<StandardRecord, TrialRecord> _impl = null;
 
@@ -195,9 +196,9 @@ namespace ThreeNH.ColorReader
             get { return DeviceType.Spectrophotometer; }
         }
 
-        public WavelengthRange WavelengthRange
+        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
         {
-            get {return new WavelengthRange(400, 700, 10);}
+            get {return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(400, 700, 10);}
         }
 
         public int TotalStandards

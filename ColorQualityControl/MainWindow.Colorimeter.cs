@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,21 +14,21 @@ namespace ThreeNH.ColorQualityControl
     {
         private void YR_WhiteBoardSetting_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            YRWhiteBoardSettingDlg dlg = new YRWhiteBoardSettingDlg(Colorimeter as ThreeNH.YRColorimeter.Colorimeter);
+            YRWhiteBoardSettingDlg dlg = new YRWhiteBoardSettingDlg(Colorimeter as ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter.Colorimeter);
             dlg.Owner = this;
             dlg.ShowDialog();
         }
 
         private void YR_GetSamplingData_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            YRGetSamplingDataDlg dlg = new YRGetSamplingDataDlg(Colorimeter as ThreeNH.YRColorimeter.Colorimeter);
+            YRGetSamplingDataDlg dlg = new YRGetSamplingDataDlg(Colorimeter as ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter.Colorimeter);
             dlg.Owner = this;
             dlg.ShowDialog();
         }
 
         private void YR_UploadData_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            YRUploadDataDlg dlg = new YRUploadDataDlg(Colorimeter as ThreeNH.YRColorimeter.Colorimeter);
+            YRUploadDataDlg dlg = new YRUploadDataDlg(Colorimeter as ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter.Colorimeter);
             dlg.Owner = this;
             dlg.ShowDialog();
         }

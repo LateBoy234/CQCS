@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -12,12 +12,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using BTS;
+using ThreeNH.SQCX.Infrastructure.Instruments.BTS;
 using ClosedXML.Excel;
 using Microsoft.Win32;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorimeterInterface;
-using ThreeNH.Spectrophotometer;
+using ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer;
 
 namespace ThreeNH.ColorQualityControl.YS60
 {
@@ -29,7 +29,7 @@ namespace ThreeNH.ColorQualityControl.YS60
         int _wavelength_minimum = 360;
         int _wavelength_maximum = 780;
 
-        public WhiteBoardParameterSettingDialog(BTS.Spectrometer spectrometer)
+        public WhiteBoardParameterSettingDialog(ThreeNH.SQCX.Infrastructure.Instruments.BTS.Spectrometer spectrometer)
         {
             Spectrometer = spectrometer;
             _wavelength_minimum = 360;
@@ -104,11 +104,11 @@ namespace ThreeNH.ColorQualityControl.YS60
             return true;
         }
 
-        public BTS.WhiteBoardParameter WhiteBoardParameter
+        public ThreeNH.SQCX.Infrastructure.Instruments.BTS.WhiteBoardParameter WhiteBoardParameter
         {
             get
             {
-                BTS.WhiteBoardParameter para = new BTS.WhiteBoardParameter();
+                 param($mt) $map[$mt.Value] .WhiteBoardParameter para = new  param($mt) $map[$mt.Value] .WhiteBoardParameter();
                 para.Sn = OuterNumber.Text;
                 // 由于YS60的白板戊数是百分比，所以转换回时需乘以100
                 para.Sci = Array.ConvertAll(SCI.Spectrum.Data, _ => (float) (_ * 100.0));
@@ -119,8 +119,8 @@ namespace ThreeNH.ColorQualityControl.YS60
             set
             {
                 OuterNumber.Text = value.Sn;
-                var range = new WavelengthRange(BTS.Constants.VALID_WAVE_BEGIN, BTS.Constants.VALID_WAVE_END,
-                    BTS.Constants.VALID_WAVE_STEP);
+                var range = new WavelengthRange( param($mt) $map[$mt.Value] .Constants.VALID_WAVE_BEGIN,  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_END,
+                    ThreeNH.SQCX.Infrastructure.Instruments.BTS.Constants.VALID_WAVE_STEP);
                 // 由于YS60的白板参数是百分比，所以要除以100
                 SCI.Spectrum = new Spectrum(range, Array.ConvertAll(value.Sci, _ => (double) _ / 100.0));
                 SCE.Spectrum = new Spectrum(range, Array.ConvertAll(value.Sce, _ => (double) _ / 100.0));
@@ -129,7 +129,7 @@ namespace ThreeNH.ColorQualityControl.YS60
 
         private WhiteBoardParameter GetWhiteBoardParameter()
         {
-            if (Spectrometer is BTS.Spectrometer ys60)
+            if (Spectrometer is ThreeNH.SQCX.Infrastructure.Instruments.BTS.Spectrometer ys60)
             {
                 WhiteBoardParameter = ys60.GetWhiteBoardParameter();
             }
@@ -149,7 +149,7 @@ namespace ThreeNH.ColorQualityControl.YS60
 
         private void SetWhiteBoardParameter(WhiteBoardParameter para)
         {
-            if (Spectrometer is BTS.Spectrometer ys60)
+            if (Spectrometer is ThreeNH.SQCX.Infrastructure.Instruments.BTS.Spectrometer ys60)
             {
                 ys60.SetWhiteBoardParameter(WhiteBoardParameter);
                 return;
@@ -157,8 +157,9 @@ namespace ThreeNH.ColorQualityControl.YS60
             else if (Spectrometer is TS8450 tS8450)
             {
                 var sn = para.Sn;
-                var sci = new Spectrum(tS8450.WavelengthRange, Array.ConvertAll(para.Sci, x => (double)x/100));
-                var sce = new Spectrum(tS8450.WavelengthRange, Array.ConvertAll(para.Sce, x => (double)x/100));
+                var wr = new ThreeNH.ColorAlgorithm.WavelengthRange(tS8450.WavelengthRange.Min, tS8450.WavelengthRange.Max, tS8450.WavelengthRange.Step);
+                var sci = new Spectrum(wr, Array.ConvertAll(para.Sci, x => (double)x/100));
+                var sce = new Spectrum(wr, Array.ConvertAll(para.Sce, x => (double)x/100));
                 tS8450.SetWhitboard(sn, sn, sci, sce);
                 return;
             }
@@ -333,10 +334,10 @@ namespace ThreeNH.ColorQualityControl.YS60
                     dict["SCI"] = list[0];
                     dict["SCE"] = list[1];
                 }
-                else if (list.Count == 1 && list[0].Count == BTS.Constants.VALID_WAVE_NUM * 2)
+                else if (list.Count == 1 && list[0].Count ==  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM * 2)
                 {
-                    dict["SCI"] = list[0].GetRange(0, BTS.Constants.VALID_WAVE_NUM);
-                    dict["SCE"] = list[0].GetRange(BTS.Constants.VALID_WAVE_NUM, BTS.Constants.VALID_WAVE_NUM);
+                    dict["SCI"] = list[0].GetRange(0, ThreeNH.SQCX.Infrastructure.Instruments.BTS.Constants.VALID_WAVE_NUM);
+                    dict["SCE"] = list[0].GetRange( param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM,  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM);
                 }
             }
 
@@ -353,7 +354,7 @@ namespace ThreeNH.ColorQualityControl.YS60
                     var sheet = wb.Worksheets.First();
 
                     var range = sheet.RangeUsed();
-                    if (range.ColumnCount() >= BTS.Constants.VALID_WAVE_NUM) // 横向
+                    if (range.ColumnCount() >=  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM) // 横向
                     {
                         var numberRow = range.FindRow(_ => _.FirstCell().Value.ToString().ToUpper() == "NUMBER");
                         if (numberRow != null)
@@ -366,7 +367,7 @@ namespace ThreeNH.ColorQualityControl.YS60
                         {
                             var values = from cell in sciRow.Cells(_ => _.DataType == XLDataType.Number)
                                 select cell.Value.ToString();
-                            dict["SCI"] = values.ToList().GetRange(0, BTS.Constants.VALID_WAVE_NUM);
+                            dict["SCI"] = values.ToList().GetRange(0,  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM);
                         }
 
                         var sceRow = range.FindRow(_ => _.FirstCell().Value.ToString().ToUpper() == "SCE");
@@ -374,13 +375,13 @@ namespace ThreeNH.ColorQualityControl.YS60
                         {
                             var values = from cell in sceRow.Cells(_ => _.DataType == XLDataType.Number)
                                 select cell.Value.ToString();
-                            dict["SCE"] = values.ToList().GetRange(0, BTS.Constants.VALID_WAVE_NUM);
+                            dict["SCE"] = values.ToList().GetRange(0,  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM);
                         }
 
                         if (dict.Count == 0)
                         {
                             var rows = range.Rows(_ =>
-                                _.CellCount() >= BTS.Constants.VALID_WAVE_NUM &&
+                                _.CellCount() >=  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM &&
                                 _.Cells().All(cell => cell.DataType == XLDataType.Number));
                             if (rows != null && rows.Count() == 2)
                             {
@@ -391,7 +392,7 @@ namespace ThreeNH.ColorQualityControl.YS60
                             }
                         }
                     }
-                    else if (range.RowCount() >= BTS.Constants.VALID_WAVE_NUM)
+                    else if (range.RowCount() >=  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM)
                     {
                         // 第一行是名称
 
@@ -406,7 +407,7 @@ namespace ThreeNH.ColorQualityControl.YS60
                         {
                             var values = from cell in sciColumn.Cells(_ => _.DataType == XLDataType.Number)
                                          select cell.Value.ToString();
-                            dict["SCI"] = values.ToList().GetRange(0, BTS.Constants.VALID_WAVE_NUM);
+                            dict["SCI"] = values.ToList().GetRange(0,  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM);
                         }
 
                         var sceColumn = range.FindColumn(_ => _.FirstCell().Value.ToString().ToUpper() == "SCE");
@@ -414,20 +415,20 @@ namespace ThreeNH.ColorQualityControl.YS60
                         {
                             var values = from cell in sceColumn.Cells(_ => _.DataType == XLDataType.Number)
                                          select cell.Value.ToString();
-                            dict["SCE"] = values.ToList().GetRange(0, BTS.Constants.VALID_WAVE_NUM);
+                            dict["SCE"] = values.ToList().GetRange(0,  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM);
                         }
 
                         if (dict.Count == 0)
                         {
                             var columns = range.Columns(_ =>
-                                _.CellCount() >= BTS.Constants.VALID_WAVE_NUM &&
+                                _.CellCount() >=  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM &&
                                 _.Cells().All(cell => cell.DataType == XLDataType.Number));
                             if (columns != null && columns.Count() == 2)
                             {
                                 dict["SCI"] = (from cell in columns.ElementAt(0).Cells() select cell.Value.ToString())
-                                    .ToList().GetRange(0, BTS.Constants.VALID_WAVE_NUM);
+                                    .ToList().GetRange(0,  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM);
                                 dict["SCE"] = (from cell in columns.ElementAt(1).Cells() select cell.Value.ToString())
-                                    .ToList().GetRange(0, BTS.Constants.VALID_WAVE_NUM);
+                                    .ToList().GetRange(0,  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM);
                             }
                         }
                     }
@@ -486,8 +487,8 @@ namespace ThreeNH.ColorQualityControl.YS60
                     sce = ((List<string>) dict["SCE"]).ConvertAll(float.Parse).ToArray();
                 }
 
-                if (sci == null || sce == null || sci.Length != BTS.Constants.VALID_WAVE_NUM ||
-                    sce.Length != BTS.Constants.VALID_WAVE_NUM)
+                if (sci == null || sce == null || sci.Length != ThreeNH.SQCX.Infrastructure.Instruments.BTS.Constants.VALID_WAVE_NUM ||
+                    sce.Length !=  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_NUM)
                 {
                     MessageBox.Show(S._("DataFormatError"), S._("Label_LoadFromFile"),
                         MessageBoxButton.OK, MessageBoxImage.Warning);

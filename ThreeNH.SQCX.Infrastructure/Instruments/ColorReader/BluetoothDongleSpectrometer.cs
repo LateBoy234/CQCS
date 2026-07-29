@@ -15,10 +15,11 @@ using ThreeNH.ColorSpecimen;
 using ThreeNH.CommunicationBase;
 using ThreeNH.DataModel;
 using ThreeNH.Helper;
+using ThreeNH.Instruments.DeviceInfo;
 using ThreeNH.Optical;
 using ThreeNH.StructHelper;
 
-namespace ThreeNH.ColorReader
+namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
 {
     /// <summary>
     /// Í¨ÖªÃüÁî
@@ -317,9 +318,9 @@ namespace ThreeNH.ColorReader
 
         public DeviceType DeviceType => DeviceType.Spectrophotometer;
 
-        public WavelengthRange WavelengthRange
+        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
         {
-            get => new WavelengthRange(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP);
+            get => new ThreeNH.Instruments.DeviceInfo.WavelengthBand(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP);
             set => throw new NotSupportedException();
         }
 

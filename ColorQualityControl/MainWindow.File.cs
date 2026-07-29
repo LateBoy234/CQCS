@@ -26,6 +26,7 @@ using ThreeNH.Optical;
 using ThreeNH.ColorQualityControl.Refactoring;
 using ThreeNH.ColorQualityControl.Services;
 using ThreeNH.ColorQualityControl.ViewModels.Charts;
+using ThreeNH.Instruments.DeviceInfo;
 
 namespace ThreeNH.ColorQualityControl
 {

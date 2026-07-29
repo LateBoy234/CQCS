@@ -1,10 +1,10 @@
-﻿using System;
+﻿﻿using System;
 using System.Text;
 using ThreeNH.CommunicationBase;
 using ThreeNH.ColorAlgorithm;
 using System.Runtime.InteropServices;
 
-namespace ThreeNH.NRColorimeter
+namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
 {
     static class PacketContentExtension
     {
