@@ -1,4 +1,4 @@
-﻿﻿﻿namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
+﻿namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
 {
     public class CommandPacket
     {

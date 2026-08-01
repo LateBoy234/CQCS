@@ -1,4 +1,4 @@
-﻿﻿﻿namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
+﻿namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
 {
     public static class Constants
     {

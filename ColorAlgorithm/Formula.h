@@ -167,6 +167,8 @@ namespace ThreeNH
 
 			double GetColorFastness_dEf(CIELAB^ standard, CIELAB^ test);
 
+
+
 			double GetColorValueSum(Spectrum^ reflectances);
 
 			double GetColorValueSWL(Spectrum^ reflectances, int% wavelengthOfMinimum, bool isTransmittance);
@@ -240,11 +242,18 @@ namespace ThreeNH
 			static double CalculateICUMSA(Spectrum^ spectralData);
 
 			/// <summary>
-			/// 计算糖度指数
+			/// 计算白沙糖度指数
 			/// </summary>
 			/// <param name="spectralData">光谱数据</param>
 			/// <returns></returns>
 			static double clralgo_calculate_ICUMSA(Spectrum^ spectralData, double icumsa_b, double icumsa_c);
+
+			/// <summary>
+			/// 计算蔗糖度指数
+			/// </summary>
+			/// <param name="spectralData">光谱数据</param>
+			/// <returns></returns>
+			static double clralgo_calculate_ICUMSA2(Spectrum^ spectralData, double icumsa_b, double icumsa_c);
 			/// <summary>
 			/// Astm d 1500
 			/// </summary>
@@ -274,6 +283,20 @@ namespace ThreeNH
 			/// 计算klett值
 			/// </summary>
 			float Calculateklett(CIEXYZ^ xyz);
+
+			/// <summary>
+			/// 计算MI值----20270728----xdy
+			/// </summary>
+			/// <param name="spectral_data"></param>
+			/// <returns></returns>
+			float CalculateMI(Spectrum^ spectral_data);
+
+			/// <summary>
+			/// 计算EI值----20270728----xdy
+			/// </summary>
+
+			float CalculateEI(Spectrum^ spectral_data);
+
 			/// <summary>
 			/// 计算8度光泽度
 			/// </summary>

@@ -1,10 +1,11 @@
-﻿﻿﻿using System;
+﻿using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 using ThreeNH.ColorQualityControl;
+using ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
+namespace ThreeNH.LedSpectrometer
 {
     internal class CalibrationConverter : IValueConverter
     {

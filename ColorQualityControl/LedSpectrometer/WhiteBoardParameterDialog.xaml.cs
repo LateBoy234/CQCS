@@ -1,10 +1,11 @@
-﻿﻿﻿using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using ThreeNH.ColorQualityControl;
 using ThreeNH.Helper;
+using ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
+namespace ThreeNH.LedSpectrometer
 {
     /// <summary>
     /// WhiteBoardParameterControl.xaml 的交互逻辑

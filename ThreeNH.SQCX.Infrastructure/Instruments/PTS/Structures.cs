@@ -1,10 +1,10 @@
-﻿﻿﻿﻿using System;
+﻿using System;
 using System.Runtime.InteropServices;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.Optical;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
+namespace PTS
 {
 
     // 产品参数字段
@@ -403,9 +403,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
 
 
 
-        public ThreeNH.SQCX.Infrastructure.Instruments.PTS.Language DefaultLanguage
+        public PTS.Language DefaultLanguage
         {
-            get => (ThreeNH.SQCX.Infrastructure.Instruments.PTS.Language)default_language;
+            get => (PTS.Language)default_language;
             set => default_language = (byte)value;
         }
 
@@ -597,9 +597,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
             set => device_type = (byte)value;
         }
 
-        public ThreeNH.SQCX.Infrastructure.Instruments.PTS.Language DefaultLanguage
+        public PTS.Language DefaultLanguage
         {
-            get => (ThreeNH.SQCX.Infrastructure.Instruments.PTS.Language)default_language;
+            get => (PTS.Language)default_language;
             set => default_language = (byte)value;
         }
 
@@ -908,9 +908,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
             set => device_type = (byte)value;
         }
 
-        public ThreeNH.SQCX.Infrastructure.Instruments.PTS.Language DefaultLanguage
+        public PTS.Language DefaultLanguage
         {
-            get => (ThreeNH.SQCX.Infrastructure.Instruments.PTS.Language)default_language;
+            get => (PTS.Language)default_language;
             set => default_language = (byte)value;
         }
 

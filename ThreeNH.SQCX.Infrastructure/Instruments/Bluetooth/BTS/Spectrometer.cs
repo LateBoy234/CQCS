@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -18,7 +18,6 @@ using ThreeNH.DataModel;
 using ThreeNH.StructHelper;
 using ThreeNH.Helper;
 using System.Linq;
-using ThreeNH.Instruments.DeviceInfo;
 
 namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
 {
@@ -31,7 +30,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
     /// <returns>返回真表示已处理该命令，假表示未处理</returns>
     delegate bool CommandHandler(byte command, byte[] data, int remoteError, bool isLast);
 
-    public class Spectrometer : IColorimeter, IMetrology, ISpecimenClearing, IRecordManagement, ISystemSetting, IMeasurementNotification
+    public class Spectrometer : IColorimeter, IMetrology, ISpecimenClearing, IInstrument, IRecordManagement, ISystemSetting, IMeasurementNotification
     {
         #region Fields
 
@@ -386,8 +385,8 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             }
         }
 
-        private ThreeNH.Optical.ColorSpace _colorSpace;
-        public ThreeNH.Optical.ColorSpace ColorSpace
+        private Optical.ColorSpace _colorSpace;
+        public Optical.ColorSpace ColorSpace
         {
             get { return _colorSpace; }
             set
@@ -408,8 +407,8 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             }
         }
 
-        private ThreeNH.Optical.ColorIndex _colorIndex;
-        public ThreeNH.Optical.ColorIndex ColorIndex
+        private Optical.ColorIndex _colorIndex;
+        public Optical.ColorIndex ColorIndex
         {
             get { return _colorIndex; }
             set
@@ -435,12 +434,12 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             get { return GetRtcDateTime(); }
             set { SetRtcDateTime(value); }
         }
-        public ThreeNH.ColorimeterInterface.Tolerance SystemDefaultTolerance
+        public ColorimeterInterface.Tolerance SystemDefaultTolerance
         {
             get
             {
                 var t = GetTolerance();
-                return new ThreeNH.ColorimeterInterface.Tolerance
+                return new ColorimeterInterface.Tolerance
                 {
                     dE = t.dE,
                     dL = new Tuple<double, double>(t.dL_Lower, t.dL_Upper),
@@ -546,9 +545,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
 
         public bool IsOpen => _clientProtocol.IsConnected;
 
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
+        public WavelengthRange WavelengthRange
         {
-            get { return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(360, 780, 10); }
+            get { return new WavelengthRange(360, 780, 10); }
             set { throw new NotSupportedException(); }
         }
 
@@ -1551,7 +1550,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
         public UVFlag GetUvMode()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.UvMode));
-            return (( param($mt) $map[$mt.Value] .UvMode)result.Data[0]).Uniform();
+            return ((UvMode)result.Data[0]).Uniform();
         }
 
         public void SetUvMode(UVFlag uv)
@@ -1584,38 +1583,38 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
                 MeasurementParameter.StandardObserver, (byte)observer.ToInstrumentForm()));
         }
 
-        public ThreeNH.Optical.ColorSpace GetColorSpace()
+        public Optical.ColorSpace GetColorSpace()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.ColorSpace));
             return ((ColorSpace)result.Data[0]).Uniform();
         }
 
-        public void SetColorSpace(ThreeNH.Optical.ColorSpace colorSpace)
+        public void SetColorSpace(Optical.ColorSpace colorSpace)
         {
             SendAndWait(Commands.SetMeasurementParameter(MeasurementParameter.ColorSpace,
                 (byte)colorSpace.ToInstrumentForm()));
         }
 
-        public ThreeNH.Optical.ColorDiffFormula GetColorDiffFormula()
+        public Optical.ColorDiffFormula GetColorDiffFormula()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.ColorDiffFormula));
             return ((ColorDeltaFormula)result.Data[0]).Uniform();
         }
 
-        public void SetColorDiffFormula(ThreeNH.Optical.ColorDiffFormula colorDiffFormula)
+        public void SetColorDiffFormula(Optical.ColorDiffFormula colorDiffFormula)
         {
             SendAndWait(Commands.SetMeasurementParameter(MeasurementParameter.ColorDiffFormula,
                 (byte)colorDiffFormula.ToInstrumentForm()));
         }
 
-        public void SetColorIndex(ThreeNH.Optical.ColorIndex colorIndex)
+        public void SetColorIndex(Optical.ColorIndex colorIndex)
         {
             SendAndWait(Commands.SetMeasurementParameter(MeasurementParameter.ColorIndex,
                 (byte)colorIndex.ToInstrumentForm()));
         }
 
 
-        public ThreeNH.Optical.ColorIndex GetColorIndex()
+        public Optical.ColorIndex GetColorIndex()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.ColorIndex));
             return ((ColorIndex)result.Data[0]).Uniform();
@@ -1651,7 +1650,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
         /// 获取默认口径
         /// </summary>
         /// <param name="isTransCaliber">如果为true获取透射默认口径</param>
-        /// <returns>如果仪器是常规型号或是获取的是透射口径，返回的口径代号为  param($mt) $map[$mt.Value] .Caliber，如果为微孔（TS8216）且为反射口径，返回的为 param($mt) $map[$mt.Value] .MicroCaliber</returns>
+        /// <returns>如果仪器是常规型号或是获取的是透射口径，返回的口径代号为 ThreeNH.SQCX.Infrastructure.Instruments.BTS.Caliber，如果为微孔（TS8216）且为反射口径，返回的为ThreeNH.SQCX.Infrastructure.Instruments.BTS.MicroCaliber</returns>
         public byte GetDefaultCaliber(bool isTransCaliber)
         {
             var packet = SendAndWait(Commands.GetDefaultCaliber(isTransCaliber));
@@ -1666,7 +1665,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
         /// 设置默认口径
         /// </summary>
         /// <param name="isTransCaliber">如果为真设置透射口径</param>
-        /// <param name="caliber">口径代号，如果是TS8216为 param($mt) $map[$mt.Value] .MicroCaliber，否则为 param($mt) $map[$mt.Value] .Caliber</param>
+        /// <param name="caliber">口径代号，如果是TS8216为ThreeNH.SQCX.Infrastructure.Instruments.BTS.MicroCaliber，否则为ThreeNH.SQCX.Infrastructure.Instruments.BTS.Caliber</param>
         public void SetDefaultCaliber(bool isTransCaliber, byte caliber)
         {
             SendAndWait(Commands.SetDefaultCaliber(isTransCaliber, caliber));
@@ -2253,69 +2252,69 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
         {
             get
             {
-                List<ThreeNH.Optical.ColorSpace> list = new List<ThreeNH.Optical.ColorSpace>();
+                List<Optical.ColorSpace> list = new List<Optical.ColorSpace>();
                 switch (_InternalModelType)
                 {
                     case InternalModelType.YS6003:
                     case InternalModelType.YS6002:
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_XYZ);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_Yxy);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LCH);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LUV);
-                        list.Add(ThreeNH.Optical.ColorSpace.HUNTER_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.sRGB);
-                        list.Add(ThreeNH.Optical.ColorSpace.MUNSELL);
-                        list.Add(ThreeNH.Optical.ColorSpace.BETA_xy);
-                        list.Add(ThreeNH.Optical.ColorSpace.DIN99_LAB);
+                        list.Add(Optical.ColorSpace.CIE_LAB);
+                        list.Add(Optical.ColorSpace.CIE_XYZ);
+                        list.Add(Optical.ColorSpace.CIE_Yxy);
+                        list.Add(Optical.ColorSpace.CIE_LCH);
+                        list.Add(Optical.ColorSpace.CIE_LUV);
+                        list.Add(Optical.ColorSpace.HUNTER_LAB);
+                        list.Add(Optical.ColorSpace.sRGB);
+                        list.Add(Optical.ColorSpace.MUNSELL);
+                        list.Add(Optical.ColorSpace.BETA_xy);
+                        list.Add(Optical.ColorSpace.DIN99_LAB);
                         break;
                     case InternalModelType.YS6010:
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_XYZ);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_Yxy);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LCH);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LUV);
-                        list.Add(ThreeNH.Optical.ColorSpace.HUNTER_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.sRGB);
-                        list.Add(ThreeNH.Optical.ColorSpace.MUNSELL);
-                        list.Add(ThreeNH.Optical.ColorSpace.BETA_xy);
-                        list.Add(ThreeNH.Optical.ColorSpace.DIN99_LAB);
+                        list.Add(Optical.ColorSpace.CIE_LAB);
+                        list.Add(Optical.ColorSpace.CIE_XYZ);
+                        list.Add(Optical.ColorSpace.CIE_Yxy);
+                        list.Add(Optical.ColorSpace.CIE_LCH);
+                        list.Add(Optical.ColorSpace.CIE_LUV);
+                        list.Add(Optical.ColorSpace.HUNTER_LAB);
+                        list.Add(Optical.ColorSpace.sRGB);
+                        list.Add(Optical.ColorSpace.MUNSELL);
+                        list.Add(Optical.ColorSpace.BETA_xy);
+                        list.Add(Optical.ColorSpace.DIN99_LAB);
                         break;
                     case InternalModelType.YS6020:
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_XYZ);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_Yxy);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LCH);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LUV);
-                        list.Add(ThreeNH.Optical.ColorSpace.HUNTER_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.sRGB);
-                        list.Add(ThreeNH.Optical.ColorSpace.MUNSELL);
-                        list.Add(ThreeNH.Optical.ColorSpace.BETA_xy);
-                        list.Add(ThreeNH.Optical.ColorSpace.DIN99_LAB);
+                        list.Add(Optical.ColorSpace.CIE_LAB);
+                        list.Add(Optical.ColorSpace.CIE_XYZ);
+                        list.Add(Optical.ColorSpace.CIE_Yxy);
+                        list.Add(Optical.ColorSpace.CIE_LCH);
+                        list.Add(Optical.ColorSpace.CIE_LUV);
+                        list.Add(Optical.ColorSpace.HUNTER_LAB);
+                        list.Add(Optical.ColorSpace.sRGB);
+                        list.Add(Optical.ColorSpace.MUNSELL);
+                        list.Add(Optical.ColorSpace.BETA_xy);
+                        list.Add(Optical.ColorSpace.DIN99_LAB);
                         break;
                     case InternalModelType.YS6060:
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_XYZ);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_Yxy);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LCH);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LUV);
-                        list.Add(ThreeNH.Optical.ColorSpace.HUNTER_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.sRGB);
-                        list.Add(ThreeNH.Optical.ColorSpace.MUNSELL);
-                        list.Add(ThreeNH.Optical.ColorSpace.BETA_xy);
-                        list.Add(ThreeNH.Optical.ColorSpace.DIN99_LAB);
+                        list.Add(Optical.ColorSpace.CIE_LAB);
+                        list.Add(Optical.ColorSpace.CIE_XYZ);
+                        list.Add(Optical.ColorSpace.CIE_Yxy);
+                        list.Add(Optical.ColorSpace.CIE_LCH);
+                        list.Add(Optical.ColorSpace.CIE_LUV);
+                        list.Add(Optical.ColorSpace.HUNTER_LAB);
+                        list.Add(Optical.ColorSpace.sRGB);
+                        list.Add(Optical.ColorSpace.MUNSELL);
+                        list.Add(Optical.ColorSpace.BETA_xy);
+                        list.Add(Optical.ColorSpace.DIN99_LAB);
                         break;
                     case InternalModelType.YS6080:
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_XYZ);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_Yxy);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LCH);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LUV);
-                        list.Add(ThreeNH.Optical.ColorSpace.HUNTER_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.sRGB);
-                        list.Add(ThreeNH.Optical.ColorSpace.MUNSELL);
-                        list.Add(ThreeNH.Optical.ColorSpace.BETA_xy);
-                        list.Add(ThreeNH.Optical.ColorSpace.DIN99_LAB);
+                        list.Add(Optical.ColorSpace.CIE_LAB);
+                        list.Add(Optical.ColorSpace.CIE_XYZ);
+                        list.Add(Optical.ColorSpace.CIE_Yxy);
+                        list.Add(Optical.ColorSpace.CIE_LCH);
+                        list.Add(Optical.ColorSpace.CIE_LUV);
+                        list.Add(Optical.ColorSpace.HUNTER_LAB);
+                        list.Add(Optical.ColorSpace.sRGB);
+                        list.Add(Optical.ColorSpace.MUNSELL);
+                        list.Add(Optical.ColorSpace.BETA_xy);
+                        list.Add(Optical.ColorSpace.DIN99_LAB);
                         break;
                 }
 
@@ -2391,84 +2390,84 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
         {
             get
             {
-                List<ThreeNH.Optical.ColorIndex> list = new List<ThreeNH.Optical.ColorIndex>();
+                List<Optical.ColorIndex> list = new List<Optical.ColorIndex>();
                 switch (_InternalModelType)
                 {
                     case InternalModelType.YS6003:
                     case InternalModelType.YS6002:
-                        list.Add(ThreeNH.Optical.ColorIndex.None);
-                        list.Add(ThreeNH.Optical.ColorIndex.Yellowness);
-                        list.Add(ThreeNH.Optical.ColorIndex.Whiteness);
-                        list.Add(ThreeNH.Optical.ColorIndex.Strength);
-                        list.Add(ThreeNH.Optical.ColorIndex.MetamerismIndiex);
-                        list.Add(ThreeNH.Optical.ColorIndex.Opacity);
-                        list.Add(ThreeNH.Optical.ColorIndex.Shade555);
-                        list.Add(ThreeNH.Optical.ColorIndex.StainingFastness);
-                        list.Add(ThreeNH.Optical.ColorIndex.GardnerIndex);
-                        list.Add(ThreeNH.Optical.ColorIndex.ColorFastness);
-                        list.Add(ThreeNH.Optical.ColorIndex.PtCoIndex);
-                        list.Add(ThreeNH.Optical.ColorIndex.Haze);
-                        list.Add(ThreeNH.Optical.ColorIndex.Gloss8);
+                        list.Add(Optical.ColorIndex.None);
+                        list.Add(Optical.ColorIndex.Yellowness);
+                        list.Add(Optical.ColorIndex.Whiteness);
+                        list.Add(Optical.ColorIndex.Strength);
+                        list.Add(Optical.ColorIndex.MetamerismIndiex);
+                        list.Add(Optical.ColorIndex.Opacity);
+                        list.Add(Optical.ColorIndex.Shade555);
+                        list.Add(Optical.ColorIndex.StainingFastness);
+                        list.Add(Optical.ColorIndex.GardnerIndex);
+                        list.Add(Optical.ColorIndex.ColorFastness);
+                        list.Add(Optical.ColorIndex.PtCoIndex);
+                        list.Add(Optical.ColorIndex.Haze);
+                        list.Add(Optical.ColorIndex.Gloss8);
                         break;
                     case InternalModelType.YS6010:
-                        list.Add(ThreeNH.Optical.ColorIndex.None);
-                        list.Add(ThreeNH.Optical.ColorIndex.Yellowness);
-                        list.Add(ThreeNH.Optical.ColorIndex.Whiteness);
-                        list.Add(ThreeNH.Optical.ColorIndex.Strength);
-                        list.Add(ThreeNH.Optical.ColorIndex.MetamerismIndiex);
-                        list.Add(ThreeNH.Optical.ColorIndex.Opacity);
-                        list.Add(ThreeNH.Optical.ColorIndex.Shade555);
-                        list.Add(ThreeNH.Optical.ColorIndex.StainingFastness);
-                        list.Add(ThreeNH.Optical.ColorIndex.GardnerIndex);
-                        list.Add(ThreeNH.Optical.ColorIndex.ColorFastness);
-                        list.Add(ThreeNH.Optical.ColorIndex.PtCoIndex);
-                        list.Add(ThreeNH.Optical.ColorIndex.Haze);
-                        list.Add(ThreeNH.Optical.ColorIndex.Gloss8);
+                        list.Add(Optical.ColorIndex.None);
+                        list.Add(Optical.ColorIndex.Yellowness);
+                        list.Add(Optical.ColorIndex.Whiteness);
+                        list.Add(Optical.ColorIndex.Strength);
+                        list.Add(Optical.ColorIndex.MetamerismIndiex);
+                        list.Add(Optical.ColorIndex.Opacity);
+                        list.Add(Optical.ColorIndex.Shade555);
+                        list.Add(Optical.ColorIndex.StainingFastness);
+                        list.Add(Optical.ColorIndex.GardnerIndex);
+                        list.Add(Optical.ColorIndex.ColorFastness);
+                        list.Add(Optical.ColorIndex.PtCoIndex);
+                        list.Add(Optical.ColorIndex.Haze);
+                        list.Add(Optical.ColorIndex.Gloss8);
                         break;
                     case InternalModelType.YS6020:
-                        list.Add(ThreeNH.Optical.ColorIndex.None);
-                        list.Add(ThreeNH.Optical.ColorIndex.Yellowness);
-                        list.Add(ThreeNH.Optical.ColorIndex.Whiteness);
-                        list.Add(ThreeNH.Optical.ColorIndex.Strength);
-                        list.Add(ThreeNH.Optical.ColorIndex.MetamerismIndiex);
-                        list.Add(ThreeNH.Optical.ColorIndex.Opacity);
-                        list.Add(ThreeNH.Optical.ColorIndex.Shade555);
-                        list.Add(ThreeNH.Optical.ColorIndex.StainingFastness);
-                        list.Add(ThreeNH.Optical.ColorIndex.GardnerIndex);
-                        list.Add(ThreeNH.Optical.ColorIndex.ColorFastness);
-                        list.Add(ThreeNH.Optical.ColorIndex.PtCoIndex);
-                        list.Add(ThreeNH.Optical.ColorIndex.Haze);
-                        list.Add(ThreeNH.Optical.ColorIndex.Gloss8);
+                        list.Add(Optical.ColorIndex.None);
+                        list.Add(Optical.ColorIndex.Yellowness);
+                        list.Add(Optical.ColorIndex.Whiteness);
+                        list.Add(Optical.ColorIndex.Strength);
+                        list.Add(Optical.ColorIndex.MetamerismIndiex);
+                        list.Add(Optical.ColorIndex.Opacity);
+                        list.Add(Optical.ColorIndex.Shade555);
+                        list.Add(Optical.ColorIndex.StainingFastness);
+                        list.Add(Optical.ColorIndex.GardnerIndex);
+                        list.Add(Optical.ColorIndex.ColorFastness);
+                        list.Add(Optical.ColorIndex.PtCoIndex);
+                        list.Add(Optical.ColorIndex.Haze);
+                        list.Add(Optical.ColorIndex.Gloss8);
                         break;
                     case InternalModelType.YS6060:
-                        list.Add(ThreeNH.Optical.ColorIndex.None);
-                        list.Add(ThreeNH.Optical.ColorIndex.Yellowness);
-                        list.Add(ThreeNH.Optical.ColorIndex.Whiteness);
-                        list.Add(ThreeNH.Optical.ColorIndex.Strength);
-                        list.Add(ThreeNH.Optical.ColorIndex.MetamerismIndiex);
-                        list.Add(ThreeNH.Optical.ColorIndex.Opacity);
-                        list.Add(ThreeNH.Optical.ColorIndex.Shade555);
-                        list.Add(ThreeNH.Optical.ColorIndex.StainingFastness);
-                        list.Add(ThreeNH.Optical.ColorIndex.GardnerIndex);
-                        list.Add(ThreeNH.Optical.ColorIndex.ColorFastness);
-                        list.Add(ThreeNH.Optical.ColorIndex.PtCoIndex);
-                        list.Add(ThreeNH.Optical.ColorIndex.Haze);
-                        list.Add(ThreeNH.Optical.ColorIndex.Gloss8);
+                        list.Add(Optical.ColorIndex.None);
+                        list.Add(Optical.ColorIndex.Yellowness);
+                        list.Add(Optical.ColorIndex.Whiteness);
+                        list.Add(Optical.ColorIndex.Strength);
+                        list.Add(Optical.ColorIndex.MetamerismIndiex);
+                        list.Add(Optical.ColorIndex.Opacity);
+                        list.Add(Optical.ColorIndex.Shade555);
+                        list.Add(Optical.ColorIndex.StainingFastness);
+                        list.Add(Optical.ColorIndex.GardnerIndex);
+                        list.Add(Optical.ColorIndex.ColorFastness);
+                        list.Add(Optical.ColorIndex.PtCoIndex);
+                        list.Add(Optical.ColorIndex.Haze);
+                        list.Add(Optical.ColorIndex.Gloss8);
                         break;
                     case InternalModelType.YS6080:
-                        list.Add(ThreeNH.Optical.ColorIndex.None);
-                        list.Add(ThreeNH.Optical.ColorIndex.Yellowness);
-                        list.Add(ThreeNH.Optical.ColorIndex.Whiteness);
-                        list.Add(ThreeNH.Optical.ColorIndex.Strength);
-                        list.Add(ThreeNH.Optical.ColorIndex.MetamerismIndiex);
-                        list.Add(ThreeNH.Optical.ColorIndex.Opacity);
-                        list.Add(ThreeNH.Optical.ColorIndex.Shade555);
-                        list.Add(ThreeNH.Optical.ColorIndex.StainingFastness);
-                        list.Add(ThreeNH.Optical.ColorIndex.GardnerIndex);
-                        list.Add(ThreeNH.Optical.ColorIndex.ColorFastness);
-                        list.Add(ThreeNH.Optical.ColorIndex.PtCoIndex);
-                        list.Add(ThreeNH.Optical.ColorIndex.Haze);
-                        list.Add(ThreeNH.Optical.ColorIndex.Gloss8);
+                        list.Add(Optical.ColorIndex.None);
+                        list.Add(Optical.ColorIndex.Yellowness);
+                        list.Add(Optical.ColorIndex.Whiteness);
+                        list.Add(Optical.ColorIndex.Strength);
+                        list.Add(Optical.ColorIndex.MetamerismIndiex);
+                        list.Add(Optical.ColorIndex.Opacity);
+                        list.Add(Optical.ColorIndex.Shade555);
+                        list.Add(Optical.ColorIndex.StainingFastness);
+                        list.Add(Optical.ColorIndex.GardnerIndex);
+                        list.Add(Optical.ColorIndex.ColorFastness);
+                        list.Add(Optical.ColorIndex.PtCoIndex);
+                        list.Add(Optical.ColorIndex.Haze);
+                        list.Add(Optical.ColorIndex.Gloss8);
                         break;
                 }
                 return list.Select(o => new ValueDescription() { Value = o, Description = o.Description() });

@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using System;
+﻿using System;
 using System.ComponentModel;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.Optical;
@@ -170,7 +170,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
             }
         }
 
-        internal static ThreeNH.Optical.ColorDiffFormula Uniform(this Instrument.ColorDiffFormula formula)
+        internal static Optical.ColorDiffFormula Uniform(this Instrument.ColorDiffFormula formula)
         {
             switch (formula)
             {
@@ -185,7 +185,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
             }
         }
 
-        internal static Instrument.ColorDiffFormula ToInstrumentForm(this ThreeNH.Optical.ColorDiffFormula formula)
+        internal static Instrument.ColorDiffFormula ToInstrumentForm(this Optical.ColorDiffFormula formula)
         {
             switch (formula)
             {

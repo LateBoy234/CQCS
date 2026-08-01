@@ -1,4 +1,4 @@
-﻿﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -20,9 +20,9 @@ namespace ThreeNH.ColorQualityControl.YRColorimeter
     /// </summary>
     public partial class InstrumentInfoDialog : Window
     {
-        private ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter.Colorimeter _colorimeter;
+        private Colorimeter _colorimeter;
 
-        public InstrumentInfoDialog(ThreeNH.SQCX.Infrastructure.Instruments.YRColorimeter.Colorimeter colorimeter)
+        public InstrumentInfoDialog(Colorimeter colorimeter)
         {
             _colorimeter = colorimeter;
 

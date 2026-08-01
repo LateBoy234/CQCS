@@ -1,10 +1,10 @@
-﻿﻿﻿using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using ThreeNH.Optical;
 using ThreeNH.Helper;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
+namespace ThreeNH.GratingSpectrometer
 {
     /// <summary>
     /// MeasurementParameterControl.xaml 的交互逻辑

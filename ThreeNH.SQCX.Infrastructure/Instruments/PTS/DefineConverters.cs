@@ -1,10 +1,10 @@
-﻿﻿﻿﻿using System;//InvalidOperationException
+﻿using System;//InvalidOperationException
 using System.ComponentModel;//InvalidEnumArgumentException: System.dll
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.Helper;
 using ThreeNH.Optical;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
+namespace PTS
 {
     internal static class DefineConverters
     {
@@ -203,7 +203,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
             {
                 case ColorSpace.CIE_LAB: return ThreeNH.Optical.ColorSpace.CIE_LAB;
                 case ColorSpace.HUNTER_LAB: return ThreeNH.Optical.ColorSpace.HUNTER_LAB;
-                case ColorSpace.CIE_XYZ: return ThreeNH.Optical.ColorSpace.CIE_XYZ;
+                case ColorSpace.CIE_XYZ: return  ThreeNH.Optical.ColorSpace.CIE_XYZ;
                 case ColorSpace.sRGB: return ThreeNH.Optical.ColorSpace.sRGB;
                 case ColorSpace.CIE_Yxy: return ThreeNH.Optical.ColorSpace.CIE_Yxy;
                 case ColorSpace.MUNSELL: return ThreeNH.Optical.ColorSpace.MUNSELL;
@@ -250,7 +250,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
             }
         }
 
-        internal static ColorDeltaFormula ToInstrumentForm(this ThreeNH.Optical.ColorDiffFormula formula)
+        internal static ColorDeltaFormula ToInstrumentForm(this ColorDiffFormula formula)
         {
             switch (formula)
             {
@@ -301,7 +301,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
             }
         }
 
-        internal static InstrumentLanguage Uniform(this ThreeNH.SQCX.Infrastructure.Instruments.PTS.Language language)
+        internal static InstrumentLanguage Uniform(this PTS.Language language)
         {
             switch (language)
             {
@@ -320,7 +320,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
             }
         }
 
-        internal static ThreeNH.SQCX.Infrastructure.Instruments.PTS.Language ToInstrument(this InstrumentLanguage language)
+        internal static PTS.Language ToInstrument(this InstrumentLanguage language)
         {
             switch (language)
             {

@@ -15,7 +15,6 @@ using ThreeNH.ColorSpecimen;
 using ThreeNH.CommunicationBase;
 using ThreeNH.DataModel;
 using ThreeNH.Helper;
-using ThreeNH.Instruments.DeviceInfo;
 using ThreeNH.Optical;
 using ThreeNH.StructHelper;
 
@@ -318,9 +317,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
 
         public DeviceType DeviceType => DeviceType.Spectrophotometer;
 
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
+        public WavelengthRange WavelengthRange
         {
-            get => new ThreeNH.Instruments.DeviceInfo.WavelengthBand(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP);
+            get => new WavelengthRange(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP);
             set => throw new NotSupportedException();
         }
 
@@ -483,10 +482,10 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
                 _observer = value;
             }
         }
-        private ThreeNH.Optical.ColorSpace _colorSpace;
+        private Optical.ColorSpace _colorSpace;
         private ColorDiffFormula _colorDiffFormula;
 
-        public ThreeNH.Optical.ColorSpace ColorSpace
+        public  Optical.ColorSpace ColorSpace
         {
             get { return _colorSpace; }
             set
@@ -510,10 +509,10 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
             }
         }
 
-        private ThreeNH.Optical.ColorIndex _colorIndex;
+        private Optical.ColorIndex _colorIndex;
         private UVFlag _uvMode;
 
-        public ThreeNH.Optical.ColorIndex ColorIndex
+        public Optical.ColorIndex ColorIndex
         {
             get { return _colorIndex; }
             set
@@ -568,7 +567,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
             }
         }
 
-        public ThreeNH.ColorimeterInterface.Tolerance SystemDefaultTolerance
+        public ColorimeterInterface.Tolerance SystemDefaultTolerance
         {
             get
             {
@@ -576,7 +575,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
                 if (bytes.Length == Marshal.SizeOf(typeof(RtcDateTime)))
                 {
                     var tolerance = StructConverter.BytesToStruct<ColorReader.Tolerance>(bytes);
-                    return new ThreeNH.ColorimeterInterface.Tolerance()
+                    return new ColorimeterInterface.Tolerance()
                     {
                         dE = tolerance.dE,
                         dL = new Tuple<double, double>(tolerance.dL_Lower, tolerance.dL_Upper),

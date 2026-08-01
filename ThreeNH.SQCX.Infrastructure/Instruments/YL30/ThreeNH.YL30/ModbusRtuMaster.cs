@@ -1,19 +1,16 @@
-﻿﻿﻿﻿﻿using NModbus;
+﻿using NModbus;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.IO.Ports;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using ThreeNH.CommDevice;
-using  param($mt) $map[$mt.Value] ;
-using  param($mt) $map[$mt.Value] ;
-using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy;
-using  param($mt) $map[$mt.Value] ;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30Comm.Result;
+using ThreeNH.YL30.DataHandle;
+using ThreeNH.YL30.Model;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30
+namespace ThreeNH.SQCX.Infrastructure.Instruments.ThreeNH.YL30
 {
 
     public class ModbusRtuMaster

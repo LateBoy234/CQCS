@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿using System;
+﻿﻿﻿﻿using System;
 using System.Runtime.InteropServices;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorimeterInterface;
@@ -682,8 +682,8 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
 
         public Spectrum GetWhiteboardSpectrum(bool isSCI)
         {
-            var range = new WavelengthRange( param($mt) $map[$mt.Value] .Constants.VALID_WAVE_BEGIN,  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_END,
-                        ThreeNH.SQCX.Infrastructure.Instruments.BTS.Constants.VALID_WAVE_STEP);
+            var range = new WavelengthRange(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END,
+                        Constants.VALID_WAVE_STEP);
             return new Spectrum(range, Array.ConvertAll(isSCI ? WhiteReflectSci : WhiteReflectSce, x => (double)x));
         }
 
@@ -694,8 +694,8 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
         /// <returns></returns>
         public Spectrum GetWhiteboardSpectrum_1(bool isSCI)
         {
-            var range = new WavelengthRange( param($mt) $map[$mt.Value] .Constants.VALID_WAVE_BEGIN,  param($mt) $map[$mt.Value] .Constants.VALID_WAVE_END,
-                        ThreeNH.SQCX.Infrastructure.Instruments.BTS.Constants.VALID_WAVE_STEP);
+            var range = new WavelengthRange(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END,
+                        Constants.VALID_WAVE_STEP);
             return new Spectrum(range, Array.ConvertAll(isSCI ? WhiteReflectSci : WhiteReflectSce, x => (double)(x / 100.0)));
         }
 
@@ -1354,11 +1354,11 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             }
         }
 
-        public ThreeNH.Optical.ColorSpace ColorSpace
+        public Optical.ColorSpace ColorSpace
         {
             get
             {
-                return ((ThreeNH.SQCX.Infrastructure.Instruments.BTS.ColorSpace)color_space).Uniform();
+                return ((ColorSpace)color_space).Uniform();
             }
 
             set
@@ -1367,11 +1367,11 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             }
         }
 
-        public ThreeNH.Optical.ColorDiffFormula ColorDiffFormula
+        public Optical.ColorDiffFormula ColorDiffFormula
         {
             get
             {
-                return ((ThreeNH.SQCX.Infrastructure.Instruments.BTS.ColorDeltaFormula)color_diff_formula).Uniform();
+                return ((ColorDeltaFormula)color_diff_formula).Uniform();
             }
 
             set
@@ -1380,7 +1380,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             }
         }
 
-        public ThreeNH.Optical.ColorIndex ColorIndex
+        public Optical.ColorIndex ColorIndex
         {
             get
             {

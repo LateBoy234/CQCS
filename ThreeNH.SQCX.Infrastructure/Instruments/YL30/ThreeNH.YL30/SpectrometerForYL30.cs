@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using NModbus;
 using NModbus.Device;
 using System;
@@ -11,27 +11,22 @@ using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
-using System.Threading;
 using System.Threading.Tasks;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorimeterInterface;
-using ThreeNH.ColorSpecimen;
 using ThreeNH.CommDevice;
 using ThreeNH.CommunicationBase;
 using ThreeNH.Helper;
-using ThreeNH.Instruments.DeviceInfo;
 using ThreeNH.Optical;
-using  param($mt) $map[$mt.Value] ;
-using  param($mt) $map[$mt.Value] ;
-using  param($mt) $map[$mt.Value] ;
-using  param($mt) $map[$mt.Value] ;
-using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy;
-using  param($mt) $map[$mt.Value] ;
-using  param($mt) $map[$mt.Value] ;
-using  param($mt) $map[$mt.Value] ;
-using  param($mt) $map[$mt.Value] ;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Model;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30Comm.Result;
+using ThreeNH.YL30.CommunicaImplementation;
+using ThreeNH.YL30.CommunicationContract;
+using ThreeNH.YL30.Extensions;
+using Tolerance = ThreeNH.ColorimeterInterface.Tolerance;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30
+namespace ThreeNH.SQCX.Infrastructure.Instruments.ThreeNH.YL30
 {
     public class SpectrometerForYL30 : IDisposable, IInstrument, IMeasurementNotification, ISystemSetting
     {
@@ -128,8 +123,8 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30
 
         public DeviceType DeviceType => DeviceType.Spectrophotometer;
 
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange {
-            get => new ThreeNH.Instruments.DeviceInfo.WavelengthBand(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP);
+        public WavelengthRange WavelengthRange {
+            get => new WavelengthRange(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP);
             set => throw new NotSupportedException();
         }
 
@@ -421,7 +416,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30
         {
             get
             {
-                List<ThreeNH.Optical.ColorIndex> list = new List<ThreeNH.Optical.ColorIndex>();
+                List<ColorIndex> list = new List<ColorIndex>();
                 return list.Select(o => new ValueDescription() { Value = o, Description = o.Description() });
             }
         }
@@ -462,7 +457,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30
             get
             {
                 var t = spectrometer.GetSystemToleranceAsync().Result.Obj;
-                return new ThreeNH.ColorimeterInterface.Tolerance
+                return new Tolerance
                 {
                     dE = t.dE,
                     dL = new Tuple<double, double>(t.dL_Lower, t.dL_Upper),

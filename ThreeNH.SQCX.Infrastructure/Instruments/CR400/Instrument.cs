@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO.Ports;
 using ThreeNH.ColorAlgorithm;
@@ -6,7 +6,6 @@ using ThreeNH.ColorimeterInterface;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.CommDevice;
 using ThreeNH.CommunicationBase;
-using ThreeNH.Instruments.DeviceInfo;
 using ThreeNH.Optical;
 
 namespace ThreeNH.SQCX.Infrastructure.Instruments.CR400
@@ -145,7 +144,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.CR400
         public string WhiteBoardNumber { get; } = "";
         public DeviceType DeviceType { get; } = DeviceType.Colorimeter;
         
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange { get; } = new ThreeNH.Instruments.DeviceInfo.WavelengthBand(0, 0, 0);
+        public WavelengthRange WavelengthRange { get; } = new WavelengthRange(0, 0, 0);
 
         public string DeviceName => _serialPort?.PortName;
 

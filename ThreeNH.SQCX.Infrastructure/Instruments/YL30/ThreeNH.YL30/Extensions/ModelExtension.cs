@@ -1,12 +1,10 @@
-﻿﻿﻿﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy;
-using  param($mt) $map[$mt.Value] ;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Model;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Extensions
+namespace ThreeNH.YL30.Extensions
 {
     public static  class ModelExtension
     {

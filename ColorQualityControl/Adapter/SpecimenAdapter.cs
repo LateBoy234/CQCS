@@ -1,25 +1,16 @@
-﻿using ControlzEx.Standard;
-using DocumentFormat.OpenXml.EMMA;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Windows;
 using System.Windows.Data;
-using System.Windows.Forms;
 using System.Windows.Media;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorQualityControl.Annotations;
-using ThreeNH.ColorQualityControl.Reports;
-using ThreeNH.ColorQualityControl.Utils;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.DataModel;
 using ThreeNH.Helper;
 using ThreeNH.Optical;
-using ThreeNH.YHComm;
 using Application = System.Windows.Application;
 
 namespace ThreeNH.ColorQualityControl.Adapter

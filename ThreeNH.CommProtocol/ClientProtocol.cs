@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using System;
+﻿using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +23,9 @@ namespace ThreeNH.CommProtocol
 
     public enum ProductType
     {
-         param($mt) $map[$mt.Value] , //  param($mt) $map[$mt.Value] 系列
+        BTS, // BTS系列
         PGM, // YG系列
-         param($mt) $map[$mt.Value] , //  param($mt) $map[$mt.Value] 系列
+        PTS, // PTS系列
         YH,  // YH系列
         CR,
         JSON,   // 使用JSON格式通讯

@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ThreeNH.DataModel;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy.Model
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Model
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct ToleranceForYL30
@@ -57,41 +57,41 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy.Model
         }
 
         
-        public ThreeNH.DataModel.Tolerance Uniform()
+        public DataModel.Tolerance Uniform()
         {
-            var tolerance = new ThreeNH.DataModel.Tolerance(
-                new ThreeNH.DataModel.ChromaticityField[]
+            var tolerance = new DataModel.Tolerance(
+                new DataModel.ChromaticityField[]
                 {
-                    ThreeNH.DataModel.ChromaticityField.dL,
-                    ThreeNH.DataModel.ChromaticityField.da,
-                    ThreeNH.DataModel.ChromaticityField.db,
-                    ThreeNH.DataModel.ChromaticityField.dEab,
+                    ChromaticityField.dL,
+                    ChromaticityField.da,
+                    ChromaticityField.db,
+                    ChromaticityField.dEab,
                 });
 
             Func<double, double, bool> isLimitValid = (lower, upper) => lower < upper;
 
-            tolerance[ThreeNH.DataModel.ChromaticityField.dL] =
-                new ThreeNH.DataModel.ToleranceItem
+            tolerance[ChromaticityField.dL] =
+                new DataModel.ToleranceItem
                 {
                     Lower = dL_Lower,
                     Upper = dL_Upper,
                     UseForJudgement = isLimitValid(dL_Lower, dL_Upper)
                 };
-            tolerance[ThreeNH.DataModel.ChromaticityField.da] =
-                new ThreeNH.DataModel.ToleranceItem
+            tolerance[ChromaticityField.da] =
+                new DataModel.ToleranceItem
                 {
                     Lower = da_Lower,
                     Upper = da_Upper,
                     UseForJudgement = isLimitValid(da_Lower, da_Upper)
                 };
-            tolerance[ThreeNH.DataModel.ChromaticityField.db] =
-                new ThreeNH.DataModel.ToleranceItem
+            tolerance[ChromaticityField.db] =
+                new ToleranceItem
                 {
                     Lower = db_Lower,
                     Upper = db_Upper,
                     UseForJudgement = isLimitValid(db_Lower, db_Upper)
                 };
-            tolerance[ThreeNH.DataModel.ChromaticityField.dEab] = new ThreeNH.DataModel.ToleranceItem
+            tolerance[ChromaticityField.dEab] = new ToleranceItem
             {
                 Upper = dE,
                 UseForJudgement = dE > 0

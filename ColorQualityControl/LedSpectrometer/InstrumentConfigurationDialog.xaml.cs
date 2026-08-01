@@ -1,8 +1,8 @@
-﻿﻿﻿using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
+namespace ThreeNH.LedSpectrometer
 {
     /// <summary>
     /// InstrumentConfigurationDialog.xaml 的交互逻辑

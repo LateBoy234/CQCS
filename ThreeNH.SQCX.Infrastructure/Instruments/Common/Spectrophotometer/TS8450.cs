@@ -1,9 +1,7 @@
-﻿﻿﻿﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
-using System.Threading.Tasks;
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.CommDevice;
 using ThreeNH.CommunicationBase;
@@ -16,10 +14,8 @@ using ThreeNH.Helper;
 using ThreeNH.ColorAlgorithm;
 using System.Diagnostics;
 using System.Windows.Forms;
-using  param($mt) $map[$mt.Value] ;
-using  param($mt) $map[$mt.Value] ;
 using System.Threading;
-using ThreeNH.Instruments.DeviceInfo;
+using ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer.ProtocolContract;
 
 namespace ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer
 {
@@ -157,10 +153,10 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer
         public DeviceType DeviceType => DeviceType.Spectrophotometer;
 
 
-        ColorAlgorithm.WavelengthRange _wavelengthRange = new ColorAlgorithm.WavelengthRange(400, 700, 10);
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
+        WavelengthRange _wavelengthRange = new ColorAlgorithm.WavelengthRange(400, 700, 10);
+        public WavelengthRange WavelengthRange
         {
-            get => new ThreeNH.Instruments.DeviceInfo.WavelengthBand(_wavelengthRange.Min, _wavelengthRange.Max, _wavelengthRange.Step);
+            get => _wavelengthRange;
             set => throw new InvalidOperationException();
         }
 
@@ -207,7 +203,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer
             }
         }
 
-        public ThreeNH.ColorSpecimen.Specimen MeasureSample()
+        public Specimen MeasureSample()
         {
             try
             {
@@ -386,17 +382,17 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer
         {
             get
             {
-                List<ThreeNH.Optical.ColorSpace> list = new List<ThreeNH.Optical.ColorSpace>();
-                list.Add(ThreeNH.Optical.ColorSpace.CIE_LAB);
-                list.Add(ThreeNH.Optical.ColorSpace.CIE_XYZ);
-                list.Add(ThreeNH.Optical.ColorSpace.CIE_Yxy);
-                list.Add(ThreeNH.Optical.ColorSpace.CIE_LCH);
-                list.Add(ThreeNH.Optical.ColorSpace.HUNTER_LAB);
-                list.Add(ThreeNH.Optical.ColorSpace.CIE_LUV);
-                list.Add(ThreeNH.Optical.ColorSpace.sRGB);
-                list.Add(ThreeNH.Optical.ColorSpace.MUNSELL);
-                list.Add(ThreeNH.Optical.ColorSpace.BETA_xy);
-                list.Add(ThreeNH.Optical.ColorSpace.DIN99_LAB);
+                List<Optical.ColorSpace> list = new List<Optical.ColorSpace>();
+                list.Add(Optical.ColorSpace.CIE_LAB);
+                list.Add(Optical.ColorSpace.CIE_XYZ);
+                list.Add(Optical.ColorSpace.CIE_Yxy);
+                list.Add(Optical.ColorSpace.CIE_LCH);
+                list.Add(Optical.ColorSpace.HUNTER_LAB);
+                list.Add(Optical.ColorSpace.CIE_LUV);
+                list.Add(Optical.ColorSpace.sRGB);
+                list.Add(Optical.ColorSpace.MUNSELL);
+                list.Add(Optical.ColorSpace.BETA_xy);
+                list.Add(Optical.ColorSpace.DIN99_LAB);
                 return list.Select(o => new ValueDescription() { Value = o, Description = o.Description() });
             }
         }
@@ -424,16 +420,16 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer
         {
             get
             {
-                List<ThreeNH.Optical.ColorIndex> list = new List<ThreeNH.Optical.ColorIndex>();
+                List<Optical.ColorIndex> list = new List<Optical.ColorIndex>();
 
-                list.Add(ThreeNH.Optical.ColorIndex.Yellowness);
-                list.Add(ThreeNH.Optical.ColorIndex.Whiteness);
-                list.Add(ThreeNH.Optical.ColorIndex.Strength);
-                list.Add(ThreeNH.Optical.ColorIndex.Opacity);
-                list.Add(ThreeNH.Optical.ColorIndex.ColorFastness);
-                list.Add(ThreeNH.Optical.ColorIndex.StainingFastness);
-                list.Add(ThreeNH.Optical.ColorIndex.MetamerismIndiex);
-                list.Add(ThreeNH.Optical.ColorIndex.Shade555);
+                list.Add(Optical.ColorIndex.Yellowness);
+                list.Add(Optical.ColorIndex.Whiteness);
+                list.Add(Optical.ColorIndex.Strength);
+                list.Add(Optical.ColorIndex.Opacity);
+                list.Add(Optical.ColorIndex.ColorFastness);
+                list.Add(Optical.ColorIndex.StainingFastness);
+                list.Add(Optical.ColorIndex.MetamerismIndiex);
+                list.Add(Optical.ColorIndex.Shade555);
 
                 return list.Select(o => new ValueDescription() { Value = o, Description = o.Description() });
             }
@@ -556,7 +552,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer
         private Specimen ParseMeasureResult(JObject jobj)
         {
 
-            var specimen = new ThreeNH.ColorSpecimen.Specimen();
+            var specimen = new Specimen();
 
             specimen.UV = jobj["uv"].ToUvFlag();
             specimen.IsTransmission = jobj["is_trans"]?.ToObject<bool>() ?? false;

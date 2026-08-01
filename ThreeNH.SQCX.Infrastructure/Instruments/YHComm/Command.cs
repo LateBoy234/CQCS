@@ -1,4 +1,4 @@
-﻿namespace ThreeNH.YHComm
+﻿namespace ThreeNH.SQCX.Infrastructure.Instruments.YHComm
 {
     public enum Command
     {

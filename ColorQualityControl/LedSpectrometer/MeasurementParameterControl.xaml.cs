@@ -1,10 +1,10 @@
-﻿﻿﻿using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using ThreeNH.Optical;
 using ThreeNH.Helper;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
+namespace ThreeNH.LedSpectrometer
 {
     /// <summary>
     /// MeasurementParameterControl.xaml 的交互逻辑

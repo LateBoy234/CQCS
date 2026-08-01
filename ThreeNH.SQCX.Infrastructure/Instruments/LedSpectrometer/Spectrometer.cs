@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -13,7 +13,6 @@ using System.Linq;
 using ThreeNH.Helper;
 using ThreeNH.DataModel;
 using System.IO;
-using ThreeNH.Instruments.DeviceInfo;
 
 
 namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
@@ -24,8 +23,8 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
     public class Spectrometer : InstrumentBase, IColorimeter, IMetrology, ISpecimenClearing,  IRecordManagement, ISystemSetting
     {
         // 支持的波长范围
-        public static readonly ColorAlgorithm.WavelengthRange WAVELENGTHRANGE =
-            new ColorAlgorithm.WavelengthRange(400, 700, 10);
+        public static readonly WavelengthRange WAVELENGTHRANGE =
+            new WavelengthRange(400, 700, 10);
         int _stopUpload = 0;    // 停止异𨓿上传标志
 
         public Spectrometer()
@@ -148,7 +147,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
             set { SetDateTime(value); }
         }
 
-        public ThreeNH.ColorimeterInterface.Tolerance SystemDefaultTolerance
+        public ColorimeterInterface.Tolerance SystemDefaultTolerance
         {
             get { return _tolerance; }
             set
@@ -200,11 +199,11 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
             set { throw new NotSupportedException(); }
         }
 
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
+        public WavelengthRange WavelengthRange
         {
             get
             {
-                return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(WAVELENGTHRANGE.Min, WAVELENGTHRANGE.Max, WAVELENGTHRANGE.Step);
+                return WAVELENGTHRANGE;
             }
 
             set
@@ -683,7 +682,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
             para.InnerNumber = str;
             result.PacketContent.Dequeue(out str);
             para.OuterNumber = str;
-            Spectrum spectrum = new Spectrum(new ColorAlgorithm.WavelengthRange(400, 700, 10));
+            Spectrum spectrum = new Spectrum(new WavelengthRange(400, 700, 10));
             result.PacketContent.Dequeue(spectrum);
             // 由于白板参数的反射率是百分比，全部除以100
             for (int i = 0; i < spectrum.Data.Length; i++)
@@ -806,7 +805,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
                 { Instrument.MeasurementCaliber.Phi4, new List<string> { "820", "800-S"} },
             };
 
-        private ThreeNH.ColorimeterInterface.Tolerance _tolerance;
+        private ColorimeterInterface.Tolerance _tolerance;
 
         static string DetectOpticalStruct(string deviceName)
         {
@@ -1296,11 +1295,11 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.LedSpectrometer
         {
             get
             {
-                List<ThreeNH.Optical.ColorSpace> list = new List<ThreeNH.Optical.ColorSpace>();
-                list.Add(ThreeNH.Optical.ColorSpace.CIE_LCH);
-                list.Add(ThreeNH.Optical.ColorSpace.CIE_LAB);
-                list.Add(ThreeNH.Optical.ColorSpace.CIE_XYZ);
-                list.Add(ThreeNH.Optical.ColorSpace.HUNTER_LAB);
+                List<Optical.ColorSpace> list = new List<Optical.ColorSpace>();
+                list.Add(Optical.ColorSpace.CIE_LCH);
+                list.Add(Optical.ColorSpace.CIE_LAB);
+                list.Add(Optical.ColorSpace.CIE_XYZ);
+                list.Add(Optical.ColorSpace.HUNTER_LAB);
                 return list.Select(o => new ValueDescription() { Value = o, Description = o.Description() });
             }
         }

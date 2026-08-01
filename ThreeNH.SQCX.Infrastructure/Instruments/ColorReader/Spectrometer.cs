@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -18,9 +18,8 @@ using ThreeNH.CommProtocol;
 using ThreeNH.CommunicationBase;
 using ThreeNH.DataModel;
 using ThreeNH.Helper;
-using ThreeNH.Instruments.DeviceInfo;
-using ThreeNH.Optical;
 using ThreeNH.StructHelper;
+using ThreeNH.Optical;
 
 namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
 {
@@ -421,9 +420,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
             }
         }
 
-        private ThreeNH.Optical.ColorSpace _colorSpace;
+        private Optical.ColorSpace _colorSpace;
 
-        public ThreeNH.Optical.ColorSpace ColorSpace
+        public Optical.ColorSpace ColorSpace
         {
             get { return _colorSpace; }
             set
@@ -445,9 +444,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
             }
         }
 
-        private ThreeNH.Optical.ColorIndex _colorIndex;
+        private Optical.ColorIndex _colorIndex;
 
-        public ThreeNH.Optical.ColorIndex ColorIndex
+        public Optical.ColorIndex ColorIndex
         {
             get { return _colorIndex; }
             set
@@ -475,12 +474,12 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
             set { SetRtcDateTime(value); }
         }
 
-        public ThreeNH.ColorimeterInterface.Tolerance SystemDefaultTolerance
+        public ColorimeterInterface.Tolerance SystemDefaultTolerance
         {
             get
             {
                 var t = GetTolerance();
-                return new ThreeNH.ColorimeterInterface.Tolerance
+                return new ColorimeterInterface.Tolerance
                 {
                     dE = t.dE,
                     dL = new Tuple<double, double>(t.dL_Lower, t.dL_Upper),
@@ -576,9 +575,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
 
         public bool IsOpen => _clientProtocol.IsConnected;
 
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
+        public WavelengthRange WavelengthRange
         {
-            get { return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP); }
+            get { return new WavelengthRange(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP); }
             set { throw new NotSupportedException(); }
         }
 
@@ -2029,37 +2028,37 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
                 MeasurementParameter.StandardObserver, (byte)observer.ToInstrumentForm()));
         }
 
-        public ThreeNH.Optical.ColorSpace GetColorSpace()
+        public Optical.ColorSpace GetColorSpace()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.ColorSpace));
             return ((ColorSpace)result.Data[0]).Uniform();
         }
 
-        public void SetColorSpace(ThreeNH.Optical.ColorSpace colorSpace)
+        public void SetColorSpace(Optical.ColorSpace colorSpace)
         {
             SendAndWait(Commands.SetMeasurementParameter(MeasurementParameter.ColorSpace,
                 (byte)colorSpace.ToInstrumentForm()));
         }
 
-        public ThreeNH.Optical.ColorDiffFormula GetColorDiffFormula()
+        public Optical.ColorDiffFormula GetColorDiffFormula()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.ColorDiffFormula));
             return ((ColorDeltaFormula)result.Data[0]).Uniform();
         }
 
-        public void SetColorDiffFormula(ThreeNH.Optical.ColorDiffFormula colorDiffFormula)
+        public void SetColorDiffFormula(Optical.ColorDiffFormula colorDiffFormula)
         {
             SendAndWait(Commands.SetMeasurementParameter(MeasurementParameter.ColorDiffFormula,
                 (byte)colorDiffFormula.ToInstrumentForm()));
         }
 
-        public void SetColorIndex(ThreeNH.Optical.ColorIndex colorIndex)
+        public void SetColorIndex(Optical.ColorIndex colorIndex)
         {
             SendAndWait(Commands.SetMeasurementParameter(MeasurementParameter.ColorIndex,
                 (byte)colorIndex.ToInstrumentForm()));
         }
 
-        public ThreeNH.Optical.ColorIndex GetColorIndex()
+        public Optical.ColorIndex GetColorIndex()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.ColorIndex));
             return ((ColorIndex)result.Data[0]).Uniform();
@@ -2412,7 +2411,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
         {
             get
             {
-                List<ThreeNH.Optical.ColorSpace> list = new List<ThreeNH.Optical.ColorSpace>();
+                List<Optical.ColorSpace> list = new List<Optical.ColorSpace>();
                 return list.Select(o => new ValueDescription() { Value = o, Description = o.Description() });
             }
         }
@@ -2430,7 +2429,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
         {
             get
             {
-                List<ThreeNH.Optical.ColorIndex> list = new List<ThreeNH.Optical.ColorIndex>();
+                List<Optical.ColorIndex> list = new List<Optical.ColorIndex>();
                 return list.Select(o => new ValueDescription() { Value = o, Description = o.Description() });
             }
         }

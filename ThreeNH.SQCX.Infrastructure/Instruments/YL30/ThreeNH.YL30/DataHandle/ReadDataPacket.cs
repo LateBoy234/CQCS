@@ -1,13 +1,11 @@
-﻿﻿﻿﻿﻿using NModbus.Utility;
+﻿using NModbus.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using  param($mt) $map[$mt.Value] ;
-using  param($mt) $map[$mt.Value] ;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30Comm.Result;
+using ThreeNH.YL30.Model;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.DataHandle
+namespace ThreeNH.YL30.DataHandle
 {
     public class ReadDataPacket
     {

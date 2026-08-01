@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using System;
+using System;
 using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using ThreeNH.CommDevice;
-using  param($mt) $map[$mt.Value] ;
+using ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer.ProtocolContract;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer.ProtocolImplementation
+namespace ThreeNH.Spectrophotometer.ProtocolImplementation
 {
     public class SocketCommProtocol : IJsonCommProtocol
     {

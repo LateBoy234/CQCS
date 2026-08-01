@@ -1,36 +1,34 @@
-﻿﻿﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.CommunicationBase;
-using ThreeNH.CommDevice;
 using ThreeNH.Optical;
 using ThreeNH.ColorAlgorithm;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using ThreeNH.DataModel;
-using ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer.Instrument;
 using ThreeNH.StructHelper;
+using DateTime = System.DateTime;
 using ColorDiffFormula = ThreeNH.Optical.ColorDiffFormula;
 using ColorSpace = ThreeNH.Optical.ColorSpace;
-using DateTime = System.DateTime;
 using MeasurementCaliber = ThreeNH.Optical.MeasurementCaliber;
 using SpecularComponent = ThreeNH.Optical.SpecularComponent;
 using StandardIlluminant = ThreeNH.Optical.StandardIlluminant;
 using StandardObserver = ThreeNH.Optical.StandardObserver;
 using ThreeNH.Helper;
 using System.Linq;
-using ThreeNH.Instruments.DeviceInfo;
+using ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer.Instrument;
 
 namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
 {
     public class Spectrometer : InstrumentBase, IColorimeter, IMetrology, ISpecimenClearing, IRecordManagement, ISystemSetting, ITargetLibraryManagement, IMeasurementNotification
     {
-        public static readonly ColorAlgorithm.WavelengthRange WAVELENGTHRANGE =
-            new ColorAlgorithm.WavelengthRange(400, 700, 10);
+        public static readonly WavelengthRange WAVELENGTHRANGE =
+            new WavelengthRange(400, 700, 10);
 
         //EventHandler<SpecimenReceivedEventArgs> UploadingArrivedHandler;
         int _stopUpload = 0;    // 停止正在进行的异步上传
@@ -105,14 +103,14 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
             get; private set;
         }
 
-        private SpecularComponent _specularComponent = SpecularComponent.SCIAndSCE;
+        private Optical.SpecularComponent _specularComponent = Optical.SpecularComponent.SCIAndSCE;
         public SpectrumMeasurementMode SpectrumMeasurementMode
         {
             get { return SpectrumMeasurementMode.Reflective; }
             set { throw new NotSupportedException(); }
         }
 
-        public SpecularComponent SpecularComponent
+        public Optical.SpecularComponent SpecularComponent
         {
             get { return _specularComponent; }
             set
@@ -136,8 +134,8 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
             set { throw new NotSupportedException(); }
         }
 
-        private MeasurementCaliber _aperture;
-        public MeasurementCaliber Aperture
+        private Optical.MeasurementCaliber _aperture;
+        public Optical.MeasurementCaliber Aperture
         {
             get { return _aperture; }
 
@@ -150,7 +148,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
             }
         }
 
-        public StandardIlluminant StandardIlluminant
+        public Optical.StandardIlluminant StandardIlluminant
         {
             get { return _standardIlluminant; }
             set
@@ -228,7 +226,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
             get
             {
                 var t = _defaultTolerance;
-                return new ThreeNH.ColorimeterInterface.Tolerance
+                return new ColorimeterInterface.Tolerance
                 {
                     dE = t.dE,
                     dL = new Tuple<double, double>(t.dL_Lower, t.dL_Upper),
@@ -278,9 +276,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
 
         private UVFlag _uv = UVFlag.None;
         private StandardObserver _standardObserver;
-        private StandardIlluminant _standardIlluminant;
+        private Optical.StandardIlluminant _standardIlluminant;
         private UVFlag _uvMode;
-        private ColorSpace _colorSpace;
+        private Optical.ColorSpace _colorSpace;
         private ColorDiffFormula _colorDiffFormula;
         private ColorIndex _colorIndex;
 
@@ -305,9 +303,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
             get { return DeviceType.Spectrophotometer; }
         }
 
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
+        public WavelengthRange WavelengthRange
         {
-            get { return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(WAVELENGTHRANGE.Min, WAVELENGTHRANGE.Max, WAVELENGTHRANGE.Step); }
+            get { return WAVELENGTHRANGE; }
             set { throw new NotImplementedException(); }
         }
 
@@ -1281,13 +1279,13 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
                 result.PacketContent.Dequeue(out strValue);
                 para.OuterNumber = strValue;
 
-                Spectrum spectrum = new Spectrum(new ColorAlgorithm.WavelengthRange(400, 700, 10));
+                Spectrum spectrum = new Spectrum(new WavelengthRange(400, 700, 10));
                 result.PacketContent.Dequeue(spectrum);
                 for (int i = 0; i < spectrum.Data.Length; i++)
                     spectrum.Data[i] /= 100.0;
                 para.SCI = spectrum;
 
-                spectrum = new Spectrum(new ColorAlgorithm.WavelengthRange(400, 700, 10));
+                spectrum = new Spectrum(new WavelengthRange(400, 700, 10));
                 result.PacketContent.Dequeue(spectrum);
                 for (int i = 0; i < spectrum.Data.Length; i++)
                     spectrum.Data[i] /= 100.0;
@@ -1344,7 +1342,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
         }
 
         private static void EnqueueXyz(PacketContent content, CIEXYZ xyz,
-            StandardIlluminant illuminant, StandardObserver observer)
+            Optical.StandardIlluminant illuminant, Optical.StandardObserver observer)
         {
             List<byte> byteList = new List<byte>();
             byteList.Add((byte)observer.ToInstrumentForm());
@@ -2387,27 +2385,27 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
         {
             get
             {
-                List<ThreeNH.Optical.ColorSpace> list = new List<ThreeNH.Optical.ColorSpace>();
+                List<Optical.ColorSpace> list = new List<Optical.ColorSpace>();
                 switch (InternalModelType)
                 {
                     case InternalModelType.YS30XX:
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LCH);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_XYZ);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_Yxy);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LUV);
-                        list.Add(ThreeNH.Optical.ColorSpace.HUNTER_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.sRGB);
+                        list.Add(Optical.ColorSpace.CIE_LAB);
+                        list.Add(Optical.ColorSpace.CIE_LCH);
+                        list.Add(Optical.ColorSpace.CIE_XYZ);
+                        list.Add(Optical.ColorSpace.CIE_Yxy);
+                        list.Add(Optical.ColorSpace.CIE_LUV);
+                        list.Add(Optical.ColorSpace.HUNTER_LAB);
+                        list.Add(Optical.ColorSpace.sRGB);
                         break;
                     case InternalModelType.YS45XX:
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LCH);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_XYZ);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_Yxy);
-                        list.Add(ThreeNH.Optical.ColorSpace.CIE_LUV);
-                        list.Add(ThreeNH.Optical.ColorSpace.HUNTER_LAB);
-                        list.Add(ThreeNH.Optical.ColorSpace.sRGB);
-                        list.Add(ThreeNH.Optical.ColorSpace.BETA_xy);
+                        list.Add(Optical.ColorSpace.CIE_LAB);
+                        list.Add(Optical.ColorSpace.CIE_LCH);
+                        list.Add(Optical.ColorSpace.CIE_XYZ);
+                        list.Add(Optical.ColorSpace.CIE_Yxy);
+                        list.Add(Optical.ColorSpace.CIE_LUV);
+                        list.Add(Optical.ColorSpace.HUNTER_LAB);
+                        list.Add(Optical.ColorSpace.sRGB);
+                        list.Add(Optical.ColorSpace.BETA_xy);
                         break;
                 }
                 return list.Select(o => new ValueDescription() { Value = o, Description = o.Description() });
@@ -2448,28 +2446,28 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
         {
             get
             {
-                //List<ThreeNH.Optical.ColorIndex> list = new List<ThreeNH.Optical.ColorIndex>();
+                //List<Optical.ColorIndex> list = new List<Optical.ColorIndex>();
                 //switch (InternalModelType)
                 //{
                 //    case InternalModelType.YS30XX:
-                //        list.Add(ThreeNH.Optical.ColorIndex.None);
-                //        list.Add(ThreeNH.Optical.ColorIndex.Yellowness);
-                //        list.Add(ThreeNH.Optical.ColorIndex.Whiteness);
-                //        list.Add(ThreeNH.Optical.ColorIndex.Opacity);
-                //        list.Add(ThreeNH.Optical.ColorIndex.Strength);
-                //        list.Add(ThreeNH.Optical.ColorIndex.ColorFastness);
-                //        list.Add(ThreeNH.Optical.ColorIndex.StainingFastness);
-                //        list.Add(ThreeNH.Optical.ColorIndex.MetamerismIndiex);
+                //        list.Add(Optical.ColorIndex.None);
+                //        list.Add(Optical.ColorIndex.Yellowness);
+                //        list.Add(Optical.ColorIndex.Whiteness);
+                //        list.Add(Optical.ColorIndex.Opacity);
+                //        list.Add(Optical.ColorIndex.Strength);
+                //        list.Add(Optical.ColorIndex.ColorFastness);
+                //        list.Add(Optical.ColorIndex.StainingFastness);
+                //        list.Add(Optical.ColorIndex.MetamerismIndiex);
                 //        break;
                 //    case InternalModelType.YS45XX:
-                //        list.Add(ThreeNH.Optical.ColorIndex.None);
-                //        list.Add(ThreeNH.Optical.ColorIndex.Yellowness);
-                //        list.Add(ThreeNH.Optical.ColorIndex.Whiteness);
-                //        list.Add(ThreeNH.Optical.ColorIndex.Opacity);
-                //        list.Add(ThreeNH.Optical.ColorIndex.Strength);
-                //        list.Add(ThreeNH.Optical.ColorIndex.ColorFastness);
-                //        list.Add(ThreeNH.Optical.ColorIndex.StainingFastness);
-                //        list.Add(ThreeNH.Optical.ColorIndex.MetamerismIndiex);
+                //        list.Add(Optical.ColorIndex.None);
+                //        list.Add(Optical.ColorIndex.Yellowness);
+                //        list.Add(Optical.ColorIndex.Whiteness);
+                //        list.Add(Optical.ColorIndex.Opacity);
+                //        list.Add(Optical.ColorIndex.Strength);
+                //        list.Add(Optical.ColorIndex.ColorFastness);
+                //        list.Add(Optical.ColorIndex.StainingFastness);
+                //        list.Add(Optical.ColorIndex.MetamerismIndiex);
 
                 //        break;
                 //}

@@ -1,17 +1,11 @@
-﻿﻿﻿﻿﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Linq;
+﻿using System;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
-using  param($mt) $map[$mt.Value] ;
-using  param($mt) $map[$mt.Value] ;
-using YL30Comm;
-using  param($mt) $map[$mt.Value] ;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Interface;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Model;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30Comm.Result;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30
 {
     public class Spectrometer:ISpectormeter
     {

@@ -1,4 +1,4 @@
-﻿﻿﻿using System;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
@@ -6,8 +6,8 @@ using ThreeNH.ColorimeterInterface;
 using ThreeNH.ColorQualityControl.Instrument;
 using ThreeNH.ColorQualityControl.Refactoring.Contracts;
 using ThreeNH.CommunicationBase;
-using  param($mt) $map[$mt.Value] ;
 using static ThreeNH.CommunicationBase.EhMc17AtInterface;
+using ToastNotificationMsg;
 
 namespace ThreeNH.ColorQualityControl.Services
 {

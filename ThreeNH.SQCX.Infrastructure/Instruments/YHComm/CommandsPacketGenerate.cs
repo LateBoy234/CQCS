@@ -7,7 +7,7 @@ using ThreeNH.ColorimeterInterface;
 using ThreeNH.CommunicationBase;
 using ThreeNH.StructHelper;
 
-namespace ThreeNH.YHComm
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YHComm
 {
 
     public enum MeasurementParameter

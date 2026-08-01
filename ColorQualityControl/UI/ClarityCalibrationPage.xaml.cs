@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ThreeNH.ColorimeterInterface;
+using ThreeNH.SQCX.Infrastructure.Instruments.YHComm;
 
 namespace ThreeNH.ColorQualityControl.UI
 {
@@ -68,9 +69,9 @@ namespace ThreeNH.ColorQualityControl.UI
                             Exception exception = null;
                             try
                             {
-                                if (_instrument is ThreeNH.YHComm.USBComm usbComm)
+                                if (_instrument is USBComm usbComm)
                                     usbComm.DoClarityCalibration();
-                                else if (_instrument is ThreeNH.YHComm.BleComm bleComm)
+                                else if (_instrument is BleComm bleComm)
                                     bleComm.DoClarityCalibration();
                             }
                             catch (Exception ex)

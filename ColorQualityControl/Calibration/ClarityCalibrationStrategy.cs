@@ -1,4 +1,5 @@
 using System;
+using ThreeNH.SQCX.Infrastructure.Instruments.YHComm;
 
 namespace ThreeNH.ColorQualityControl.Calibration
 {
@@ -12,15 +13,15 @@ namespace ThreeNH.ColorQualityControl.Calibration
         public bool Execute(CalibrationContext context)
         {
             var instrument = context?.Instrument;
-            if (instrument is ThreeNH.YHComm.USBComm usbComm)
+            if (instrument is USBComm usbComm)
             {
-                usbComm.Calibrate(ThreeNH.YHComm.CalibrationType.CLARITY);
+                usbComm.Calibrate(CalibrationType.CLARITY);
                 return true;
             }
 
-            if (instrument is ThreeNH.YHComm.BleComm bleComm)
+            if (instrument is BleComm bleComm)
             {
-                bleComm.Calibrate(ThreeNH.YHComm.CalibrationType.CLARITY);
+                bleComm.Calibrate(CalibrationType.CLARITY);
                 return true;
             }
 

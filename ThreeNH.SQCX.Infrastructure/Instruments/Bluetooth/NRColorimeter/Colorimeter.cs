@@ -1,4 +1,4 @@
-﻿﻿﻿using System;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +11,10 @@ using System.Threading;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.DataModel;
-using ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter.Instrument;
 using DateTime = System.DateTime;
 using StandardIlluminant = ThreeNH.Optical.StandardIlluminant;
 using StandardObserver = ThreeNH.Optical.StandardObserver;
 using System.Reflection;
-using ThreeNH.Instruments.DeviceInfo;
 
 namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
 {
@@ -109,7 +107,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
 
     public class Colorimeter : InstrumentBase, IColorimeter, IMetrology, ISpecimenClearing,  IRecordManagement
     {
-        private ThreeNH.ColorAlgorithm.Formula formula = new ColorAlgorithm.Formula();
+        private Formula formula = new Formula();
         int _stopUpload = 0;    // 停止异步上传标志
         public event EventHandler<SpecimenReceivedEventArgs> MeasureResultReceived;
         public event EventHandler<SensorDataReceivedEventArgs> SensorDataReceived;
@@ -162,7 +160,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
         }
 
         Optical.SpecularComponent _specularComponent = Optical.SpecularComponent.Unknown;
-        public ThreeNH.Optical.SpecularComponent SpecularComponent
+        public Optical.SpecularComponent SpecularComponent
         {
             get
             {
@@ -174,12 +172,12 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
             }
         }
 
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
+        public WavelengthRange WavelengthRange
         {
             get
             {
                 //throw new NotImplementedException();
-                return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(0, 0, 0);
+                return new WavelengthRange(0, 0, 0);
             }
 
             set
@@ -188,7 +186,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
             }
         }
 
-        public ThreeNH.Optical.UVFlag UV
+        public Optical.UVFlag UV
         {
             get
             {
@@ -201,7 +199,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
             }
         }
 
-        public ThreeNH.Optical.MeasurementCaliber Aperture
+        public Optical.MeasurementCaliber Aperture
         {
             get;
             private set;
@@ -352,7 +350,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
         }
 
 
-        public ThreeNH.ColorSpecimen.Specimen Measure()
+        public ColorSpecimen.Specimen Measure()
         {
             PacketContent content = new PacketContent();
             content.Enqueue((byte)1);
@@ -374,8 +372,8 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
             dataPacket.PacketContent.Dequeue(out c);
             dataPacket.PacketContent.Dequeue(out h);
 
-            var specimen = new ThreeNH.ColorSpecimen.Specimen();
-            var colorData = new ThreeNH.ColorSpecimen.ColorData();
+            var specimen = new ColorSpecimen.Specimen();
+            var colorData = new ColorSpecimen.ColorData();
             var xyz = formula.LabToXyz(new ColorAlgorithm.CIELAB(l, a, b));
             colorData.Set(formula.Observer, formula.Illuminant, xyz);
             if (SpecularComponent == Optical.SpecularComponent.SCI)
@@ -477,7 +475,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
 
                 formula.Illuminant = sample.Illuminant;
 
-                var colorData = new ThreeNH.ColorSpecimen.ColorData();
+                var colorData = new ColorSpecimen.ColorData();
                 var xyz = formula.LabToXyz(new ColorAlgorithm.CIELAB(sample.L, sample.a, sample.b));
                 colorData.Set(formula.Observer, formula.Illuminant, xyz);
                 if (SpecularComponent == Optical.SpecularComponent.SCI)
@@ -720,7 +718,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
         }
 
         public bool YTContain400 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        ThreeNH.Instruments.DeviceInfo.WavelengthBand IDeviceInfo.WavelengthRange => throw new NotImplementedException();
+        WavelengthRange IDeviceInfo.WavelengthRange => throw new NotImplementedException();
 
         public int GetSamplesCount(int standardIndex)
         {
@@ -995,7 +993,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter
             }
         }
 
-        public void WriteStandard(ThreeNH.ColorSpecimen.Specimen standard)
+        public void WriteStandard(ColorSpecimen.Specimen standard)
         {
             CIELAB lab = null;
             Optical.SpecularComponent sc = SpecularComponent;

@@ -1,4 +1,4 @@
-﻿﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -35,8 +35,8 @@ namespace ThreeNH.ColorQualityControl.YS60
             DataContext = this;
         }
 
-        public ThreeNH.SQCX.Infrastructure.Instruments.BTS.DeviceInfo DeviceInfo { get; private set; }
+        public SQCX.Infrastructure.Instruments.BTS.DeviceInfo DeviceInfo { get; private set; }
 
-        public ThreeNH.SQCX.Infrastructure.Instruments.BTS.InstrumentStatus Status { get; private set; }
+        public SQCX.Infrastructure.Instruments.BTS.InstrumentStatus Status { get; private set; }
     }
 }

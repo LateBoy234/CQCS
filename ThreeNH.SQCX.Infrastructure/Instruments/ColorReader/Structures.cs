@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Runtime.InteropServices;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorimeterInterface;
@@ -779,7 +779,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
             }
         }
 
-        public ThreeNH.Optical.ColorSpace ColorSpace
+        public Optical.ColorSpace ColorSpace
         {
             get
             {
@@ -792,7 +792,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
             }
         }
 
-        public ThreeNH.Optical.ColorDiffFormula ColorDiffFormula
+        public Optical.ColorDiffFormula ColorDiffFormula
         {
             get
             {
@@ -805,7 +805,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.ColorReader
             }
         }
 
-        public ThreeNH.Optical.ColorIndex ColorIndex
+        public Optical.ColorIndex ColorIndex
         {
             get
             {

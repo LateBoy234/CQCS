@@ -1,17 +1,14 @@
-﻿﻿﻿﻿﻿using NModbus;
-using NModbus.Device;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 using System.Threading.Tasks;
-using  param($mt) $map[$mt.Value] ;
-using  param($mt) $map[$mt.Value] ;
-using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy;
-using  param($mt) $map[$mt.Value] ;
-using  param($mt) $map[$mt.Value] ;
+using ThreeNH.SQCX.Infrastructure.Instruments.ThreeNH.YL30;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30.Model;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30Comm.Result;
+using ThreeNH.YL30.CommunicationContract;
+using ThreeNH.YL30.DataHandle;
+using ModbusRtuMaster = ThreeNH.SQCX.Infrastructure.Instruments.ThreeNH.YL30.ModbusRtuMaster;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.CommunicaImplementation
+namespace ThreeNH.YL30.CommunicaImplementation
 {
     internal class SerialCommunication : ISpectrometerCom
     {

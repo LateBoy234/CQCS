@@ -1,4 +1,4 @@
-﻿﻿﻿﻿
+﻿
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -6,7 +6,7 @@ using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.DataModel;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy.Model
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Model
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     public struct StandardStruct
@@ -68,7 +68,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy.Model
     }
 
     /// <summary>
-    /// 试样结构体（仿照 ThreeNH.SQCX.Infrastructure.Instruments.PTS.Record.TrialRecord）
+    /// 试样结构体（仿照 PTS.Record.TrialRecord）
     /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     public struct SampleStruct
@@ -116,9 +116,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy.Model
         /// </summary>
         /// <param name="isSpecialType">是否为特殊类型</param>
         /// <returns></returns>
-        public ThreeNH.ColorSpecimen.Specimen ToSpecimen(bool isSpecialType = false)
+        public ColorSpecimen.Specimen ToSpecimen(bool isSpecialType = false)
         {
-            ThreeNH.ColorSpecimen.Specimen specimen = new ThreeNH.ColorSpecimen.Specimen();
+            ColorSpecimen.Specimen specimen = new ColorSpecimen.Specimen();
            // specimen.IsTransmission = false;
             specimen.DateTime = Time.ToDateTime();
             specimen.ID = ID;

@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using ThreeNH.DataModel;
 using ThreeNH.Optical;
 

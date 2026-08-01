@@ -16,11 +16,10 @@ using ThreeNH.ColorSpecimen;
 using ThreeNH.CommunicationBase;
 using ThreeNH.DataModel;
 using ThreeNH.Helper;
-using ThreeNH.Instruments.DeviceInfo;
 using ThreeNH.Optical;
 using ThreeNH.StructHelper;
 
-namespace ThreeNH.YHComm
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YHComm
 {
     /// <summary>
     /// 通知命令
@@ -461,9 +460,9 @@ namespace ThreeNH.YHComm
 
         public DeviceType DeviceType => DeviceType.Spectrophotometer;
 
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
+        public WavelengthRange WavelengthRange
         {
-            get => new ThreeNH.Instruments.DeviceInfo.WavelengthBand(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP);
+            get => new WavelengthRange(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP);
             set => throw new NotSupportedException();
         }
 
@@ -518,11 +517,11 @@ namespace ThreeNH.YHComm
         };
 
         public IEnumerable<ValueDescription> OptionalColorSpaces =>
-            from x in Enum.GetValues(typeof(ThreeNH.YHComm.ColorSpace)).OfType<ThreeNH.YHComm.ColorSpace>()
+            from x in Enum.GetValues(typeof(ColorSpace)).OfType<ColorSpace>()
             select new ValueDescription { Value = x.Uniform(), Description = x.Uniform().Description() };
 
         public IEnumerable<ValueDescription> OptionalColorDiffFormulas =>
-            from x in Enum.GetValues(typeof(ThreeNH.YHComm.ColorDeltaFormula)).OfType<ThreeNH.YHComm.ColorDeltaFormula>()
+            from x in Enum.GetValues(typeof(ColorDeltaFormula)).OfType<ColorDeltaFormula>()
             select new ValueDescription
             {
                 Value = x.Uniform(),
@@ -530,7 +529,7 @@ namespace ThreeNH.YHComm
             };
 
         public IEnumerable<ValueDescription> OptionalColorIndexs =>
-            from x in Enum.GetValues(typeof(ThreeNH.YHComm.ColorIndex)).OfType<ThreeNH.YHComm.ColorIndex>()
+            from x in Enum.GetValues(typeof(ColorIndex)).OfType<ColorIndex>()
             select new ValueDescription
             {
                 Value = x.Uniform(),
@@ -603,10 +602,10 @@ namespace ThreeNH.YHComm
                 _observer = value;
             }
         }
-        private ThreeNH.Optical.ColorSpace _colorSpace;
+        private Optical.ColorSpace _colorSpace;
         private ColorDiffFormula _colorDiffFormula;
 
-        public ThreeNH.Optical.ColorSpace ColorSpace
+        public Optical.ColorSpace ColorSpace
         {
             get { return _colorSpace; }
             set
@@ -630,9 +629,9 @@ namespace ThreeNH.YHComm
             }
         }
 
-        private ThreeNH.Optical.ColorIndex _colorIndex;
+        private Optical.ColorIndex _colorIndex;
 
-        public ThreeNH.Optical.ColorIndex ColorIndex
+        public Optical.ColorIndex ColorIndex
         {
             get { return _colorIndex; }
             set
@@ -673,17 +672,17 @@ namespace ThreeNH.YHComm
             }
         }
 
-        public ThreeNH.ColorimeterInterface.Tolerance SystemDefaultTolerance
+        public ColorimeterInterface.Tolerance SystemDefaultTolerance
         {
             get
             {
                 var bytes = SendPacket(new CmdPacket(CommandType.CALL, (byte)CallCode.GET_TOLERANCE), 1000);
                 if (bytes.Length == Marshal.SizeOf(typeof(RtcDateTime)))
                 {
-                    var t = StructConverter.BytesToStruct<ThreeNH.YHComm.RecordTolerance>(bytes);
+                    var t = StructConverter.BytesToStruct<RecordTolerance>(bytes);
                     if (t.ColorTolerance is ColorTolerance tolerance)
                     {
-                        return new ThreeNH.ColorimeterInterface.Tolerance
+                        return new ColorimeterInterface.Tolerance
                         {
                             dE = tolerance.DeltaE,
                             dL = new Tuple<double, double>(tolerance.Items[0].Lower, tolerance.Items[0].Upper),
@@ -757,9 +756,9 @@ namespace ThreeNH.YHComm
                 _aperture = ((Aperture)GetByteConfig(CallCode.GET_CALIBER)).Uniform();
                 _illuminant = ((Illuminant)GetByteConfig(CallCode.GET_ILLUMINANT)).Uniform(); ;
                 _observer = ((Observer)GetByteConfig(CallCode.GET_OBSERVER)).Uniform(); ;
-                _colorSpace = ((ThreeNH.YHComm.ColorSpace)GetByteConfig(CallCode.GET_COLOR_SPACE)).Uniform(); ;
-                _colorIndex = ((ThreeNH.YHComm.ColorIndex)GetByteConfig(CallCode.GET_COLOR_INDEX)).Uniform(); ;
-                _colorDiffFormula = ((ThreeNH.YHComm.ColorDeltaFormula)GetByteConfig(CallCode.GET_DIFF_FORMAL)).Uniform();
+                _colorSpace = ((ColorSpace)GetByteConfig(CallCode.GET_COLOR_SPACE)).Uniform(); ;
+                _colorIndex = ((ColorIndex)GetByteConfig(CallCode.GET_COLOR_INDEX)).Uniform(); ;
+                _colorDiffFormula = ((ColorDeltaFormula)GetByteConfig(CallCode.GET_DIFF_FORMAL)).Uniform();
                 IsColorHazeMeter = GetByteConfig(CallCode.IS_COLOR_HAZE_METER) != 0;
                 IsClarityValid = GetByteConfig(CallCode.IS_CLARITY_VALID) != 0x00;
                 HazeReferStandard = (HazeReferStandard)GetByteConfig(CallCode.GET_HAZE_MEASUREMENT_STANDARD);

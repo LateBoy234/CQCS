@@ -1,4 +1,4 @@
-﻿﻿﻿namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
+﻿namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
 {
     enum Command : byte
     {

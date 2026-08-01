@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using ThreeNH.CommunicationBase;
 
-namespace ThreeNH.YHComm
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YHComm
 {
     public enum RemoteError
     {

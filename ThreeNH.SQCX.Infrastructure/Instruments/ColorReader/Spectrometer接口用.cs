@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -17,7 +17,7 @@ using ThreeNH.CommunicationBase;
 using ThreeNH.DataModel;
 using ThreeNH.StructHelper;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
+namespace BTS
 {
     /// <summary>
     /// 命令处理代理
@@ -344,8 +344,8 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             }
         }
 
-        private ThreeNH.Optical.ColorSpace _colorSpace;
-        public ThreeNH.Optical.ColorSpace ColorSpace
+        private Optical.ColorSpace _colorSpace;
+        public Optical.ColorSpace ColorSpace
         {
             get { return _colorSpace;}
             set
@@ -366,8 +366,8 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             }
         }
 
-        private ThreeNH.Optical.ColorIndex _colorIndex;
-        public ThreeNH.Optical.ColorIndex ColorIndex
+        private Optical.ColorIndex _colorIndex;
+        public Optical.ColorIndex ColorIndex
         {
             get { return _colorIndex;}
             set
@@ -502,9 +502,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
 
         public bool IsOpen => _clientProtocol.IsConnected;
 
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
+        public WavelengthRange WavelengthRange
         {
-            get { return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(360, 780, 10); }
+            get { return new WavelengthRange(360, 780, 10); }
             set { throw new NotSupportedException(); }
         }
 
@@ -1427,7 +1427,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
         private UVFlag GetUvMode()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.UvMode));
-            return ((ThreeNH.SQCX.Infrastructure.Instruments.BTS.UvMode)result.Data[0]).Uniform();
+            return ((BTS.UvMode)result.Data[0]).Uniform();
         }
 
         private void SetUvMode(UVFlag uv)
@@ -1460,38 +1460,38 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
                 MeasurementParameter.StandardObserver, (byte)observer.ToInstrumentForm()));
         }
 
-        private ThreeNH.Optical.ColorSpace GetColorSpace()
+        private Optical.ColorSpace GetColorSpace()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.ColorSpace));
             return ((ColorSpace) result.Data[0]).Uniform();
         }
 
-        private void SetColorSpace(ThreeNH.Optical.ColorSpace colorSpace)
+        private void SetColorSpace(Optical.ColorSpace colorSpace)
         {
             SendAndWait(Commands.SetMeasurementParameter(MeasurementParameter.ColorSpace,
                 (byte) colorSpace.ToInstrumentForm()));
         }
 
-        private ThreeNH.Optical.ColorDiffFormula GetColorDiffFormula()
+        private Optical.ColorDiffFormula GetColorDiffFormula()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.ColorDiffFormula));
             return ((ColorDeltaFormula)result.Data[0]).Uniform();
         }
 
-        private void SetColorDiffFormula(ThreeNH.Optical.ColorDiffFormula colorDiffFormula)
+        private void SetColorDiffFormula(Optical.ColorDiffFormula colorDiffFormula)
         {
             SendAndWait(Commands.SetMeasurementParameter(MeasurementParameter.ColorDiffFormula,
                 (byte)colorDiffFormula.ToInstrumentForm()));
         }
 
-        private void SetColorIndex(ThreeNH.Optical.ColorIndex colorIndex)
+        private void SetColorIndex(Optical.ColorIndex colorIndex)
         {
             SendAndWait(Commands.SetMeasurementParameter(MeasurementParameter.ColorIndex,
                 (byte)colorIndex.ToInstrumentForm()));
         }
 
 
-        private ThreeNH.Optical.ColorIndex GetColorIndex()
+        private Optical.ColorIndex GetColorIndex()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.ColorIndex));
             return ((ColorIndex) result.Data[0]).Uniform();

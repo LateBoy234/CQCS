@@ -1,4 +1,4 @@
-﻿﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer
+namespace ThreeNH.GratingSpectrometer
 {
     /// <summary>
     /// InstrumentConfigurationDialog.xaml 的交互逻辑

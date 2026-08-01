@@ -1,4 +1,4 @@
-﻿﻿using ThreeNH.ColorAlgorithm;
+﻿using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.Optical;
 

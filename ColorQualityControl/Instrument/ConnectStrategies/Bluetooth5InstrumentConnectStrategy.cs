@@ -2,17 +2,14 @@ using System;
 using System.Diagnostics;
 using System.IO.Ports;
 using System.Threading;
-using ThreeNH.Bluetooth;
 using ThreeNH.ColorimeterInterface;
-using ThreeNH.ColorQualityControl.Device;
 using ThreeNH.CommDevice;
 using ThreeNH.PortService;
-using ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer;
-using  param($mt) $map[$mt.Value] ;
-using YHComm = ThreeNH.YHComm;
 using static ThreeNH.CommunicationBase.EhMc17AtInterface;
 
 using ThreeNH.ColorQualityControl.Services;
+using ThreeNH.SQCX.Infrastructure.Instruments.YHComm;
+using ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer;
 
 namespace ThreeNH.ColorQualityControl.ConnectStrategies
 {
@@ -115,7 +112,7 @@ namespace ThreeNH.ColorQualityControl.ConnectStrategies
             if (detectedType == InstrumentType.PTS)
             {
                 Thread.Sleep(1200);
-                var spec = new ThreeNH.SQCX.Infrastructure.Instruments.PTS.BluetoothDongleSpectrometer();
+                var spec = new PTS.BluetoothDongleSpectrometer();
                 spec.AttatchSerialPort(serialPort);
                 context.SetResult(new Tuple<IInstrument, InstrumentType>(spec, InstrumentType.PTS));
                 context.ReportProgress(100, successMessage);
@@ -137,7 +134,7 @@ namespace ThreeNH.ColorQualityControl.ConnectStrategies
             if (detectedType == InstrumentType.YH)
             {
                 Thread.Sleep(1200);
-                var spec = new YHComm.BleComm();
+                var spec = new BleComm();
                 spec.AttatchSerialPort(serialPort);
                 context.SetResult(new Tuple<IInstrument, InstrumentType>(spec, InstrumentType.YH));
                 context.ReportProgress(100, successMessage);
@@ -159,7 +156,7 @@ namespace ThreeNH.ColorQualityControl.ConnectStrategies
             if (detectedType == InstrumentType.CR)
             {
                 Thread.Sleep(1200);
-                var spec = new ColorReader.BluetoothDongleSpectrometer();
+                var spec = new SQCX.Infrastructure.Instruments.ColorReader.BluetoothDongleSpectrometer();
                 spec.AttatchSerialPort(serialPort);
                 context.SetResult(new Tuple<IInstrument, InstrumentType>(spec, InstrumentType.CR));
                 context.ReportProgress(100, successMessage);

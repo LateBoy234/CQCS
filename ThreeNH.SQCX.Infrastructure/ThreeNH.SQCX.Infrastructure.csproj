@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ThreeNH.SQCX.Infrastructure</RootNamespace>
-    <AssemblyName>ThreeNH.SQCX.Infrastructure</AssemblyName>
+    <AssemblyName>ThreeNH.ColorQualityControl.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -89,6 +89,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DependencyInjection\ApplicationServices.cs" />
+    <Compile Include="Instruments\YHComm\BleComm.cs" />
+    <Compile Include="Instruments\YHComm\Command.cs" />
+    <Compile Include="Instruments\YHComm\CommandPacket.cs" />
+    <Compile Include="Instruments\YHComm\CommandsPacketGenerate.cs" />
+    <Compile Include="Instruments\YHComm\ConstantsEnumDefine.cs" />
+    <Compile Include="Instruments\YHComm\DefineConverters.cs" />
+    <Compile Include="Instruments\YHComm\Record.cs" />
+    <Compile Include="Instruments\YHComm\RecordFlags.cs" />
+    <Compile Include="Instruments\YHComm\RecordFor1810.cs" />
+    <Compile Include="Instruments\YHComm\RemoteError.cs" />
+    <Compile Include="Instruments\YHComm\Structures.cs" />
+    <Compile Include="Instruments\YHComm\USBComm.cs" />
     <Compile Include="Persistence\FileSystemJobDocumentStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <!-- Device adapters migrated from standalone projects into Instruments/<Name> -->
@@ -211,6 +223,10 @@
     <Compile Include="Instruments\YL30\ThreeNH.YL30\SpectrometerForYL30.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ColorSpecimen\ColorSpecimen.csproj">
+      <Project>{24c4efde-26cb-41fe-8962-1494dcfd42cf}</Project>
+      <Name>ColorSpecimen</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ThreeNH.SQCX.Application\ThreeNH.SQCX.Application.csproj">
       <Project>{D0FD4DBD-AE8E-4AB0-BE3E-2DC40C716F25}</Project>
       <Name>ThreeNH.SQCX.Application</Name>
@@ -235,10 +251,6 @@
     <ProjectReference Include="..\ColorLibrary\ColorLibrary.csproj">
       <Project>{878BA6FB-1F58-49DE-B22D-45CF183A4AC6}</Project>
       <Name>ColorLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ColorSpecimen\ColorSpecimen.csproj">
-      <Project>{24c4efde-26cb-41fe-8962-1494dcfd42cf}</Project>
-      <Name>ColorSpecimen</Name>
     </ProjectReference>
     <ProjectReference Include="..\CommunicationBase\CommunicationBase.csproj">
       <Project>{f773553f-30c0-4587-abe0-523fdd500c70}</Project>

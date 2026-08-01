@@ -1,4 +1,4 @@
-﻿namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
+namespace PTS
 {
     /// <summary>
     /// USB（ProductInfo*）与蓝牙（BluetoothDongleSpectrometer）共用的特殊机型判定。

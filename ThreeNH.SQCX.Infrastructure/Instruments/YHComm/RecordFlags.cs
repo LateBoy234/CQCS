@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using ThreeNH.Optical;
 
-namespace ThreeNH.YHComm
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YHComm
 {
     [StructLayout(LayoutKind.Sequential, Size = 4)]
     public struct RecordFlags

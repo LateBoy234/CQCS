@@ -1,11 +1,8 @@
-﻿﻿﻿﻿﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using  param($mt) $map[$mt.Value] ;
+using ThreeNH.SQCX.Infrastructure.Instruments.YL30Comm.Result;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy.Interface
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Interface
 {
     public  interface IProduceTool
     {

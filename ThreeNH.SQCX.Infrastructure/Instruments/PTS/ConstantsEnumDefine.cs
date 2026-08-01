@@ -1,6 +1,6 @@
-﻿﻿using System.ComponentModel;
+﻿using System.ComponentModel;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
+namespace PTS
 {
     public static class Constants
     {

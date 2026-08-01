@@ -12,7 +12,38 @@ namespace ThreeNH.ColorimeterInterface
     /// </summary>
     public interface IMeasurement : IMeasurementDevice<Specimen>
     {
-       
+        /// <summary>
+        /// 仪器是否已校准
+        /// </summary>
+        bool IsCalibrated { get; }
+
+        /// <summary>
+        /// 白校
+        /// </summary>
+        void DoWhiteCalibration();
+
+        /// <summary>
+        /// 黑校
+        /// </summary>
+        void DoBlackCalibration();
+
+        /// <summary>
+        /// 测量
+        /// </summary>
+        /// <returns>测量结果</returns>
+        ColorSpecimen.Specimen Measure();
+
+        /// <summary>
+        /// 测量标样
+        /// </summary>
+        /// <returns>测量结果</returns>
+        ColorSpecimen.Specimen MeasureStandard();
+
+        /// <summary>
+        /// 测量试样
+        /// </summary>
+        /// <returns>测量结果</returns>
+        ColorSpecimen.Specimen MeasureSample();
     }
 
     public class MeasurementNotificationArgs : EventArgs

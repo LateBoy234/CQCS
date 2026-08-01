@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -221,7 +221,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             set { Values[6] = value; }
         }
 
-        public static Tolerance FromUniformTolerance(ThreeNH.DataModel.Tolerance uniformTolerance)
+        public static Tolerance FromUniformTolerance(DataModel.Tolerance uniformTolerance)
         {
             Tolerance tolerance = new Tolerance { Values = new float[7] };
             if (uniformTolerance == null)
@@ -249,41 +249,41 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
         }
 
 
-        public ThreeNH.DataModel.Tolerance Uniform()
+        public DataModel.Tolerance Uniform()
         {
-            var tolerance = new ThreeNH.DataModel.Tolerance(
-                new ThreeNH.DataModel.ChromaticityField[]
+            var tolerance = new DataModel.Tolerance(
+                new DataModel.ChromaticityField[]
                 {
-                    ThreeNH.DataModel.ChromaticityField.dL,
-                    ThreeNH.DataModel.ChromaticityField.da,
-                    ThreeNH.DataModel.ChromaticityField.db,
-                    ThreeNH.DataModel.ChromaticityField.dEab,
+                    DataModel.ChromaticityField.dL,
+                    DataModel.ChromaticityField.da,
+                    DataModel.ChromaticityField.db,
+                    DataModel.ChromaticityField.dEab,
                 });
 
             Func<double, double, bool> isLimitValid = (lower, upper) => lower < upper;
 
-            tolerance[ThreeNH.DataModel.ChromaticityField.dL] =
-                new ThreeNH.DataModel.ToleranceItem
+            tolerance[DataModel.ChromaticityField.dL] =
+                new DataModel.ToleranceItem
                 {
                     Lower = dL_Lower,
                     Upper = dL_Upper,
                     UseForJudgement = isLimitValid(dL_Lower, dL_Upper)
                 };
-            tolerance[ThreeNH.DataModel.ChromaticityField.da] =
-                new ThreeNH.DataModel.ToleranceItem
+            tolerance[DataModel.ChromaticityField.da] =
+                new DataModel.ToleranceItem
                 {
                     Lower = da_Lower,
                     Upper = da_Upper,
                     UseForJudgement = isLimitValid(da_Lower, da_Upper)
                 };
-            tolerance[ThreeNH.DataModel.ChromaticityField.db] =
-                new ThreeNH.DataModel.ToleranceItem
+            tolerance[DataModel.ChromaticityField.db] =
+                new DataModel.ToleranceItem
                 {
                     Lower = db_Lower,
                     Upper = db_Upper,
                     UseForJudgement = isLimitValid(db_Lower, db_Upper)
                 };
-            tolerance[ThreeNH.DataModel.ChromaticityField.dEab] = new ThreeNH.DataModel.ToleranceItem
+            tolerance[DataModel.ChromaticityField.dEab] = new DataModel.ToleranceItem
             {
                 Upper = dE,
                 UseForJudgement = dE > 0
@@ -572,8 +572,8 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
         {
             if (!flags.IsSpectrum)
             {
-                 param($mt) $map[$mt.Value] .Observer observer = ( param($mt) $map[$mt.Value] .Observer)data[0];
-                 param($mt) $map[$mt.Value] .Illuminant illuminant = ( param($mt) $map[$mt.Value] .Illuminant)data[1];
+               Observer observer = (Observer)data[0];
+                Illuminant illuminant = (Illuminant)data[1];
                 float[] values = new[]
                 {
                         BitConverter.ToSingle(data, 2),

@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -9,7 +9,7 @@ using ThreeNH.DataModel;
 using ThreeNH.Optical;
 using ThreeNH.StructHelper;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
+namespace PTS
 {
     static class RecordHelper
     {
@@ -83,8 +83,8 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
             else if (dataType == RecordFlags.RecordDataType.Lab)
             {
                 var lab = new CIELAB(Values[0], Values[1], Values[2]);
-                var xyz = Formula.LabToXyz(lab, ((ThreeNH.SQCX.Infrastructure.Instruments.PTS.Illuminant)Illuminant).Uniform(),
-                    ((ThreeNH.SQCX.Infrastructure.Instruments.PTS.Observer)Observer).Uniform());
+                var xyz = Formula.LabToXyz(lab, ((PTS.Illuminant)Illuminant).Uniform(),
+                    ((PTS.Observer)Observer).Uniform());
                 ret.Set((StandardObserver)Observer, (StandardIlluminant)Illuminant, xyz);
             }
             return ret;

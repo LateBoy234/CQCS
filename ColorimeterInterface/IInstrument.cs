@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ThreeNH.Instruments.Connection;
-using ThreeNH.Instruments.DeviceInfo;
 
 namespace ThreeNH.ColorimeterInterface
 {
@@ -19,6 +18,23 @@ namespace ThreeNH.ColorimeterInterface
         /// 设备名
         /// </summary>
         string DeviceName { get; }
+
+        /// <summary>
+        /// 仪器是否已连接
+        /// </summary>
+        bool IsOpen { get; }
+
+        /// <summary>
+        /// 打开仪器连接
+        /// </summary>
+        /// <param name="commDevice">使用的通讯设备</param>
+        void Open(object commDevice=null);
+
+        /// <summary>
+        /// 关闭仪器连接
+        /// </summary>
+        void Close();
+
         /// <summary>
         /// 重新从仪器拉取型号/版本等基础信息（连接后常用，故放在基接口）
         /// </summary>

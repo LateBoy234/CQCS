@@ -1,0 +1,1129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1956738-A471-4B41-BAB9-B0AA6181B483}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeNH.ColorQualityControl</RootNamespace>
+    <AssemblyName>ColorQualityControl</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <PublishUrl>F:\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;XFD_NODEVINFO_zuofei;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>625D6DD6F614BFD7C23B2CC50CA9F6C041448DBB</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ColorQualityControl_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>Custom</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adapter\ColorIndexes.cs" />
+    <Compile Include="Adapter\FormulaExtension.cs" />
+    <Compile Include="Adapter\IColorIndex.cs" />
+    <Compile Include="Adapter\LegacyMeasurementGateway.cs" />
+    <Compile Include="Adapter\LegacyStandardSelectionGateway.cs" />
+    <Compile Include="Adapter\SpecimenAdapter.cs" />
+    <Compile Include="Adapter\SpecimenAdapterHelper.cs" />
+    <Compile Include="Adapter\StandardSpecimenAdapter.cs" />
+    <Compile Include="Adapter\TestSpecimenAdapter.cs" />
+    <Compile Include="Adapter\ToleranceAdapter.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="BthAutoConnectConfig.cs" />
+    <Compile Include="Chromaticity\CIEChromaticity.cs" />
+    <Compile Include="Chromaticity\ColorMatchingFunctions.cs" />
+    <Compile Include="Chromaticity\XYZtoRGBConversion.cs" />
+    <Compile Include="Controls\AbsorbancePlotControl.xaml.cs">
+      <DependentUpon>AbsorbancePlotControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BooleanReversedConverter.cs" />
+    <Compile Include="Converters\DoubleToAbsConverter.cs" />
+    <Compile Include="Converters\JudgementToImageConverter.cs" />
+    <Compile Include="Device\SpreadtrumDriverDetector.cs" />
+    <Compile Include="MultiHelper\CommHelper.cs" />
+    <Compile Include="MultiHelper\EnumExt.cs" />
+    <Compile Include="Services\JobDocumentService.cs" />
+    <Compile Include="Services\JobDocumentLoadResult.cs" />
+    <Compile Include="Services\JobSpecimensForView.cs" />
+    <Compile Include="Services\JobBackupFileInfo.cs" />
+    <Compile Include="Services\JobViewSettings.cs" />
+    <Compile Include="Services\InstrumentConnectionService.cs" />
+    <Compile Include="Services\ConnectionProgressRequest.cs" />
+    <Compile Include="Services\InstrumentConnectionService.ConnectionWork.cs" />
+    <Compile Include="Services\SpecimenExportService.cs" />
+    <Compile Include="Instrument\ConnectStrategies\IInstrumentConnectStrategy.cs" />
+    <Compile Include="Instrument\ConnectStrategies\InstrumentConnectContext.cs" />
+    <Compile Include="Instrument\ConnectStrategies\InstrumentConnectSupport.cs" />
+    <Compile Include="Instrument\ConnectStrategies\InstrumentConnectStrategyRegistry.cs" />
+    <Compile Include="Instrument\ConnectStrategies\UsbInstrumentConnectStrategy.cs" />
+    <Compile Include="Instrument\ConnectStrategies\Bluetooth4InstrumentConnectStrategy.cs" />
+    <Compile Include="Instrument\ConnectStrategies\Bluetooth5InstrumentConnectStrategy.cs" />
+    <Compile Include="Instrument\ConnectStrategies\Yl30InstrumentConnectStrategy.cs" />
+    <Compile Include="Instrument\InstrumentConnectionState.cs" />
+    <Compile Include="Instrument\ConnectionStateMachine.cs" />
+    <Compile Include="Services\MeasurementService.cs" />
+    <Compile Include="Measurement\MeasureState.cs" />
+    <Compile Include="Measurement\MeasureStateMachine.cs" />
+    <Compile Include="Services\InstrumentCalibrationService.cs" />
+    <Compile Include="Services\InstrumentLibraryService.cs" />
+    <Compile Include="Services\SpecimenSelectionState.cs" />
+    <Compile Include="Session\MainWindowSession.cs" />
+    <Compile Include="Specimens\Events\SpecimenKind.cs" />
+    <Compile Include="Specimens\Events\SpecimenAddedEventArgs.cs" />
+    <Compile Include="Specimens\Events\SpecimenRemovedEventArgs.cs" />
+    <Compile Include="Specimens\Events\SelectionChangedEventArgs.cs" />
+    <Compile Include="Specimens\Selection\IStandardSelectionStrategy.cs" />
+    <Compile Include="Specimens\Selection\StandardSelectionContext.cs" />
+    <Compile Include="Specimens\Selection\ManualStandardSelectionStrategy.cs" />
+    <Compile Include="Specimens\Selection\NearestColorStandardSelectionStrategy.cs" />
+    <Compile Include="Specimens\Selection\AutoStandardSelectionStrategy.cs" />
+    <Compile Include="Specimens\Selection\StandardSelectionStrategyResolver.cs" />
+    <Compile Include="Specimens\Import\SpecimenImportSourceKind.cs" />
+    <Compile Include="Specimens\Import\SpecimenImportRequest.cs" />
+    <Compile Include="Specimens\Import\SpecimenImportResult.cs" />
+    <Compile Include="Specimens\Import\ISpecimenImportStrategy.cs" />
+    <Compile Include="Specimens\Import\XmlJobFileImportStrategy.cs" />
+    <Compile Include="Specimens\Import\QtxJobFileImportStrategy.cs" />
+    <Compile Include="Specimens\Import\ExcelSpecimenImportStrategy.cs" />
+    <Compile Include="Specimens\Import\InstrumentLibraryImportStrategy.cs" />
+    <Compile Include="Specimens\Import\WhiteBoardSpecimenImportStrategy.cs" />
+    <Compile Include="Specimens\Import\SpecimenImportStrategyRegistry.cs" />
+    <Compile Include="Calibration\CalibrationKind.cs" />
+    <Compile Include="Calibration\CalibrationContext.cs" />
+    <Compile Include="Calibration\ICalibrationStrategy.cs" />
+    <Compile Include="Calibration\BlackWhiteCalibrationRunner.cs" />
+    <Compile Include="Calibration\ReflectanceCalibrationStrategy.cs" />
+    <Compile Include="Calibration\TransmissionCalibrationStrategy.cs" />
+    <Compile Include="Calibration\HazeCalibrationStrategy.cs" />
+    <Compile Include="Calibration\ClarityCalibrationStrategy.cs" />
+    <Compile Include="Calibration\InstrumentDialogCalibrationStrategy.cs" />
+    <Compile Include="Calibration\CalibrationStrategyResolver.cs" />
+    <Compile Include="Refactoring\Contracts\IInstrumentConnectionHost.cs" />
+    <Compile Include="Refactoring\Contracts\IMeasurementHost.cs" />
+    <Compile Include="Refactoring\Contracts\IMeasurementCaptureGateway.cs" />
+    <Compile Include="Refactoring\Contracts\IInstrumentCalibrationHost.cs" />
+    <Compile Include="Refactoring\Contracts\IInstrumentLibraryHost.cs" />
+    <Compile Include="Refactoring\Contracts\ISpecimenTreeHost.cs" />
+    <Compile Include="Refactoring\Contracts\IChromaticityDisplayHost.cs" />
+    <Compile Include="Refactoring\Contracts\IChartHost.cs" />
+    <Compile Include="Refactoring\Contracts\ISpecimenGridHost.cs" />
+    <Compile Include="Refactoring\Contracts\ISpecimenViewHost.cs" />
+    <Compile Include="Refactoring\Contracts\IConnectCommandHost.cs" />
+    <Compile Include="Refactoring\Contracts\IMeasureCommandHost.cs" />
+    <Compile Include="Refactoring\Contracts\IImportCommandHost.cs" />
+    <Compile Include="Presentation\SpecimenTreePresenter.cs" />
+    <Compile Include="Presentation\SpecimenGridPresenter.cs" />
+    <Compile Include="Presentation\SpecimenViewCoordinator.cs" />
+    <Compile Include="Presentation\ChromaticityDisplayService.cs" />
+    <Compile Include="Presentation\ChartCoordinator.cs" />
+    <Compile Include="Refactoring\Contracts\IJobDocumentService.cs" />
+    <Compile Include="Refactoring\Contracts\IInstrumentConnectionService.cs" />
+    <Compile Include="Refactoring\Contracts\IMeasurementService.cs" />
+    <Compile Include="Refactoring\Contracts\MeasurementSchedule.cs" />
+    <Compile Include="Refactoring\Contracts\NavigationViewMode.cs" />
+    <Compile Include="Refactoring\Contracts\ISpecimenSelectionState.cs" />
+    <Compile Include="Refactoring\Contracts\IMainWindowSession.cs" />
+    <Compile Include="MutexChecker.cs" />
+    <Compile Include="Models\CloudConfig.cs" />
+    <Compile Include="PTS70\WhiteBoardSettingDialog.xaml.cs">
+      <DependentUpon>WhiteBoardSettingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ColorDiffWordReport.cs" />
+    <Compile Include="ConnectionSettingDialog.xaml.cs">
+      <DependentUpon>ConnectionSettingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BackgroundWorkerEventArgs.cs" />
+    <Compile Include="Controls\ColorIndexComboBox.cs" />
+    <Compile Include="Controls\Loading.cs" />
+    <Compile Include="Controls\LoadingForm.xaml.cs">
+      <DependentUpon>LoadingForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LensPositionComboBox.cs" />
+    <Compile Include="Controls\MeasurementCaliberComboBox.cs" />
+    <Compile Include="Controls\LensSwitchModeComboBox.cs" />
+    <Compile Include="Controls\SpectrumMeasurementModeComboBox.cs" />
+    <Compile Include="Converters\BoolConverter.cs" />
+    <Compile Include="Converters\BoolEquationConverter.cs" />
+    <Compile Include="Converters\IlluminantConverter.cs" />
+    <Compile Include="Converters\LabToPseudoColorConverter.cs" />
+    <Compile Include="Converters\ObserverConverter.cs" />
+    <Compile Include="Converters\SimpleArithmeticConverter.cs" />
+    <Compile Include="MainWindow.PanTong.cs" />
+    <Compile Include="Reports\WordSampleReport.cs" />
+    <Compile Include="SpectrumPlot.cs" />
+    <Compile Include="UI\BlackCalibrationPage.xaml.cs">
+      <DependentUpon>BlackCalibrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalibrationResultPage.xaml.cs">
+      <DependentUpon>CalibrationResultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalibrationWindow.xaml.cs">
+      <DependentUpon>CalibrationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Charts\TriaxialChartView.xaml.cs">
+      <DependentUpon>TriaxialChartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ClarityCalibrationPage.xaml.cs">
+      <DependentUpon>ClarityCalibrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ColorLibraryManagementWindow.xaml.cs">
+      <DependentUpon>ColorLibraryManagementWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ColorMatchWindow.xaml.cs">
+      <DependentUpon>ColorMatchWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConnectView\ConnectByBluetooth5ManualDlg.xaml.cs">
+      <DependentUpon>ConnectByBluetooth5ManualDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConnectView\YL30ConnectDlg.xaml.cs">
+      <DependentUpon>YL30ConnectDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConvertWhiteBoardDataDialog.xaml.cs">
+      <DependentUpon>ConvertWhiteBoardDataDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DeviceInfoDlg.xaml.cs">
+      <DependentUpon>DeviceInfoDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UvFlagComboBox.cs" />
+    <Compile Include="UI\LibraryColorInputWindow.xaml.cs">
+      <DependentUpon>LibraryColorInputWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MeasurementConfigsDialog.xaml.cs">
+      <DependentUpon>MeasurementConfigsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HazeMeasurementDialog.xaml.cs">
+      <DependentUpon>HazeMeasurementDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HazeMeasurementWizardPage.cs" />
+    <Compile Include="UI\ColourAtla\CreateTableFromConfig.cs" />
+    <Compile Include="UI\ColourAtla\KeyWordSearch.xaml.cs">
+      <DependentUpon>KeyWordSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ColourAtla\MessageBoxShow.cs" />
+    <Compile Include="UI\ColourAtla\PanTongMatch.xaml.cs">
+      <DependentUpon>PanTongMatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ColourAtla\TableAdapter.cs" />
+    <Compile Include="UI\Pathlength.xaml.cs">
+      <DependentUpon>Pathlength.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SelectBlueToothDialog.xaml.cs">
+      <DependentUpon>SelectBlueToothDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SelectSerialPortDialog.xaml.cs">
+      <DependentUpon>SelectSerialPortDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TestModeSettingView.xaml.cs">
+      <DependentUpon>TestModeSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\WhiteCalibrationPage.xaml.cs">
+      <DependentUpon>WhiteCalibrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\AlgorithmExtension.cs" />
+    <Compile Include="Utils\AppSettingsHelper.cs" />
+    <Compile Include="Utils\CloudConfigStore.cs" />
+    <Compile Include="Utils\DataValidate.cs" />
+    <Compile Include="Utils\InstrumentExtensions.cs" />
+    <Compile Include="Utils\JsonHelper.cs" />
+    <Compile Include="Utils\LocalUtil.cs" />
+    <Compile Include="Utils\PathHelper.cs" />
+    <Compile Include="ViewModels\ChartHelper.cs" />
+    <Compile Include="ViewModels\ColorChartViewModel.cs" />
+    <Compile Include="ViewModels\ChartColorData.cs" />
+    <Compile Include="ViewModels\ColorDiagrams.cs" />
+    <Compile Include="ViewModels\ColorDiffChartViewModel.cs" />
+    <Compile Include="ViewModels\DeltaLabChartViewModel.cs" />
+    <Compile Include="ViewModels\DeltaLchChartViewModel.cs" />
+    <Compile Include="ViewModels\DeltaXyzChartViewModel.cs" />
+    <Compile Include="ViewModels\DeltaYxyChartViewModel.cs" />
+    <Compile Include="ViewModels\IColorData.cs" />
+    <Compile Include="ViewModels\ISpectralData.cs" />
+    <Compile Include="ViewModels\LabChartViewModel.cs" />
+    <Compile Include="ViewModels\LchChartViewModel.cs" />
+    <Compile Include="ViewModels\MeasurementSpec.cs" />
+    <Compile Include="ViewModels\MyVisualElement.cs" />
+    <Compile Include="ViewModels\SpectraChartViewModel.cs" />
+    <Compile Include="ViewModels\Charts\ToleranceChartHelper.cs" />
+    <Compile Include="ViewModels\ToleranceChartViewModel.cs" />
+    <Compile Include="ViewModels\TriaxialChartViewModel.cs" />
+    <Compile Include="ViewModels\XyzChartViewModel.cs" />
+    <Compile Include="YS60\InstrumentInfoDialog.xaml.cs">
+      <DependentUpon>InstrumentInfoDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="YS60\UpgradeDialog.xaml.cs">
+      <DependentUpon>UpgradeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="YS60\WhiteBoardParameterSettingDialog.xaml.cs">
+      <DependentUpon>WhiteBoardParameterSettingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CalibrationConverter.cs" />
+    <Compile Include="Reports\ChromaticityAnalyzeReport.cs" />
+    <Compile Include="ColorDiffFormulaExtension.cs" />
+    <Compile Include="MultiplatformDllLoader.cs" />
+    <Compile Include="UI\ImportStandardsDialog.xaml.cs">
+      <DependentUpon>ImportStandardsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="YRColorimeter\InstrumentInfoDialog.xaml.cs">
+      <DependentUpon>InstrumentInfoDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="YRColorimeter\YRGetSamplingDataDlg.xaml.cs">
+      <DependentUpon>YRGetSamplingDataDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="YRColorimeter\YRUploadDataDlg.xaml.cs">
+      <DependentUpon>YRUploadDataDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="YRColorimeter\YRWhiteBoardSettingDlg.xaml.cs">
+      <DependentUpon>YRWhiteBoardSettingDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorOffset.cs" />
+    <Compile Include="ColorSpaceExtension.cs" />
+    <Compile Include="ContentToImageWindow.cs" />
+    <Compile Include="Controls\ColorDiffFormulaComboBox.cs" />
+    <Compile Include="Controls\ColorSpaceComboBox.cs" />
+    <Compile Include="Controls\ColorValueInputControl.xaml.cs">
+      <DependentUpon>ColorValueInputControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GridWithLine.cs" />
+    <Compile Include="Controls\IlluminantComboBox.cs" />
+    <Compile Include="Controls\IlluminantControl.xaml.cs">
+      <DependentUpon>IlluminantControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MeasurementCaliberControl.xaml.cs">
+      <DependentUpon>MeasurementCaliberControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ObserverComboBox.cs" />
+    <Compile Include="Controls\ObserverControl.xaml.cs">
+      <DependentUpon>ObserverControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SpecimenInputControl.xaml.cs">
+      <DependentUpon>SpecimenInputControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SpectrumInputControl.xaml.cs">
+      <DependentUpon>SpectrumInputControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SpectrumPlotControl.xaml.cs">
+      <DependentUpon>SpectrumPlotControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SpecularComponentComboBox.cs" />
+    <Compile Include="Controls\SpecularComponentControl.xaml.cs">
+      <DependentUpon>SpecularComponentControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ValueChangedEventArgs.cs" />
+    <Compile Include="InstrumentTypeDetector.cs" />
+    <Compile Include="LedSpectrometer\WhiteBoardParameterDialog.xaml.cs">
+      <DependentUpon>WhiteBoardParameterDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.Refactor.cs" />
+    <Compile Include="MainWindow.Scan.cs" />
+    <Compile Include="MainWindow.Cloud.cs" />
+    <Compile Include="MainWindow.Colorimeter.cs" />
+    <Compile Include="MainWindow.Library.cs" />
+    <Compile Include="ObservableList.cs" />
+    <Compile Include="Properties\Annotations1.cs" />
+    <Compile Include="QTXHelper.cs" />
+    <Compile Include="SystemDefaultConfig.cs" />
+    <Compile Include="Device\DeviceNotification.cs" />
+    <Compile Include="Reports\FlowDocumentReportBase.cs" />
+    <Compile Include="GratingSpectrometer\InstrumentInfoDialog.xaml.cs">
+      <DependentUpon>InstrumentInfoDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GratingSpectrometer\WhiteBoardParameterSettingDialog.xaml.cs">
+      <DependentUpon>WhiteBoardParameterSettingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IMyWriter.cs" />
+    <Compile Include="LedSpectrometer\InstrumentStatusDialog.xaml.cs">
+      <DependentUpon>InstrumentStatusDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyExcelWriter.cs" />
+    <Compile Include="Judgement.cs" />
+    <Compile Include="MainWindow.Data.cs" />
+    <Compile Include="MainWindow.Edit.cs" />
+    <Compile Include="MainWindow.File.cs" />
+    <Compile Include="MainWindow.Indexes.cs" />
+    <Compile Include="MainWindow.Navigation.cs" />
+    <Compile Include="ObserverAndIlluminantSetting.cs" />
+    <Compile Include="Reports\PrintDocumentPaginator.cs" />
+    <Compile Include="Reports\ColorDiffReport.cs" />
+    <Compile Include="Reports\ReportBase.cs" />
+    <Compile Include="Reports\ReportSetting.cs" />
+    <Compile Include="S.cs" />
+    <Compile Include="SpecimenDatabase.cs" />
+    <Compile Include="SpecimenWrap.cs" />
+    <Compile Include="SpecimenNameGenerator.cs" />
+    <Compile Include="StandardDataBase.cs" />
+    <Compile Include="StandardWrap.cs" />
+    <Compile Include="Statistics.cs" />
+    <Compile Include="MyTextWriter.cs" />
+    <Compile Include="StatisticsHelper.cs" />
+    <Compile Include="Reports\StatisticsReport.cs" />
+    <Compile Include="TargetLibrary.cs" />
+    <Compile Include="ColorLibraryInfo.cs" />
+    <Compile Include="UI\AboutDialog.xaml.cs">
+      <DependentUpon>AboutDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AutoSelectStandardSettingDlg.xaml.cs">
+      <DependentUpon>AutoSelectStandardSettingDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ChromaticityFieldConverter.cs" />
+    <Compile Include="UI\ScanBarcodeDialog.xaml.cs">
+      <DependentUpon>ScanBarcodeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CloudSettingDialog.xaml.cs">
+      <DependentUpon>CloudSettingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ChromaticitySettingDialog.xaml.cs">
+      <DependentUpon>ChromaticitySettingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DeltaPlotControl.cs" />
+    <Compile Include="UI\DeltaPlotAgentControl.cs" />
+    <Compile Include="UI\DeltaPoint.cs" />
+    <Compile Include="UI\DuplicationOperationsDialog.xaml.cs">
+      <DependentUpon>DuplicationOperationsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExportSettingDialog.xaml.cs">
+      <DependentUpon>ExportSettingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FindConditionDialog.xaml.cs">
+      <DependentUpon>FindConditionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GetSpecimenNameDialog.xaml.cs">
+      <DependentUpon>GetSpecimenNameDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ImportLibraryDialog.xaml.cs">
+      <DependentUpon>ImportLibraryDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\InstrumentDataManagementDialog.xaml.cs">
+      <DependentUpon>InstrumentDataManagementDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JudgementSetting.cs" />
+    <Compile Include="UI\MeasurementDialog.xaml.cs">
+      <DependentUpon>MeasurementDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MetamerismIndiexDialog.xaml.cs">
+      <DependentUpon>MetamerismIndiexDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ObserverAndIlluminantDialog.xaml.cs">
+      <DependentUpon>ObserverAndIlluminantDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReflectanceTableControl.xaml.cs">
+      <DependentUpon>ReflectanceTableControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GetInputDialog.xaml.cs">
+      <DependentUpon>GetInputDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RenameRuleControl.xaml.cs">
+      <DependentUpon>RenameRuleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RenameRuleDialog.xaml.cs">
+      <DependentUpon>RenameRuleDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportSettingDialog.xaml.cs">
+      <DependentUpon>ReportSettingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SpecimenDataGrid.xaml.cs">
+      <DependentUpon>SpecimenDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SpectrumTemplateSelector.cs" />
+    <Compile Include="UI\StandardLinkageSettingDialog.xaml.cs">
+      <DependentUpon>StandardLinkageSettingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StatisticsPlotControl.xaml.cs">
+      <DependentUpon>StatisticsPlotControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ToleranceControl.xaml.cs">
+      <DependentUpon>ToleranceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ToleranceSettingDialog.xaml.cs">
+      <DependentUpon>ToleranceSettingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StandardInputDialog.xaml.cs">
+      <DependentUpon>StandardInputDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\WhitenessDialog.xaml.cs">
+      <DependentUpon>WhitenessDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\XYZPlotControl.xaml.cs">
+      <DependentUpon>XYZPlotControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ValueEventArg.cs" />
+    <Compile Include="ValueRangeValidationRule.cs" />
+    <Compile Include="Reports\WordReportBase.cs" />
+    <Compile Include="Reports\WordStatisticsReport.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UI\ColorDifferenceControl.cs" />
+    <Compile Include="GridExtensions.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="MainWindow.Instrument.cs" />
+    <Compile Include="MainWindow.Settings.cs" />
+    <Compile Include="Commands.cs" />
+    <Compile Include="Commands\Handlers\ConnectCommandHandler.cs" />
+    <Compile Include="Commands\Handlers\MeasureCommandHandler.cs" />
+    <Compile Include="Commands\Handlers\ImportCommandHandler.cs" />
+    <Compile Include="NameGenerator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Resources\CBCC3_450.Json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\CBCC3_D8_SCI.Json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\DLX_CP4_450.Json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\DLX_CP4_D8_SCI.Json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\PT_FASHION_HOME_TPX_450.Json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\PT_FASHION_HOME_TPX_D8_SCI.Json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\PT_Solid_Coated_450.Json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\PT_Solid_Coated_D8_I+E.Json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\PT_Solid_Uncoated_450.Json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\PT_Solid_Uncoated_D8_I+E.Json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\RAL_K5_450.Json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\RAL_K5_D8_SCI.Json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\UserManual.en-US.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\UserManual.zh-CN.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\YD5010_450_Solid Coated.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\YD5010_450_Solid Uncoated.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\YS3060_D8_PT_Solid Coated.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\YS3060_D8_PT_Solid Uncoated.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeNH.SQCX.Application\ThreeNH.SQCX.Application.csproj">
+      <Project>{D0FD4DBD-AE8E-4AB0-BE3E-2DC40C716F25}</Project>
+      <Name>ThreeNH.SQCX.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ColorAlgorithm\ColorAlgorithm.vcxproj">
+      <Project>{f59c0aff-9d67-4a84-94a7-a09c125f0316}</Project>
+      <Name>ColorAlgorithm</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.Instruments.Abstractions\ThreeNH.Instruments.Abstractions.csproj">
+      <Project>{A73F55A1-61A8-45C1-9411-BFFEF379582D}</Project>
+      <Name>ThreeNH.Instruments.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ColorimeterInterface\ColorimeterInterface.csproj">
+      <Project>{39bf4056-e99f-44c5-bcf6-bccf6a3434be}</Project>
+      <Name>ColorimeterInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ColorLibrary\ColorLibrary.csproj">
+      <Project>{878ba6fb-1f58-49de-b22d-45cf183a4ac6}</Project>
+      <Name>ColorLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ColorSpecimen\ColorSpecimen.csproj">
+      <Project>{24c4efde-26cb-41fe-8962-1494dcfd42cf}</Project>
+      <Name>ColorSpecimen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunicationBase\CommunicationBase.csproj">
+      <Project>{f773553f-30c0-4587-abe0-523fdd500c70}</Project>
+      <Name>CommunicationBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataModel\DataModel.csproj">
+      <Project>{84cd4737-051e-4adf-99fc-55fa6962ce58}</Project>
+      <Name>DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Density\Density.vcxproj">
+      <Project>{f605b05e-d418-4785-bc23-a71728666a69}</Project>
+      <Name>Density</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.SQCX.Domain\ThreeNH.SQCX.Domain.csproj">
+      <Project>{1C3D0C9A-0CC2-4723-A89B-0D1C2144CE1F}</Project>
+      <Name>ThreeNH.SQCX.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.SQCX.Infrastructure\ThreeNH.SQCX.Infrastructure.csproj">
+      <Project>{6CF3F1D6-7DB0-465C-BBF3-5C1A4E45EAF0}</Project>
+      <Name>ThreeNH.SQCX.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpticalDefines\OpticalDefines.csproj">
+      <Project>{c3cd9017-b596-407c-92d3-389f741d8ab1}</Project>
+      <Name>OpticalDefines</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PanTongColorMatchSearch\PanTongColorMatchSearch.csproj">
+      <Project>{2e8b146f-5811-4952-a7d5-e5903ea07ad8}</Project>
+      <Name>PanTongColorMatchSearch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PortService\PortService.csproj">
+      <Project>{87904435-4ac5-4fe5-b889-29ac825b4695}</Project>
+      <Name>PortService</Name>
+    </ProjectReference>
+    <!-- PTS device adapter migrated into ThreeNH.SQCX.Infrastructure (Devices\PTS) -->
+    <ProjectReference Include="..\ThreeNH.BleProtocol\ThreeNH.BleProtocol.csproj">
+      <Project>{7d111eea-b228-4edd-8347-c9e670084315}</Project>
+      <Name>ThreeNH.BleProtocol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.Bluetooth\ThreeNH.Bluetooth.csproj">
+      <Project>{245dd9ee-bc17-4b2a-96f4-d94878e508a9}</Project>
+      <Name>ThreeNH.Bluetooth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.CommDevice\ThreeNH.CommDevice.csproj">
+      <Project>{24aea196-4f26-4738-aa89-1100a4bb9d1d}</Project>
+      <Name>ThreeNH.CommDevice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.CommProtocol\ThreeNH.CommProtocol.csproj">
+      <Project>{9bb774c0-5c91-4a5b-b5c7-562a94ca9e3a}</Project>
+      <Name>ThreeNH.CommProtocol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.Helper\ThreeNH.Helper.csproj">
+      <Project>{e7350766-23eb-4d75-a80d-19bbcc9ec70f}</Project>
+      <Name>ThreeNH.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.ProjectLog\ThreeNH.ProjectLog.csproj">
+      <Project>{fd09cac5-decb-48db-ab4e-97df7059b87c}</Project>
+      <Name>ThreeNH.ProjectLog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.StructHelper\ThreeNH.StructHelper.csproj">
+      <Project>{a6e3abca-dc5b-4f66-b475-a644451b3d32}</Project>
+      <Name>ThreeNH.StructHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ToastNotificationMsg\ToastNotificationMsg.csproj">
+      <Project>{ab07b1b1-3a70-4eed-91c8-10201dcb5a89}</Project>
+      <Name>ToastNotificationMsg</Name>
+    </ProjectReference>
+    <!-- PTS device adapter migrated into ThreeNH.SQCX.Infrastructure (Devices\PTS) -->
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="PdfSharp-WPF.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="PdfSharp.Xps.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.112.0\build\net40\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net40\System.Data.SQLite.Core.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\ClosedXML.0.94.2\lib\net40\ClosedXML.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\x64\Debug\ColorAlgorithm.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ColorSpecimen\bin\Debug\ColorSpecimen.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\CommunicationBase\bin\Debug\CommunicationBase.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\ControlzEx.3.0.2.4\lib\net462\ControlzEx.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\DataModel\bin\Debug\DataModel.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\x64\Debug\Density.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\DocumentFormat.OpenXml.2.9.1\lib\net40\DocumentFormat.OpenXml.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\EntityFramework.6.4.0\lib\net40\EntityFramework.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\EntityFramework.6.4.0\lib\net40\EntityFramework.SqlServer.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\ExcelNumberFormat.1.0.3\lib\net20\ExcelNumberFormat.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\FastMember.1.3.0\lib\net40\FastMember.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\ini-parser.2.5.2\lib\net20\INIFileParser.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\LiveCharts.0.9.7\lib\net40\LiveCharts.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\LiveCharts.Wpf.0.9.7\lib\net40\LiveCharts.Wpf.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\MahApps.Metro.1.6.0\lib\net45\MahApps.Metro.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\Microsoft.Bcl.AsyncInterfaces.10.0.2\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Microsoft.CSharp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Microsoft.VisualBasic.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\Microsoft.Win32.Primitives.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.135\lib\net462\Microsoft.Xaml.Behaviors.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\mscorlib.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\netfx.force.conflicts.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\netstandard.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\NGettext.0.6.2\lib\net40\NGettext.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\OpticalDefines\bin\Debug\OpticalDefines.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\PanTongColorMatchSearch\bin\Debug\PanTongColorMatchSearch.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\PdfSharp-WPF.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\PdfSharp.Xps.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\PortService\bin\Debug\PortService.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\ReachFramework.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.AppContext.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Collections.Concurrent.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Collections.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\System.Collections.Immutable.9.0.0\lib\net462\System.Collections.Immutable.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Collections.NonGeneric.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Collections.Specialized.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.ComponentModel.DataAnnotations.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ComponentModel.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ComponentModel.EventBasedAsync.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ComponentModel.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ComponentModel.TypeConverter.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Configuration.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Console.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Data.Common.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Data.DataSetExtensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Data.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\System.Data.SQLite.Core.1.0.112.0\lib\net40\System.Data.SQLite.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\System.Data.SQLite.EF6.1.0.112.0\lib\net40\System.Data.SQLite.EF6.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\System.Data.SQLite.Linq.1.0.112.0\lib\net40\System.Data.SQLite.Linq.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Contracts.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Debug.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.FileVersionInfo.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Process.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.StackTrace.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.TextWriterTraceListener.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Tools.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.TraceSource.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Diagnostics.Tracing.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Drawing.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Drawing.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Dynamic.Runtime.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Globalization.Calendars.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Globalization.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Globalization.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.Compression.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.Compression.ZipFile.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.FileSystem.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.FileSystem.DriveInfo.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.FileSystem.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.FileSystem.Watcher.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.IsolatedStorage.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.MemoryMappedFiles.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\System.IO.Pipelines.10.0.2\lib\net462\System.IO.Pipelines.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.Pipes.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.IO.UnmanagedMemoryStream.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Linq.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Linq.Expressions.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Linq.Parallel.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Linq.Queryable.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Management.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Net.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Http.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.NameResolution.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.NetworkInformation.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Ping.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Requests.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Security.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.Sockets.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.WebHeaderCollection.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.WebSockets.Client.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Net.WebSockets.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Numerics.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.ObjectModel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Printing.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Reflection.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Reflection.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Reflection.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Resources.Reader.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Resources.ResourceManager.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Resources.Writer.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.CompilerServices.VisualC.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Handles.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.InteropServices.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net462\lib\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Numerics.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Runtime.Serialization.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Formatters.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Json.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Xml.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Claims.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Algorithms.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Csp.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Encoding.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.X509Certificates.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Principal.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.SecureString.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Text.Encoding.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Text.Encoding.Extensions.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\System.Text.Encodings.Web.10.0.2\lib\net462\System.Text.Encodings.Web.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\System.Text.Json.10.0.2\lib\net462\System.Text.Json.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Text.RegularExpressions.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Overlapped.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Tasks.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Tasks.Parallel.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Thread.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.ThreadPool.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Threading.Timer.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\System.ValueTuple.4.6.1\lib\net462\System.ValueTuple.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Web.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Web.Extensions.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Input.Toolkit.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Windows.Forms.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\ControlzEx.3.0.2.4\lib\net462\System.Windows.Interactivity.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.ReaderWriter.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XDocument.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XmlDocument.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XmlSerializer.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XPath.dll" />
+    <ReferencePath Include="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Xml.XPath.XDocument.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ThreeNH.BleProtocol\bin\Debug\ThreeNH.BleProtocol.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ThreeNH.Bluetooth\bin\Debug\ThreeNH.Bluetooth.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ColorimeterInterface\bin\Debug\ThreeNH.ColorimeterInterface.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ColorLibrary\bin\Debug\ThreeNH.ColorLibrary.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ThreeNH.SQCX.Application\bin\Debug\ThreeNH.ColorQualityControl.Application.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ThreeNH.SQCX.Domain\bin\Debug\ThreeNH.ColorQualityControl.Domain.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ThreeNH.SQCX.Infrastructure\bin\Debug\ThreeNH.ColorQualityControl.Infrastructure.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ThreeNH.CommDevice\bin\Debug\ThreeNH.CommDevice.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ThreeNH.CommProtocol\bin\Debug\ThreeNH.CommProtocol.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ThreeNH.Helper\bin\Debug\ThreeNH.Helper.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ThreeNH.Instruments.Abstractions\bin\Debug\ThreeNH.Instruments.Abstractions.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ThreeNH.ProjectLog\bin\Debug\ThreeNH.ProjectLog.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ThreeNH.StructHelper\bin\Debug\ThreeNH.StructHelper.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\ToastNotificationMsg\bin\Debug\ToastNotificationMsg.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\ToastNotifications.2.5.1\lib\net40\ToastNotifications.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\ToastNotifications.Messages.2.5.1\lib\net40\ToastNotifications.Messages.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\Tomlyn.2.4.0\lib\netstandard2.0\Tomlyn.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\WindowsBase.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\WPFToolkit.3.5.50211.1\lib\WPFToolkit.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\DocX.1.2.0\lib\Xceed.Words.NET.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.DataGrid.dll" />
+    <ReferencePath Include="E:\3nh\NSQCX\ColorQualityControl\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.Toolkit.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ComponentModel.Annotations.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.Reflection.Emit.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.Reflection.Emit.ILGeneration.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.Reflection.Emit.Lightweight.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.Runtime.InteropServices.WindowsRuntime.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.Duplex.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.Http.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.NetTcp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Facades\System.ServiceModel.Security.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\ConnectionSettingDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\Controls\AbsorbancePlotControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\Controls\LoadingForm.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\PTS70\WhiteBoardSettingDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\BlackCalibrationPage.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\CalibrationResultPage.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\CalibrationWindow.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\Charts\TriaxialChartView.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ClarityCalibrationPage.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ColorLibraryManagementWindow.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ColorMatchWindow.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ConnectView\ConnectByBluetooth5ManualDlg.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ConnectView\YL30ConnectDlg.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ConvertWhiteBoardDataDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\DeviceInfoDlg.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\LibraryColorInputWindow.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\MeasurementConfigsDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\HazeMeasurementDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ColourAtla\KeyWordSearch.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ColourAtla\PanTongMatch.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\Pathlength.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\SelectBlueToothDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\SelectSerialPortDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\TestModeSettingView.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\WhiteCalibrationPage.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\YS60\InstrumentInfoDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\YS60\UpgradeDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\YS60\WhiteBoardParameterSettingDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ImportStandardsDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\YRColorimeter\InstrumentInfoDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\YRColorimeter\YRGetSamplingDataDlg.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\YRColorimeter\YRUploadDataDlg.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\YRColorimeter\YRWhiteBoardSettingDlg.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\Controls\ColorValueInputControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\Controls\IlluminantControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\Controls\MeasurementCaliberControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\Controls\ObserverControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\Controls\SpecimenInputControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\Controls\SpectrumInputControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\Controls\SpectrumPlotControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\Controls\SpecularComponentControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\GratingSpectrometer\InstrumentInfoDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\GratingSpectrometer\WhiteBoardParameterSettingDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\LedSpectrometer\InstrumentStatusDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\LedSpectrometer\WhiteBoardParameterDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\AboutDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\AutoSelectStandardSettingDlg.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ScanBarcodeDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\CloudSettingDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ChromaticitySettingDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ColorDifferenceControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\DuplicationOperationsDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ExportSettingDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\FindConditionDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\GetSpecimenNameDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ImportLibraryDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\InstrumentDataManagementDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\MainWindow.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\MeasurementDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\MetamerismIndiexDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ObserverAndIlluminantDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ReflectanceTableControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\GetInputDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\RenameRuleControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\RenameRuleDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ReportSettingDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\SpecimenDataGrid.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\StandardLinkageSettingDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\StatisticsPlotControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ToleranceControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\ToleranceSettingDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\StandardInputDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\WhitenessDialog.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\UI\XYZPlotControl.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\App.g.cs" />
+    <Compile Include="E:\3nh\NSQCX\ColorQualityControl\ColorQualityControl\obj\Debug\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
+</Project>

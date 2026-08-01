@@ -1,5 +1,4 @@
-﻿﻿﻿﻿﻿using System;
-using System.CodeDom;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -8,14 +7,12 @@ using System.IO.Ports;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.CommunicationBase;
 using ThreeNH.DataModel;
 using ThreeNH.Helper;
-using ThreeNH.Instruments.DeviceInfo;
 using ThreeNH.Optical;
 using ThreeNH.StructHelper;
 
@@ -102,7 +99,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
     public class BluetoothDongleSpectrometer : EhMc17BluetoothCommunication, IInstrument, IMeasurementNotification,
         ISystemSetting, IRecordManagement
     {
-        private const string PNP_ID = "TNH  param($mt) $map[$mt.Value] ";
+        private const string PNP_ID = "TNH BTS";
 
 
         public BluetoothDongleSpectrometer()
@@ -313,9 +310,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
 
         public DeviceType DeviceType => DeviceType.Spectrophotometer;
 
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
+        public WavelengthRange WavelengthRange
         {
-            get => new ThreeNH.Instruments.DeviceInfo.WavelengthBand(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP);
+            get => new WavelengthRange(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP);
             set => throw new NotSupportedException();
         }
 
@@ -386,11 +383,11 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
         };
 
         public IEnumerable<ValueDescription> OptionalColorSpaces =>
-            from x in Enum.GetValues(typeof( param($mt) $map[$mt.Value] .ColorSpace)).OfType< param($mt) $map[$mt.Value] .ColorSpace>()
+            from x in Enum.GetValues(typeof(ColorIndex)).OfType<ColorIndex>()
             select new ValueDescription { Value = x.Uniform(), Description = x.Uniform().Description() };
 
         public IEnumerable<ValueDescription> OptionalColorDiffFormulas =>
-            from x in Enum.GetValues(typeof( param($mt) $map[$mt.Value] .ColorDeltaFormula)).OfType< param($mt) $map[$mt.Value] .ColorDeltaFormula>()
+            from x in Enum.GetValues(typeof(ColorDeltaFormula)).OfType<ColorDeltaFormula>()
             select new ValueDescription
             {
                 Value = x.Uniform(),
@@ -398,7 +395,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             };
 
         public IEnumerable<ValueDescription> OptionalColorIndexs =>
-            from x in Enum.GetValues(typeof( param($mt) $map[$mt.Value] .ColorIndex)).OfType< param($mt) $map[$mt.Value] .ColorIndex>()
+            from x in Enum.GetValues(typeof(ColorIndex)).OfType<ColorIndex>()
             select new ValueDescription
             {
                 Value = x.Uniform(),
@@ -478,10 +475,10 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
                 _observer = value;
             }
         }
-        private ThreeNH.Optical.ColorSpace _colorSpace;
+        private Optical.ColorSpace _colorSpace;
         private ColorDiffFormula _colorDiffFormula;
 
-        public ThreeNH.Optical.ColorSpace ColorSpace
+        public Optical.ColorSpace ColorSpace
         {
             get { return _colorSpace; }
             set
@@ -505,10 +502,10 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             }
         }
 
-        private ThreeNH.Optical.ColorIndex _colorIndex;
+        private Optical.ColorIndex _colorIndex;
         private UVFlag _uvMode;
 
-        public ThreeNH.Optical.ColorIndex ColorIndex
+        public Optical.ColorIndex ColorIndex
         {
             get { return _colorIndex; }
             set
@@ -563,15 +560,15 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             }
         }
 
-        public ThreeNH.ColorimeterInterface.Tolerance SystemDefaultTolerance
+        public ColorimeterInterface.Tolerance SystemDefaultTolerance
         {
             get
             {
                 var bytes = SendPacket(new CmdPacket(CommandType.CALL, (byte)CallCode.GET_TOLERANCE), 1000);
                 if (bytes.Length == Marshal.SizeOf(typeof(RtcDateTime)))
                 {
-                    var tolerance = StructConverter.BytesToStruct< param($mt) $map[$mt.Value] .Tolerance>(bytes);
-                    return new ThreeNH.ColorimeterInterface.Tolerance()
+                    var tolerance = StructConverter.BytesToStruct<Tolerance>(bytes);
+                    return new ColorimeterInterface.Tolerance()
                     {
                         dE = tolerance.dE,
                         dL = new Tuple<double, double>(tolerance.dL_Lower, tolerance.dL_Upper),
@@ -584,7 +581,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             }
             set
             {
-                var tolerance = new  param($mt) $map[$mt.Value] .Tolerance()
+                var tolerance = new Tolerance()
                 {
                     dE = (float)value.dE,
                     da_Lower = (float)value.da.Item1,
@@ -651,9 +648,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
                 _uvMode = ((UvMode)GetByteConfig(CallCode.GET_UV_MODE)).Uniform();
                 _illuminant = ((Illuminant)GetByteConfig(CallCode.GET_ILLUMINANT)).Uniform(); ;
                 _observer = ((Observer)GetByteConfig(CallCode.GET_OBSERVER)).Uniform(); ;
-                _colorSpace = ((ThreeNH.SQCX.Infrastructure.Instruments.BTS.ColorSpace)GetByteConfig(CallCode.GET_COLOR_SPACE)).Uniform(); ;
-                _colorIndex = ((ThreeNH.SQCX.Infrastructure.Instruments.BTS.ColorIndex)GetByteConfig(CallCode.GET_COLOR_INDEX)).Uniform(); ;
-                _colorDiffFormula = (( param($mt) $map[$mt.Value] .ColorDeltaFormula)GetByteConfig(CallCode.GET_DIFF_FORMAL)).Uniform();
+                _colorSpace = ((ColorSpace)GetByteConfig(CallCode.GET_COLOR_SPACE)).Uniform(); ;
+                _colorIndex = ((ColorIndex)GetByteConfig(CallCode.GET_COLOR_INDEX)).Uniform(); ;
+                _colorDiffFormula = ((ColorDeltaFormula)GetByteConfig(CallCode.GET_DIFF_FORMAL)).Uniform();
                 InternalModel = GetInternalModel();
 
             }
@@ -993,10 +990,10 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
         public InternalModelType InternalModel { get; private set; }
 
         /// <summary>
-        /// 判断是否是 param($mt) $map[$mt.Value] 系列仪器
+        /// 判断是否是BTS系列仪器
         /// </summary>
         /// <param name="serialPort">已连接的串口</param>
-        /// <returns>如果是ThreeNH.SQCX.Infrastructure.Instruments.BTS返回真，否则返回假</returns>
+        /// <returns>如果是BTS返回真，否则返回假</returns>
         public static bool IsBtsSeries(SerialPort serialPort)
         {
             using (BluetoothDongleSpectrometer s = new BluetoothDongleSpectrometer())

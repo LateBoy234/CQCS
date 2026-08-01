@@ -1,11 +1,11 @@
-﻿﻿﻿﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using ThreeNH.Optical;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
+namespace PTS
 {
     public struct RecordFlags
     {
@@ -104,17 +104,17 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
         {
             get
             {
-                if (_flags[ObserverAngleSect] == (int)ThreeNH.SQCX.Infrastructure.Instruments.PTS.Observer.Degree2)
+                if (_flags[ObserverAngleSect] == (int)PTS.Observer.Degree2)
                     return StandardObserver.CIE1931;
-                if (_flags[ObserverAngleSect] == (int)ThreeNH.SQCX.Infrastructure.Instruments.PTS.Observer.Degree10)
+                if (_flags[ObserverAngleSect] == (int)PTS.Observer.Degree10)
                     return StandardObserver.CIE1964;
                 return StandardObserver.Unknown;
             }
             set
             {
                 _flags[ObserverAngleSect] = value == StandardObserver.CIE1931
-                    ? (int)ThreeNH.SQCX.Infrastructure.Instruments.PTS.Observer.Degree2
-                    : (int)ThreeNH.SQCX.Infrastructure.Instruments.PTS.Observer.Degree10;
+                    ? (int)PTS.Observer.Degree2
+                    : (int)PTS.Observer.Degree10;
             }
         }
 
@@ -122,7 +122,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
         {
             get
             {
-                 param($mt) $map[$mt.Value] .Illuminant illuminant = ( param($mt) $map[$mt.Value] .Illuminant)_flags[LightTypeSect];
+                PTS.Illuminant illuminant = (PTS.Illuminant)_flags[LightTypeSect];
                 return illuminant.Uniform();
             }
             set

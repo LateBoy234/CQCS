@@ -10,7 +10,7 @@ using ThreeNH.Helper;
 using ThreeNH.Optical;
 using ThreeNH.StructHelper;
 
-namespace ThreeNH.YHComm
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YHComm
 {
 
     [StructLayout(LayoutKind.Sequential, Size = 64, Pack = 4)]
@@ -123,8 +123,8 @@ namespace ThreeNH.YHComm
             else if (dataType == RecordFlags.ColorDataType.Lab)
             {
                 var lab = new CIELAB(Values[0], Values[1], Values[2]);
-                var xyz = Formula.LabToXyz(lab, ((ThreeNH.YHComm.Illuminant) Illuminant).Uniform(),
-                    ((ThreeNH.YHComm.Observer) Observer).Uniform());
+                var xyz = Formula.LabToXyz(lab, ((Illuminant) Illuminant).Uniform(),
+                    ((Observer) Observer).Uniform());
                 ret.Set((StandardObserver) Observer, (StandardIlluminant) Illuminant, xyz);
             }
             else if (dataType == RecordFlags.ColorDataType.Spectrum)
@@ -238,7 +238,7 @@ namespace ThreeNH.YHComm
             set => haze = (short) (value * 10000);
         }
 
-        public ThreeNH.ColorSpecimen.HazeData ToUniform(HazeType hazeType)
+        public ColorSpecimen.HazeData ToUniform(HazeType hazeType)
         {
             var ret = new ColorSpecimen.HazeData
             {
@@ -339,7 +339,7 @@ namespace ThreeNH.YHComm
         }
 
         
-        public static ColorTolerance FromUniformTolerance(ThreeNH.DataModel.Tolerance uniformTolerance)
+        public static ColorTolerance FromUniformTolerance(Tolerance uniformTolerance)
         {
             ColorTolerance tolerance = new ColorTolerance {Items = new ToleranceItem[3]};
             if (uniformTolerance == null)
@@ -371,13 +371,13 @@ namespace ThreeNH.YHComm
         }
 
 
-        public ThreeNH.DataModel.Tolerance Uniform()
+        public Tolerance Uniform()
         {
-            var tolerance = new ThreeNH.DataModel.Tolerance();
+            var tolerance = new Tolerance();
 
             if ((_valid_items & 0x08) != 0)
             {
-                tolerance[ChromaticityField.dEab] = new ThreeNH.DataModel.ToleranceItem
+                tolerance[ChromaticityField.dEab] = new DataModel.ToleranceItem
                 {
                     Lower = null,
                     Upper = DeltaE,

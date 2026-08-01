@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -188,43 +188,43 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             return LensMode.Manual;
         }
 
-        internal static ThreeNH.Optical.ColorSpace Uniform(this ColorSpace colorSpace)
+        internal static Optical.ColorSpace Uniform(this ColorSpace colorSpace)
         {
             switch (colorSpace)
             {
-                case ColorSpace.CIELAB: return ThreeNH.Optical.ColorSpace.CIE_LAB;
-                case ColorSpace.CIELCH: return ThreeNH.Optical.ColorSpace.CIE_LCH;
-                case ColorSpace.CIEXYZ: return ThreeNH.Optical.ColorSpace.CIE_XYZ;
-                case ColorSpace.CIEYxy: return ThreeNH.Optical.ColorSpace.CIE_Yxy;
-                case ColorSpace.CIELUV: return ThreeNH.Optical.ColorSpace.CIE_LUV;
-                case ColorSpace.HUNTERLAB: return ThreeNH.Optical.ColorSpace.HUNTER_LAB;
-                case ColorSpace.SRGB: return ThreeNH.Optical.ColorSpace.sRGB;
-                //                case ColorSpace.MUNSELL: return ThreeNH.Optical.ColorSpace.MUNSELL;
-                case ColorSpace.BETA_XY: return ThreeNH.Optical.ColorSpace.BETA_xy;
-                case ColorSpace.DIN_LAB99: return ThreeNH.Optical.ColorSpace.DIN99_LAB;
-                default: return ThreeNH.Optical.ColorSpace.Unknown;
+                case ColorSpace.CIELAB: return Optical.ColorSpace.CIE_LAB;
+                case ColorSpace.CIELCH: return Optical.ColorSpace.CIE_LCH;
+                case ColorSpace.CIEXYZ: return Optical.ColorSpace.CIE_XYZ;
+                case ColorSpace.CIEYxy: return Optical.ColorSpace.CIE_Yxy;
+                case ColorSpace.CIELUV: return Optical.ColorSpace.CIE_LUV;
+                case ColorSpace.HUNTERLAB: return Optical.ColorSpace.HUNTER_LAB;
+                case ColorSpace.SRGB: return Optical.ColorSpace.sRGB;
+                //                case ColorSpace.MUNSELL: return Optical.ColorSpace.MUNSELL;
+                case ColorSpace.BETA_XY: return Optical.ColorSpace.BETA_xy;
+                case ColorSpace.DIN_LAB99: return Optical.ColorSpace.DIN99_LAB;
+                default: return Optical.ColorSpace.Unknown;
             }
         }
 
-        internal static ColorSpace ToInstrumentForm(this ThreeNH.Optical.ColorSpace colorSpace)
+        internal static ColorSpace ToInstrumentForm(this Optical.ColorSpace colorSpace)
         {
             switch (colorSpace)
             {
-                case ThreeNH.Optical.ColorSpace.CIE_LAB: return ColorSpace.CIELAB;
-                case ThreeNH.Optical.ColorSpace.CIE_LCH: return ColorSpace.CIELCH;
-                case ThreeNH.Optical.ColorSpace.CIE_XYZ: return ColorSpace.CIEXYZ;
-                case ThreeNH.Optical.ColorSpace.CIE_Yxy: return ColorSpace.CIEYxy;
-                case ThreeNH.Optical.ColorSpace.CIE_LUV: return ColorSpace.CIELUV;
-                case ThreeNH.Optical.ColorSpace.HUNTER_LAB: return ColorSpace.HUNTERLAB;
-                case ThreeNH.Optical.ColorSpace.sRGB: return ColorSpace.SRGB;
-                case ThreeNH.Optical.ColorSpace.BETA_xy: return ColorSpace.BETA_XY;
-                case ThreeNH.Optical.ColorSpace.DIN99_LAB: return ColorSpace.DIN_LAB99;
-                case ThreeNH.Optical.ColorSpace.MUNSELL: return ColorSpace.MUNSELL;
+                case Optical.ColorSpace.CIE_LAB: return ColorSpace.CIELAB;
+                case Optical.ColorSpace.CIE_LCH: return ColorSpace.CIELCH;
+                case Optical.ColorSpace.CIE_XYZ: return ColorSpace.CIEXYZ;
+                case Optical.ColorSpace.CIE_Yxy: return ColorSpace.CIEYxy;
+                case Optical.ColorSpace.CIE_LUV: return ColorSpace.CIELUV;
+                case Optical.ColorSpace.HUNTER_LAB: return ColorSpace.HUNTERLAB;
+                case Optical.ColorSpace.sRGB: return ColorSpace.SRGB;
+                case Optical.ColorSpace.BETA_xy: return ColorSpace.BETA_XY;
+                case Optical.ColorSpace.DIN99_LAB: return ColorSpace.DIN_LAB99;
+                case Optical.ColorSpace.MUNSELL: return ColorSpace.MUNSELL;
                 default: throw new InvalidOperationException();
             }
         }
 
-        internal static ThreeNH.Optical.ColorDiffFormula Uniform(this ColorDeltaFormula formula)
+        internal static Optical.ColorDiffFormula Uniform(this ColorDeltaFormula formula)
         {
             switch (formula)
             {
@@ -240,7 +240,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             }
         }
 
-        internal static ColorDeltaFormula ToInstrumentForm(this ThreeNH.Optical.ColorDiffFormula formula)
+        internal static ColorDeltaFormula ToInstrumentForm(this Optical.ColorDiffFormula formula)
         {
             switch (formula)
             {
@@ -256,43 +256,43 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.BTS
             }
         }
 
-        internal static ThreeNH.Optical.ColorIndex Uniform(this ColorIndex colorIndex)
+        internal static Optical.ColorIndex Uniform(this ColorIndex colorIndex)
         {
             switch (colorIndex)
             {
-                case ColorIndex.YELLOWNESS: return ThreeNH.Optical.ColorIndex.Yellowness;
-                case ColorIndex.WHITENESS: return ThreeNH.Optical.ColorIndex.Whiteness;
-                case ColorIndex.STRENGTH: return ThreeNH.Optical.ColorIndex.Strength;
-                case ColorIndex.METAMERISM_INDIEX: return ThreeNH.Optical.ColorIndex.MetamerismIndiex;
-                case ColorIndex.OPACITY: return ThreeNH.Optical.ColorIndex.Opacity;
-                case ColorIndex.HUE_CLASSIFY_555: return ThreeNH.Optical.ColorIndex.Shade555;
-                case ColorIndex.STAINING_FASTNESS: return ThreeNH.Optical.ColorIndex.StainingFastness;
-                case ColorIndex.GARDER_INDEX: return ThreeNH.Optical.ColorIndex.GardnerIndex;
-                case ColorIndex.COLOR_FASTNESS: return ThreeNH.Optical.ColorIndex.ColorFastness;
-                case ColorIndex.PT_CO_INDEX: return ThreeNH.Optical.ColorIndex.PtCoIndex;
-                case ColorIndex.GLOSS_8: return ThreeNH.Optical.ColorIndex.Gloss8;
-                case ColorIndex.HAZE: return ThreeNH.Optical.ColorIndex.Haze;
-                default: return ThreeNH.Optical.ColorIndex.None;
+                case ColorIndex.YELLOWNESS: return Optical.ColorIndex.Yellowness;
+                case ColorIndex.WHITENESS: return Optical.ColorIndex.Whiteness;
+                case ColorIndex.STRENGTH: return Optical.ColorIndex.Strength;
+                case ColorIndex.METAMERISM_INDIEX: return Optical.ColorIndex.MetamerismIndiex;
+                case ColorIndex.OPACITY: return Optical.ColorIndex.Opacity;
+                case ColorIndex.HUE_CLASSIFY_555: return Optical.ColorIndex.Shade555;
+                case ColorIndex.STAINING_FASTNESS: return Optical.ColorIndex.StainingFastness;
+                case ColorIndex.GARDER_INDEX: return Optical.ColorIndex.GardnerIndex;
+                case ColorIndex.COLOR_FASTNESS: return Optical.ColorIndex.ColorFastness;
+                case ColorIndex.PT_CO_INDEX: return Optical.ColorIndex.PtCoIndex;
+                case ColorIndex.GLOSS_8: return Optical.ColorIndex.Gloss8;
+                case ColorIndex.HAZE: return Optical.ColorIndex.Haze;
+                default: return Optical.ColorIndex.None;
             }
         }
 
-        internal static ColorIndex ToInstrumentForm(this ThreeNH.Optical.ColorIndex colorIndex)
+        internal static ColorIndex ToInstrumentForm(this Optical.ColorIndex colorIndex)
         {
             switch (colorIndex)
             {
-                case ThreeNH.Optical.ColorIndex.Yellowness: return ColorIndex.YELLOWNESS;
-                case ThreeNH.Optical.ColorIndex.Whiteness: return ColorIndex.WHITENESS;
-                case ThreeNH.Optical.ColorIndex.Strength: return ColorIndex.STRENGTH;
-                case ThreeNH.Optical.ColorIndex.MetamerismIndiex: return ColorIndex.METAMERISM_INDIEX;
-                case ThreeNH.Optical.ColorIndex.Opacity: return ColorIndex.OPACITY;
-                case ThreeNH.Optical.ColorIndex.Shade555: return ColorIndex.HUE_CLASSIFY_555;
-                case ThreeNH.Optical.ColorIndex.StainingFastness: return ColorIndex.STAINING_FASTNESS;
-                case ThreeNH.Optical.ColorIndex.GardnerIndex: return ColorIndex.GARDER_INDEX;
-                case ThreeNH.Optical.ColorIndex.ColorFastness: return ColorIndex.COLOR_FASTNESS;
-                case ThreeNH.Optical.ColorIndex.Haze: return ColorIndex.HAZE;
-                case ThreeNH.Optical.ColorIndex.Gloss8: return ColorIndex.GLOSS_8;
-                case ThreeNH.Optical.ColorIndex.None: return ColorIndex.INVALID;
-                case ThreeNH.Optical.ColorIndex.PtCoIndex: return ColorIndex.PT_CO_INDEX;//added by Liguanghai 20/03/28
+                case Optical.ColorIndex.Yellowness: return ColorIndex.YELLOWNESS;
+                case Optical.ColorIndex.Whiteness: return ColorIndex.WHITENESS;
+                case Optical.ColorIndex.Strength: return ColorIndex.STRENGTH;
+                case Optical.ColorIndex.MetamerismIndiex: return ColorIndex.METAMERISM_INDIEX;
+                case Optical.ColorIndex.Opacity: return ColorIndex.OPACITY;
+                case Optical.ColorIndex.Shade555: return ColorIndex.HUE_CLASSIFY_555;
+                case Optical.ColorIndex.StainingFastness: return ColorIndex.STAINING_FASTNESS;
+                case Optical.ColorIndex.GardnerIndex: return ColorIndex.GARDER_INDEX;
+                case Optical.ColorIndex.ColorFastness: return ColorIndex.COLOR_FASTNESS;
+                case Optical.ColorIndex.Haze: return ColorIndex.HAZE;
+                case Optical.ColorIndex.Gloss8: return ColorIndex.GLOSS_8;
+                case Optical.ColorIndex.None: return ColorIndex.INVALID;
+                case Optical.ColorIndex.PtCoIndex: return ColorIndex.PT_CO_INDEX;//added by Liguanghai 20/03/28
                 default: throw new InvalidOperationException();
             }
         }

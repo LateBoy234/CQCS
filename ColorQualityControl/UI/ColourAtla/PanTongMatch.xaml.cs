@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using ClosedXML.Excel;
+﻿using ClosedXML.Excel;
 using MahApps.Metro.Controls;//MetroWindow
 using PanTongColorMatchSearch;
 using System;
@@ -21,8 +21,9 @@ using ThreeNH.ColorSpecimen;
 using ThreeNH.Controls;
 using ThreeNH.DataModel;
 using ThreeNH.Optical;
-using ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer;
-using  param($mt) $map[$mt.Value] ;
+using ThreeNH.Spectrophotometer;
+using ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer;
+using ThreeNH.YL30;
 using ToastNotifications;
 using ToastNotifications.Lifetime;
 using ToastNotifications.Messages;
@@ -615,31 +616,31 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
             Mouse.OverrideCursor = Cursors.Wait;
             try
             {
-                IsProgressRingActiveLilin = true;//(ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer.Spectrometer)
+                IsProgressRingActiveLilin = true;//(ThreeNH.GratingSpectrometer.Spectrometer)
                 var type = _instrument.GetType();
                 Specimen result = null;
                 switch (_currentSetting.MainWindowObj.InstrumentType)
                 {
                     case InstrumentType.CR:
-                        if (_instrument is ColorReader.BluetoothDongleSpectrometer crDongleSpectrometer)
+                        if (_instrument is SQCX.Infrastructure.Instruments.ColorReader.BluetoothDongleSpectrometer crDongleSpectrometer)
                         {
                             result = crDongleSpectrometer.Measure();
                         }
                         else
                         {
-                            result = ((ThreeNH.SQCX.Infrastructure.Instruments.ColorReader.Spectrometer)_instrument).Measure();
+                            result = ((SQCX.Infrastructure.Instruments.ColorReader.Spectrometer)_instrument).Measure();
                         }
                         break;
                     case InstrumentType.YS:
 
                         if (IfNot45_0)
                         {
-                            result = ((ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer.Spectrometer)_instrument).Measure(SpecularComponent.SCIAndSCE,
+                            result = ((Spectrometer)_instrument).Measure(SpecularComponent.SCIAndSCE,
                                 ((ISystemSetting)_instrument).UvMode);
                         }
                         else
                         {
-                            result = ((ThreeNH.SQCX.Infrastructure.Instruments.GratingSpectrometer.Spectrometer)_instrument).MeasureSample();
+                            result = ((Spectrometer)_instrument).MeasureSample();
                         }
                         break;
                     case InstrumentType.BTS:
@@ -651,7 +652,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
                         {
                             if (IfNot45_0)
                             {
-                                result = (( param($mt) $map[$mt.Value] .Spectrometer)_instrument).Measure( param($mt) $map[$mt.Value] .MeasurementType.Standard, SpecularComponent.SCIAndSCE);
+                                result = ((ThreeNH.SQCX.Infrastructure.Instruments.BTS.Spectrometer)_instrument).Measure(ThreeNH.SQCX.Infrastructure.Instruments.BTS.MeasurementType.Standard, SpecularComponent.SCIAndSCE);
                             }
                             else
                             {
@@ -666,7 +667,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
 
                         break;
                     case InstrumentType.PTS:
-                        if (_instrument is ThreeNH.SQCX.Infrastructure.Instruments.PTS.BluetoothDongleSpectrometer ptsDongleSpectrometer)
+                        if (_instrument is PTS.BluetoothDongleSpectrometer ptsDongleSpectrometer)
                         {
                             result = ptsDongleSpectrometer.Measure();
                         }
@@ -674,11 +675,11 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
                         {
                             if (IfNot45_0)
                             {
-                                result = (( param($mt) $map[$mt.Value] .Spectrometer)_instrument).Measure( param($mt) $map[$mt.Value] .MeasurementType.Standard, SpecularComponent.SCIAndSCE);
+                                result = ((PTS.Spectrometer)_instrument).Measure(PTS.MeasurementType.Standard, SpecularComponent.SCIAndSCE);
                             }
                             else
                             {
-                                result = ((ThreeNH.SQCX.Infrastructure.Instruments.PTS.Spectrometer)_instrument).Measure();
+                                result = ((PTS.Spectrometer)_instrument).Measure();
                             }
                         }
                         if (result.IsTransmission)
@@ -688,7 +689,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
                         }
                         break;
                     case InstrumentType.JSON:
-                        if (_instrument is TS8450 jsonSpectrometer)
+                        if (_instrument is SQCX.Infrastructure.Instruments.Spectrophotometer.TS8450 jsonSpectrometer)
                         {
                             result = jsonSpectrometer.Measure();
                         }
@@ -699,7 +700,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
                         }
                         break;
                     case InstrumentType.YL30:
-                        if (_instrument is SpectrometerForYL30 YLSpectrometer)
+                        if (_instrument is SQCX.Infrastructure.Instruments.ThreeNH.YL30.SpectrometerForYL30 YLSpectrometer)
                         {
                             result = YLSpectrometer.Measure();
                         }

@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -6,7 +6,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30.Legacy
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30
 {
     public class SerialPortDevice : ICommDevice
     {

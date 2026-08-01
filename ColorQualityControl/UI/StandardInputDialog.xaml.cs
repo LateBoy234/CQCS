@@ -1,11 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.CommunicationBase;
 using ThreeNH.Controls;
-using ThreeNH.Instruments.DeviceInfo;
 using ThreeNH.Optical;
 
 namespace ThreeNH.ColorQualityControl.UI
@@ -33,8 +43,7 @@ namespace ThreeNH.ColorQualityControl.UI
             MeasureButton.Visibility = Visibility.Visible;
             if (_colorimeter is IDeviceInfo deviceInfo)
             {
-                var __wr = deviceInfo.WavelengthRange;
-                specimenInputControl.WavelengthRange = new WavelengthRange(__wr.Min, __wr.Max, __wr.Step); //_colorimeter.WavelengthRange;
+                specimenInputControl.WavelengthRange = deviceInfo.WavelengthRange; //_colorimeter.WavelengthRange;
             }
             else
             {

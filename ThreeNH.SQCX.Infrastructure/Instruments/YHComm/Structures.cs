@@ -5,7 +5,7 @@ using ThreeNH.ColorAlgorithm;
 using ThreeNH.ColorimeterInterface;
 using ThreeNH.Optical;
 
-namespace ThreeNH.YHComm
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YHComm
 {
 
     // 产品参数字段
@@ -492,7 +492,7 @@ namespace ThreeNH.YHComm
             }
         }
 
-        public ThreeNH.Optical.ColorSpace ColorSpace
+        public Optical.ColorSpace ColorSpace
         {
             get
             {
@@ -505,7 +505,7 @@ namespace ThreeNH.YHComm
             }
         }
 
-        public ThreeNH.Optical.ColorDiffFormula ColorDiffFormula
+        public Optical.ColorDiffFormula ColorDiffFormula
         {
             get
             {
@@ -518,7 +518,7 @@ namespace ThreeNH.YHComm
             }
         }
 
-        public ThreeNH.Optical.ColorIndex ColorIndex
+        public Optical.ColorIndex ColorIndex
         {
             get
             {

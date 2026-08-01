@@ -16,11 +16,10 @@ using ThreeNH.CommProtocol;
 using ThreeNH.CommunicationBase;
 using ThreeNH.DataModel;
 using ThreeNH.Helper;
-using ThreeNH.Instruments.DeviceInfo;
 using ThreeNH.Optical;
 using ThreeNH.StructHelper;
 
-namespace ThreeNH.YHComm
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YHComm
 {
 
     /// <summary>
@@ -410,8 +409,8 @@ namespace ThreeNH.YHComm
             }
         }
 
-        private ThreeNH.Optical.ColorSpace _colorSpace;
-        public ThreeNH.Optical.ColorSpace ColorSpace
+        private Optical.ColorSpace _colorSpace;
+        public Optical.ColorSpace ColorSpace
         {
             get { return _colorSpace; }
             set
@@ -432,8 +431,8 @@ namespace ThreeNH.YHComm
             }
         }
 
-        private ThreeNH.Optical.ColorIndex _colorIndex;
-        public ThreeNH.Optical.ColorIndex ColorIndex
+        private Optical.ColorIndex _colorIndex;
+        public Optical.ColorIndex ColorIndex
         {
             get { return _colorIndex; }
             set
@@ -457,7 +456,7 @@ namespace ThreeNH.YHComm
 
         public HazeReferStandard HazeReferStandard { get; private set; }
 
-        public ThreeNH.ColorimeterInterface.Tolerance SystemDefaultTolerance
+        public ColorimeterInterface.Tolerance SystemDefaultTolerance
         {
             get
             {
@@ -465,7 +464,7 @@ namespace ThreeNH.YHComm
                 if (t != null)
                 {
                     var tolerance = (ColorTolerance)t;
-                    return new ThreeNH.ColorimeterInterface.Tolerance
+                    return new ColorimeterInterface.Tolerance
                     {
                         dE = tolerance.DeltaE,
                         dL = new Tuple<double, double>(tolerance.Items[0].Lower, tolerance.Items[0].Upper),
@@ -562,9 +561,9 @@ namespace ThreeNH.YHComm
         /// </summary>
         public bool HasCompensationPort { get; private set; }
 
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
+        public WavelengthRange WavelengthRange
         {
-            get { return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP); }
+            get { return new WavelengthRange(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP); }
             set { throw new NotSupportedException(); }
         }
 
@@ -1194,7 +1193,7 @@ namespace ThreeNH.YHComm
                     bytes = new byte[] { (byte)value };
                     break;
                 case ProductInfoField.DEFAULT_LANGUAGE:
-                    var language = (ThreeNH.YHComm.Language)value;
+                    var language = (Language)value;
                     bytes = new byte[] { (byte)language };
                     break;
                 case ProductInfoField.DEVICE_MODEL_NAME:
@@ -1230,7 +1229,7 @@ namespace ThreeNH.YHComm
                 case ProductInfoField.INTERNAL_MODEL:
                     return (InternalModelType)result.Data[0];
                 case ProductInfoField.DEFAULT_LANGUAGE:
-                    return (ThreeNH.YHComm.Language)result.Data[0];
+                    return (Language)result.Data[0];
                 case ProductInfoField.DEVICE_MODEL_NAME:
                 case ProductInfoField.SOFTWARE_VERSION:
                 case ProductInfoField.HARDWARE_VERSION:
@@ -1659,38 +1658,38 @@ namespace ThreeNH.YHComm
                 MeasurementParameter.StandardObserver, (byte)observer.ToInstrumentForm()));
         }
 
-        public ThreeNH.Optical.ColorSpace GetColorSpace()
+        public Optical.ColorSpace GetColorSpace()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.ColorSpace));
             return ((ColorSpace)result.Data[0]).Uniform();
         }
 
-        public void SetColorSpace(ThreeNH.Optical.ColorSpace colorSpace)
+        public void SetColorSpace(Optical.ColorSpace colorSpace)
         {
             SendAndWait(Commands.SetMeasurementParameter(MeasurementParameter.ColorSpace,
                 (byte)colorSpace.ToInstrumentForm()));
         }
 
-        public ThreeNH.Optical.ColorDiffFormula GetColorDiffFormula()
+        public Optical.ColorDiffFormula GetColorDiffFormula()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.ColorDiffFormula));
             return ((ColorDeltaFormula)result.Data[0]).Uniform();
         }
 
-        public void SetColorDiffFormula(ThreeNH.Optical.ColorDiffFormula colorDiffFormula)
+        public void SetColorDiffFormula(Optical.ColorDiffFormula colorDiffFormula)
         {
             SendAndWait(Commands.SetMeasurementParameter(MeasurementParameter.ColorDiffFormula,
                 (byte)colorDiffFormula.ToInstrumentForm()));
         }
 
-        public void SetColorIndex(ThreeNH.Optical.ColorIndex colorIndex)
+        public void SetColorIndex(Optical.ColorIndex colorIndex)
         {
             SendAndWait(Commands.SetMeasurementParameter(MeasurementParameter.ColorIndex,
                 (byte)colorIndex.ToInstrumentForm()));
         }
 
 
-        public ThreeNH.Optical.ColorIndex GetColorIndex()
+        public Optical.ColorIndex GetColorIndex()
         {
             var result = SendAndWait(Commands.GetMeasurementParameter(MeasurementParameter.ColorIndex));
             return ((ColorIndex)result.Data[0]).Uniform();
@@ -1755,7 +1754,7 @@ namespace ThreeNH.YHComm
             var result = SendAndWait(Commands.GetProductInfo(ProductInfoField.DEFAULT_LANGUAGE));
             if (result.Data?.Length == 1)
             {
-                return ((ThreeNH.YHComm.Language)result.Data[0]).Uniform();
+                return ((Language)result.Data[0]).Uniform();
             }
             throw new CommunicationException(CommunicationError.ParsedBadData);
         }
@@ -2047,14 +2046,14 @@ namespace ThreeNH.YHComm
         {
             get
             {
-                List<ThreeNH.Optical.ColorSpace> list = new List<ThreeNH.Optical.ColorSpace>
+                List<Optical.ColorSpace> list = new List<Optical.ColorSpace>
                 {
-                    ThreeNH.Optical.ColorSpace.CIE_LAB,
-                    ThreeNH.Optical.ColorSpace.CIE_XYZ,
-                    ThreeNH.Optical.ColorSpace.CIE_Yxy,
-                    ThreeNH.Optical.ColorSpace.CIE_LCH,
-                    ThreeNH.Optical.ColorSpace.sRGB,
-                    ThreeNH.Optical.ColorSpace.BETA_xy,
+                    Optical.ColorSpace.CIE_LAB,
+                    Optical.ColorSpace.CIE_XYZ,
+                    Optical.ColorSpace.CIE_Yxy,
+                    Optical.ColorSpace.CIE_LCH,
+                    Optical.ColorSpace.sRGB,
+                    Optical.ColorSpace.BETA_xy,
                 };
                 return list.Select(o => new ValueDescription() { Value = o, Description = o.Description() });
             }
@@ -2084,13 +2083,13 @@ namespace ThreeNH.YHComm
         {
             get
             {
-                List<ThreeNH.Optical.ColorIndex> list = new List<ThreeNH.Optical.ColorIndex>
+                List<Optical.ColorIndex> list = new List<Optical.ColorIndex>
                 {
-                    ThreeNH.Optical.ColorIndex.Yellowness,
-                    ThreeNH.Optical.ColorIndex.Whiteness,
-                    ThreeNH.Optical.ColorIndex.Strength,
-                    ThreeNH.Optical.ColorIndex.GardnerIndex,
-                    ThreeNH.Optical.ColorIndex.PtCoIndex
+                    Optical.ColorIndex.Yellowness,
+                    Optical.ColorIndex.Whiteness,
+                    Optical.ColorIndex.Strength,
+                    Optical.ColorIndex.GardnerIndex,
+                    Optical.ColorIndex.PtCoIndex
                 };
 
 

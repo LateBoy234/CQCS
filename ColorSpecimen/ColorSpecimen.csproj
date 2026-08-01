@@ -75,6 +75,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ColorAlgorithm, Version=1.0.9707.15052, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\x64\Debug\ColorAlgorithm.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -91,10 +95,6 @@
     <Compile Include="ColorData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ColorAlgorithm\ColorAlgorithm.vcxproj">
-      <Project>{f59c0aff-9d67-4a84-94a7-a09c125f0316}</Project>
-      <Name>ColorAlgorithm</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OpticalDefines\OpticalDefines.csproj">
       <Project>{c3cd9017-b596-407c-92d3-389f741d8ab1}</Project>
       <Name>OpticalDefines</Name>

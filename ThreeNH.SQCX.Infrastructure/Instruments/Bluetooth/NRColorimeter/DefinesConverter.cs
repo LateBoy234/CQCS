@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using ThreeNH.Optical;
 
 namespace ThreeNH.SQCX.Infrastructure.Instruments.NRColorimeter

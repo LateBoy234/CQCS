@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ThreeNH.YHComm
+namespace ThreeNH.SQCX.Infrastructure.Instruments.YHComm
 {
     public static class Constants
     {

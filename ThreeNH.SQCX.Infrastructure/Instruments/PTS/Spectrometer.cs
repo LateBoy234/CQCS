@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -16,11 +16,10 @@ using ThreeNH.CommProtocol;
 using ThreeNH.CommunicationBase;
 using ThreeNH.DataModel;
 using ThreeNH.Helper;
-using ThreeNH.Instruments.DeviceInfo;
 using ThreeNH.Optical;
 using ThreeNH.StructHelper;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
+namespace PTS
 {
     /// <summary>
     /// 命令处理代理
@@ -608,9 +607,9 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
 
         public bool IsOpen => _clientProtocol.IsConnected;
 
-        public ThreeNH.Instruments.DeviceInfo.WavelengthBand WavelengthRange
+        public WavelengthRange WavelengthRange
         {
-            get { return new ThreeNH.Instruments.DeviceInfo.WavelengthBand(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP); }
+            get { return new WavelengthRange(Constants.VALID_WAVE_BEGIN, Constants.VALID_WAVE_END, Constants.VALID_WAVE_STEP); }
             set { throw new NotSupportedException(); }
         }
 
@@ -1323,7 +1322,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
                     bytes = new byte[] { (byte)value };
                     break;
                 case ProductInfoField.DEFAULT_LANGUAGE:
-                    var language = ( param($mt) $map[$mt.Value] .Language)value;
+                    var language = (PTS.Language)value;
                     bytes = new byte[] { (byte)language };
                     break;
                 case ProductInfoField.DEVICE_MODEL_NAME:
@@ -1397,7 +1396,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
                 case ProductInfoField.INTERNAL_MODEL:
                     return (ProductType)result.Data[0];
                 case ProductInfoField.DEFAULT_LANGUAGE:
-                    return ( param($mt) $map[$mt.Value] .Language)result.Data[0];
+                    return (PTS.Language)result.Data[0];
                 case ProductInfoField.DEVICE_MODEL_NAME:
                 case ProductInfoField.SOFTWARE_VERSION:
                 case ProductInfoField.HARDWARE_VERSION:
@@ -2283,7 +2282,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
             var result = SendAndWait(Commands.GetProductInfo(ProductInfoField.DEFAULT_LANGUAGE));
             if (result.Data?.Length == 1)
             {
-                return (( param($mt) $map[$mt.Value] .Language)result.Data[0]).Uniform();
+                return ((PTS.Language)result.Data[0]).Uniform();
             }
             throw new CommunicationException(CommunicationError.ParsedBadData);
         }

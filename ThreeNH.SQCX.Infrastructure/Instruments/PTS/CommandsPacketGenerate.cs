@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,7 +8,7 @@ using ThreeNH.ColorimeterInterface;
 using ThreeNH.CommunicationBase;
 using ThreeNH.StructHelper;
 
-namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
+namespace PTS
 {
     public enum MeasurementType
     {
@@ -591,7 +591,7 @@ namespace ThreeNH.SQCX.Infrastructure.Instruments.PTS
         public static CommandPacket SetInternalModel(byte modelType)
         {
             return new CommandPacket((byte)Command.SetInternalModel, new[] { modelType });
-            //20191101 lilin change byte to 16位整形；因为ThreeNH.SQCX.Infrastructure.Instruments.PTS下位机为unsigned short; 之前为 new byte[] {(byte)modelType}
+            //20191101 lilin change byte to 16位整形；因为PTS下位机为unsigned short; 之前为 new byte[] {(byte)modelType}
         }
 
         /// <summary>

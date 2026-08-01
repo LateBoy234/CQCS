@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,7 @@ using System.Threading;
 using ThreeNH.CommDevice;
 using System.Diagnostics;
 using System.IO.Ports;
-using  param($mt) $map[$mt.Value] ;
+using ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer.ProtocolContract;
 
 namespace ThreeNH.SQCX.Infrastructure.Instruments.Spectrophotometer
 {

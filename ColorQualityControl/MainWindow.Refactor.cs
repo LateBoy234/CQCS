@@ -791,22 +791,22 @@ namespace ThreeNH.ColorQualityControl
         StandardSpecimen[] IInstrumentLibraryHost.GetJobStandardSpecimens() => Database.StandardSpecimens;
 
         void IInstrumentLibraryHost.ShowColorLibraryAddSuccess()
-            => MessageBox.Show(S._("AddedToLibrarySuccessfully"));
+            => ToastInfo.ShowToastSuccess(S._("AddedToLibrarySuccessfully"));
 
         void IInstrumentLibraryHost.ShowColorLibraryAddSuccessToast()
-            => ToastInfo.ShowToastInfo(S._("AddedToLibrarySuccessfully"));
+            => ToastInfo.ShowToastSuccess(S._("AddedToLibrarySuccessfully"));
 
         void IInstrumentLibraryHost.ShowColorLibraryDuplicateError()
-            => MessageBox.Show(S._("WarningColorNumberDuplicated"), Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            => ToastInfo.ShowToastWorning(S._("WarningColorNumberDuplicated"));
 
         void IInstrumentLibraryHost.ShowColorLibraryDuplicateErrorToast(string detail)
-            => ToastInfo.ShowToastInfo($"{S._("WarningColorNumberDuplicated")}:{detail}");
+            => ToastInfo.ShowToastError($"{S._("WarningColorNumberDuplicated")}:{detail}");
 
         void IInstrumentLibraryHost.ShowInstrumentLibraryNotSupported()
-            => MessageBox.Show(_("TheOperationIsNotSupported"));
+            => ToastInfo.ShowToastError(_("TheOperationIsNotSupported"));
 
         void IInstrumentLibraryHost.ShowPleaseSelectAStandard()
-            => MessageBox.Show(_("PleaseSelectedAStandard"));
+            => ToastInfo.ShowToastInfo(_("PleaseSelectedAStandard"));
 
         void IInstrumentLibraryHost.SetInstrumentLibraryBusy(bool busy, string statusResourceKey)
         {

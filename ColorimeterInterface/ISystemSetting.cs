@@ -232,7 +232,6 @@ namespace ThreeNH.ColorimeterInterface
         /// 光谱测量方式是否可更改
         /// </summary>
         bool IsSpectrumMeasurementModeModifiable { get; }
-
         /// <summary>
         /// 重新读取所有系统配置
         /// </summary>
