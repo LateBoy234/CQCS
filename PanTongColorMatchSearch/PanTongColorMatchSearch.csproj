@@ -84,9 +84,9 @@
       <Project>{f59c0aff-9d67-4a84-94a7-a09c125f0316}</Project>
       <Name>ColorAlgorithm</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ColorSpecimen\ColorSpecimen.csproj">
-      <Project>{24c4efde-26cb-41fe-8962-1494dcfd42cf}</Project>
-      <Name>ColorSpecimen</Name>
+    <ProjectReference Include="..\ThreeNH.SQCX.Domain\ThreeNH.SQCX.Domain.csproj">
+      <Project>{1C3D0C9A-0CC2-4723-A89B-0D1C2144CE1F}</Project>
+      <Name>ThreeNH.SQCX.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ThreeNH.PortService;
 namespace ThreeNH.SQCX.Infrastructure.Instruments.YL30
 {
     public class SerialPortDevice : ICommDevice

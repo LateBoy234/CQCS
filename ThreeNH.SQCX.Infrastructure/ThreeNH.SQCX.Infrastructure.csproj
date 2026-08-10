@@ -55,6 +55,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <!-- ColorLibrary 色库持久化依赖 SQLite；与主工程同用 1.0.112 避免双版本冲突 -->
+    <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net40\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Pipelines, Version=10.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Pipelines.10.0.2\lib\net462\System.IO.Pipelines.dll</HintPath>
@@ -71,6 +75,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Text.Encodings.Web, Version=10.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encodings.Web.10.0.2\lib\net462\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
@@ -86,8 +91,49 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <!-- PanTong Excel 色卡导入；与主工程同用 0.94.2 避免双版本冲突 -->
+    <Reference Include="ClosedXML, Version=0.94.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.94.2\lib\net40\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.3.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.3\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.3.0\lib\net40\FastMember.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Communication\BleProtocol\BleProtocolWrapper.cs" />
+    <Compile Include="Communication\BleProtocol\BleSpectrophotometer.cs" />
+    <Compile Include="Communication\CommunicationException.cs" />
+    <Compile Include="Communication\DataPacket.cs" />
+    <Compile Include="Communication\EhMc17AtInterface.cs" />
+    <Compile Include="Communication\EhMc17BluetoothCommunication.cs" />
+    <Compile Include="Communication\EhMc17BluetoothForCR.cs" />
+    <Compile Include="Communication\InstrumentBase.cs" />
+    <Compile Include="Communication\PacketContent.cs" />
+    <Compile Include="Communication\PacketParser.cs" />
+    <Compile Include="Communication\Properties\Resources.Designer.cs" />
+    <Compile Include="Communication\Properties\Resources.zh-CN.Designer.cs" />
+    <Compile Include="Communication\YL30Communication.cs" />
+    <!-- PortService：串口枚举/热插拔，保留 ThreeNH.PortService；与 CommDevice/CommProtocol 同迁以避免环依赖 -->
+    <Compile Include="Communication\PortService\SerialPortInformation.cs" />
+    <Compile Include="Communication\PortService\SerialPortService.cs" />
+    <Compile Include="Communication\CommDevice\BluetoothDevice.cs" />
+    <Compile Include="Communication\CommDevice\BluetoothSerialPortDeviceManager.cs" />
+    <Compile Include="Communication\CommDevice\ICommDevice.cs" />
+    <Compile Include="Communication\CommDevice\InstrumentTypeDetector.cs" />
+    <Compile Include="Communication\CommDevice\NetworkConnectivityMonitor.cs" />
+    <Compile Include="Communication\CommDevice\SerialPortDevice.cs" />
+    <Compile Include="Communication\CommDevice\SocketDeviceCommunicator.cs" />
+    <Compile Include="Communication\CommProtocol\ClientProtocol.cs" />
+    <Compile Include="Communication\CommProtocol\CRC.cs" />
+    <Compile Include="Communication\CommProtocol\OperationCode.cs" />
+    <Compile Include="Communication\CommProtocol\PacketDefines.cs" />
+    <Compile Include="Communication\CommProtocol\PacketParser.cs" />
     <Compile Include="DependencyInjection\ApplicationServices.cs" />
     <Compile Include="Instruments\YHComm\BleComm.cs" />
     <Compile Include="Instruments\YHComm\Command.cs" />
@@ -101,7 +147,17 @@
     <Compile Include="Instruments\YHComm\RemoteError.cs" />
     <Compile Include="Instruments\YHComm\Structures.cs" />
     <Compile Include="Instruments\YHComm\USBComm.cs" />
+    <Compile Include="Persistence\ColorLibrary\ColorDatabase.cs" />
+    <Compile Include="Persistence\ColorLibrary\Database.cs" />
+    <Compile Include="Persistence\ColorLibrary\DatabaseHelper.cs" />
+    <Compile Include="Persistence\ColorLibrary\Material.cs" />
+    <Compile Include="Persistence\ColorLibrary\Pigment.cs" />
+    <Compile Include="Persistence\ColorLibrary\TargetColor.cs" />
     <Compile Include="Persistence\FileSystemJobDocumentStore.cs" />
+    <!-- PanTong：色卡 Excel/JSON 导入，保留 PanTongColorMatchSearch 命名空间；RelayCommand 改用 Helper -->
+    <Compile Include="Persistence\PanTong\PanTongColorFileConfig.cs" />
+    <Compile Include="Persistence\PanTong\PanTongColorFileRead.cs" />
+    <!-- ColorLibrary：色库 SQLite 访问，保留 ThreeNH.ColorLibrary 命名空间；ColorimeterInterface 已迁入 ThreeNH.Instruments.Abstractions -->
     <Compile Include="Properties\AssemblyInfo.cs" />
     <!-- Device adapters migrated from standalone projects into Instruments/<Name> -->
     <!-- PTS -->
@@ -179,11 +235,9 @@
     <Compile Include="Instruments\Common\Spectrophotometer\ProtocolImplementation\JsonCommProtocol.cs" />
     <Compile Include="Instruments\Common\Spectrophotometer\ProtocolImplementation\SocketCommProtocol.cs" />
     <Compile Include="Instruments\Common\Spectrophotometer\TS8450.cs" />
-    <!-- YL30 -->
+    <!-- YL30：串口枚举改用 Communication\PortService（ThreeNH.PortService），去掉本地副本 -->
     <Compile Include="Instruments\YL30\Comm\ICommDevice.cs" />
     <Compile Include="Instruments\YL30\Comm\ModbusRtuMaster.cs" />
-    <Compile Include="Instruments\YL30\Comm\PortService\SerialPortInformation.cs" />
-    <Compile Include="Instruments\YL30\Comm\PortService\SerialPortService.cs" />
     <Compile Include="Instruments\YL30\Comm\Result\RequestResult{T}.cs" />
     <Compile Include="Instruments\YL30\Comm\Result\ResultType.cs" />
     <Compile Include="Instruments\YL30\Comm\SerialPortDevice.cs" />
@@ -223,10 +277,6 @@
     <Compile Include="Instruments\YL30\ThreeNH.YL30\SpectrometerForYL30.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ColorSpecimen\ColorSpecimen.csproj">
-      <Project>{24c4efde-26cb-41fe-8962-1494dcfd42cf}</Project>
-      <Name>ColorSpecimen</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ThreeNH.SQCX.Application\ThreeNH.SQCX.Application.csproj">
       <Project>{D0FD4DBD-AE8E-4AB0-BE3E-2DC40C716F25}</Project>
       <Name>ThreeNH.SQCX.Application</Name>
@@ -235,7 +285,7 @@
       <Project>{1C3D0C9A-0CC2-4723-A89B-0D1C2144CE1F}</Project>
       <Name>ThreeNH.SQCX.Domain</Name>
     </ProjectReference>
-    <!-- Shared references adopted from the standalone device projects -->
+    <!-- Shared references：PortService/CommDevice/CommProtocol 已并入本程序集；OpticalDefines 因 ColorAlgorithm 环依赖保持独立 -->
     <ProjectReference Include="..\ColorAlgorithm\ColorAlgorithm.vcxproj">
       <Project>{f59c0aff-9d67-4a84-94a7-a09c125f0316}</Project>
       <Name>ColorAlgorithm</Name>
@@ -244,41 +294,13 @@
       <Project>{A73F55A1-61A8-45C1-9411-BFFEF379582D}</Project>
       <Name>ThreeNH.Instruments.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ColorimeterInterface\ColorimeterInterface.csproj">
-      <Project>{39bf4056-e99f-44c5-bcf6-bccf6a3434be}</Project>
-      <Name>ColorimeterInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ColorLibrary\ColorLibrary.csproj">
-      <Project>{878BA6FB-1F58-49DE-B22D-45CF183A4AC6}</Project>
-      <Name>ColorLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CommunicationBase\CommunicationBase.csproj">
-      <Project>{f773553f-30c0-4587-abe0-523fdd500c70}</Project>
-      <Name>CommunicationBase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataModel\DataModel.csproj">
-      <Project>{84cd4737-051e-4adf-99fc-55fa6962ce58}</Project>
-      <Name>DataModel</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OpticalDefines\OpticalDefines.csproj">
       <Project>{c3cd9017-b596-407c-92d3-389f741d8ab1}</Project>
       <Name>OpticalDefines</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PortService\PortService.csproj">
-      <Project>{87904435-4ac5-4fe5-b889-29ac825b4695}</Project>
-      <Name>PortService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ThreeNH.BleProtocol\ThreeNH.BleProtocol.csproj">
-      <Project>{7d111eea-b228-4edd-8347-c9e670084315}</Project>
-      <Name>ThreeNH.BleProtocol</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ThreeNH.CommDevice\ThreeNH.CommDevice.csproj">
-      <Project>{24aea196-4f26-4738-aa89-1100a4bb9d1d}</Project>
-      <Name>ThreeNH.CommDevice</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ThreeNH.CommProtocol\ThreeNH.CommProtocol.csproj">
-      <Project>{9bb774c0-5c91-4a5b-b5c7-562a94ca9e3a}</Project>
-      <Name>ThreeNH.CommProtocol</Name>
+    <ProjectReference Include="..\ThreeNH.Bluetooth\ThreeNH.Bluetooth.csproj">
+      <Project>{245dd9ee-bc17-4b2a-96f4-d94878e508a9}</Project>
+      <Name>ThreeNH.Bluetooth</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeNH.Helper\ThreeNH.Helper.csproj">
       <Project>{e7350766-23eb-4d75-a80d-19bbcc9ec70f}</Project>
@@ -289,5 +311,10 @@
       <Name>ThreeNH.StructHelper</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Communication\Properties\Resources.resx" />
+    <EmbeddedResource Include="Communication\Properties\Resources.zh-CN.resx" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net40\System.Data.SQLite.Core.targets')" />
 </Project>

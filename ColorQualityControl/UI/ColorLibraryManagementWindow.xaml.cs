@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.VisualBasic.FileIO;
 using Microsoft.Win32;
-using PanTongColorMatchSearch;
+using RelayCommand = ThreeNH.Helper.Plugin.RelayCommand;
 using ThreeNH.ColorLibrary;
 using ThreeNH.ColorQualityControl.Annotations;
 using ThreeNH.ColorSpecimen;
@@ -27,7 +27,7 @@ using Path = System.Windows.Shapes.Path;
 namespace ThreeNH.ColorQualityControl.UI
 {
     /// <summary>
-    /// ColorLibraryManagementWindow.xaml çš„äº¤äº’é€»è¾‘
+    /// ColorLibraryManagementWindow.xaml µÄ½»»¥Âß¼­
     /// </summary>
     public partial class ColorLibraryManagementWindow : Window, INotifyPropertyChanged
     {
@@ -271,8 +271,8 @@ namespace ThreeNH.ColorQualityControl.UI
             {
                 var ret = MessageBox.Show(
                     string.Format(S._("Format_ConfirmDeleteLibrary_0"), CurrentLibraryName),
-                    //$"å­˜æ ·åº“åˆ é™¤åä¸èƒ½æ¢å¤ï¼Œç¡®å®šè¦åˆ é™¤\"{SelectedLibrary.Name}\"å—ï¼Ÿ",
-                    //$"åˆ é™¤å­˜æ ·åº“[{SelectedLibrary.Name}]", 
+                    //$"´æÑù¿âÉ¾³ıºó²»ÄÜ»Ö¸´£¬È·¶¨ÒªÉ¾³ı\"{SelectedLibrary.Name}\"Âğ£¿",
+                    //$"É¾³ı´æÑù¿â[{SelectedLibrary.Name}]", 
                     string.Format(S._("Format_DeleteLibrary_0"), CurrentLibraryName),
                     MessageBoxButton.OKCancel, MessageBoxImage.Warning);
                 if (ret == MessageBoxResult.OK)

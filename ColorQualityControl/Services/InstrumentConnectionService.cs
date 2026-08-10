@@ -7,8 +7,6 @@ using ThreeNH.ColorQualityControl.Instrument;
 using ThreeNH.ColorQualityControl.Refactoring.Contracts;
 using ThreeNH.CommunicationBase;
 using static ThreeNH.CommunicationBase.EhMc17AtInterface;
-using ToastNotificationMsg;
-
 namespace ThreeNH.ColorQualityControl.Services
 {
     /// <summary>

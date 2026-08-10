@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System;
 using System.Windows.Input;
 using PanTongColorMatchSearch;
+using RelayCommand = ThreeNH.Helper.Plugin.RelayCommand;
 using ThreeNH.ColorSpecimen;
 using ThreeNH.ColorAlgorithm;
 using ThreeNH.Optical;

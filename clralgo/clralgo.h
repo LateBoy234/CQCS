@@ -944,7 +944,22 @@ CLRALGO_API float*  clralgo_reflect_400_700_to_reflect_360_780(clralgo_Spectra* 
 /// <returns></returns>
 CLRALGO_API float clralgo_calculate_whiteness_gost_16873(const struct  clralgo_CIELab* lab);
 
+/// <summary>
+/// ///2026.07.28 添加MI计算公式---------xdy
+/// </summary>
+/// <param name="spectra"></param>
+/// <param name="MI"></param>
+/// <returns></returns>
+CLRALGO_API void calculate_MI(const struct clralgo_Spectra* spectra, float* MI);
 
+/// <summary>
+/// ///2026.07.28 添加EI计算公式---------xdy
+/// </summary>
+/// <param name="spectra"></param>
+/// <param name="EI"></param>
+/// <returns></returns>
+
+CLRALGO_API void calculate_EI(const struct clralgo_Spectra* spectra, float* EI);
 #ifdef __cplusplus
 }		// end extern "C"
 #endif

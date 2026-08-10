@@ -2838,3 +2838,23 @@ CLRALGO_API float clralgo_calculate_whiteness_gost_16873(const clralgo_CIELab* l
 	return 100 - sqrt((100 - lab->L) * (100 - lab->L) + lab->a * lab->a + lab->b * lab->b);
 }
 
+//MI  输入的反射率量级应该是0-1  不是0-100
+
+// MI = 100 * log10 ( 1 / F_680nm );
+void calculate_MI(const struct clralgo_Spectra* spectra, float* MI)
+{
+	//printf("\r\n 反射率：%f,位置：%d \r\n", spectra->data[(680 - spectra->range.start) / spectra->range.interval], (680 - spectra->range.start) / spectra->range.interval);
+	*MI = 100 * log10(1 / spectra->data[(680 - spectra->range.start) / spectra->range.interval]);
+}
+
+//EI
+
+// EI = 100 * log10 ( 2 * F_680nm /  (F_550nm + F_560nm)  );
+void calculate_EI(const struct clralgo_Spectra* spectra, float* EI)
+{
+	float value = 0;
+	value = spectra->data[(680 - spectra->range.start) / spectra->range.interval] / (spectra->data[(550 - spectra->range.start) / spectra->range.interval] + spectra->data[(560 - spectra->range.start) / spectra->range.interval]);
+	*EI = 100 * log10(2 * value);
+}
+
+

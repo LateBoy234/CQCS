@@ -79,6 +79,12 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="ToastNotifications">
+      <HintPath>..\packages\ToastNotifications.2.5.1\lib\net40\ToastNotifications.dll</HintPath>
+    </Reference>
+    <Reference Include="ToastNotifications.Messages">
+      <HintPath>..\packages\ToastNotifications.Messages.2.5.1\lib\net40\ToastNotifications.Messages.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -131,6 +137,7 @@
     <Compile Include="Plugin\RelayCommand.cs" />
     <Compile Include="Plugin\Services\LoadingService.cs" />
     <Compile Include="Plugin\Services\Logservice.cs" />
+    <Compile Include="Plugin\Services\ToastInfo.cs" />
     <Compile Include="Plugin\Utils\CommunicationBase\DataPacket.cs" />
     <Compile Include="Plugin\Utils\CommunicationBase\PacketContent.cs" />
     <Compile Include="Plugin\Utils\CommunicationBase\PacketParser.cs" />
@@ -155,10 +162,6 @@
     <ProjectReference Include="..\ColorAlgorithm\ColorAlgorithm.vcxproj">
       <Project>{f59c0aff-9d67-4a84-94a7-a09c125f0316}</Project>
       <Name>ColorAlgorithm</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PortService\PortService.csproj">
-      <Project>{87904435-4AC5-4FE5-B889-29AC825B4695}</Project>
-      <Name>PortService</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeNH.StructHelper\ThreeNH.StructHelper.csproj">
       <Project>{A6E3ABCA-DC5B-4F66-B475-A644451B3D32}</Project>

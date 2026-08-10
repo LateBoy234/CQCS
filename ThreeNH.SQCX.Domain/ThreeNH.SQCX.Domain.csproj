@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,7 +43,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Entity.cs" />
-    <Compile Include="Measurement\MeasurementTarget.cs" />
+    <!-- ColorSpecimen：测量样品核心模型；依赖 ColorAlgorithm/OpticalDefines，暂作 Domain 共享内核 -->
+    <Compile Include="ColorSpecimen\ColorData.cs" />
+    <Compile Include="ColorSpecimen\HazeData.cs" />
+    <Compile Include="ColorSpecimen\Specimen.cs" />
+    <!-- DataModel：标样/容差/色品字段等作业文档模型，保留 ThreeNH.DataModel 命名空间 -->
+    <Compile Include="DataModel\ChromaticityField.cs" />
+    <Compile Include="DataModel\ChromaticitySetting.cs" />
+    <Compile Include="DataModel\IGroup.cs" />
+    <Compile Include="DataModel\StandardSpecimen.cs" />
+    <Compile Include="DataModel\TestSpecimen.cs" />
+    <Compile Include="DataModel\Tolerance.cs" />
+    <Compile Include="DataModel\ToleranceSetting.cs" />
     <Compile Include="Measurement\MeasurementTarget.cs" />
     <Compile Include="QualityControl\JudgementLevel.cs" />
     <Compile Include="QualityControl\QualityJudgement.cs" />
@@ -53,6 +65,21 @@
     <Compile Include="StandardSelection\StandardSelectionLimits.cs" />
     <Compile Include="StandardSelection\StandardSelectionPolicy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ColorAlgorithm\ColorAlgorithm.vcxproj">
+      <Project>{f59c0aff-9d67-4a84-94a7-a09c125f0316}</Project>
+      <Name>ColorAlgorithm</Name>
+    </ProjectReference>
+    <!-- OpticalDefines 须保持独立程序集：ColorAlgorithm 引用它，Domain 又引用 ColorAlgorithm，并入 Domain 会成环 -->
+    <ProjectReference Include="..\OpticalDefines\OpticalDefines.csproj">
+      <Project>{c3cd9017-b596-407c-92d3-389f741d8ab1}</Project>
+      <Name>OpticalDefines</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.Helper\ThreeNH.Helper.csproj">
+      <Project>{E7350766-23EB-4D75-A80D-19BBCC9EC70F}</Project>
+      <Name>ThreeNH.Helper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

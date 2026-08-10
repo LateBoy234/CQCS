@@ -28,15 +28,48 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calibration\ICalibrationCapability.cs" />
+    <Compile Include="ColorimeterInterface\IColorimeter.cs" />
+    <Compile Include="ColorimeterInterface\IDeviceInfo.cs" />
+    <Compile Include="ColorimeterInterface\IInstrument.cs" />
+    <Compile Include="ColorimeterInterface\IInstrumentMaintenance.cs" />
+    <Compile Include="ColorimeterInterface\IMeasurement.cs" />
+    <Compile Include="ColorimeterInterface\IMetrology.cs" />
+    <Compile Include="ColorimeterInterface\IRecordManagement.cs" />
+    <Compile Include="ColorimeterInterface\ISpecimenClearing.cs" />
+    <Compile Include="ColorimeterInterface\ISystemSetting.cs" />
+    <Compile Include="ColorimeterInterface\ITargetLibraryManagement.cs" />
+    <Compile Include="ColorimeterInterface\IYtWavelengthCapability.cs" />
     <Compile Include="Connection\IInstrumentConnection.cs" />
     <Compile Include="DeviceInfo\IDeviceIdentity.cs" />
     <Compile Include="Measurement\IMeasurementDevice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- ColorimeterInterface 契约依赖 Specimen（Domain）与 StandardSpecimen（DataModel） -->
+    <ProjectReference Include="..\ColorAlgorithm\ColorAlgorithm.vcxproj">
+      <Project>{f59c0aff-9d67-4a84-94a7-a09c125f0316}</Project>
+      <Name>ColorAlgorithm</Name>
+    </ProjectReference>
+    <!-- OpticalDefines 独立共享内核（Domain 层语义）；因 ColorAlgorithm 依赖须保持独立程序集 -->
+    <ProjectReference Include="..\OpticalDefines\OpticalDefines.csproj">
+      <Project>{c3cd9017-b596-407c-92d3-389f741d8ab1}</Project>
+      <Name>OpticalDefines</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.Helper\ThreeNH.Helper.csproj">
+      <Project>{E7350766-23EB-4D75-A80D-19BBCC9EC70F}</Project>
+      <Name>ThreeNH.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeNH.SQCX.Domain\ThreeNH.SQCX.Domain.csproj">
+      <Project>{1C3D0C9A-0CC2-4723-A89B-0D1C2144CE1F}</Project>
+      <Name>ThreeNH.SQCX.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

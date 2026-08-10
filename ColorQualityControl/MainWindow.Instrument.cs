@@ -1,4 +1,3 @@
-ï»¿using PanTongColorMatchSearch;
 using PTS;
 using System;
 using System.Collections.Generic;
@@ -41,7 +40,7 @@ using ThreeNH.SQCX.Infrastructure.Instruments.ThreeNH.YL30;
 using ThreeNH.YL30;
 using BleSpectrophotometer = ThreeNH.SQCX.Infrastructure.Instruments.BTS.BleSpectrophotometer;
 using Formula = ThreeNH.ColorAlgorithm.Formula;
-using RelayCommand = PanTongColorMatchSearch.RelayCommand;
+using RelayCommand = ThreeNH.Helper.Plugin.RelayCommand;
 
 namespace ThreeNH.ColorQualityControl
 {
@@ -98,7 +97,7 @@ namespace ThreeNH.ColorQualityControl
             set => _session.Instrument.InstrumentType = value;
         }
 
-        // è¿æ¥çŠ¶æ€ç”± Service æŒæœ‰ï¼›MainWindow ä¿ç•™ set ä»¥å…¼å®¹ WPF TextBox é»˜è®¤ TwoWay ç»‘å®š
+        // Á¬½Ó×´Ì¬ÓÉ Service ³ÖÓĞ£»MainWindow ±£Áô set ÒÔ¼æÈİ WPF TextBox Ä¬ÈÏ TwoWay °ó¶¨
         public bool IsConnecting
         {
             get => _session.Instrument.IsConnecting;
@@ -132,7 +131,7 @@ namespace ThreeNH.ColorQualityControl
         public InstrumentType InstrumentType => instrumentType;
 
         /// <summary>
-        /// é›¾åº¦è®¡ç®—çš„å‚è€ƒT1å’ŒT3çš„å€¼ï¼Œåˆ†åˆ«å¯¹åº”Item1å’ŒItem2
+        /// Îí¶È¼ÆËãµÄ²Î¿¼T1ºÍT3µÄÖµ£¬·Ö±ğ¶ÔÓ¦Item1ºÍItem2
         /// </summary>
         public Tuple<ColorData, ColorData> HazeReferenceTuple { get; set; }
 
@@ -152,7 +151,7 @@ namespace ThreeNH.ColorQualityControl
                 List<IColorData> samples = new List<IColorData>();
                 if (CurrentStandard != null && CurrentStandard.TestSpecimens != null)
                 {
-                    //é˜²æ­¢å®¢æˆ·è¯•æ ·å¤ªå¤šåŠ è½½å¤ªæ…¢ï¼Œæœ€å¤šåªæ˜¾ç¤º20ä¸ªç‚¹
+                    //·ÀÖ¹¿Í»§ÊÔÑùÌ«¶à¼ÓÔØÌ«Âı£¬×î¶àÖ»ÏÔÊ¾20¸öµã
                     IEnumerable<Specimen> specimens = CurrentStandard.TestSpecimens.Count > 20 ? CurrentStandard.TestSpecimens.Take(20) : CurrentStandard.TestSpecimens;
                     foreach (var test in specimens)
                     {
@@ -164,9 +163,9 @@ namespace ThreeNH.ColorQualityControl
             }
         }
 
-        #region ä»ªå™¨è¿æ¥ç›¸å…³å‡½æ•°
+        #region ÒÇÆ÷Á¬½ÓÏà¹Øº¯Êı
 
-        // DoConnectionWork å·²è¿å…¥ InstrumentConnectionService.ConnectionWorkï¼ˆé˜¶æ®µ 1ï¼‰
+        // DoConnectionWork ÒÑÇ¨Èë InstrumentConnectionService.ConnectionWork£¨½×¶Î 1£©
 
         private string _connectWay;
 
@@ -180,21 +179,21 @@ namespace ThreeNH.ColorQualityControl
             }
         }
 
-        #region å±•è®¯å¹³å°é©±åŠ¨æ£€æµ‹é€»è¾‘
+        #region Õ¹Ñ¶Æ½Ì¨Çı¶¯¼ì²âÂß¼­
 
         /// <summary>
-        /// æ˜¾ç¤ºé©±åŠ¨ä¸‹è½½æç¤ºå¯¹è¯æ¡†ï¼ˆè‡ªåŠ¨è¯†åˆ«32/64ä½ç³»ç»Ÿï¼‰
+        /// ÏÔÊ¾Çı¶¯ÏÂÔØÌáÊ¾¶Ô»°¿ò£¨×Ô¶¯Ê¶±ğ32/64Î»ÏµÍ³£©
         /// </summary>
         private void ShowDriverDownloadDialog()
         {
-            // æ£€æµ‹æ“ä½œç³»ç»Ÿä½æ•°
+            // ¼ì²â²Ù×÷ÏµÍ³Î»Êı
             bool is64Bit = Environment.Is64BitOperatingSystem;
-            string architecture = is64Bit ? "64ä½(x64)" : "32ä½(x86)";
+            string architecture = is64Bit ? "64Î»(x64)" : "32Î»(x86)";
 
-            // å®˜ç½‘ä¸‹è½½é¡µé¢ï¼ˆå‡è®¾å®˜ç½‘æœ‰åŒºåˆ†32/64ä½çš„ä¸‹è½½é“¾æ¥ï¼‰
+            // ¹ÙÍøÏÂÔØÒ³Ãæ£¨¼ÙÉè¹ÙÍøÓĞÇø·Ö32/64Î»µÄÏÂÔØÁ´½Ó£©
             string downloadUrl = is64Bit
-                ? "https://tnh.3n88.com/app/SQCX/driver/SciU2Sx64.zip"  // 64ä½ä¸‹è½½é¡µ
-                : "https://tnh.3n88.com/app/SQCX/driver/SciU2Sx86.zip"; // 32ä½ä¸‹è½½é¡µ
+                ? "https://tnh.3n88.com/app/SQCX/driver/SciU2Sx64.zip"  // 64Î»ÏÂÔØÒ³
+                : "https://tnh.3n88.com/app/SQCX/driver/SciU2Sx86.zip"; // 32Î»ÏÂÔØÒ³
 
 
             var message = new StringBuilder();
@@ -216,7 +215,7 @@ namespace ThreeNH.ColorQualityControl
             }
         }
         /// <summary>
-        /// ä½¿ç”¨é»˜è®¤æµè§ˆå™¨æ‰“å¼€URL
+        /// Ê¹ÓÃÄ¬ÈÏä¯ÀÀÆ÷´ò¿ªURL
         /// </summary>
         private void OpenUrl(string url)
         {
@@ -225,16 +224,16 @@ namespace ThreeNH.ColorQualityControl
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = url,
-                    UseShellExecute = true  // .NET Core/.NET 5+ å¿…éœ€
+                    UseShellExecute = true  // .NET Core/.NET 5+ ±ØĞè
                 });
             }
             catch
             {
-                // é™çº§æ–¹æ¡ˆï¼šå¤åˆ¶åˆ°å‰ªè´´æ¿
+                // ½µ¼¶·½°¸£º¸´ÖÆµ½¼ôÌù°å
                 Clipboard.SetText(url);
                 MessageBox.Show(
-                    $"æ— æ³•è‡ªåŠ¨æ‰“å¼€æµè§ˆå™¨ï¼Œé“¾æ¥å·²å¤åˆ¶åˆ°å‰ªè´´æ¿ï¼š\n{url}",
-                    "æç¤º",
+                    $"ÎŞ·¨×Ô¶¯´ò¿ªä¯ÀÀÆ÷£¬Á´½ÓÒÑ¸´ÖÆµ½¼ôÌù°å£º\n{url}",
+                    "ÌáÊ¾",
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
             }
@@ -259,7 +258,7 @@ namespace ThreeNH.ColorQualityControl
                     }
                     finally
                     {
-                        // Worker åœ¨ WaitForDeviceSelection ä¸Šé˜»å¡ï¼Œé€‰å®Œï¼ˆå«å–æ¶ˆï¼‰å¿…é¡» Setï¼Œå¦åˆ™ä¼šä¸€ç›´æ— å“åº”
+                        // Worker ÔÚ WaitForDeviceSelection ÉÏ×èÈû£¬Ñ¡Íê£¨º¬È¡Ïû£©±ØĞë Set£¬·ñÔò»áÒ»Ö±ÎŞÏìÓ¦
                         _session.Instrument.SignalDeviceSelectionDone();
                     }
                 }
@@ -331,7 +330,7 @@ namespace ThreeNH.ColorQualityControl
                 ClosePortAndDongle();
                 devices.Clear();
                 var ports = SerialPortService.SerialPorts.Where(x => InstrumentConnectionService.IsBluetoothDonglePort(x.Description)).Select(o => o.PortName).ToList();
-                if (ports.Count == 0) return;//æ— å¯ç”¨è“ç‰™é€‚é…å™¨ç«¯å£ï¼Œå¼€å¯è“ç‰™é€‚é…å™¨ç­‰å¾…åŠŸèƒ½ï¼Œåœ¨ç«¯å£æ¥å…¥ä¸­æ–­äº‹ä»¶å¤„è®¾ç½®
+                if (ports.Count == 0) return;//ÎŞ¿ÉÓÃÀ¶ÑÀÊÊÅäÆ÷¶Ë¿Ú£¬¿ªÆôÀ¶ÑÀÊÊÅäÆ÷µÈ´ı¹¦ÄÜ£¬ÔÚ¶Ë¿Ú½ÓÈëÖĞ¶ÏÊÂ¼ş´¦ÉèÖÃ
                 var port = ports.FirstOrDefault();
                 _serialPort = new SerialPort(port, 115200);
                 _serialPort.Open();
@@ -342,7 +341,7 @@ namespace ThreeNH.ColorQualityControl
                     if (_dongle.InitDongle())
                     {
                         _dongle.BeginScan();
-                        // æ‰«ææ€æ”¶å£åˆ° ConnectionStateMachineï¼Œæ›¿ä»£åŸ _isSearching
+                        // É¨ÃèÌ¬ÊÕ¿Úµ½ ConnectionStateMachine£¬Ìæ´úÔ­ _isSearching
                         _session.Instrument.BeginSearch();
                     }
                 });
@@ -407,7 +406,7 @@ namespace ThreeNH.ColorQualityControl
                         MessageBox.Show(string.Format(S._("ConnectFailPleaseConnectbymanual$0$"), msg));
                         _session.Instrument.SelectedDevice = null;
                         _session.Instrument.SetConnecting(false);
-                        // è¿æ¥å¤±è´¥ä¹Ÿå¿…é¡»å”¤é†’ Workerï¼Œå¦åˆ™ WaitForDeviceSelection ä¼šæ°¸ä¹…é˜»å¡
+                        // Á¬½ÓÊ§°ÜÒ²±ØĞë»½ĞÑ Worker£¬·ñÔò WaitForDeviceSelection »áÓÀ¾Ã×èÈû
                         _session.Instrument.SignalDeviceSelectionDone();
                         return;
                     }
@@ -474,7 +473,7 @@ namespace ThreeNH.ColorQualityControl
         }
 
         /// <summary>
-        /// åˆå§‹åŒ–ç™½æ¿å‚æ•°(8åº¦å…‰æ³½åº¦éœ€è¦ç™½æ¿åå°„ç‡)
+        /// ³õÊ¼»¯°×°å²ÎÊı(8¶È¹âÔó¶ÈĞèÒª°×°å·´ÉäÂÊ)
         /// </summary>
         private void InitializeWhiteBoardData()
         {
@@ -526,7 +525,7 @@ namespace ThreeNH.ColorQualityControl
             }
         }
 
-        #endregion ä»ªå™¨è¿æ¥ç›¸å…³å‡½æ•°
+        #endregion ÒÇÆ÷Á¬½ÓÏà¹Øº¯Êı
         private void InitConnection()
         {
             WireInstrumentConnectionState();
@@ -543,7 +542,7 @@ namespace ThreeNH.ColorQualityControl
 
       
         /// <summary>
-        /// ä¸²å£è¿æ¥äº‹ä»¶ç›‘å¬
+        /// ´®¿ÚÁ¬½ÓÊÂ¼ş¼àÌı
         /// </summary>
         private void DiscoverSerialPortDevice()
         {
@@ -553,7 +552,7 @@ namespace ThreeNH.ColorQualityControl
         }
 
         /// <summary>
-        /// socketè¿æ¥äº‹ä»¶ç›‘å¬
+        /// socketÁ¬½ÓÊÂ¼ş¼àÌı
         /// </summary>
         private void DiscoverSocektDevice()
         {
@@ -597,7 +596,7 @@ namespace ThreeNH.ColorQualityControl
         }
 
         /// <summary>
-        /// æ›´æ–°ä»ªå™¨ç›¸å…³UI
+        /// ¸üĞÂÒÇÆ÷Ïà¹ØUI
         /// </summary>
         /// <param name="type"></param>
         private void UpdateInstrumentUi(InstrumentType type)
@@ -610,7 +609,7 @@ namespace ThreeNH.ColorQualityControl
                     ((IMeasurementNotification)colorimeter).MeasurementReceived += OnMeasureResultReceived;
                 }
 
-                Trace.TraceInformation("ä»ªå™¨æˆåŠŸè¿æ¥åˆ°ï¼š" + colorimeter.DeviceName);
+                Trace.TraceInformation("ÒÇÆ÷³É¹¦Á¬½Óµ½£º" + colorimeter.DeviceName);
 
                 SystemDefaultConfig.LatestConnection = colorimeter.DeviceName;
 
@@ -663,7 +662,7 @@ namespace ThreeNH.ColorQualityControl
             }
             if (e.EventType == EventType.Insertion)
             {
-                Trace.TraceInformation("ä¸²å£æ’å…¥ï¼š{0}", e.SerialPorts[0].PortName);
+                Trace.TraceInformation("´®¿Ú²åÈë£º{0}", e.SerialPorts[0].PortName);
                 if (colorimeter == null || !IsByBluetooth && !colorimeter.IsOpen)
                 {
                     if (SerialPortDevice.PortDescriptions.Contains((e.SerialPorts[0].Description)))
@@ -689,7 +688,7 @@ namespace ThreeNH.ColorQualityControl
             }
             else if (e.EventType == EventType.Removal)
             {
-                Trace.TraceInformation("ä¸²å£æ‹”å‡ºï¼š{0}", e.SerialPorts[0].PortName);
+                Trace.TraceInformation("´®¿Ú°Î³ö£º{0}", e.SerialPorts[0].PortName);
                 if (colorimeter != null)
                 {
                     foreach (var port in e.SerialPorts)
@@ -725,7 +724,7 @@ namespace ThreeNH.ColorQualityControl
             WSCE = null;
         }
 
-        // XAML CommandBinding å…¥å£ä¿ç•™ï¼›ç¼–æ’å·²è¿ ConnectCommandHandlerï¼ˆé˜¶æ®µ4-T01ï¼‰
+        // XAML CommandBinding Èë¿Ú±£Áô£»±àÅÅÒÑÇ¨ ConnectCommandHandler£¨½×¶Î4-T01£©
         private void ConnectExecuted(object sender, ExecutedRoutedEventArgs e)
             => _connectCommands.ExecuteConnect(sender, e);
 
@@ -738,7 +737,7 @@ namespace ThreeNH.ColorQualityControl
         private void InstrumentOperationCanExecuted(object sender, CanExecuteRoutedEventArgs e)
             => _connectCommands.CanExecuteWhenConnected(sender, e);
 
-        // æµ‹é‡èœå•/çŠ¶æ€æ ç”± MeasureStateMachine é©±åŠ¨ï¼Œç» IMeasurementHost.SetMeasureUiActive æ¨é€ï¼ˆ3-T06ï¼‰
+        // ²âÁ¿²Ëµ¥/×´Ì¬À¸ÓÉ MeasureStateMachine Çı¶¯£¬¾­ IMeasurementHost.SetMeasureUiActive ÍÆËÍ£¨3-T06£©
         private void UpdateMeasureUi(bool isBeginMeasure)
         {
             mainMenu.IsEnabled = !isBeginMeasure;
@@ -749,7 +748,7 @@ namespace ThreeNH.ColorQualityControl
         private void MeasureStandardExecuted(object sender, ExecutedRoutedEventArgs e)
             => _measureCommands.ExecuteMeasureStandard(sender, e);
 
-        #region æ ‡æ ·è°ƒç”¨çš„æ–¹æ³•
+        #region ±êÑùµ÷ÓÃµÄ·½·¨
         private int? CalculateEightDegreesGloss(ColorData sCI, ColorData sCE)
         {
             if (WSCI == null || WSCE == null || sCI == null || sCE == null)
@@ -760,18 +759,18 @@ namespace ThreeNH.ColorQualityControl
             // return AlgorithmExtension.clralgo_8_gloss_data(sCI.Spectrum, sCE.Spectrum, WSCI.Spectrum, WSCE.Spectrum);
         }
 
-        // æµ‹é‡å¼‚å¸¸åæ˜¯å¦é‡æ ¡å‡†ç”± InstrumentCalibrationService ç¼–æ’ï¼ˆé˜¶æ®µ1-T23ï¼‰
+        // ²âÁ¿Òì³£ºóÊÇ·ñÖØĞ£×¼ÓÉ InstrumentCalibrationService ±àÅÅ£¨½×¶Î1-T23£©
         internal bool IsMeasurementAbnormalException(Exception ex) => _calibration.TryHandleMeasurementAbnormal(ex);
 
-        // åœ¨æ ‡æ ·ä¸­æŸ¥æ‰¾æœ€æ¥è¿‘çš„æ ‡æ · â†’ å·²è¿å…¥ MeasurementService.FindNearestStandard
+        // ÔÚ±êÑùÖĞ²éÕÒ×î½Ó½üµÄ±êÑù ¡ú ÒÑÇ¨Èë MeasurementService.FindNearestStandard
 
         /// <summary>
-        /// è¯•æ ·æµ‹é‡å…¥åº“å¹¶åˆ·æ–°å¯¼èˆªæ ‘ä¸å›¾è¡¨ï¼ˆFinishMeasureOnUiAsync / ä»ªå™¨é€šçŸ¥å…±ç”¨ï¼‰ã€‚
-        /// å¹³å‡æµ‹é‡å¯¹è¯æ¡†ä¹Ÿèµ°æ­¤è·¯å¾„ï¼šä»…è®¾ CurrentTest æ—¶è‹¥æœªåˆ‡åˆ°è¯¥æ ‡æ ·è§†å›¾ï¼ŒTestDataGrid æ— æ­¤é¡¹ï¼Œé€‰ä¸­æ— æ•ˆã€‚
+        /// ÊÔÑù²âÁ¿Èë¿â²¢Ë¢ĞÂµ¼º½Ê÷ÓëÍ¼±í£¨FinishMeasureOnUiAsync / ÒÇÆ÷Í¨Öª¹²ÓÃ£©¡£
+        /// Æ½¾ù²âÁ¿¶Ô»°¿òÒ²×ß´ËÂ·¾¶£º½öÉè CurrentTest Ê±ÈôÎ´ÇĞµ½¸Ã±êÑùÊÓÍ¼£¬TestDataGrid ÎŞ´ËÏî£¬Ñ¡ÖĞÎŞĞ§¡£
         /// </summary>
         internal void ApplyMeasuredTestResult(TestSpecimen test, StandardSpecimen std)
         {
-            // ä»ªå™¨æµ‹é‡å…¥åº“ç» Session åè°ƒï¼Œé¿å… Instrument partial ç›´è°ƒ Data.AddTestï¼ˆé˜¶æ®µ2-T02ï¼‰
+            // ÒÇÆ÷²âÁ¿Èë¿â¾­ Session Ğ­µ÷£¬±ÜÃâ Instrument partial Ö±µ÷ Data.AddTest£¨½×¶Î2-T02£©
             _session.AddTest(test, std);
             NavigateTreeAfterTestMeasured(std);
             CurrentTest = test;
@@ -779,7 +778,7 @@ namespace ThreeNH.ColorQualityControl
         }
 
         /// <summary>
-        /// æ ‡æ ·å·² Commit ååˆ‡è§†å›¾å¹¶é€‰ä¸­ï¼›AddStandard æ— é€‰ä¸­å‚æ•°ï¼Œä¸ ApplyMeasuredTestResult å¯¹ç§°ä¾›å¯¹è¯æ¡†è°ƒç”¨ã€‚
+        /// ±êÑùÒÑ Commit ºóÇĞÊÓÍ¼²¢Ñ¡ÖĞ£»AddStandard ÎŞÑ¡ÖĞ²ÎÊı£¬Óë ApplyMeasuredTestResult ¶Ô³Æ¹©¶Ô»°¿òµ÷ÓÃ¡£
         /// </summary>
         internal void ApplyMeasuredStandardResult(StandardSpecimen standard)
         {
@@ -885,7 +884,7 @@ namespace ThreeNH.ColorQualityControl
                 }
                 else if (colorimeter is PTS.Spectrometer ptsSpectrometer)
                 {
-                    //TS7700ç³»åˆ—å’ŒTS7010ç³»åˆ—ä¸­çš„7030å’Œ7036å¯ä»¥è®¾ç½®ç™½æ¿å‚æ•°
+                    //TS7700ÏµÁĞºÍTS7010ÏµÁĞÖĞµÄ7030ºÍ7036¿ÉÒÔÉèÖÃ°×°å²ÎÊı
                     var productInfo = ptsSpectrometer.GetProductInfo();
                     var internalModel = productInfo.InternalModel;
                     if (internalModel == ProductType.TS7700)
@@ -1008,7 +1007,7 @@ namespace ThreeNH.ColorQualityControl
 
         private async void DealMeasureResultReceivedEvent(object sender, MeasurementNotificationArgs e)
         {
-            //æ”¶åˆ°ä»ªå™¨å…³é—­å‘½ä»¤
+            //ÊÕµ½ÒÇÆ÷¹Ø±ÕÃüÁî
             if (e == null)
             {
                 Dispatcher.Invoke(() =>
@@ -1031,7 +1030,7 @@ namespace ThreeNH.ColorQualityControl
             }
             if (IsAnyModalOpened())
                 return;
-            //é›¾åº¦æµ‹é‡ä¸æ¥æ”¶ä»ªå™¨æ‰‹åŠ¨æµ‹é‡æ•°æ®
+            //Îí¶È²âÁ¿²»½ÓÊÕÒÇÆ÷ÊÖ¶¯²âÁ¿Êı¾İ
             if (IsHazeEnabled) return;
 
             if (e.Result is StandardSpecimen standard)
@@ -1108,7 +1107,7 @@ namespace ThreeNH.ColorQualityControl
             }
         }
         /// <summary>
-        /// è¿æ¥åˆ°ä¸²å£
+        /// Á¬½Óµ½´®¿Ú
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1327,7 +1326,7 @@ namespace ThreeNH.ColorQualityControl
         {
             if (Colorimeter is ISystemSetting setting)
             {
-                setting.RefreshCaches();//added by Liguanghai,æ¯æ¬¡è®¾ç½®å‚æ•°å‰å…ˆåˆ·æ–°ä¸€ä¸‹å‚æ•°
+                setting.RefreshCaches();//added by Liguanghai,Ã¿´ÎÉèÖÃ²ÎÊıÇ°ÏÈË¢ĞÂÒ»ÏÂ²ÎÊı
                 MeasurementConfigsDialog dialog = new MeasurementConfigsDialog(Colorimeter as ISystemSetting);
                 dialog.Owner = this;
                 dialog.ShowDialog();
@@ -1377,7 +1376,7 @@ namespace ThreeNH.ColorQualityControl
             {
                 try
                 {
-                    // æ¸…æ™°åº¦ä»ªå™¨æ ¡å‡†è°ƒç”¨ä¸‹æ²‰ Serviceï¼ŒLoading ä»ç•™åœ¨ MainWindowï¼ˆé˜¶æ®µ1-T23ï¼‰
+                    // ÇåÎú¶ÈÒÇÆ÷Ğ£×¼µ÷ÓÃÏÂ³Á Service£¬Loading ÈÔÁôÔÚ MainWindow£¨½×¶Î1-T23£©
                     _calibration.CalibrateClarity(colorimeter);
                 }
                 catch (Exception ex)
@@ -1428,7 +1427,7 @@ namespace ThreeNH.ColorQualityControl
             Formula ref1, ref2;
             Database.GetReferenceFormula(Formula, out ref1, out ref2);
             report.Tolerance = Database.GetTolerance(report.Standard, new ObserverIlluminantPair(Observer, Illuminant));
-            report.InstrumentModel = (Colorimeter as IDeviceInfo)?.Model ?? "";//190923lilin æ‰“å°æ–‡ä»¶æœ€åçš„ä»ªå™¨å‹å·
+            report.InstrumentModel = (Colorimeter as IDeviceInfo)?.Model ?? "";//190923lilin ´òÓ¡ÎÄ¼ş×îºóµÄÒÇÆ÷ĞÍºÅ
             report.VisibleDeltaPlots = DefaultVisibleDeltaPlots;
             report.ToleranceSetting = Database.GetToleranceSetting(SingleStandardInShowing);
             report.ObserverAndIlluminantSetting = Database.ObserverAndIlluminantSetting;

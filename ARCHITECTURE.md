@@ -14,7 +14,10 @@ ColorQualityControl (WPF presentation)
            Domain
 ```
 
-- `Domain` contains business rules and has no project dependencies.
+- `Domain` contains business rules. Prefer no project dependencies; currently
+  hosts legacy `ColorSpecimen` and `DataModel` (job specimens, tolerances,
+  chromaticity fields) which require `ColorAlgorithm` + `OpticalDefines` as a
+  temporary shared kernel until slim domain types replace them.
 - `Application` contains use cases and depends only on `Domain`.
 - `Infrastructure` implements external concerns and wires use cases.
 - `ColorQualityControl` is the presentation/composition host. Legacy code remains
@@ -84,6 +87,20 @@ folder. Each device project keeps its original C# `namespace` (e.g. `PTS`,
 compiling unchanged; only the physical assembly boundary moves from a standalone
 `<Name>.dll` into `ThreeNH.SQCX.Infrastructure.dll`.
 
+Shared contract/persistence libraries follow the same rule:
+
+- `ColorimeterInterface` → `ThreeNH.Instruments.Abstractions/ColorimeterInterface`
+  (namespace `ThreeNH.ColorimeterInterface`; thin ports in the same assembly)
+- `ColorLibrary` → `Persistence/ColorLibrary` (namespace `ThreeNH.ColorLibrary`)
+- `CommunicationBase` → `Communication/` (namespace `ThreeNH.CommunicationBase`)
+- `ThreeNH.BleProtocol` → `Communication/BleProtocol/` (co-merged to avoid
+  `Infrastructure → BleProtocol → CommunicationBase` cycle)
+
+Core measurement / job models land in Domain (not Infrastructure):
+
+- `ColorSpecimen` → `ThreeNH.SQCX.Domain/ColorSpecimen` (namespace `ThreeNH.ColorSpecimen`)
+- `DataModel` → `ThreeNH.SQCX.Domain/DataModel` (namespace `ThreeNH.DataModel`)
+
 Mapping used:
 
 - `PTS` → `Instruments/PTS`
@@ -102,17 +119,49 @@ Rule applied for every device:
    `Infrastructure\Instruments\<Name>\`.
 2. Add those files to `ThreeNH.SQCX.Infrastructure.csproj` and adopt the device
    project's `ProjectReference`s to the shared projects (ColorAlgorithm is the
-   native C++ `ColorAlgorithm.vcxproj`). The full shared-project set is:
-   ColorAlgorithm, ColorimeterInterface, ColorSpecimen, CommunicationBase, DataModel,
-   OpticalDefines, PortService, ThreeNH.BleProtocol, ThreeNH.CommDevice,
-   ThreeNH.CommProtocol, ThreeNH.Helper, ThreeNH.StructHelper (plus ColorLibrary used
-   by other Infrastructure adapters).
+   native C++ `ColorAlgorithm.vcxproj`). Remaining shared projects after merges:
+   ColorAlgorithm, OpticalDefines, ThreeNH.Bluetooth, ThreeNH.Helper,
+   ThreeNH.StructHelper, ThreeNH.Instruments.Abstractions; Domain hosts
+   ColorSpecimen/DataModel; Infrastructure hosts ColorLibrary/CommunicationBase/
+   BleProtocol/PortService/CommDevice/CommProtocol/PanTong.
 3. Remove the standalone device project from `ColorQualityControl.sln` and from every
    `ProjectReference` in `ColorQualityControl.csproj` (the presentation layer already
    references `Infrastructure`).
 4. Keep the orphaned device project folders as rollback backups until the build is
    confirmed locally, then delete them.
 
+### Shared libraries merged into Infrastructure
+
+- `ColorLibrary` → `Persistence/ColorLibrary` (SQLite color-library access)
+- `CommunicationBase` → `Communication/` (serial/BT transport + packet framing)
+- `ThreeNH.BleProtocol` → `Communication/BleProtocol/` (P/Invoke wrapper; co-merged with CommunicationBase to prevent cycle)
+- `PortService` → `Communication/PortService/` (namespace `ThreeNH.PortService`; WMI/poll serial enumeration)
+- `ThreeNH.CommDevice` → `Communication/CommDevice/` (co-merged with PortService to avoid
+  `Infrastructure → CommDevice → PortService` / `CommDevice → Infrastructure` cycle)
+- `ThreeNH.CommProtocol` → `Communication/CommProtocol/` (same co-merge reason)
+- `PanTongColorMatchSearch` → `Persistence/PanTong/` (Excel/JSON Pantone import; namespace kept).
+  `RelayCommand` was not migrated — call sites now use `ThreeNH.Helper.Plugin.RelayCommand`.
+  `MessageBox` was stripped from the Excel reader so Infrastructure stays UI-free.
+
+YL30’s local `Instruments/YL30/Comm/PortService` duplicate was dropped; YL30
+`SerialPortDevice` now uses the shared `ThreeNH.PortService` types (including
+`IsUsb2SerialPort` on `SerialPortInformation`).
+
+### Shared libraries merged into Abstractions / Domain
+
+- `ColorimeterInterface` → `ThreeNH.Instruments.Abstractions/ColorimeterInterface`
+- `ColorSpecimen` → `Domain/ColorSpecimen/`
+- `DataModel` → `Domain/DataModel/`
+
+### OpticalDefines (Domain-layer shared kernel, separate assembly)
+
+`OpticalDefines` stays a standalone project referenced by Domain, ColorAlgorithm,
+Abstractions, Infrastructure, and the WPF host. It cannot be physically merged
+into `ThreeNH.SQCX.Domain.dll`: Domain already references ColorAlgorithm, and
+ColorAlgorithm (C++/CLI) references `OpticalDefines.dll` for `ThreeNH.Optical`
+enums — merging would create `Domain → ColorAlgorithm → Domain`.
+
+Call sites keep existing namespaces. Domain temporarily references `ColorAlgorithm`, `OpticalDefines`, and `ThreeNH.Helper`.
 ### Namespace audit (merged into one assembly)
 
 Eleven projects now compile into a single `ThreeNH.SQCX.Infrastructure` assembly.

@@ -49,10 +49,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CommunicationBase\CommunicationBase.csproj">
-      <Project>{F773553F-30C0-4587-ABE0-523FDD500C70}</Project>
-      <Name>CommunicationBase</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ThreeNH.ColorAlgorithm\ThreeNH.ColorAlgorithm.csproj">
       <Project>{C745A879-34EA-46C4-9D76-4AE8094F15E7}</Project>
       <Name>ThreeNH.ColorAlgorithm</Name>

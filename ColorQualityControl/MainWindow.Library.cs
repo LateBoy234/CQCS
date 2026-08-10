@@ -14,7 +14,6 @@ using ThreeNH.ColorLibrary;
 using ThreeNH.ColorQualityControl.Annotations;
 using ThreeNH.ColorQualityControl.UI;
 using ThreeNH.DataModel;
-using ToastNotificationMsg;
 using WinForms = System.Windows.Forms;
 
 namespace ThreeNH.ColorQualityControl

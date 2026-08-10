@@ -21,7 +21,7 @@ using ThreeNH.ColorSpecimen;
 using ThreeNH.Controls;
 using ThreeNH.DataModel;
 using ThreeNH.Optical;
-using ToastNotificationMsg;
+using ThreeNH.Helper.Plugin.Services;
 using ThreeNH.ColorQualityControl.ViewModels;
 using ThreeNH.SQCX.Infrastructure.DependencyInjection;
 

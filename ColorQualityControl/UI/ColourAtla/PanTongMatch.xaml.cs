@@ -1,6 +1,7 @@
-ï»¿using ClosedXML.Excel;
+using ClosedXML.Excel;
 using MahApps.Metro.Controls;//MetroWindow
 using PanTongColorMatchSearch;
+using RelayCommand = ThreeNH.Helper.Plugin.RelayCommand;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -39,7 +40,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
         private Notifier _notifier;
         private bool _isDisposed = false;
 
-        // å»¶è¿Ÿåˆå§‹åŒ–ï¼Œé¿å…çª—å£æœªå‡†å¤‡å¥½å°±åˆ›å»º Notifier
+        // ÑÓ³Ù³õÊ¼»¯£¬±ÜÃâ´°¿ÚÎ´×¼±¸ºÃ¾Í´´½¨ Notifier
         private Notifier GetNotifier()
         {
             if (_notifier == null && _win != null && _win.IsLoaded)
@@ -67,7 +68,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
         }
         public void ShowToastInfo(string msg)
         {
-            // å…³é”®æ£€æŸ¥ï¼šçª—å£æ˜¯å¦æœ‰æ•ˆ
+            // ¹Ø¼ü¼ì²é£º´°¿ÚÊÇ·ñÓĞĞ§
             if (_isDisposed || _win == null || !_win.IsLoaded)
                 return;
 
@@ -96,7 +97,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
         public ToastInfo(Window win)
         {
             _win = win;
-            // çª—å£å…³é—­æ—¶è‡ªåŠ¨æ¸…ç†
+            // ´°¿Ú¹Ø±ÕÊ±×Ô¶¯ÇåÀí
             if (win != null)
             {
                 win.Closed += (s, e) => DisposeToastNotificationsObject();
@@ -111,7 +112,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
         public double Delta { get; set; }
     }
     /// <summary>
-    /// PanTongMatch.xaml çš„äº¤äº’é€»è¾‘
+    /// PanTongMatch.xaml µÄ½»»¥Âß¼­
     /// </summary>
     public partial class PanTongMatch : Window, INotifyPropertyChanged
     {
@@ -205,7 +206,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
             }
         }
 
-        private double? _labB;//æµ‹é‡å¾—åˆ°çš„
+        private double? _labB;//²âÁ¿µÃµ½µÄ
         public double? Lab_b
         {
             get => _labB;
@@ -256,7 +257,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
         public string ExcelFilePath;
 
         /// <summary>
-        /// è¯•æ ·è‰²
+        /// ÊÔÑùÉ«
         /// </summary>
         private Brush _targetColor;
         public Brush TargetColor
@@ -269,7 +270,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
             }
         }
         /// <summary>
-        /// å­˜æ ·è‰²
+        /// ´æÑùÉ«
         /// </summary>
         private Brush _matchedColor;
         public Brush MatchedBestSampleColor
@@ -323,7 +324,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
             InitCommands();
             InitContextMenu();
             _toastInfo = new ToastInfo(this);
-            //å¦‚æœæœ‰ä¼ å…¥æ ·å“ï¼Œåˆ™ç›´æ¥æ˜¾ç¤º
+            //Èç¹ûÓĞ´«ÈëÑùÆ·£¬ÔòÖ±½ÓÏÔÊ¾
             if (specimen != null)
             {
                 _sample = specimen;
@@ -367,8 +368,8 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
             CurrentObserEnumType = _currentSetting.IlluObs.Observer;
             CurrentObser = CurrentObserEnumType == StandardObserver.CIE1931 ? "2" : "10";
 
-            // è‰²åº“ setter å·²æ ¹æ® JSON åº“çš„å®é™…æ•°æ®ç¡®å®šæµ‹å…‰æ–¹å¼ã€‚ç¦»çº¿çŠ¶æ€ä¸‹æ²¡æœ‰
-            // instrumentï¼Œä¸èƒ½å†ç”¨ instrument/IfNot45_0 è¦†ç›–ä¸º 45/0ã€‚
+            // É«¿â setter ÒÑ¸ù¾İ JSON ¿âµÄÊµ¼ÊÊı¾İÈ·¶¨²â¹â·½Ê½¡£ÀëÏß×´Ì¬ÏÂÃ»ÓĞ
+            // instrument£¬²»ÄÜÔÙÓÃ instrument/IfNot45_0 ¸²¸ÇÎª 45/0¡£
             string preferredSpecCom = _currentSetting.SpecCom == SpecularComponent.SCE ? "SCE" :
                 (IfNot45_0 ? "SCI" : "45/0");
             if (SpecularComponentList.Contains(preferredSpecCom))
@@ -714,7 +715,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
                         return;
                 }
                 //((.)_instrument).
-                //Measure(SpecularComponent.SCIAndSCE,UVFlag.None);//20191114 lilin ä¸€å®šè¦å¼‚æ­¥çš„å½¢å¼æ‰èƒ½è°ƒç”¨
+                //Measure(SpecularComponent.SCIAndSCE,UVFlag.None);//20191114 lilin Ò»¶¨ÒªÒì²½µÄĞÎÊ½²ÅÄÜµ÷ÓÃ
                 if (result == null)
                 {
                     _toastInfo.ShowToastInfo(S._("MenuItem_InstrumentType") + ": " + S._("TheOperationIsNotSupported"));
@@ -1103,7 +1104,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
                 }
             }
 
-            // ä¿®å¤å¤šé€‰åå•é€‰ä»ä¿ç•™æ—§é¡¹ï¼šåŸé€»è¾‘åªè¿½åŠ  AddedItemsï¼Œæ”¹ä¸ºä¸ DataGrid å½“å‰é€‰ä¸­é¡¹åŒæ­¥
+            // ĞŞ¸´¶àÑ¡ºóµ¥Ñ¡ÈÔ±£Áô¾ÉÏî£ºÔ­Âß¼­Ö»×·¼Ó AddedItems£¬¸ÄÎªÓë DataGrid µ±Ç°Ñ¡ÖĞÏîÍ¬²½
             _alreadySelectedIndexList.Clear();
             foreach (var item in ResultsDataGrid.SelectedItems)
             {
@@ -1126,7 +1127,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
             }
             RefreshToleranceChart();
         }
-        #region å›¾è¡¨åŒº begin
+        #region Í¼±íÇø begin
         void RefreshToleranceChart()
         {
             if (_sample == null)
@@ -1145,7 +1146,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
             }
             catch
             {
-                // æ— æ ‡æ ·å®¹å·®æ—¶ä½¿ç”¨é»˜è®¤å®¹å·®æ¡†
+                // ÎŞ±êÑùÈİ²îÊ±Ê¹ÓÃÄ¬ÈÏÈİ²î¿ò
             }
 
             var samples = _alreadySelectedIndexList
@@ -1162,7 +1163,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
                 samples,
                 tolerance);
         }
-        #endregion å›¾è¡¨åŒº end
+        #endregion Í¼±íÇø end
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyOfPropertyChanged(string proStr = null)
         {
@@ -1184,7 +1185,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
             List<string> nameList = new List<string>();
             foreach (DataRow row in dt1.Rows)
             {
-                nameList.Add(row["è‰²å¡åç§°"].ToString());
+                nameList.Add(row["É«¿¨Ãû³Æ"].ToString());
             }
             DataTable dt2 = DataTableLilin.Clone();
 
@@ -1193,7 +1194,7 @@ namespace ThreeNH.ColorQualityControl.UI.ColourAtla
             {
                 foreach (DataRow row in DataTableLilin.Rows)
                 {
-                    if (row["è‰²å¡åç§°"].ToString() == nameList[index])
+                    if (row["É«¿¨Ãû³Æ"].ToString() == nameList[index])
                     {
                         dt2.Rows.Add(row.ItemArray);
                         index++;

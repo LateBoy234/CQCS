@@ -1220,66 +1220,26 @@
       <Project>{A73F55A1-61A8-45C1-9411-BFFEF379582D}</Project>
       <Name>ThreeNH.Instruments.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ColorimeterInterface\ColorimeterInterface.csproj">
-      <Project>{39bf4056-e99f-44c5-bcf6-bccf6a3434be}</Project>
-      <Name>ColorimeterInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ColorLibrary\ColorLibrary.csproj">
-      <Project>{878ba6fb-1f58-49de-b22d-45cf183a4ac6}</Project>
-      <Name>ColorLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ColorSpecimen\ColorSpecimen.csproj">
-      <Project>{24c4efde-26cb-41fe-8962-1494dcfd42cf}</Project>
-      <Name>ColorSpecimen</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CommunicationBase\CommunicationBase.csproj">
-      <Project>{f773553f-30c0-4587-abe0-523fdd500c70}</Project>
-      <Name>CommunicationBase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataModel\DataModel.csproj">
-      <Project>{84cd4737-051e-4adf-99fc-55fa6962ce58}</Project>
-      <Name>DataModel</Name>
+    <ProjectReference Include="..\ThreeNH.SQCX.Domain\ThreeNH.SQCX.Domain.csproj">
+      <Project>{1C3D0C9A-0CC2-4723-A89B-0D1C2144CE1F}</Project>
+      <Name>ThreeNH.SQCX.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Density\Density.vcxproj">
       <Project>{f605b05e-d418-4785-bc23-a71728666a69}</Project>
       <Name>Density</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ThreeNH.SQCX.Domain\ThreeNH.SQCX.Domain.csproj">
-      <Project>{1C3D0C9A-0CC2-4723-A89B-0D1C2144CE1F}</Project>
-      <Name>ThreeNH.SQCX.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ThreeNH.SQCX.Infrastructure\ThreeNH.SQCX.Infrastructure.csproj">
       <Project>{6CF3F1D6-7DB0-465C-BBF3-5C1A4E45EAF0}</Project>
       <Name>ThreeNH.SQCX.Infrastructure</Name>
     </ProjectReference>
+    <!-- OpticalDefines：Domain 层共享内核，因 ColorAlgorithm 环依赖保持独立；PanTong/PortService/Comm* 已并入 Infrastructure -->
     <ProjectReference Include="..\OpticalDefines\OpticalDefines.csproj">
       <Project>{c3cd9017-b596-407c-92d3-389f741d8ab1}</Project>
       <Name>OpticalDefines</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PanTongColorMatchSearch\PanTongColorMatchSearch.csproj">
-      <Project>{2e8b146f-5811-4952-a7d5-e5903ea07ad8}</Project>
-      <Name>PanTongColorMatchSearch</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PortService\PortService.csproj">
-      <Project>{87904435-4ac5-4fe5-b889-29ac825b4695}</Project>
-      <Name>PortService</Name>
-    </ProjectReference>
-    <!-- PTS device adapter migrated into ThreeNH.SQCX.Infrastructure (Devices\PTS) -->
-    <ProjectReference Include="..\ThreeNH.BleProtocol\ThreeNH.BleProtocol.csproj">
-      <Project>{7d111eea-b228-4edd-8347-c9e670084315}</Project>
-      <Name>ThreeNH.BleProtocol</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ThreeNH.Bluetooth\ThreeNH.Bluetooth.csproj">
       <Project>{245dd9ee-bc17-4b2a-96f4-d94878e508a9}</Project>
       <Name>ThreeNH.Bluetooth</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ThreeNH.CommDevice\ThreeNH.CommDevice.csproj">
-      <Project>{24aea196-4f26-4738-aa89-1100a4bb9d1d}</Project>
-      <Name>ThreeNH.CommDevice</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ThreeNH.CommProtocol\ThreeNH.CommProtocol.csproj">
-      <Project>{9bb774c0-5c91-4a5b-b5c7-562a94ca9e3a}</Project>
-      <Name>ThreeNH.CommProtocol</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeNH.Helper\ThreeNH.Helper.csproj">
       <Project>{e7350766-23eb-4d75-a80d-19bbcc9ec70f}</Project>
@@ -1292,10 +1252,6 @@
     <ProjectReference Include="..\ThreeNH.StructHelper\ThreeNH.StructHelper.csproj">
       <Project>{a6e3abca-dc5b-4f66-b475-a644451b3d32}</Project>
       <Name>ThreeNH.StructHelper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ToastNotificationMsg\ToastNotificationMsg.csproj">
-      <Project>{ab07b1b1-3a70-4eed-91c8-10201dcb5a89}</Project>
-      <Name>ToastNotificationMsg</Name>
     </ProjectReference>
     <!-- PTS device adapter migrated into ThreeNH.SQCX.Infrastructure (Devices\PTS) -->
   </ItemGroup>

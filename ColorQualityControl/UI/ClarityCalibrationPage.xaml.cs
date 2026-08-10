@@ -1,4 +1,4 @@
-ï»¿using PanTongColorMatchSearch;
+using RelayCommand = ThreeNH.Helper.Plugin.RelayCommand;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +20,7 @@ using ThreeNH.SQCX.Infrastructure.Instruments.YHComm;
 namespace ThreeNH.ColorQualityControl.UI
 {
     /// <summary>
-    /// ClarityCalibrationPage.xaml çš„äº¤äº’é€»è¾‘
+    /// ClarityCalibrationPage.xaml µÄ½»»¥Âß¼­
     /// </summary>
     public partial class ClarityCalibrationPage : Page,INotifyPropertyChanged
     {
