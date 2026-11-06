@@ -53,11 +53,11 @@
   </ItemGroup>
   <ItemGroup>
     <!-- ColorimeterInterface 契约依赖 Specimen（Domain）与 StandardSpecimen（DataModel） -->
+    <!-- OpticalDefines 独立共享内核（Domain 层语义）；因 ColorAlgorithm 依赖须保持独立程序集 -->
     <ProjectReference Include="..\ColorAlgorithm\ColorAlgorithm.vcxproj">
       <Project>{f59c0aff-9d67-4a84-94a7-a09c125f0316}</Project>
       <Name>ColorAlgorithm</Name>
     </ProjectReference>
-    <!-- OpticalDefines 独立共享内核（Domain 层语义）；因 ColorAlgorithm 依赖须保持独立程序集 -->
     <ProjectReference Include="..\OpticalDefines\OpticalDefines.csproj">
       <Project>{c3cd9017-b596-407c-92d3-389f741d8ab1}</Project>
       <Name>OpticalDefines</Name>
