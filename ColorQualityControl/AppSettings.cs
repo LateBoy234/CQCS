@@ -84,5 +84,37 @@ namespace ThreeNH.ColorQualityControl
             }
             set => AppSettingsHelper.Set("Connection_Parity", value.ToString());
         }
+
+        /// <summary>Agent 助手开关</summary>
+        public static bool Agent_Enabled
+        {
+            get
+            {
+                var enabled = AppSettingsHelper.Get("Agent_Enabled");
+                return string.IsNullOrEmpty(enabled) ? false : Convert.ToBoolean(enabled);
+            }
+            set => AppSettingsHelper.Set("Agent_Enabled", value.ToString());
+        }
+
+        /// <summary>LLM 兼容端点，例如 https://your-llm/v1/chat/completions</summary>
+        public static string Agent_LlmEndpoint
+        {
+            get => AppSettingsHelper.Get("Agent_LlmEndpoint");
+            set => AppSettingsHelper.Set("Agent_LlmEndpoint", value);
+        }
+
+        /// <summary>LLM API Key（运行时由配置提供，不进代码库）</summary>
+        public static string Agent_LlmApiKey
+        {
+            get => AppSettingsHelper.Get("Agent_LlmApiKey");
+            set => AppSettingsHelper.Set("Agent_LlmApiKey", value);
+        }
+
+        /// <summary>LLM 模型名，例如 gpt-4o-mini</summary>
+        public static string Agent_LlmModel
+        {
+            get => AppSettingsHelper.Get("Agent_LlmModel");
+            set => AppSettingsHelper.Set("Agent_LlmModel", value);
+        }
     }
 }

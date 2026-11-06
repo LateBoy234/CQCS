@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "threenh-sqcx": {
+      "type": "stdio",
+      "command": "dotnet",
+      "args": [
+        "E:\\3nh\\NSQCX\\ColorQualityControl\\ThreeNH.SQCX.McpServer\\bin\\Release\\net8.0\\ThreeNH.SQCX.McpServer.dll"
+      ]
+    }
+  }
+}

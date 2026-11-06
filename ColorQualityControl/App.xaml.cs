@@ -20,6 +20,7 @@ using ThreeNH.ColorQualityControl.Device;
 using ThreeNH.CommunicationBase;
 using ThreeNH.Helper;
 using ThreeNH.ProjectLog;
+using ThreeNH.ColorQualityControl.Agent.Mcp;
 
 namespace ThreeNH.ColorQualityControl
 {
@@ -30,6 +31,7 @@ namespace ThreeNH.ColorQualityControl
     public partial class App : System.Windows.Application
     {
         private const int LogMaxLength = 1024 * 1024;   // 日志最大长度设为1M
+        private SqcxMcpBridgeHost _mcpBridge;
 
         static App()
         {
@@ -264,6 +266,8 @@ namespace ThreeNH.ColorQualityControl
                 new FrameworkPropertyMetadata(XmlLanguage.GetLanguage(CultureInfo.CurrentCulture.IetfLanguageTag)));
 
             PortService.SerialPortService.Start();
+            _mcpBridge = new SqcxMcpBridgeHost();
+            _mcpBridge.Start();
         }
 
 
@@ -408,6 +412,9 @@ namespace ThreeNH.ColorQualityControl
             Trace.TraceInformation("保存用户配置");
 
             SystemDefaultConfig?.Save(SystemDefaultConfigPath);
+
+            _mcpBridge?.Dispose();
+            _mcpBridge = null;
 
             base.OnExit(e);
             PortService.SerialPortService.CleanUp();

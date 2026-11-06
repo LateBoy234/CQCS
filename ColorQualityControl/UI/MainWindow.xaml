@@ -657,6 +657,11 @@
                 Header="{StaticResource MenuItem_PanTongColorMatchSearchLilin}"
                 ToolTip="{StaticResource PanTongMatchTipLilin}" />
 
+            <!--  AI 助手  -->
+            <MenuItem
+                Click="OpenAgentAssistant_Click"
+                Header="AI 助手" />
+
             <!--  帮助菜单  -->
             <MenuItem Header="{StaticResource MenuItem_Help}">
                 <MenuItem
